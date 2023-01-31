@@ -1,0 +1,71 @@
+program ERPUtilsService;
+
+uses
+  ShareMem,
+  SvcMgr,
+  svcERPUtils in 'svcERPUtils.pas' {ERPUtils: TService},
+  UtilsServerObj in '..\UtilsServerObj.pas',
+  JsonRpcTcpServer in '..\JsonRPC\JsonRpcTcpServer.pas',
+  JsonRpcBase in '..\JsonRPC\JsonRpcBase.pas',
+  JsonRpcConst in '..\JsonRPC\JsonRpcConst.pas',
+  JsonRpcTcpClient in '..\JsonRPC\JsonRpcTcpClient.pas',
+  ModuleFunctions in '..\ModuleFunctions.pas',
+  ModuleUtils in '..\Modules\ModuleUtils.pas',
+  ModuleBaseObj in '..\Modules\ModuleBaseObj.pas',
+  ModuleConst in '..\Modules\ModuleConst.pas',
+  frmModuleConfigBase in '..\Modules\frmModuleConfigBase.pas' {fmModuleConfigBase},
+  ModuleBaseClientObj in '..\Modules\ModuleBaseClientObj.pas',
+  UpdaterCallUtils in '..\..\ERPUpdater\UpdaterCallUtils.pas',
+  UpdaterConst in '..\..\ERPUpdater\UpdaterConst.pas',
+  IpRangeListObj in '..\IpRangeListObj.pas',
+  JsonToObject in '..\..\..\Common\JsonToObject.pas',
+  CipherUtils in '..\..\..\Common\CipherUtils.pas',
+  ModuleBaseServerObj in '..\Modules\ModuleBaseServerObj.pas',
+  InternetConnectivityUtils in '..\..\..\Dev\General\Objects\CommonObjects\InternetConnectivityUtils.pas',
+  FileDownloadFuncs in '..\..\..\Dev\General\Objects\CommonObjects\FileDownloadFuncs.pas',
+  SystemLib in '..\..\..\Dev\General\Objects\CommonObjects\SystemLib.pas',
+  AppRunUtils in '..\..\..\Dev\General\Objects\CommonObjects\AppRunUtils.pas',
+  InstallConst in '..\..\..\Common\InstallConst.pas',
+  DbConst in '..\..\..\Common\DbConst.pas',
+  JsonObjectUtils in '..\..\..\Common\JsonObjectUtils.pas',
+  LogThreadLib in '..\..\..\Dev\General\Objects\CommonObjects\LogThreadLib.pas',
+  HTTPServerConfigObj in '..\HTTPServerConfigObj.pas',
+  UtilsServerConfigObj in '..\UtilsServerConfigObj.pas',
+  WebApiConst in '..\..\..\Common\WebApiConst.pas',
+  LogThreadBase in '..\..\..\Dev\General\Objects\CommonObjects\LogThreadBase.pas',
+  LogMessageTypes in '..\..\..\Dev\General\Objects\CommonObjects\LogMessageTypes.pas',
+  SimplePipes in '..\..\..\Common\SimplePipes.pas',
+  ServerModuleStubObj in '..\..\..\Common\ServerModules\ServerModuleStubObj.pas',
+  ModuleComms3 in '..\..\..\Common\ModuleComms3.pas',
+  ThreadProperty in '..\..\..\Common\ThreadProperty.pas',
+  ServerModuleConst in '..\..\..\Common\ServerModules\ServerModuleConst.pas',
+  NotificationItem in '..\Modules\NotificationItem.pas',
+  JsonRPCUtils in '..\JsonRPC\JsonRPCUtils.pas',
+  ClientConfigObj in '..\Modules\UserUtils\ClientConfigObj.pas',
+  DateTimeUtils in '..\..\..\Dev\General\Objects\CommonObjects\DateTimeUtils.pas',
+  ServerModuleList in '..\Modules\ServerModuleList.pas',
+  MySQLUtils in '..\..\..\Common\MySQLUtils.pas',
+  DbSharedObjectsObj in '..\..\..\Dev\General\Objects\CommonObjects\DbSharedObjectsObj.pas',
+  IntegerListObj in '..\..\..\Dev\General\Objects\CommonObjects\IntegerListObj.pas',
+  ModulePortObj in '..\..\..\Common\ModulePortObj.pas',
+  DBUtils in '..\..\..\Common\DBUtils.pas',
+  DateTimeConvert in '..\..\..\Common\DateTimeConvert.pas',
+  DbGen in '..\..\..\Common\DbGen.pas',
+  HTTPConst in '..\..\..\Common\HTTPConst.pas',
+  ModuleFileNameUtils in '..\..\..\Common\ModuleFileNameUtils.pas',
+  ConfigDbObj in '..\..\..\Common\ConfigDbObj.pas',
+  utDbServerThreadTaskList in '..\..\..\Common\utDbServerThreadTaskList.pas',
+  utVS1Const in '..\Modules\ERPModWebAPI\utVS1Const.pas',
+  StSConst in '..\..\..\Dev\SeedTosale\Modules\StSConst.pas',
+  utCloudconst in '..\Modules\ERPModWebAPI\utCloudconst.pas',
+  ERPLicenseLib in '..\Modules\ERPModUserUtils\ERPLicenseLib.pas',
+  ModuleDbUtils in '..\Modules\ModuleDbUtils.pas';
+
+{$R *.RES}
+
+begin
+  Application.Initialize;
+  Application.Title := 'ERP Utilities Server';
+  Application.CreateForm(TERPUtils, ERPUtils);
+  Application.Run;
+end.

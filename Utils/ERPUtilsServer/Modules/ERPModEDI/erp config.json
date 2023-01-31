@@ -1,0 +1,17 @@
+{
+	"Active":true,
+	"ERPUser":"webuser",
+	"ERPPass":"webuser",
+	"Triggers":[
+		{
+			"Type":"File",
+			"FileMask":"*.*",
+			"MapName":"Fuel Card",
+			"FilePath":"C:\\temp\\Map\\Inbound",
+			"ProcessedPath":"C:\\temp\\Map\\Processed",
+			"CheckFrequency":{
+				"Interval":"00:02"
+			}
+		}
+	]
+}

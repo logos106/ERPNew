@@ -1,0 +1,72 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{FAE1C1B4-A1B9-4C45-B97A-7D7D8800B13F}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="WebAPI.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\EXE\ErpUtilsServer.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\UserUtils\UserUtils.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Config\ErpServiceMenu.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="WebAPI">
+			<MSBuild Projects="WebAPI.dproj"/>
+		</Target>
+		<Target Name="WebAPI:Clean">
+			<MSBuild Projects="WebAPI.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="WebAPI:Make">
+			<MSBuild Projects="WebAPI.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ErpUtilsServer">
+			<MSBuild Projects="..\..\EXE\ErpUtilsServer.dproj"/>
+		</Target>
+		<Target Name="ErpUtilsServer:Clean">
+			<MSBuild Projects="..\..\EXE\ErpUtilsServer.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ErpUtilsServer:Make">
+			<MSBuild Projects="..\..\EXE\ErpUtilsServer.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="UserUtils">
+			<MSBuild Projects="..\UserUtils\UserUtils.dproj"/>
+		</Target>
+		<Target Name="UserUtils:Clean">
+			<MSBuild Projects="..\UserUtils\UserUtils.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="UserUtils:Make">
+			<MSBuild Projects="..\UserUtils\UserUtils.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ErpServiceMenu">
+			<MSBuild Projects="..\..\Config\ErpServiceMenu.dproj"/>
+		</Target>
+		<Target Name="ErpServiceMenu:Clean">
+			<MSBuild Projects="..\..\Config\ErpServiceMenu.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ErpServiceMenu:Make">
+			<MSBuild Projects="..\..\Config\ErpServiceMenu.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="WebAPI;ErpUtilsServer;UserUtils;ErpServiceMenu"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="WebAPI:Clean;ErpUtilsServer:Clean;UserUtils:Clean;ErpServiceMenu:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="WebAPI:Make;ErpUtilsServer:Make;UserUtils:Make;ErpServiceMenu:Make"/>
+		</Target>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
+	</Project>

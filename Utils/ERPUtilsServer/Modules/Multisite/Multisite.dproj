@@ -1,0 +1,151 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{D8B340A1-1A5B-483E-8AC0-C4E566178CC0}</ProjectGuid>
+			<MainSource>Multisite.dpr</MainSource>
+			<Base>True</Base>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<Platform>Win32</Platform>
+			<AppType>Library</AppType>
+			<FrameworkType>None</FrameworkType>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+			<ProjectVersion>12.3</ProjectVersion>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_E>false</DCC_E>
+			<DCC_F>false</DCC_F>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;WinTypes=Windows;WinProcs=Windows;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_S>false</DCC_S>
+			<GenDll>true</GenDll>
+			<DCC_K>false</DCC_K>
+			<DCC_N>false</DCC_N>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_ExeOutput>C:\Dev\ERP\Utils\ERPUtilsServer\EXE\Modules\</DCC_ExeOutput>
+			<DCC_Optimize>false</DCC_Optimize>
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+			<DCC_UnitSearchPath>C:\dev\erp\Dev;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="Multisite.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="..\..\JsonRPC\JsonRpcBase.pas"/>
+			<DCCReference Include="..\..\ModuleInfoObj.pas"/>
+			<DCCReference Include="..\..\ModuleFunctions.pas"/>
+			<DCCReference Include="..\..\ModuleControl.pas"/>
+			<DCCReference Include="..\ModuleUtils.pas"/>
+			<DCCReference Include="..\SessionListObj.pas"/>
+			<DCCReference Include="..\..\JsonRPC\JsonRpcConst.pas"/>
+			<DCCReference Include="..\ModuleConfigObj.pas"/>
+			<DCCReference Include="..\..\JsonRPC\JsonRpcTcpClient.pas"/>
+			<DCCReference Include="SyncObj.pas"/>
+			<DCCReference Include="ValueFields.pas"/>
+			<DCCReference Include="SynchronizerObj.pas"/>
+			<DCCReference Include="DBUtils.pas"/>
+			<DCCReference Include="MultisiteConfigObj.pas"/>
+			<DCCReference Include="ObjDataSync.pas"/>
+			<DCCReference Include="MultisiteConst.pas"/>
+			<DCCReference Include="frmMultisiteSchema.pas">
+				<Form>MultisiteSchema</Form>
+			</DCCReference>
+			<DCCReference Include="..\ModuleBaseObj.pas"/>
+			<DCCReference Include="..\ModuleConst.pas"/>
+			<DCCReference Include="..\ModuleBaseServerObj.pas"/>
+			<DCCReference Include="ModuleMultisiteObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\JSONObject.pas"/>
+			<DCCReference Include="..\..\..\..\Common\JsonObjectUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Common\CipherUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Common\JsonToObject.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\StreamUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Common\DbConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\UserLockBaseObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\tcConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\tcTypes.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\DecimalRounding.pas"/>
+			<DCCReference Include="MultisiteUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\SystemLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\LogThreadLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\LogThreadBase.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\LogMessageTypes.pas"/>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType>VCLApplication</Borland.ProjectType>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">Multisite.dpr</Source>
+					</Source>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">9</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">3</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">2057</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">Madeurne Pty Ltd</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">Multisite Module</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">9.0.0.3</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">9.0.0.3</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<Parameters>
+						<Parameters Name="HostApplication">C:\Dev\ERP\Utils\ERPUtilsServer\EXE\ErpUtilsServer.exe</Parameters>
+					</Parameters>
+				</Delphi.Personality>
+				<Platforms>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

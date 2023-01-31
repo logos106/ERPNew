@@ -1,0 +1,80 @@
+{
+	"Modules": {
+		"ERP": {
+			"Database": "ERP_License", 
+			"Status": "Active"
+		},
+		"HelpEdit": {
+			"Database": "ERP_HelpEdit"
+		},
+		"VS1_Cloud": {
+			"Database": "VS1_License",
+			"Status": "Depreciated",
+			"StatusDescription": "License Changed to Sandbox and Production"
+		},
+		"VS1_Cloud_SandBox": {
+			"Database":"vs1_sandbox_license",
+			"Status":"Active"},
+		"VS1_Cloud_Production": {
+			"Database":"vs1_production_license",
+			"Status":"Active"
+		}
+  },
+  "AllowSchemaEdit": true,
+  "ERPVersions":[
+  	"Production\tProduction",
+  	"Production10\tProduction10",
+  	"Production11\tProduction11",
+  	"Production12\tProduction12",
+  	"Production14\tProduction14",
+  	"Production15\tProduction15",
+  	"Production2017\tProduction2017",
+  	"Production2018\tProduction2018",
+  	"Production2020\tProduction2020",
+  	"Beta\tBeta",
+  	"Alpha\tAlpha",
+  	"Dev\tDev",
+  	"Test\tTest",
+	"Sandbox\tSandbox"
+  ],
+  "LicenceOptions":[
+    {"Name":"Amazon", "Caption":"Amazon", "Category":"EDI API"},
+    {"Name":"CloudAccounts", "Caption":"Cloud Accounts", "Category":"Accounts"},
+    {"Name":"CloudContacts", "Caption":"Cloud Contacts", "Category":"General"},
+    {"Name":"CloudDashboard", "Caption":"Cloud Dashboard", "Category":"General"},
+    {"Name":"CloudExpenseClaims", "Caption":"Cloud Expense Claims", "Category":"General"},
+    {"Name":"CloudFixedAssets", "Caption":"Cloud Fixed Assets", "Category":"Fixed Assets"},
+    {"Name":"CloudPayments", "Caption":"Cloud Payments", "Category":"Purchases"},
+    {"Name":"CloudPurchases", "Caption":"Cloud Purchases", "Category":"Purchases"},
+    {"Name":"CloudInventory", "Caption":"Cloud Inventory", "Category":"Inventory"},
+    {"Name":"CloudManufacturing", "Caption":"Cloud Manufacturing", "Category":"Manufacturing"},
+    {"Name":"CloudMain", "Caption":"Cloud Main", "Category":"General"},
+    {"Name":"CloudReports", "Caption":"Cloud Reports", "Category":"General"},
+    {"Name":"CloudSales", "Caption":"Cloud Sales", "Category":"Sales"},
+    {"Name":"CloudSettings", "Caption":"Cloud Settings", "Category":"General"},
+    {"Name":"CloudShipping", "Caption":"Cloud Shipping", "Category":"Sales"},
+    {"Name":"CloudStockTake", "Caption":"Cloud Stock Take", "Category":"Inventory Adjust"},
+    {"Name":"CloudStockTransfer", "Caption":"Cloud Stock Transfer", "Category":"Inventory Adjust"},
+    {"Name":"CloudWalkThroughSheet", "Caption":"Cloud Walk Through Sheet", "Category":"Sales"},
+    {"Name":"CustomerEmailXML", "Caption":"Customer Email XML", "Category":"Customer"},
+    {"Name":"CustomerFTPXML", "Caption":"Customer FTP XML", "Category":"Customer"},
+    {"Name":"Ebay", "Caption":"Ebay", "Category":"Module"},
+    {"Name":"Fedex", "Caption":"Fedex", "Category":"Shipping"},
+    {"Name":"Google", "Caption":"Google Analitics", "Category":"Module"},
+    {"Name":"Magento", "Caption":"Magento", "Category":"Module"},
+    {"Name":"Payeezy", "Caption":"Payeezy", "Category":"Payment Gateway"},
+    {"Name":"PaymentExpress", "Caption":"Payment Express", "Category":"Payment Gateway"},
+    {"Name":"Quickbooks", "Caption":"Quickbooks", "Category":"EDI API"},
+    {"Name":"Stripe", "Caption":"Stripe", "Category":"Payment Gateway"},
+    {"Name":"SPS", "Caption":"SPS", "Category":"EDI API"},
+    {"Name":"SupplierEmailXML", "Caption":"Supplier Email XML", "Category":"Supplier"},
+    {"Name":"SupplierFTPXML", "Caption":"Supplier FTP XML", "Category":"Supplier"},
+    {"Name":"TNT", "Caption":"TNT", "Category":"Shipping"},
+    {"Name":"TransactionExpress", "Caption":"Transaction Express", "Category":"Payment Gateway"},
+    {"Name":"USPS", "Caption":"USPS", "Category":"Shipping"},
+    {"Name":"UPS", "Caption":"UPS", "Category":"Shipping"},
+    {"Name":"Walmart", "Caption":"Walmart", "Category":"EDI API"},
+    {"Name":"ErpAPI", "Caption":"TrueERP API", "Category":"ERP API"},
+    {"Name":"WooCommerce", "Caption":"Woo Commerce", "Category":"EDI API"}
+  ]
+}

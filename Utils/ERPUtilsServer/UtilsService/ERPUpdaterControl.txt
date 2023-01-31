@@ -1,0 +1,50 @@
+{
+"displayprogress":false,
+"softwarereleasetype":"Alpha",
+"updatelist":
+{
+"ERPUtilsService":
+{
+"modulefilename":"C:\\ERP Software\\Utilities\\ERPUtilsService.exe",
+"ServiceName":"ERPUtils"
+},
+"ClientServer":
+{
+"modulefilename":"C:\\ERP Software\\Utilities\\Modules\\ClientServer.dll"
+},
+"GoogleAnalytics":
+{
+"modulefilename":"C:\\ERP Software\\Utilities\\Modules\\GoogleAnalytics.dll"
+},
+"Multisite":
+{
+"modulefilename":"C:\\ERP Software\\Utilities\\Modules\\Multisite.dll"
+},
+"SiteIntegration":
+{
+"modulefilename":"C:\\ERP Software\\Utilities\\Modules\\SiteIntegration.dll"
+},
+"UserUtils":
+{
+"modulefilename":"C:\\ERP Software\\Utilities\\Modules\\UserUtils.dll"
+},
+"WebAPI":
+{
+"modulefilename":"C:\\ERP Software\\Utilities\\Modules\\WebAPI.dll"
+},
+"ErpServiceMenu":
+{
+"modulefilename":"c:\\ERP Software\\Utilities\\ErpServiceMenu.exe",
+"installifnotfound":true
+},
+"FileUploader":
+{
+"modulefilename":"c:\\ERP Software\\Utilities\\ClientUploads.exe"
+},
+"MySQLServer":
+{
+"version":"5.1.52-community",
+"modulefilename":"C:\\Mysql_ERP\\bin\\mysqld.exe"
+}
+}
+}

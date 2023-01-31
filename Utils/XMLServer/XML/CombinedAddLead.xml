@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<platinum1xml>
+<xmlBlock requestTiming="on">
+<request command="startSession">
+	<authCode>xxw3n6vf8fgtj</authCode>
+</request>
+<request command="terp.execute">
+	<request command="openCompany" clientRef="OPEN-1234">
+		<database>Platinum1</database>	  
+		<user>Admin</user>	  
+		<pass>Admin</pass>	  
+	</request>
+</request>
+<request command="terp.execute">
+	<request command="transaction" onError="stop" clientref="Stop">
+		<request command="add" dataObject="MarketingContacts" clientRef="1">
+			<MarketingContacts>
+				<company>test0077</company>
+				<companytypename>test</companytypename>
+				<phone>2142454</phone>
+				<jobtitle>tjtitle</jobtitle>
+				<firstname>tfname</firstname>
+				<lastname>tlname</lastname>
+				<email>brad.gill@p1software.com.au</email>
+				<suburb>0</suburb>
+				<source>company_name_telemarketer1</source>
+			</MarketingContacts>
+		</request>
+		<request command="add" dataObject="Leads" clientRef="2">
+			<Leads>
+				<company>test0077</company>
+				<enteredby>Test23 User</enteredby>
+				<islead>False</islead>
+				<lines>
+					<LeadLine>
+						<creationdate>2008-04-10</creationdate>
+						<updatedate>2008-04-10</updatedate>
+						<followupdate>2008-04-30</followupdate>
+						<priority>5</priority>
+						<employeename>Test23 User</employeename>
+						<resulttypename>Unkown</resulttypename>
+						<isphonefollowup>True</isphonefollowup>
+						<createdby>Test23 User</createdby>
+						<done>True</done>
+						<ismarketing>True</ismarketing>
+						<actionname>Follow-up</actionname>
+						<islead>False</islead>
+						<notes></notes>
+					</LeadLine>
+				</lines>
+			</Leads>
+		</request>
+	</request>
+</request>
+</xmlBlock>
+</platinum1xml>
+

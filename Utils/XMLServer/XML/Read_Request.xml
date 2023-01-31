@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- sample read request  -->
+<platinum1xml>
+	<xmlBlock ticket="ADjufYSu4KX2yZd">
+		<request command="terp.execute">
+    		<!-- limitFieldList and excludeInactive are optional and default to true -->			
+			<request command="read" dataObject="Invoice" limitFieldList="true" excludeInactive="true" clientRef="123-ABC">
+				<!-- return a single recorde with matching globalRef --> 
+				<!-- <request command="read" dataObject="Invoice" globalRef="DEF123" clientRef="123-ABC"> -->
+				<!-- return a single record with matching recId -->
+				<!-- <request command="read" dataObject="Invoice" recId="123" clientRef="123-ABC"> -->
+	    		<!-- option limit on number of records returned, where limitCount is count to return and limitFrom is starting position  -->			
+				<limit>
+					<limitCount>10</limitCount>
+					<limitFrom>1</limitFrom>
+				</limit>	
+	    		<!-- optional select statment to be passed as SQL. NOTE: for internal use only  -->			
+				<select>CustomerName = "Cust1"</select>
+			</request>	
+		</request>
+	</xmlBlock>
+</platinum1xml>

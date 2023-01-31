@@ -1,0 +1,1 @@
+"C:\delphi\2011\thirdparty\Exceptional Magic\tdspack\tdspack.exe" -e -o -a BackupManager.exe

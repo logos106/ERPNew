@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{9467969F-68EE-4DF5-B9A8-75E6381B1F5B}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="C:\DevWorking\Try\ozedi\ozeditest.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="OzEDI\ozedi.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\DevWorking\ERP\Utils\Update\FileCipher2\FileCipher2.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\DevWorking\Try\ozedi-server\ozediServerTest.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ozeditest">
+        <MSBuild Projects="C:\DevWorking\Try\ozedi\ozeditest.dproj"/>
+    </Target>
+    <Target Name="ozeditest:Clean">
+        <MSBuild Projects="C:\DevWorking\Try\ozedi\ozeditest.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ozeditest:Make">
+        <MSBuild Projects="C:\DevWorking\Try\ozedi\ozeditest.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ozedi">
+        <MSBuild Projects="OzEDI\ozedi.dproj"/>
+    </Target>
+    <Target Name="ozedi:Clean">
+        <MSBuild Projects="OzEDI\ozedi.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ozedi:Make">
+        <MSBuild Projects="OzEDI\ozedi.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FileCipher2">
+        <MSBuild Projects="C:\DevWorking\ERP\Utils\Update\FileCipher2\FileCipher2.dproj"/>
+    </Target>
+    <Target Name="FileCipher2:Clean">
+        <MSBuild Projects="C:\DevWorking\ERP\Utils\Update\FileCipher2\FileCipher2.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FileCipher2:Make">
+        <MSBuild Projects="C:\DevWorking\ERP\Utils\Update\FileCipher2\FileCipher2.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ozediServerTest">
+        <MSBuild Projects="C:\DevWorking\Try\ozedi-server\ozediServerTest.dproj"/>
+    </Target>
+    <Target Name="ozediServerTest:Clean">
+        <MSBuild Projects="C:\DevWorking\Try\ozedi-server\ozediServerTest.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ozediServerTest:Make">
+        <MSBuild Projects="C:\DevWorking\Try\ozedi-server\ozediServerTest.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ozeditest;ozedi;FileCipher2;ozediServerTest"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ozeditest:Clean;ozedi:Clean;FileCipher2:Clean;ozediServerTest:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ozeditest:Make;ozedi:Make;FileCipher2:Make;ozediServerTest:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -1,0 +1,3180 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{56349321-FE5A-4BAB-8650-02B88F618D13}</ProjectGuid>
+			<ProjectVersion>12.3</ProjectVersion>
+			<MainSource>ERPImages_Girly_Small.dpr</MainSource>
+			<Base>True</Base>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<Platform>Win32</Platform>
+			<AppType>Library</AppType>
+			<FrameworkType>None</FrameworkType>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<GenDll>true</GenDll>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_DcuOutput>.\$(Config)\$(Platform)</DCC_DcuOutput>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_ExeOutput>.\$(Config)\$(Platform)</DCC_ExeOutput>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_ExeOutput>C:\Dev\ERP\Dev\Lib</DCC_ExeOutput>
+			<DCC_DcuOutput>.\dcus</DCC_DcuOutput>
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+			<DCC_Optimize>false</DCC_Optimize>
+			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="ERPImages_Girly_Small.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0001.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_1</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0002.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_2</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0003.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_3</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0004.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_4</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0005.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_5</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0006.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_6</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0007.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_7</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0008.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_8</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0009.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_9</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0010.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_10</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0011.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_11</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0012.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_12</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0013.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_13</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0014.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_14</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0015.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_15</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0016.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_16</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0017.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_17</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0018.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_18</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0019.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_19</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0020.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_20</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0021.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_21</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0022.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_22</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0023.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_23</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0024.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_24</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0025.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_25</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0026.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_26</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0027.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_27</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0028.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_28</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0029.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_29</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0030.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_30</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0031.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_31</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0032.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_32</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0033.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_33</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0034.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_34</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0035.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_35</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0036.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_36</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0037.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_37</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0038.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_38</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0039.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_39</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0040.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_40</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0041.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_41</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0042.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_42</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0043.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_43</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0044.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_44</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0045.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_45</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0046.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_46</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0047.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_47</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0048.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_48</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0049.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_49</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0050.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_50</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0051.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_51</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0052.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_52</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0053.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_53</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0054.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_54</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0055.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_55</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0056.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_56</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0057.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_57</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0058.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_58</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0059.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_59</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0060.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_60</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0061.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_61</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0062.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_62</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0063.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_63</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0064.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_64</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0065.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_65</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0066.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_66</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0067.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_67</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0068.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_68</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0069.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_69</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0070.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_70</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0071.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_71</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0072.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_72</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0073.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_73</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0074.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_74</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0075.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_75</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0076.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_76</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0077.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_77</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0078.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_78</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0079.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_79</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0080.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_80</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0081.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_81</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0082.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_82</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0083.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_83</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0084.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_84</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0085.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_85</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0086.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_86</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0087.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_87</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0088.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_88</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0089.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_89</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0090.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_90</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0091.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_91</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0092.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_92</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0093.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_93</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0094.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_94</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0095.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_95</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0096.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_96</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0097.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_97</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0098.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_98</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0099.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_99</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0100.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_100</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0101.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_101</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0102.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_102</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0103.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_103</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0104.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_104</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0105.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_105</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0106.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_106</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0107.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_107</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0108.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_108</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0109.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_109</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0110.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_110</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0111.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_111</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0112.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_112</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0113.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_113</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0114.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_114</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0115.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_115</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0116.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_116</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0117.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_117</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0118.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_118</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0119.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_119</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0120.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_120</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0121.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_121</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0122.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_122</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0123.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_123</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0124.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_124</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0125.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_125</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0126.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_126</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0127.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_127</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0128.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_128</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0129.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_129</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0130.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_130</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0131.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_131</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0132.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_132</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0133.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_133</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0134.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_134</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0135.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_135</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0136.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_136</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0137.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_137</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0138.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_138</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0139.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_139</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0140.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_140</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0141.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_141</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0142.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_142</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0143.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_143</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0144.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_144</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0145.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_145</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0146.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_146</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0147.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_147</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0148.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_148</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0149.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_149</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0150.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_150</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0151.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_151</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0152.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_152</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0153.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_153</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0154.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_154</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0155.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_155</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0156.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_156</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0157.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_157</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0158.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_158</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0159.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_159</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0160.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_160</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0161.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_161</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0162.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_162</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0163.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_163</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0164.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_164</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0165.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_165</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0166.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_166</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0167.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_167</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0168.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_168</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0169.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_169</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0170.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_170</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0171.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_171</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0172.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_172</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0173.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_173</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0174.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_174</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0175.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_175</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0176.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_176</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0177.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_177</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0178.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_178</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0179.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_179</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0180.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_180</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0181.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_181</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0182.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_182</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0183.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_183</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0184.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_184</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0185.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_185</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0186.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_186</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0187.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_187</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0188.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_188</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0189.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_189</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0190.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_190</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0191.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_191</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0192.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_192</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0193.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_193</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0194.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_194</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0195.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_195</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0196.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_196</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0197.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_197</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0198.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_198</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0199.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_199</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0200.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_200</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0201.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_201</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0202.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_202</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0203.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_203</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0204.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_204</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0205.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_205</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0206.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_206</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0207.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_207</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0208.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_208</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0209.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_209</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0210.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_210</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0211.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_211</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0212.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_212</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0213.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_213</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0214.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_214</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0215.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_215</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0216.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_216</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0217.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_217</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0218.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_218</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0219.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_219</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0220.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_220</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0221.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_221</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0222.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_222</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0223.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_223</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0224.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_224</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0225.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_225</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0226.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_226</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0227.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_227</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0228.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_228</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0229.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_229</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0230.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_230</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0231.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_231</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0232.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_232</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0233.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_233</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0234.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_234</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0235.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_235</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0236.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_236</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0237.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_237</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0238.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_238</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0239.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_239</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0240.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_240</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0241.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_241</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0242.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_242</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0243.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_243</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0244.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_244</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0245.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_245</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0246.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_246</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0247.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_247</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0248.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_248</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0249.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_249</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0250.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_250</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0251.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_251</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0252.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_252</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0253.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_253</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0254.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_254</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0255.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_255</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0256.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_256</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0257.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_257</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0258.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_258</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0259.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_259</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0260.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_260</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0261.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_261</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0262.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_262</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0263.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_263</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0264.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_264</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0265.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_265</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0266.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_266</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0267.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_267</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0268.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_268</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0269.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_269</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0270.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_270</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0271.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_271</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0272.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_272</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0273.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_273</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0274.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_274</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0275.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_275</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0276.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_276</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0277.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_277</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0278.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_278</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0279.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_279</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0280.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_280</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0281.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_281</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0282.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_282</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0283.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_283</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0284.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_284</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0285.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_285</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0286.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_286</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0287.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_287</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0288.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_288</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0289.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_289</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0290.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_290</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0291.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_291</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0292.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_292</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0293.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_293</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0294.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_294</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0295.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_295</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0296.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_296</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0297.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_297</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0298.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_298</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0299.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_299</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0300.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_300</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0301.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_301</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0302.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_302</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0303.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_303</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0304.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_304</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0305.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_305</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0306.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_306</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0307.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_307</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0308.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_308</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0309.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_309</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0310.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_310</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0311.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_311</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0312.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_312</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0313.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_313</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0314.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_314</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0315.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_315</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0316.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_316</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0317.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_317</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0318.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_318</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0319.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_319</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0320.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_320</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0321.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_321</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0322.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_322</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0323.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_323</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0324.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_324</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0325.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_325</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0326.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_326</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0327.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_327</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0328.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_328</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0329.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_329</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0330.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_330</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0331.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_331</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0332.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_332</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0333.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_333</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0334.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_334</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0335.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_335</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0336.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_336</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0337.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_337</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0338.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_338</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0339.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_339</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0340.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_340</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0341.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_341</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0342.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_342</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0343.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_343</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0344.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_344</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0345.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_345</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0346.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_346</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0347.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_347</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0348.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_348</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0349.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_349</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0350.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_350</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0351.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_351</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0352.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_352</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0353.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_353</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0354.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_354</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0355.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_355</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0356.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_356</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0357.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_357</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0358.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_358</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0359.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_359</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0360.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_360</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0361.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_361</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0362.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_362</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0363.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_363</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0364.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_364</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0365.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_365</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0366.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_366</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0367.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_367</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0368.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_368</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0369.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_369</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0370.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_370</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0371.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_371</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0372.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_372</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0373.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_373</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0374.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_374</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0375.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_375</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0376.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_376</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0377.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_377</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0378.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_378</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0379.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_379</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0380.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_380</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0381.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_381</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0382.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_382</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0383.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_383</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0384.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_384</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0385.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_385</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0386.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_386</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0387.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_387</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0388.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_388</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0389.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_389</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0390.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_390</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0391.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_391</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0392.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_392</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0393.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_393</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0394.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_394</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0395.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_395</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0396.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_396</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0397.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_397</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0398.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_398</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0399.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_399</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0400.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_400</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0401.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_401</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0402.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_402</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0403.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_403</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0404.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_404</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0405.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_405</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0406.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_406</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0407.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_407</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0408.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_408</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0409.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_409</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0410.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_410</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0411.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_411</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0412.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_412</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0413.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_413</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0414.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_414</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0415.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_415</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0416.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_416</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0417.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_417</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0418.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_418</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0419.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_419</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0420.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_420</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0421.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_421</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0422.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_422</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0423.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_423</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0424.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_424</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0425.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_425</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0426.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_426</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0427.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_427</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0428.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_428</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0429.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_429</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0430.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_430</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0431.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_431</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0432.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_432</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0433.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_433</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0434.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_434</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0435.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_435</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0436.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_436</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0437.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_437</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0438.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_438</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0439.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_439</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0440.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_440</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0441.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_441</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0442.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_442</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0443.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_443</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0444.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_444</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0445.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_445</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0446.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_446</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0447.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_447</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0448.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_448</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0449.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_449</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0450.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_450</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0451.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_451</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0452.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_452</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0453.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_453</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0454.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_454</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0455.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_455</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0456.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_456</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0457.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_457</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0458.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_458</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0459.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_459</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0460.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_460</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0461.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_461</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0462.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_462</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0463.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_463</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0464.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_464</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0465.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_465</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0466.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_466</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0467.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_467</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0468.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_468</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0469.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_469</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0470.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_470</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0471.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_471</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0472.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_472</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0473.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_473</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0474.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_474</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0475.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_475</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0476.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_476</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0477.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_477</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0478.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_478</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0479.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_479</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0480.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_480</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0481.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_481</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0482.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_482</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0483.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_483</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0484.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_484</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0485.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_485</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0486.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_486</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0487.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_487</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0488.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_488</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0489.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_489</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0490.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_490</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0491.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_491</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0492.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_492</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0493.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_493</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0494.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_494</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0495.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_495</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0496.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_496</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0497.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_497</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0498.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_498</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0499.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_499</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0500.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_500</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0501.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_501</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0502.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_502</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0503.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_503</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0504.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_504</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0505.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_505</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0506.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_506</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0507.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_507</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0508.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_508</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0509.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_509</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0510.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_510</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0511.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_511</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0512.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_512</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0513.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_513</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0514.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_514</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0515.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_515</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0516.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_516</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0517.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_517</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0518.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_518</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0519.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_519</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0520.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_520</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0521.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_521</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0522.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_522</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0523.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_523</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0524.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_524</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0525.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_525</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0526.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_526</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0527.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_527</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0528.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_528</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0529.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_529</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0530.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_530</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0531.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_531</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0532.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_532</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0533.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_533</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0534.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_534</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0535.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_535</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0536.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_536</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0537.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_537</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0538.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_538</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0539.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_539</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0540.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_540</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0541.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_541</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0542.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_542</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0543.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_543</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0544.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_544</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0545.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_545</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0546.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_546</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0547.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_547</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0548.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_548</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0549.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_549</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0550.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_550</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0551.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_551</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0552.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_552</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0553.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_553</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0554.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_554</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0555.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_555</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0556.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_556</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0557.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_557</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0558.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_558</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0559.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_559</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0560.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_560</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0561.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_561</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0562.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_562</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0563.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_563</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0564.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_564</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0565.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_565</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0566.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_566</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0567.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_567</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0568.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_568</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0569.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_569</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0570.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_570</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0571.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_571</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0572.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_572</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0573.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_573</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0574.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_574</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0575.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_575</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0576.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_576</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0577.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_577</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0578.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_578</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0579.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_579</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0580.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_580</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0581.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_581</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0582.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_582</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0583.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_583</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0584.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_584</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0585.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_585</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0586.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_586</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0587.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_587</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0588.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_588</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0589.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_589</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0590.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_590</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0591.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_591</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0592.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_592</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0593.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_593</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0594.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_594</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0595.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_595</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0596.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_596</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0597.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_597</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0598.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_598</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0599.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_599</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0600.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_600</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0601.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_601</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0602.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_602</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0603.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_603</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0604.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_604</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0605.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_605</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0606.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_606</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0607.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_607</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0608.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_608</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0609.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_609</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0610.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_610</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0611.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_611</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0612.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_612</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0613.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_613</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0614.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_614</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0615.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_615</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0616.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_616</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0617.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_617</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0618.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_618</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0619.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_619</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0620.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_620</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0621.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_621</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0622.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_622</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0623.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_623</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0624.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_624</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0625.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_625</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0626.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_626</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0627.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_627</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0628.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_628</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0629.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_629</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0630.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_630</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0631.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_631</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0632.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_632</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0633.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_633</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0634.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_634</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0635.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_635</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0636.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_636</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0637.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_637</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0638.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_638</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0639.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_639</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0640.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_640</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0641.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_641</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0642.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_642</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0643.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_643</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0644.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_644</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0645.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_645</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0646.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_646</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0647.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_647</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0648.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_648</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0649.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_649</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0650.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_650</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0651.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_651</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0652.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_652</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0653.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_653</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0654.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_654</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0655.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_655</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0656.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_656</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0657.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_657</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0658.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_658</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0659.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_659</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0660.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_660</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0661.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_661</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0662.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_662</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0663.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_663</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0664.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_664</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0665.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_665</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0666.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_666</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0667.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_667</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0668.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_668</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0669.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_669</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0670.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_670</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0671.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_671</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0672.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_672</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0673.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_673</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0674.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_674</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0675.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_675</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0676.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_676</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0677.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_677</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0678.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_678</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0679.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_679</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0680.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_680</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0681.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_681</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0682.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_682</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0683.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_683</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0684.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_684</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0685.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_685</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0686.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_686</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0687.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_687</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0688.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_688</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0689.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_689</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0690.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_690</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0691.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_691</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0692.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_692</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0693.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_693</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0694.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_694</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0695.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_695</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0696.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_696</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0697.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_697</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0698.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_698</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0699.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_699</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0700.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_700</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0701.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_701</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0702.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_702</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0703.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_703</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0704.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_704</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0705.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_705</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0706.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_706</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0707.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_707</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0708.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_708</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0709.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_709</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0710.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_710</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0711.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_711</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0712.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_712</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0713.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_713</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0714.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_714</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0715.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_715</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0716.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_716</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0717.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_717</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0718.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_718</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0719.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_719</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0720.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_720</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0721.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_721</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0722.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_722</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0723.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_723</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0724.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_724</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0725.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_725</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0726.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_726</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0727.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_727</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0728.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_728</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0729.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_729</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0730.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_730</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0731.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_731</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0732.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_732</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0733.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_733</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0734.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_734</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0735.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_735</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0736.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_736</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0737.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_737</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0738.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_738</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0739.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_739</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0740.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_740</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0741.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_741</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0742.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_742</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0743.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_743</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0744.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_744</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0745.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_745</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0746.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_746</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0747.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_747</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0748.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_748</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0749.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_749</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0750.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_750</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0751.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_751</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0752.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_752</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0753.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_753</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0754.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_754</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0755.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_755</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0756.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_756</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0757.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_757</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0758.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_758</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0759.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_759</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0760.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_760</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0761.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_761</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0762.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_762</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Default\0763.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_763</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Default\0764.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_764</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0765.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_765</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0766.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_766</ResourceId>
+			</RcItem>
+			<RcItem Include="D:\ERP\ERP Icons\TrueERP_Icons\TrueERP_Icons\ICONS_43x32\Girly\0767.png">
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>PngImage_767</ResourceId>
+			</RcItem>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Delphi.Personality>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">3081</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName"/>
+						<VersionInfoKeys Name="FileDescription"/>
+						<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDS)\ThirdParty\RBuilder\Lib\dclRBADO1215.bpl">ReportBuilder Data Access for ADO</Excluded_Packages>
+						<Excluded_Packages Name="$(BDS)\ThirdParty\RBuilder\Lib\dclRBDBE1215.bpl">ReportBuilder Data Access for dbExpress</Excluded_Packages>
+						<Excluded_Packages Name="$(BDS)\ThirdParty\RBuilder\Lib\dclRBC1215.bpl">ReportBuilder TeeChart 9 Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k150.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+					</Excluded_Packages>
+					<Source>
+						<Source Name="MainSource">ERPImages_Girly_Small.dpr</Source>
+					</Source>
+				</Delphi.Personality>
+				<Platforms>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

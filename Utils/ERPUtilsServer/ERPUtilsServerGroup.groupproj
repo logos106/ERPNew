@@ -1,0 +1,1524 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{F55B3BB4-511A-431E-9D81-EF2E5ABEB2D4}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="Service\ERPUtilsService.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="EXE\ErpUtilsServer.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="EXE\ErpUtilsServerConsole.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ERPConnector\RosettaNet\TestClient\RosettaNetTestClient.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ERPBackupConverter\ERPBackupConverter.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ERPConnector\UNEDIFACT\ERP_UNEDIFACT_ConnectorConsole.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ERPConnector\RosettaNet\ERPB2BConnectorConsole.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ERPConnector\RosettaNet\ERPB2BConnectorService.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ClientServer\ClientServer.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModClientServer\ERPModClientServer.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModGoogle\ERPModGoogle.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModSiteIntegration\ERPModSiteIntegration.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\SiteIntegration\DbCompare\DbCompare.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModUserUtils\ERPModUserUtils.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ServiceMenu\Offsite Backup\OffsiteBackupConfig.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModWebAPI\ERPModWebAPI.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModEbay\ERPModEbay.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModPMI\ERPModPMI.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModMagento\ERPModMagento.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModMagento\MagentoTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModEDI\ERPModEDI.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModEDI\ERP_EDIConfig.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModPerecorp\ERPModPerecorp.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModTest\ERPModTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModTest\GuiTest\GuiTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ERPUpdater\ERPUpdater.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ServiceMenu\ERPServiceMenu.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Dev\ERP.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ERPMessages\TrueERPMessages.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ERPMessagesUploader\TrueERPMessagesUploader.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ERPMessagesDownloader\TrueERPMessagesDownloader.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\FTP Upload\ClientUploads.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ERPClientUpdater\ERPClientUpdater.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\BusObj Creator\BusObjCreator.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ClientRegoGui\ClientRegoManager.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="EncryptedConfigEdit\EncryptedConfigEdit.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ERPInstaller\Setup.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\WindowsMessage\SigThreadGui.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\Wizard\Wizard.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\MySqlIniUpdate\ErpMySqlIniUpdater.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\LanguageUpdateBuilder\LanguageUpdateBuilder.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\SalesOrderFTPExport\ERPSalesOrderExport.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\SMS\Test\SMSTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Tester\WebAPITest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ImagesDLL\DllImages.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Dev\PNET\Objects\PNetTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\VersionCompare\VersionCompare.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Videos\CheckVideos.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\WebApiGui\RemoteERP.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\MailIntegration\MailIntergration.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\MailIntegration\MailClient\MAilClient.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\WebAPITest\PhpApiTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\CSVTester\CSVTester.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\DtdToXml\DtdToXml.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\MySQLEngineUpdate\MySQLEngineUpdate.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\HelpContexts\HelpContexts.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\CyTrack\CyTrackTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\Simple Http Server\SimpleHttpServer.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Common\ServerModules\Test\ModuleTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Common\ServerModules\Test\Module1.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\tmssoftware\TMS Component Pack\Samples\AdvTaskDialog\AdvInputTaskDialogDemo.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\mongo-delphi-driver-master\MongoDelphiDriver.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\mongo-delphi-driver-master\AddressBook.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\BsonTest\BsonTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\GoogleAPI\GoogleAPITest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\upsship\upsship.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\UPS\UPSTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Addict4\Demos\V4Demo\Addict4Demo.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\TrueERPMessagingTest\TrueERPMessaging.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\TrueERPMessagingTest\MessageMonitor.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\TRayApp\TrayApp.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ERPVideoDownloader\ERPVideoDownloader.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ERPStarterService\ERPStarterService.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Update\FileCipher\FileCipher.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\WebAPI\MemTest\MemTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\Tcp\TcpClient.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\Tcp\TcpServer.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\PrestaShop\PrestShopTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\DLLForm\DLLForm.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\DynForm\DynForm.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\ObjectStore\ObjectStoreTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\WebPageMonitor\WebPageMonitor.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModPrestaShop\ERPModPrestaShop.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\Google\GoogleTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\Ports\Ports.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\nsoftware\Google Integrator V2 Delphi Edition\demos\gcalendar\gcalendar.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\fedexcertify\fedexcertify_XE2.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\fedexship\fedexship_XE2.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\uspsship\uspsship.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModX12\Test\x12Test.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\HTMLEditTest\HTMLEditTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\rvhtmlimport\demo\rvhtml.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\TaxPayTest\TaxPayTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\Temp\TestIntegration.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\ftp\ftp_Test.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\Config\Config.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\ePad\ePad.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Install DLL\InstallDll.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\FileMapping\ERPFileMapper.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\Split String\SplitString.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\HttpComms\Server\HTTPCommsGUI.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\HttpComms\Client\HttpCommsClient.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\HttpComms\Admin\HttpCommsAdmin.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\fedexship\fedexship.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\tmssoftware\TMS Component Pack\Samples\Planner\Demo1\plandemo.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\WebAPIStressTest\WebAPIStressTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Devart\Source\Demos\Win32\TechnologySpecific\Embedded\Embedded.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\MySqlBackup\MySqlBackup.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\PosPrinterTest\PosPrinterTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ERPApiTestServer\ERPApiTestServer.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ERPApiTestServer\ERPApiTestServerConsole.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ErrorTrack\ErrorTrack.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\JsonParse\JsonParseTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\SQLFix\SteelmainsAccountFix.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ERP_VM_Controll\Server\ErpVmControlConsole.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ERP_VM_Controll\Client\ErpVmControlClient.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\Firebird Test\Embeded\FBEmbedded.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\ERP_VM_Controll\Server\ErpVmControlService.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Modules\ERPModCloud\ERPModCloudConsole.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\PaymentGateway\PaymentGatewayTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\GenDB\GenDbXE.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Try\FindFieldInERPTables\FindERPField.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Cloud\Server\TrueERPCloudServerConsole.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Cloud\Server\Modules\ModTest\TrueErpModTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="TrueERPLibDll\TrueErpLib.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="ERPUtilsService">
+			<MSBuild Projects="Service\ERPUtilsService.dproj"/>
+		</Target>
+		<Target Name="ERPUtilsService:Clean">
+			<MSBuild Projects="Service\ERPUtilsService.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPUtilsService:Make">
+			<MSBuild Projects="Service\ERPUtilsService.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ErpUtilsServer">
+			<MSBuild Projects="EXE\ErpUtilsServer.dproj"/>
+		</Target>
+		<Target Name="ErpUtilsServer:Clean">
+			<MSBuild Projects="EXE\ErpUtilsServer.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ErpUtilsServer:Make">
+			<MSBuild Projects="EXE\ErpUtilsServer.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ErpUtilsServerConsole">
+			<MSBuild Projects="EXE\ErpUtilsServerConsole.dproj"/>
+		</Target>
+		<Target Name="ErpUtilsServerConsole:Clean">
+			<MSBuild Projects="EXE\ErpUtilsServerConsole.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ErpUtilsServerConsole:Make">
+			<MSBuild Projects="EXE\ErpUtilsServerConsole.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="RosettaNetTestClient">
+			<MSBuild Projects="..\ERPConnector\RosettaNet\TestClient\RosettaNetTestClient.dproj"/>
+		</Target>
+		<Target Name="RosettaNetTestClient:Clean">
+			<MSBuild Projects="..\ERPConnector\RosettaNet\TestClient\RosettaNetTestClient.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="RosettaNetTestClient:Make">
+			<MSBuild Projects="..\ERPConnector\RosettaNet\TestClient\RosettaNetTestClient.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPBackupConverter">
+			<MSBuild Projects="..\ERPBackupConverter\ERPBackupConverter.dproj"/>
+		</Target>
+		<Target Name="ERPBackupConverter:Clean">
+			<MSBuild Projects="..\ERPBackupConverter\ERPBackupConverter.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPBackupConverter:Make">
+			<MSBuild Projects="..\ERPBackupConverter\ERPBackupConverter.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERP_UNEDIFACT_ConnectorConsole">
+			<MSBuild Projects="..\ERPConnector\UNEDIFACT\ERP_UNEDIFACT_ConnectorConsole.dproj"/>
+		</Target>
+		<Target Name="ERP_UNEDIFACT_ConnectorConsole:Clean">
+			<MSBuild Projects="..\ERPConnector\UNEDIFACT\ERP_UNEDIFACT_ConnectorConsole.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERP_UNEDIFACT_ConnectorConsole:Make">
+			<MSBuild Projects="..\ERPConnector\UNEDIFACT\ERP_UNEDIFACT_ConnectorConsole.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPB2BConnectorConsole">
+			<MSBuild Projects="..\ERPConnector\RosettaNet\ERPB2BConnectorConsole.dproj"/>
+		</Target>
+		<Target Name="ERPB2BConnectorConsole:Clean">
+			<MSBuild Projects="..\ERPConnector\RosettaNet\ERPB2BConnectorConsole.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPB2BConnectorConsole:Make">
+			<MSBuild Projects="..\ERPConnector\RosettaNet\ERPB2BConnectorConsole.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPB2BConnectorService">
+			<MSBuild Projects="..\ERPConnector\RosettaNet\ERPB2BConnectorService.dproj"/>
+		</Target>
+		<Target Name="ERPB2BConnectorService:Clean">
+			<MSBuild Projects="..\ERPConnector\RosettaNet\ERPB2BConnectorService.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPB2BConnectorService:Make">
+			<MSBuild Projects="..\ERPConnector\RosettaNet\ERPB2BConnectorService.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ClientServer">
+			<MSBuild Projects="Modules\ClientServer\ClientServer.dproj"/>
+		</Target>
+		<Target Name="ClientServer:Clean">
+			<MSBuild Projects="Modules\ClientServer\ClientServer.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ClientServer:Make">
+			<MSBuild Projects="Modules\ClientServer\ClientServer.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPModClientServer">
+			<MSBuild Projects="Modules\ERPModClientServer\ERPModClientServer.dproj"/>
+		</Target>
+		<Target Name="ERPModClientServer:Clean">
+			<MSBuild Projects="Modules\ERPModClientServer\ERPModClientServer.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPModClientServer:Make">
+			<MSBuild Projects="Modules\ERPModClientServer\ERPModClientServer.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPModGoogle">
+			<MSBuild Projects="Modules\ERPModGoogle\ERPModGoogle.dproj"/>
+		</Target>
+		<Target Name="ERPModGoogle:Clean">
+			<MSBuild Projects="Modules\ERPModGoogle\ERPModGoogle.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPModGoogle:Make">
+			<MSBuild Projects="Modules\ERPModGoogle\ERPModGoogle.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPModSiteIntegration">
+			<MSBuild Projects="Modules\ERPModSiteIntegration\ERPModSiteIntegration.dproj"/>
+		</Target>
+		<Target Name="ERPModSiteIntegration:Clean">
+			<MSBuild Projects="Modules\ERPModSiteIntegration\ERPModSiteIntegration.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPModSiteIntegration:Make">
+			<MSBuild Projects="Modules\ERPModSiteIntegration\ERPModSiteIntegration.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="DbCompare">
+			<MSBuild Projects="Modules\SiteIntegration\DbCompare\DbCompare.dproj"/>
+		</Target>
+		<Target Name="DbCompare:Clean">
+			<MSBuild Projects="Modules\SiteIntegration\DbCompare\DbCompare.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="DbCompare:Make">
+			<MSBuild Projects="Modules\SiteIntegration\DbCompare\DbCompare.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPModUserUtils">
+			<MSBuild Projects="Modules\ERPModUserUtils\ERPModUserUtils.dproj"/>
+		</Target>
+		<Target Name="ERPModUserUtils:Clean">
+			<MSBuild Projects="Modules\ERPModUserUtils\ERPModUserUtils.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPModUserUtils:Make">
+			<MSBuild Projects="Modules\ERPModUserUtils\ERPModUserUtils.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="OffsiteBackupConfig">
+			<MSBuild Projects="ServiceMenu\Offsite Backup\OffsiteBackupConfig.dproj"/>
+		</Target>
+		<Target Name="OffsiteBackupConfig:Clean">
+			<MSBuild Projects="ServiceMenu\Offsite Backup\OffsiteBackupConfig.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="OffsiteBackupConfig:Make">
+			<MSBuild Projects="ServiceMenu\Offsite Backup\OffsiteBackupConfig.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPModWebAPI">
+			<MSBuild Projects="Modules\ERPModWebAPI\ERPModWebAPI.dproj"/>
+		</Target>
+		<Target Name="ERPModWebAPI:Clean">
+			<MSBuild Projects="Modules\ERPModWebAPI\ERPModWebAPI.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPModWebAPI:Make">
+			<MSBuild Projects="Modules\ERPModWebAPI\ERPModWebAPI.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPModEbay">
+			<MSBuild Projects="Modules\ERPModEbay\ERPModEbay.dproj"/>
+		</Target>
+		<Target Name="ERPModEbay:Clean">
+			<MSBuild Projects="Modules\ERPModEbay\ERPModEbay.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPModEbay:Make">
+			<MSBuild Projects="Modules\ERPModEbay\ERPModEbay.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPModPMI">
+			<MSBuild Projects="Modules\ERPModPMI\ERPModPMI.dproj"/>
+		</Target>
+		<Target Name="ERPModPMI:Clean">
+			<MSBuild Projects="Modules\ERPModPMI\ERPModPMI.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPModPMI:Make">
+			<MSBuild Projects="Modules\ERPModPMI\ERPModPMI.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPModMagento">
+			<MSBuild Projects="Modules\ERPModMagento\ERPModMagento.dproj"/>
+		</Target>
+		<Target Name="ERPModMagento:Clean">
+			<MSBuild Projects="Modules\ERPModMagento\ERPModMagento.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPModMagento:Make">
+			<MSBuild Projects="Modules\ERPModMagento\ERPModMagento.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MagentoTest">
+			<MSBuild Projects="Modules\ERPModMagento\MagentoTest.dproj"/>
+		</Target>
+		<Target Name="MagentoTest:Clean">
+			<MSBuild Projects="Modules\ERPModMagento\MagentoTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MagentoTest:Make">
+			<MSBuild Projects="Modules\ERPModMagento\MagentoTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPModEDI">
+			<MSBuild Projects="Modules\ERPModEDI\ERPModEDI.dproj"/>
+		</Target>
+		<Target Name="ERPModEDI:Clean">
+			<MSBuild Projects="Modules\ERPModEDI\ERPModEDI.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPModEDI:Make">
+			<MSBuild Projects="Modules\ERPModEDI\ERPModEDI.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERP_EDIConfig">
+			<MSBuild Projects="Modules\ERPModEDI\ERP_EDIConfig.dproj"/>
+		</Target>
+		<Target Name="ERP_EDIConfig:Clean">
+			<MSBuild Projects="Modules\ERPModEDI\ERP_EDIConfig.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERP_EDIConfig:Make">
+			<MSBuild Projects="Modules\ERPModEDI\ERP_EDIConfig.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPModPerecorp">
+			<MSBuild Projects="Modules\ERPModPerecorp\ERPModPerecorp.dproj"/>
+		</Target>
+		<Target Name="ERPModPerecorp:Clean">
+			<MSBuild Projects="Modules\ERPModPerecorp\ERPModPerecorp.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPModPerecorp:Make">
+			<MSBuild Projects="Modules\ERPModPerecorp\ERPModPerecorp.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPModTest">
+			<MSBuild Projects="Modules\ERPModTest\ERPModTest.dproj"/>
+		</Target>
+		<Target Name="ERPModTest:Clean">
+			<MSBuild Projects="Modules\ERPModTest\ERPModTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPModTest:Make">
+			<MSBuild Projects="Modules\ERPModTest\ERPModTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="GuiTest">
+			<MSBuild Projects="Modules\ERPModTest\GuiTest\GuiTest.dproj"/>
+		</Target>
+		<Target Name="GuiTest:Clean">
+			<MSBuild Projects="Modules\ERPModTest\GuiTest\GuiTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="GuiTest:Make">
+			<MSBuild Projects="Modules\ERPModTest\GuiTest\GuiTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPUpdater">
+			<MSBuild Projects="..\ERPUpdater\ERPUpdater.dproj"/>
+		</Target>
+		<Target Name="ERPUpdater:Clean">
+			<MSBuild Projects="..\ERPUpdater\ERPUpdater.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPUpdater:Make">
+			<MSBuild Projects="..\ERPUpdater\ERPUpdater.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPServiceMenu">
+			<MSBuild Projects="ServiceMenu\ERPServiceMenu.dproj"/>
+		</Target>
+		<Target Name="ERPServiceMenu:Clean">
+			<MSBuild Projects="ServiceMenu\ERPServiceMenu.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPServiceMenu:Make">
+			<MSBuild Projects="ServiceMenu\ERPServiceMenu.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERP">
+			<MSBuild Projects="..\..\Dev\ERP.dproj"/>
+		</Target>
+		<Target Name="ERP:Clean">
+			<MSBuild Projects="..\..\Dev\ERP.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERP:Make">
+			<MSBuild Projects="..\..\Dev\ERP.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="TrueERPMessages">
+			<MSBuild Projects="..\ERPMessages\TrueERPMessages.dproj"/>
+		</Target>
+		<Target Name="TrueERPMessages:Clean">
+			<MSBuild Projects="..\ERPMessages\TrueERPMessages.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="TrueERPMessages:Make">
+			<MSBuild Projects="..\ERPMessages\TrueERPMessages.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="TrueERPMessagesUploader">
+			<MSBuild Projects="..\ERPMessagesUploader\TrueERPMessagesUploader.dproj"/>
+		</Target>
+		<Target Name="TrueERPMessagesUploader:Clean">
+			<MSBuild Projects="..\ERPMessagesUploader\TrueERPMessagesUploader.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="TrueERPMessagesUploader:Make">
+			<MSBuild Projects="..\ERPMessagesUploader\TrueERPMessagesUploader.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="TrueERPMessagesDownloader">
+			<MSBuild Projects="..\ERPMessagesDownloader\TrueERPMessagesDownloader.dproj"/>
+		</Target>
+		<Target Name="TrueERPMessagesDownloader:Clean">
+			<MSBuild Projects="..\ERPMessagesDownloader\TrueERPMessagesDownloader.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="TrueERPMessagesDownloader:Make">
+			<MSBuild Projects="..\ERPMessagesDownloader\TrueERPMessagesDownloader.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ClientUploads">
+			<MSBuild Projects="..\FTP Upload\ClientUploads.dproj"/>
+		</Target>
+		<Target Name="ClientUploads:Clean">
+			<MSBuild Projects="..\FTP Upload\ClientUploads.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ClientUploads:Make">
+			<MSBuild Projects="..\FTP Upload\ClientUploads.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPClientUpdater">
+			<MSBuild Projects="..\ERPClientUpdater\ERPClientUpdater.dproj"/>
+		</Target>
+		<Target Name="ERPClientUpdater:Clean">
+			<MSBuild Projects="..\ERPClientUpdater\ERPClientUpdater.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPClientUpdater:Make">
+			<MSBuild Projects="..\ERPClientUpdater\ERPClientUpdater.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="BusObjCreator">
+			<MSBuild Projects="..\BusObj Creator\BusObjCreator.dproj"/>
+		</Target>
+		<Target Name="BusObjCreator:Clean">
+			<MSBuild Projects="..\BusObj Creator\BusObjCreator.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="BusObjCreator:Make">
+			<MSBuild Projects="..\BusObj Creator\BusObjCreator.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ClientRegoManager">
+			<MSBuild Projects="ClientRegoGui\ClientRegoManager.dproj"/>
+		</Target>
+		<Target Name="ClientRegoManager:Clean">
+			<MSBuild Projects="ClientRegoGui\ClientRegoManager.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ClientRegoManager:Make">
+			<MSBuild Projects="ClientRegoGui\ClientRegoManager.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="EncryptedConfigEdit">
+			<MSBuild Projects="EncryptedConfigEdit\EncryptedConfigEdit.dproj"/>
+		</Target>
+		<Target Name="EncryptedConfigEdit:Clean">
+			<MSBuild Projects="EncryptedConfigEdit\EncryptedConfigEdit.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="EncryptedConfigEdit:Make">
+			<MSBuild Projects="EncryptedConfigEdit\EncryptedConfigEdit.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Setup">
+			<MSBuild Projects="..\ERPInstaller\Setup.dproj"/>
+		</Target>
+		<Target Name="Setup:Clean">
+			<MSBuild Projects="..\ERPInstaller\Setup.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Setup:Make">
+			<MSBuild Projects="..\ERPInstaller\Setup.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="SigThreadGui">
+			<MSBuild Projects="..\..\..\Try\WindowsMessage\SigThreadGui.dproj"/>
+		</Target>
+		<Target Name="SigThreadGui:Clean">
+			<MSBuild Projects="..\..\..\Try\WindowsMessage\SigThreadGui.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="SigThreadGui:Make">
+			<MSBuild Projects="..\..\..\Try\WindowsMessage\SigThreadGui.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Wizard">
+			<MSBuild Projects="..\..\..\Try\Wizard\Wizard.dproj"/>
+		</Target>
+		<Target Name="Wizard:Clean">
+			<MSBuild Projects="..\..\..\Try\Wizard\Wizard.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Wizard:Make">
+			<MSBuild Projects="..\..\..\Try\Wizard\Wizard.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ErpMySqlIniUpdater">
+			<MSBuild Projects="..\MySqlIniUpdate\ErpMySqlIniUpdater.dproj"/>
+		</Target>
+		<Target Name="ErpMySqlIniUpdater:Clean">
+			<MSBuild Projects="..\MySqlIniUpdate\ErpMySqlIniUpdater.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ErpMySqlIniUpdater:Make">
+			<MSBuild Projects="..\MySqlIniUpdate\ErpMySqlIniUpdater.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="LanguageUpdateBuilder">
+			<MSBuild Projects="..\LanguageUpdateBuilder\LanguageUpdateBuilder.dproj"/>
+		</Target>
+		<Target Name="LanguageUpdateBuilder:Clean">
+			<MSBuild Projects="..\LanguageUpdateBuilder\LanguageUpdateBuilder.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="LanguageUpdateBuilder:Make">
+			<MSBuild Projects="..\LanguageUpdateBuilder\LanguageUpdateBuilder.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPSalesOrderExport">
+			<MSBuild Projects="..\SalesOrderFTPExport\ERPSalesOrderExport.dproj"/>
+		</Target>
+		<Target Name="ERPSalesOrderExport:Clean">
+			<MSBuild Projects="..\SalesOrderFTPExport\ERPSalesOrderExport.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPSalesOrderExport:Make">
+			<MSBuild Projects="..\SalesOrderFTPExport\ERPSalesOrderExport.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="SMSTest">
+			<MSBuild Projects="Modules\SMS\Test\SMSTest.dproj"/>
+		</Target>
+		<Target Name="SMSTest:Clean">
+			<MSBuild Projects="Modules\SMS\Test\SMSTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="SMSTest:Make">
+			<MSBuild Projects="Modules\SMS\Test\SMSTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="WebAPITest">
+			<MSBuild Projects="Tester\WebAPITest.dproj"/>
+		</Target>
+		<Target Name="WebAPITest:Clean">
+			<MSBuild Projects="Tester\WebAPITest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="WebAPITest:Make">
+			<MSBuild Projects="Tester\WebAPITest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="DllImages">
+			<MSBuild Projects="..\ImagesDLL\DllImages.dproj"/>
+		</Target>
+		<Target Name="DllImages:Clean">
+			<MSBuild Projects="..\ImagesDLL\DllImages.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="DllImages:Make">
+			<MSBuild Projects="..\ImagesDLL\DllImages.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="PNetTest">
+			<MSBuild Projects="..\..\Dev\PNET\Objects\PNetTest.dproj"/>
+		</Target>
+		<Target Name="PNetTest:Clean">
+			<MSBuild Projects="..\..\Dev\PNET\Objects\PNetTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="PNetTest:Make">
+			<MSBuild Projects="..\..\Dev\PNET\Objects\PNetTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="VersionCompare">
+			<MSBuild Projects="..\..\..\Try\VersionCompare\VersionCompare.dproj"/>
+		</Target>
+		<Target Name="VersionCompare:Clean">
+			<MSBuild Projects="..\..\..\Try\VersionCompare\VersionCompare.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="VersionCompare:Make">
+			<MSBuild Projects="..\..\..\Try\VersionCompare\VersionCompare.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="CheckVideos">
+			<MSBuild Projects="..\Videos\CheckVideos.dproj"/>
+		</Target>
+		<Target Name="CheckVideos:Clean">
+			<MSBuild Projects="..\Videos\CheckVideos.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="CheckVideos:Make">
+			<MSBuild Projects="..\Videos\CheckVideos.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="RemoteERP">
+			<MSBuild Projects="..\..\..\Try\WebApiGui\RemoteERP.dproj"/>
+		</Target>
+		<Target Name="RemoteERP:Clean">
+			<MSBuild Projects="..\..\..\Try\WebApiGui\RemoteERP.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="RemoteERP:Make">
+			<MSBuild Projects="..\..\..\Try\WebApiGui\RemoteERP.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MailIntergration">
+			<MSBuild Projects="..\..\..\Try\MailIntegration\MailIntergration.dproj"/>
+		</Target>
+		<Target Name="MailIntergration:Clean">
+			<MSBuild Projects="..\..\..\Try\MailIntegration\MailIntergration.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MailIntergration:Make">
+			<MSBuild Projects="..\..\..\Try\MailIntegration\MailIntergration.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MAilClient">
+			<MSBuild Projects="..\..\..\Try\MailIntegration\MailClient\MAilClient.dproj"/>
+		</Target>
+		<Target Name="MAilClient:Clean">
+			<MSBuild Projects="..\..\..\Try\MailIntegration\MailClient\MAilClient.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MAilClient:Make">
+			<MSBuild Projects="..\..\..\Try\MailIntegration\MailClient\MAilClient.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="PhpApiTest">
+			<MSBuild Projects="..\WebAPITest\PhpApiTest.dproj"/>
+		</Target>
+		<Target Name="PhpApiTest:Clean">
+			<MSBuild Projects="..\WebAPITest\PhpApiTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="PhpApiTest:Make">
+			<MSBuild Projects="..\WebAPITest\PhpApiTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="CSVTester">
+			<MSBuild Projects="..\..\..\Try\CSVTester\CSVTester.dproj"/>
+		</Target>
+		<Target Name="CSVTester:Clean">
+			<MSBuild Projects="..\..\..\Try\CSVTester\CSVTester.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="CSVTester:Make">
+			<MSBuild Projects="..\..\..\Try\CSVTester\CSVTester.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="DtdToXml">
+			<MSBuild Projects="..\DtdToXml\DtdToXml.dproj"/>
+		</Target>
+		<Target Name="DtdToXml:Clean">
+			<MSBuild Projects="..\DtdToXml\DtdToXml.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="DtdToXml:Make">
+			<MSBuild Projects="..\DtdToXml\DtdToXml.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MySQLEngineUpdate">
+			<MSBuild Projects="..\MySQLEngineUpdate\MySQLEngineUpdate.dproj"/>
+		</Target>
+		<Target Name="MySQLEngineUpdate:Clean">
+			<MSBuild Projects="..\MySQLEngineUpdate\MySQLEngineUpdate.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MySQLEngineUpdate:Make">
+			<MSBuild Projects="..\MySQLEngineUpdate\MySQLEngineUpdate.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="HelpContexts">
+			<MSBuild Projects="..\HelpContexts\HelpContexts.dproj"/>
+		</Target>
+		<Target Name="HelpContexts:Clean">
+			<MSBuild Projects="..\HelpContexts\HelpContexts.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="HelpContexts:Make">
+			<MSBuild Projects="..\HelpContexts\HelpContexts.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="CyTrackTest">
+			<MSBuild Projects="..\CyTrack\CyTrackTest.dproj"/>
+		</Target>
+		<Target Name="CyTrackTest:Clean">
+			<MSBuild Projects="..\CyTrack\CyTrackTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="CyTrackTest:Make">
+			<MSBuild Projects="..\CyTrack\CyTrackTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="SimpleHttpServer">
+			<MSBuild Projects="..\..\..\Try\Simple Http Server\SimpleHttpServer.dproj"/>
+		</Target>
+		<Target Name="SimpleHttpServer:Clean">
+			<MSBuild Projects="..\..\..\Try\Simple Http Server\SimpleHttpServer.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="SimpleHttpServer:Make">
+			<MSBuild Projects="..\..\..\Try\Simple Http Server\SimpleHttpServer.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ModuleTest">
+			<MSBuild Projects="..\..\Common\ServerModules\Test\ModuleTest.dproj"/>
+		</Target>
+		<Target Name="ModuleTest:Clean">
+			<MSBuild Projects="..\..\Common\ServerModules\Test\ModuleTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ModuleTest:Make">
+			<MSBuild Projects="..\..\Common\ServerModules\Test\ModuleTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Module1">
+			<MSBuild Projects="..\..\Common\ServerModules\Test\Module1.dproj"/>
+		</Target>
+		<Target Name="Module1:Clean">
+			<MSBuild Projects="..\..\Common\ServerModules\Test\Module1.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Module1:Make">
+			<MSBuild Projects="..\..\Common\ServerModules\Test\Module1.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="AdvInputTaskDialogDemo">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\tmssoftware\TMS Component Pack\Samples\AdvTaskDialog\AdvInputTaskDialogDemo.dproj"/>
+		</Target>
+		<Target Name="AdvInputTaskDialogDemo:Clean">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\tmssoftware\TMS Component Pack\Samples\AdvTaskDialog\AdvInputTaskDialogDemo.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="AdvInputTaskDialogDemo:Make">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\tmssoftware\TMS Component Pack\Samples\AdvTaskDialog\AdvInputTaskDialogDemo.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MongoDelphiDriver">
+			<MSBuild Projects="..\..\mongo-delphi-driver-master\MongoDelphiDriver.dproj"/>
+		</Target>
+		<Target Name="MongoDelphiDriver:Clean">
+			<MSBuild Projects="..\..\mongo-delphi-driver-master\MongoDelphiDriver.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MongoDelphiDriver:Make">
+			<MSBuild Projects="..\..\mongo-delphi-driver-master\MongoDelphiDriver.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="AddressBook">
+			<MSBuild Projects="..\..\mongo-delphi-driver-master\AddressBook.dproj"/>
+		</Target>
+		<Target Name="AddressBook:Clean">
+			<MSBuild Projects="..\..\mongo-delphi-driver-master\AddressBook.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="AddressBook:Make">
+			<MSBuild Projects="..\..\mongo-delphi-driver-master\AddressBook.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="BsonTest">
+			<MSBuild Projects="..\..\..\Try\BsonTest\BsonTest.dproj"/>
+		</Target>
+		<Target Name="BsonTest:Clean">
+			<MSBuild Projects="..\..\..\Try\BsonTest\BsonTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="BsonTest:Make">
+			<MSBuild Projects="..\..\..\Try\BsonTest\BsonTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="GoogleAPITest">
+			<MSBuild Projects="..\..\..\Try\GoogleAPI\GoogleAPITest.dproj"/>
+		</Target>
+		<Target Name="GoogleAPITest:Clean">
+			<MSBuild Projects="..\..\..\Try\GoogleAPI\GoogleAPITest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="GoogleAPITest:Make">
+			<MSBuild Projects="..\..\..\Try\GoogleAPI\GoogleAPITest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="upsship">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\upsship\upsship.dproj"/>
+		</Target>
+		<Target Name="upsship:Clean">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\upsship\upsship.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="upsship:Make">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\upsship\upsship.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="UPSTest">
+			<MSBuild Projects="..\..\..\Try\UPS\UPSTest.dproj"/>
+		</Target>
+		<Target Name="UPSTest:Clean">
+			<MSBuild Projects="..\..\..\Try\UPS\UPSTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="UPSTest:Make">
+			<MSBuild Projects="..\..\..\Try\UPS\UPSTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Addict4Demo">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Addict4\Demos\V4Demo\Addict4Demo.dproj"/>
+		</Target>
+		<Target Name="Addict4Demo:Clean">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Addict4\Demos\V4Demo\Addict4Demo.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Addict4Demo:Make">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Addict4\Demos\V4Demo\Addict4Demo.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="TrueERPMessaging">
+			<MSBuild Projects="..\..\..\Try\TrueERPMessagingTest\TrueERPMessaging.dproj"/>
+		</Target>
+		<Target Name="TrueERPMessaging:Clean">
+			<MSBuild Projects="..\..\..\Try\TrueERPMessagingTest\TrueERPMessaging.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="TrueERPMessaging:Make">
+			<MSBuild Projects="..\..\..\Try\TrueERPMessagingTest\TrueERPMessaging.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MessageMonitor">
+			<MSBuild Projects="..\..\..\Try\TrueERPMessagingTest\MessageMonitor.dproj"/>
+		</Target>
+		<Target Name="MessageMonitor:Clean">
+			<MSBuild Projects="..\..\..\Try\TrueERPMessagingTest\MessageMonitor.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MessageMonitor:Make">
+			<MSBuild Projects="..\..\..\Try\TrueERPMessagingTest\MessageMonitor.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="TrayApp">
+			<MSBuild Projects="..\..\..\Try\TRayApp\TrayApp.dproj"/>
+		</Target>
+		<Target Name="TrayApp:Clean">
+			<MSBuild Projects="..\..\..\Try\TRayApp\TrayApp.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="TrayApp:Make">
+			<MSBuild Projects="..\..\..\Try\TRayApp\TrayApp.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPVideoDownloader">
+			<MSBuild Projects="..\ERPVideoDownloader\ERPVideoDownloader.dproj"/>
+		</Target>
+		<Target Name="ERPVideoDownloader:Clean">
+			<MSBuild Projects="..\ERPVideoDownloader\ERPVideoDownloader.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPVideoDownloader:Make">
+			<MSBuild Projects="..\ERPVideoDownloader\ERPVideoDownloader.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPStarterService">
+			<MSBuild Projects="..\ERPStarterService\ERPStarterService.dproj"/>
+		</Target>
+		<Target Name="ERPStarterService:Clean">
+			<MSBuild Projects="..\ERPStarterService\ERPStarterService.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPStarterService:Make">
+			<MSBuild Projects="..\ERPStarterService\ERPStarterService.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="FileCipher">
+			<MSBuild Projects="..\Update\FileCipher\FileCipher.dproj"/>
+		</Target>
+		<Target Name="FileCipher:Clean">
+			<MSBuild Projects="..\Update\FileCipher\FileCipher.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="FileCipher:Make">
+			<MSBuild Projects="..\Update\FileCipher\FileCipher.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MemTest">
+			<MSBuild Projects="..\..\..\Try\WebAPI\MemTest\MemTest.dproj"/>
+		</Target>
+		<Target Name="MemTest:Clean">
+			<MSBuild Projects="..\..\..\Try\WebAPI\MemTest\MemTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MemTest:Make">
+			<MSBuild Projects="..\..\..\Try\WebAPI\MemTest\MemTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="TcpClient">
+			<MSBuild Projects="..\..\..\Try\Tcp\TcpClient.dproj"/>
+		</Target>
+		<Target Name="TcpClient:Clean">
+			<MSBuild Projects="..\..\..\Try\Tcp\TcpClient.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="TcpClient:Make">
+			<MSBuild Projects="..\..\..\Try\Tcp\TcpClient.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="TcpServer">
+			<MSBuild Projects="..\..\..\Try\Tcp\TcpServer.dproj"/>
+		</Target>
+		<Target Name="TcpServer:Clean">
+			<MSBuild Projects="..\..\..\Try\Tcp\TcpServer.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="TcpServer:Make">
+			<MSBuild Projects="..\..\..\Try\Tcp\TcpServer.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="PrestShopTest">
+			<MSBuild Projects="..\..\..\Try\PrestaShop\PrestShopTest.dproj"/>
+		</Target>
+		<Target Name="PrestShopTest:Clean">
+			<MSBuild Projects="..\..\..\Try\PrestaShop\PrestShopTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="PrestShopTest:Make">
+			<MSBuild Projects="..\..\..\Try\PrestaShop\PrestShopTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="DLLForm">
+			<MSBuild Projects="..\..\..\Try\DLLForm\DLLForm.dproj"/>
+		</Target>
+		<Target Name="DLLForm:Clean">
+			<MSBuild Projects="..\..\..\Try\DLLForm\DLLForm.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="DLLForm:Make">
+			<MSBuild Projects="..\..\..\Try\DLLForm\DLLForm.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="DynForm">
+			<MSBuild Projects="..\..\..\Try\DynForm\DynForm.dproj"/>
+		</Target>
+		<Target Name="DynForm:Clean">
+			<MSBuild Projects="..\..\..\Try\DynForm\DynForm.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="DynForm:Make">
+			<MSBuild Projects="..\..\..\Try\DynForm\DynForm.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ObjectStoreTest">
+			<MSBuild Projects="..\..\..\Try\ObjectStore\ObjectStoreTest.dproj"/>
+		</Target>
+		<Target Name="ObjectStoreTest:Clean">
+			<MSBuild Projects="..\..\..\Try\ObjectStore\ObjectStoreTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ObjectStoreTest:Make">
+			<MSBuild Projects="..\..\..\Try\ObjectStore\ObjectStoreTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="WebPageMonitor">
+			<MSBuild Projects="..\..\..\Try\WebPageMonitor\WebPageMonitor.dproj"/>
+		</Target>
+		<Target Name="WebPageMonitor:Clean">
+			<MSBuild Projects="..\..\..\Try\WebPageMonitor\WebPageMonitor.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="WebPageMonitor:Make">
+			<MSBuild Projects="..\..\..\Try\WebPageMonitor\WebPageMonitor.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPModPrestaShop">
+			<MSBuild Projects="Modules\ERPModPrestaShop\ERPModPrestaShop.dproj"/>
+		</Target>
+		<Target Name="ERPModPrestaShop:Clean">
+			<MSBuild Projects="Modules\ERPModPrestaShop\ERPModPrestaShop.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPModPrestaShop:Make">
+			<MSBuild Projects="Modules\ERPModPrestaShop\ERPModPrestaShop.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="GoogleTest">
+			<MSBuild Projects="..\..\..\Try\Google\GoogleTest.dproj"/>
+		</Target>
+		<Target Name="GoogleTest:Clean">
+			<MSBuild Projects="..\..\..\Try\Google\GoogleTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="GoogleTest:Make">
+			<MSBuild Projects="..\..\..\Try\Google\GoogleTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Ports">
+			<MSBuild Projects="..\..\..\Try\Ports\Ports.dproj"/>
+		</Target>
+		<Target Name="Ports:Clean">
+			<MSBuild Projects="..\..\..\Try\Ports\Ports.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Ports:Make">
+			<MSBuild Projects="..\..\..\Try\Ports\Ports.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="gcalendar">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\nsoftware\Google Integrator V2 Delphi Edition\demos\gcalendar\gcalendar.dproj"/>
+		</Target>
+		<Target Name="gcalendar:Clean">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\nsoftware\Google Integrator V2 Delphi Edition\demos\gcalendar\gcalendar.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="gcalendar:Make">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\nsoftware\Google Integrator V2 Delphi Edition\demos\gcalendar\gcalendar.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="fedexcertify_XE2">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\fedexcertify\fedexcertify_XE2.dproj"/>
+		</Target>
+		<Target Name="fedexcertify_XE2:Clean">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\fedexcertify\fedexcertify_XE2.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="fedexcertify_XE2:Make">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\fedexcertify\fedexcertify_XE2.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="fedexship_XE2">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\fedexship\fedexship_XE2.dproj"/>
+		</Target>
+		<Target Name="fedexship_XE2:Clean">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\fedexship\fedexship_XE2.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="fedexship_XE2:Make">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\fedexship\fedexship_XE2.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="uspsship">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\uspsship\uspsship.dproj"/>
+		</Target>
+		<Target Name="uspsship:Clean">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\uspsship\uspsship.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="uspsship:Make">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\uspsship\uspsship.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="x12Test">
+			<MSBuild Projects="Modules\ERPModX12\Test\x12Test.dproj"/>
+		</Target>
+		<Target Name="x12Test:Clean">
+			<MSBuild Projects="Modules\ERPModX12\Test\x12Test.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="x12Test:Make">
+			<MSBuild Projects="Modules\ERPModX12\Test\x12Test.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="HTMLEditTest">
+			<MSBuild Projects="..\..\..\Try\HTMLEditTest\HTMLEditTest.dproj"/>
+		</Target>
+		<Target Name="HTMLEditTest:Clean">
+			<MSBuild Projects="..\..\..\Try\HTMLEditTest\HTMLEditTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="HTMLEditTest:Make">
+			<MSBuild Projects="..\..\..\Try\HTMLEditTest\HTMLEditTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="rvhtml">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\rvhtmlimport\demo\rvhtml.dproj"/>
+		</Target>
+		<Target Name="rvhtml:Clean">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\rvhtmlimport\demo\rvhtml.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="rvhtml:Make">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\rvhtmlimport\demo\rvhtml.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="TaxPayTest">
+			<MSBuild Projects="..\..\..\Try\TaxPayTest\TaxPayTest.dproj"/>
+		</Target>
+		<Target Name="TaxPayTest:Clean">
+			<MSBuild Projects="..\..\..\Try\TaxPayTest\TaxPayTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="TaxPayTest:Make">
+			<MSBuild Projects="..\..\..\Try\TaxPayTest\TaxPayTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="TestIntegration">
+			<MSBuild Projects="..\..\..\Try\Temp\TestIntegration.dproj"/>
+		</Target>
+		<Target Name="TestIntegration:Clean">
+			<MSBuild Projects="..\..\..\Try\Temp\TestIntegration.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="TestIntegration:Make">
+			<MSBuild Projects="..\..\..\Try\Temp\TestIntegration.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ftp_Test">
+			<MSBuild Projects="..\..\..\Try\ftp\ftp_Test.dproj"/>
+		</Target>
+		<Target Name="ftp_Test:Clean">
+			<MSBuild Projects="..\..\..\Try\ftp\ftp_Test.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ftp_Test:Make">
+			<MSBuild Projects="..\..\..\Try\ftp\ftp_Test.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Config">
+			<MSBuild Projects="..\..\..\Try\Config\Config.dproj"/>
+		</Target>
+		<Target Name="Config:Clean">
+			<MSBuild Projects="..\..\..\Try\Config\Config.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Config:Make">
+			<MSBuild Projects="..\..\..\Try\Config\Config.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ePad">
+			<MSBuild Projects="..\..\..\Try\ePad\ePad.dproj"/>
+		</Target>
+		<Target Name="ePad:Clean">
+			<MSBuild Projects="..\..\..\Try\ePad\ePad.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ePad:Make">
+			<MSBuild Projects="..\..\..\Try\ePad\ePad.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="InstallDll">
+			<MSBuild Projects="..\Install DLL\InstallDll.dproj"/>
+		</Target>
+		<Target Name="InstallDll:Clean">
+			<MSBuild Projects="..\Install DLL\InstallDll.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="InstallDll:Make">
+			<MSBuild Projects="..\Install DLL\InstallDll.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPFileMapper">
+			<MSBuild Projects="..\FileMapping\ERPFileMapper.dproj"/>
+		</Target>
+		<Target Name="ERPFileMapper:Clean">
+			<MSBuild Projects="..\FileMapping\ERPFileMapper.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPFileMapper:Make">
+			<MSBuild Projects="..\FileMapping\ERPFileMapper.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="SplitString">
+			<MSBuild Projects="..\..\..\Try\Split String\SplitString.dproj"/>
+		</Target>
+		<Target Name="SplitString:Clean">
+			<MSBuild Projects="..\..\..\Try\Split String\SplitString.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="SplitString:Make">
+			<MSBuild Projects="..\..\..\Try\Split String\SplitString.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="HTTPCommsGUI">
+			<MSBuild Projects="..\HttpComms\Server\HTTPCommsGUI.dproj"/>
+		</Target>
+		<Target Name="HTTPCommsGUI:Clean">
+			<MSBuild Projects="..\HttpComms\Server\HTTPCommsGUI.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="HTTPCommsGUI:Make">
+			<MSBuild Projects="..\HttpComms\Server\HTTPCommsGUI.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="HttpCommsClient">
+			<MSBuild Projects="..\HttpComms\Client\HttpCommsClient.dproj"/>
+		</Target>
+		<Target Name="HttpCommsClient:Clean">
+			<MSBuild Projects="..\HttpComms\Client\HttpCommsClient.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="HttpCommsClient:Make">
+			<MSBuild Projects="..\HttpComms\Client\HttpCommsClient.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="HttpCommsAdmin">
+			<MSBuild Projects="..\HttpComms\Admin\HttpCommsAdmin.dproj"/>
+		</Target>
+		<Target Name="HttpCommsAdmin:Clean">
+			<MSBuild Projects="..\HttpComms\Admin\HttpCommsAdmin.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="HttpCommsAdmin:Make">
+			<MSBuild Projects="..\HttpComms\Admin\HttpCommsAdmin.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="fedexship">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\fedexship\fedexship.dproj"/>
+		</Target>
+		<Target Name="fedexship:Clean">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\fedexship\fedexship.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="fedexship:Make">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Shipping Integrator V5 Delphi Edition\demos\fedexship\fedexship.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="plandemo">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\tmssoftware\TMS Component Pack\Samples\Planner\Demo1\plandemo.dproj"/>
+		</Target>
+		<Target Name="plandemo:Clean">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\tmssoftware\TMS Component Pack\Samples\Planner\Demo1\plandemo.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="plandemo:Make">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\tmssoftware\TMS Component Pack\Samples\Planner\Demo1\plandemo.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="WebAPIStressTest">
+			<MSBuild Projects="..\..\..\Try\WebAPIStressTest\WebAPIStressTest.dproj"/>
+		</Target>
+		<Target Name="WebAPIStressTest:Clean">
+			<MSBuild Projects="..\..\..\Try\WebAPIStressTest\WebAPIStressTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="WebAPIStressTest:Make">
+			<MSBuild Projects="..\..\..\Try\WebAPIStressTest\WebAPIStressTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Embedded">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Devart\Source\Demos\Win32\TechnologySpecific\Embedded\Embedded.dproj"/>
+		</Target>
+		<Target Name="Embedded:Clean">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Devart\Source\Demos\Win32\TechnologySpecific\Embedded\Embedded.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Embedded:Make">
+			<MSBuild Projects="C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Devart\Source\Demos\Win32\TechnologySpecific\Embedded\Embedded.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MySqlBackup">
+			<MSBuild Projects="..\..\..\Try\MySqlBackup\MySqlBackup.dproj"/>
+		</Target>
+		<Target Name="MySqlBackup:Clean">
+			<MSBuild Projects="..\..\..\Try\MySqlBackup\MySqlBackup.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MySqlBackup:Make">
+			<MSBuild Projects="..\..\..\Try\MySqlBackup\MySqlBackup.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="PosPrinterTest">
+			<MSBuild Projects="..\..\..\Try\PosPrinterTest\PosPrinterTest.dproj"/>
+		</Target>
+		<Target Name="PosPrinterTest:Clean">
+			<MSBuild Projects="..\..\..\Try\PosPrinterTest\PosPrinterTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="PosPrinterTest:Make">
+			<MSBuild Projects="..\..\..\Try\PosPrinterTest\PosPrinterTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPApiTestServer">
+			<MSBuild Projects="ERPApiTestServer\ERPApiTestServer.dproj"/>
+		</Target>
+		<Target Name="ERPApiTestServer:Clean">
+			<MSBuild Projects="ERPApiTestServer\ERPApiTestServer.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPApiTestServer:Make">
+			<MSBuild Projects="ERPApiTestServer\ERPApiTestServer.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPApiTestServerConsole">
+			<MSBuild Projects="ERPApiTestServer\ERPApiTestServerConsole.dproj"/>
+		</Target>
+		<Target Name="ERPApiTestServerConsole:Clean">
+			<MSBuild Projects="ERPApiTestServer\ERPApiTestServerConsole.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPApiTestServerConsole:Make">
+			<MSBuild Projects="ERPApiTestServer\ERPApiTestServerConsole.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ErrorTrack">
+			<MSBuild Projects="..\ErrorTrack\ErrorTrack.dproj"/>
+		</Target>
+		<Target Name="ErrorTrack:Clean">
+			<MSBuild Projects="..\ErrorTrack\ErrorTrack.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ErrorTrack:Make">
+			<MSBuild Projects="..\ErrorTrack\ErrorTrack.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="JsonParseTest">
+			<MSBuild Projects="..\..\..\Try\JsonParse\JsonParseTest.dproj"/>
+		</Target>
+		<Target Name="JsonParseTest:Clean">
+			<MSBuild Projects="..\..\..\Try\JsonParse\JsonParseTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="JsonParseTest:Make">
+			<MSBuild Projects="..\..\..\Try\JsonParse\JsonParseTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="SteelmainsAccountFix">
+			<MSBuild Projects="..\SQLFix\SteelmainsAccountFix.dproj"/>
+		</Target>
+		<Target Name="SteelmainsAccountFix:Clean">
+			<MSBuild Projects="..\SQLFix\SteelmainsAccountFix.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="SteelmainsAccountFix:Make">
+			<MSBuild Projects="..\SQLFix\SteelmainsAccountFix.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ErpVmControlConsole">
+			<MSBuild Projects="..\ERP_VM_Controll\Server\ErpVmControlConsole.dproj"/>
+		</Target>
+		<Target Name="ErpVmControlConsole:Clean">
+			<MSBuild Projects="..\ERP_VM_Controll\Server\ErpVmControlConsole.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ErpVmControlConsole:Make">
+			<MSBuild Projects="..\ERP_VM_Controll\Server\ErpVmControlConsole.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ErpVmControlClient">
+			<MSBuild Projects="..\ERP_VM_Controll\Client\ErpVmControlClient.dproj"/>
+		</Target>
+		<Target Name="ErpVmControlClient:Clean">
+			<MSBuild Projects="..\ERP_VM_Controll\Client\ErpVmControlClient.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ErpVmControlClient:Make">
+			<MSBuild Projects="..\ERP_VM_Controll\Client\ErpVmControlClient.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="FBEmbedded">
+			<MSBuild Projects="..\..\..\Try\Firebird Test\Embeded\FBEmbedded.dproj"/>
+		</Target>
+		<Target Name="FBEmbedded:Clean">
+			<MSBuild Projects="..\..\..\Try\Firebird Test\Embeded\FBEmbedded.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="FBEmbedded:Make">
+			<MSBuild Projects="..\..\..\Try\Firebird Test\Embeded\FBEmbedded.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ErpVmControlService">
+			<MSBuild Projects="..\ERP_VM_Controll\Server\ErpVmControlService.dproj"/>
+		</Target>
+		<Target Name="ErpVmControlService:Clean">
+			<MSBuild Projects="..\ERP_VM_Controll\Server\ErpVmControlService.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ErpVmControlService:Make">
+			<MSBuild Projects="..\ERP_VM_Controll\Server\ErpVmControlService.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPModCloudConsole">
+			<MSBuild Projects="Modules\ERPModCloud\ERPModCloudConsole.dproj"/>
+		</Target>
+		<Target Name="ERPModCloudConsole:Clean">
+			<MSBuild Projects="Modules\ERPModCloud\ERPModCloudConsole.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPModCloudConsole:Make">
+			<MSBuild Projects="Modules\ERPModCloud\ERPModCloudConsole.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="PaymentGatewayTest">
+			<MSBuild Projects="..\..\..\Try\PaymentGateway\PaymentGatewayTest.dproj"/>
+		</Target>
+		<Target Name="PaymentGatewayTest:Clean">
+			<MSBuild Projects="..\..\..\Try\PaymentGateway\PaymentGatewayTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="PaymentGatewayTest:Make">
+			<MSBuild Projects="..\..\..\Try\PaymentGateway\PaymentGatewayTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="GenDbXE">
+			<MSBuild Projects="..\..\..\Try\GenDB\GenDbXE.dproj"/>
+		</Target>
+		<Target Name="GenDbXE:Clean">
+			<MSBuild Projects="..\..\..\Try\GenDB\GenDbXE.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="GenDbXE:Make">
+			<MSBuild Projects="..\..\..\Try\GenDB\GenDbXE.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="FindERPField">
+			<MSBuild Projects="..\..\..\Try\FindFieldInERPTables\FindERPField.dproj"/>
+		</Target>
+		<Target Name="FindERPField:Clean">
+			<MSBuild Projects="..\..\..\Try\FindFieldInERPTables\FindERPField.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="FindERPField:Make">
+			<MSBuild Projects="..\..\..\Try\FindFieldInERPTables\FindERPField.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="TrueERPCloudServerConsole">
+			<MSBuild Projects="..\Cloud\Server\TrueERPCloudServerConsole.dproj"/>
+		</Target>
+		<Target Name="TrueERPCloudServerConsole:Clean">
+			<MSBuild Projects="..\Cloud\Server\TrueERPCloudServerConsole.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="TrueERPCloudServerConsole:Make">
+			<MSBuild Projects="..\Cloud\Server\TrueERPCloudServerConsole.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="TrueErpModTest">
+			<MSBuild Projects="..\Cloud\Server\Modules\ModTest\TrueErpModTest.dproj"/>
+		</Target>
+		<Target Name="TrueErpModTest:Clean">
+			<MSBuild Projects="..\Cloud\Server\Modules\ModTest\TrueErpModTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="TrueErpModTest:Make">
+			<MSBuild Projects="..\Cloud\Server\Modules\ModTest\TrueErpModTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="TrueErpLib">
+			<MSBuild Projects="TrueERPLibDll\TrueErpLib.dproj"/>
+		</Target>
+		<Target Name="TrueErpLib:Clean">
+			<MSBuild Projects="TrueERPLibDll\TrueErpLib.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="TrueErpLib:Make">
+			<MSBuild Projects="TrueERPLibDll\TrueErpLib.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="ERPUtilsService;ErpUtilsServer;ErpUtilsServerConsole;RosettaNetTestClient;ERPBackupConverter;ERP_UNEDIFACT_ConnectorConsole;ERPB2BConnectorConsole;ERPB2BConnectorService;ClientServer;ERPModClientServer;ERPModGoogle;ERPModSiteIntegration;DbCompare;ERPModUserUtils;OffsiteBackupConfig;ERPModWebAPI;ERPModEbay;ERPModPMI;ERPModMagento;MagentoTest;ERPModEDI;ERP_EDIConfig;ERPModPerecorp;ERPModTest;GuiTest;ERPUpdater;ERPServiceMenu;ERP;TrueERPMessages;TrueERPMessagesUploader;TrueERPMessagesDownloader;ClientUploads;ERPClientUpdater;BusObjCreator;ClientRegoManager;EncryptedConfigEdit;Setup;SigThreadGui;Wizard;ErpMySqlIniUpdater;LanguageUpdateBuilder;ERPSalesOrderExport;SMSTest;WebAPITest;DllImages;PNetTest;VersionCompare;CheckVideos;RemoteERP;MailIntergration;MAilClient;PhpApiTest;CSVTester;DtdToXml;MySQLEngineUpdate;HelpContexts;CyTrackTest;SimpleHttpServer;ModuleTest;Module1;AdvInputTaskDialogDemo;MongoDelphiDriver;AddressBook;BsonTest;GoogleAPITest;upsship;UPSTest;Addict4Demo;TrueERPMessaging;MessageMonitor;TrayApp;ERPVideoDownloader;ERPStarterService;FileCipher;MemTest;TcpClient;TcpServer;PrestShopTest;DLLForm;DynForm;ObjectStoreTest;WebPageMonitor;ERPModPrestaShop;GoogleTest;Ports;gcalendar;fedexcertify_XE2;fedexship_XE2;uspsship;x12Test;HTMLEditTest;rvhtml;TaxPayTest;TestIntegration;ftp_Test;Config;ePad;InstallDll;ERPFileMapper;SplitString;HTTPCommsGUI;HttpCommsClient;HttpCommsAdmin;fedexship;plandemo;WebAPIStressTest;Embedded;MySqlBackup;PosPrinterTest;ERPApiTestServer;ERPApiTestServerConsole;ErrorTrack;JsonParseTest;SteelmainsAccountFix;ErpVmControlConsole;ErpVmControlClient;FBEmbedded;ErpVmControlService;ERPModCloudConsole;PaymentGatewayTest;GenDbXE;FindERPField;TrueERPCloudServerConsole;TrueErpModTest;TrueErpLib"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="ERPUtilsService:Clean;ErpUtilsServer:Clean;ErpUtilsServerConsole:Clean;RosettaNetTestClient:Clean;ERPBackupConverter:Clean;ERP_UNEDIFACT_ConnectorConsole:Clean;ERPB2BConnectorConsole:Clean;ERPB2BConnectorService:Clean;ClientServer:Clean;ERPModClientServer:Clean;ERPModGoogle:Clean;ERPModSiteIntegration:Clean;DbCompare:Clean;ERPModUserUtils:Clean;OffsiteBackupConfig:Clean;ERPModWebAPI:Clean;ERPModEbay:Clean;ERPModPMI:Clean;ERPModMagento:Clean;MagentoTest:Clean;ERPModEDI:Clean;ERP_EDIConfig:Clean;ERPModPerecorp:Clean;ERPModTest:Clean;GuiTest:Clean;ERPUpdater:Clean;ERPServiceMenu:Clean;ERP:Clean;TrueERPMessages:Clean;TrueERPMessagesUploader:Clean;TrueERPMessagesDownloader:Clean;ClientUploads:Clean;ERPClientUpdater:Clean;BusObjCreator:Clean;ClientRegoManager:Clean;EncryptedConfigEdit:Clean;Setup:Clean;SigThreadGui:Clean;Wizard:Clean;ErpMySqlIniUpdater:Clean;LanguageUpdateBuilder:Clean;ERPSalesOrderExport:Clean;SMSTest:Clean;WebAPITest:Clean;DllImages:Clean;PNetTest:Clean;VersionCompare:Clean;CheckVideos:Clean;RemoteERP:Clean;MailIntergration:Clean;MAilClient:Clean;PhpApiTest:Clean;CSVTester:Clean;DtdToXml:Clean;MySQLEngineUpdate:Clean;HelpContexts:Clean;CyTrackTest:Clean;SimpleHttpServer:Clean;ModuleTest:Clean;Module1:Clean;AdvInputTaskDialogDemo:Clean;MongoDelphiDriver:Clean;AddressBook:Clean;BsonTest:Clean;GoogleAPITest:Clean;upsship:Clean;UPSTest:Clean;Addict4Demo:Clean;TrueERPMessaging:Clean;MessageMonitor:Clean;TrayApp:Clean;ERPVideoDownloader:Clean;ERPStarterService:Clean;FileCipher:Clean;MemTest:Clean;TcpClient:Clean;TcpServer:Clean;PrestShopTest:Clean;DLLForm:Clean;DynForm:Clean;ObjectStoreTest:Clean;WebPageMonitor:Clean;ERPModPrestaShop:Clean;GoogleTest:Clean;Ports:Clean;gcalendar:Clean;fedexcertify_XE2:Clean;fedexship_XE2:Clean;uspsship:Clean;x12Test:Clean;HTMLEditTest:Clean;rvhtml:Clean;TaxPayTest:Clean;TestIntegration:Clean;ftp_Test:Clean;Config:Clean;ePad:Clean;InstallDll:Clean;ERPFileMapper:Clean;SplitString:Clean;HTTPCommsGUI:Clean;HttpCommsClient:Clean;HttpCommsAdmin:Clean;fedexship:Clean;plandemo:Clean;WebAPIStressTest:Clean;Embedded:Clean;MySqlBackup:Clean;PosPrinterTest:Clean;ERPApiTestServer:Clean;ERPApiTestServerConsole:Clean;ErrorTrack:Clean;JsonParseTest:Clean;SteelmainsAccountFix:Clean;ErpVmControlConsole:Clean;ErpVmControlClient:Clean;FBEmbedded:Clean;ErpVmControlService:Clean;ERPModCloudConsole:Clean;PaymentGatewayTest:Clean;GenDbXE:Clean;FindERPField:Clean;TrueERPCloudServerConsole:Clean;TrueErpModTest:Clean;TrueErpLib:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="ERPUtilsService:Make;ErpUtilsServer:Make;ErpUtilsServerConsole:Make;RosettaNetTestClient:Make;ERPBackupConverter:Make;ERP_UNEDIFACT_ConnectorConsole:Make;ERPB2BConnectorConsole:Make;ERPB2BConnectorService:Make;ClientServer:Make;ERPModClientServer:Make;ERPModGoogle:Make;ERPModSiteIntegration:Make;DbCompare:Make;ERPModUserUtils:Make;OffsiteBackupConfig:Make;ERPModWebAPI:Make;ERPModEbay:Make;ERPModPMI:Make;ERPModMagento:Make;MagentoTest:Make;ERPModEDI:Make;ERP_EDIConfig:Make;ERPModPerecorp:Make;ERPModTest:Make;GuiTest:Make;ERPUpdater:Make;ERPServiceMenu:Make;ERP:Make;TrueERPMessages:Make;TrueERPMessagesUploader:Make;TrueERPMessagesDownloader:Make;ClientUploads:Make;ERPClientUpdater:Make;BusObjCreator:Make;ClientRegoManager:Make;EncryptedConfigEdit:Make;Setup:Make;SigThreadGui:Make;Wizard:Make;ErpMySqlIniUpdater:Make;LanguageUpdateBuilder:Make;ERPSalesOrderExport:Make;SMSTest:Make;WebAPITest:Make;DllImages:Make;PNetTest:Make;VersionCompare:Make;CheckVideos:Make;RemoteERP:Make;MailIntergration:Make;MAilClient:Make;PhpApiTest:Make;CSVTester:Make;DtdToXml:Make;MySQLEngineUpdate:Make;HelpContexts:Make;CyTrackTest:Make;SimpleHttpServer:Make;ModuleTest:Make;Module1:Make;AdvInputTaskDialogDemo:Make;MongoDelphiDriver:Make;AddressBook:Make;BsonTest:Make;GoogleAPITest:Make;upsship:Make;UPSTest:Make;Addict4Demo:Make;TrueERPMessaging:Make;MessageMonitor:Make;TrayApp:Make;ERPVideoDownloader:Make;ERPStarterService:Make;FileCipher:Make;MemTest:Make;TcpClient:Make;TcpServer:Make;PrestShopTest:Make;DLLForm:Make;DynForm:Make;ObjectStoreTest:Make;WebPageMonitor:Make;ERPModPrestaShop:Make;GoogleTest:Make;Ports:Make;gcalendar:Make;fedexcertify_XE2:Make;fedexship_XE2:Make;uspsship:Make;x12Test:Make;HTMLEditTest:Make;rvhtml:Make;TaxPayTest:Make;TestIntegration:Make;ftp_Test:Make;Config:Make;ePad:Make;InstallDll:Make;ERPFileMapper:Make;SplitString:Make;HTTPCommsGUI:Make;HttpCommsClient:Make;HttpCommsAdmin:Make;fedexship:Make;plandemo:Make;WebAPIStressTest:Make;Embedded:Make;MySqlBackup:Make;PosPrinterTest:Make;ERPApiTestServer:Make;ERPApiTestServerConsole:Make;ErrorTrack:Make;JsonParseTest:Make;SteelmainsAccountFix:Make;ErpVmControlConsole:Make;ErpVmControlClient:Make;FBEmbedded:Make;ErpVmControlService:Make;ERPModCloudConsole:Make;PaymentGatewayTest:Make;GenDbXE:Make;FindERPField:Make;TrueERPCloudServerConsole:Make;TrueErpModTest:Make;TrueErpLib:Make"/>
+		</Target>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
+	</Project>

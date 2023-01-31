@@ -1,0 +1,36 @@
+object fmPadBase: TfmPadBase
+  Left = 0
+  Top = 0
+  Caption = 'fmPadBase'
+  ClientHeight = 286
+  ClientWidth = 426
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -16
+  Font.Name = 'Arial'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 18
+  object AdvSmoothExpanderGroup1: TAdvSmoothExpanderGroup
+    Left = 0
+    Top = 0
+    Width = 426
+    Height = 286
+    HorzPadding = 8
+    VertPadding = 8
+    Fill.Color = 15590880
+    Fill.ColorTo = clSilver
+    Fill.ColorMirror = clNone
+    Fill.ColorMirrorTo = clNone
+    Fill.BorderColor = clNone
+    Fill.Rounding = 0
+    Fill.ShadowOffset = 0
+    Align = alClient
+    ExplicitLeft = 64
+    ExplicitTop = 32
+    ExplicitWidth = 250
+    ExplicitHeight = 350
+  end
+end

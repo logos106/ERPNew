@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- sample start session request  -->
+<platinum1xml>
+	<xmlBlock ticket="Q2OEWJ1BHCBD0K8">
+		<request command="endSession">
+		</request>
+	</xmlBlock>
+</platinum1xml>

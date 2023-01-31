@@ -1,0 +1,704 @@
+inherited frmVATElectronic: TfrmVATElectronic
+  Left = 100
+  Top = 175
+  HelpContext = 361000
+  Caption = 'VAT Electronic Declaration'
+  ClientHeight = 585
+  ClientWidth = 726
+  OldCreateOrder = True
+  ExplicitLeft = 100
+  ExplicitTop = 175
+  ExplicitWidth = 734
+  ExplicitHeight = 617
+  DesignSize = (
+    726
+    585)
+  PixelsPerInch = 96
+  TextHeight = 15
+  inherited lblSkingroupMsg: TLabel
+    Top = 585
+    Width = 726
+    ExplicitTop = 585
+    ExplicitWidth = 726
+    HelpContext = 361040
+  end
+  object lblMode: TLabel [1]
+    Left = 624
+    Top = 32
+    Width = 44
+    Height = 15
+    HelpContext = 361012
+    Caption = 'lblMode'
+    Transparent = True
+  end
+  inherited imgGridWatermark: TImage
+    HelpContext = 361001
+  end
+  object pnlTitle: TDNMPanel [5]
+    Left = 167
+    Top = 6
+    Width = 392
+    Height = 45
+    HelpContext = 361016
+    BevelInner = bvRaised
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -29
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+    object TitleShader: TShader
+      Left = 2
+      Top = 2
+      Width = 388
+      Height = 41
+      HelpContext = 361017
+      Align = alClient
+      BevelOuter = bvNone
+      TabOrder = 0
+      FromColor = clBtnFace
+      ToColor = clWhite
+      FromColorMirror = clWhite
+      ToColorMirror = clBtnFace
+      Steps = 10
+      Direction = False
+      Version = '1.4.0.0'
+      object TitleLabel: TLabel
+        Left = 0
+        Top = 0
+        Width = 388
+        Height = 41
+        HelpContext = 361018
+        Align = alClient
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'VAT Electronic Submission'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -29
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+        Layout = tlCenter
+      end
+    end
+  end
+  object DNMPanel6: TDNMPanel [6]
+    Left = 8
+    Top = 366
+    Width = 713
+    Height = 159
+    HelpContext = 361019
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 4
+    object Label9: TLabel
+      Left = 250
+      Top = 4
+      Width = 196
+      Height = 19
+      HelpContext = 361020
+      Caption = 'Government Gateway List'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+    end
+    object grdSubs: TStringGrid
+      Left = 12
+      Top = 25
+      Width = 688
+      Height = 125
+      HelpContext = 361021
+      ColCount = 4
+      DefaultColWidth = 170
+      FixedCols = 0
+      RowCount = 2
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+    end
+  end
+  object DNMPanel4: TDNMPanel [7]
+    Left = 578
+    Top = 532
+    Width = 143
+    Height = 49
+    HelpContext = 361022
+    Anchors = [akLeft, akBottom]
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 5
+    DesignSize = (
+      143
+      49)
+    object btnClose: TDNMSpeedButton
+      Left = 28
+      Top = 11
+      Width = 87
+      Height = 27
+      HelpContext = 361002
+      Anchors = [akLeft, akBottom]
+      Caption = '&Close'
+      DisableTransparent = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        333333333333333333333333000033338833333333333333333F333333333333
+        0000333911833333983333333388F333333F3333000033391118333911833333
+        38F38F333F88F33300003339111183911118333338F338F3F8338F3300003333
+        911118111118333338F3338F833338F3000033333911111111833333338F3338
+        3333F8330000333333911111183333333338F333333F83330000333333311111
+        8333333333338F3333383333000033333339111183333333333338F333833333
+        00003333339111118333333333333833338F3333000033333911181118333333
+        33338333338F333300003333911183911183333333383338F338F33300003333
+        9118333911183333338F33838F338F33000033333913333391113333338FF833
+        38F338F300003333333333333919333333388333338FFF830000333333333333
+        3333333333333333333888330000333333333333333333333333333333333333
+        0000}
+      HotTrackFont.Charset = ANSI_CHARSET
+      HotTrackFont.Color = clWindowText
+      HotTrackFont.Height = -12
+      HotTrackFont.Name = 'Arial'
+      HotTrackFont.Style = []
+      ModalResult = 2
+      NumGlyphs = 2
+      ParentFont = False
+      TabOrder = 0
+      OnClick = btnCloseClick
+    end
+  end
+  object DNMPanel1: TDNMPanel [8]
+    Left = 8
+    Top = 102
+    Width = 713
+    Height = 254
+    HelpContext = 361030
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 285
+      Top = 85
+      Width = 155
+      Height = 19
+      HelpContext = 361031
+      Caption = 'Transmission Errors'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+    end
+    object MemoError: TMemo
+      Left = 12
+      Top = 155
+      Width = 688
+      Height = 90
+      HelpContext = 361023
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+    end
+    object DNMPanel5: TDNMPanel
+      Left = 12
+      Top = 110
+      Width = 688
+      Height = 37
+      HelpContext = 361024
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+      object Label2: TLabel
+        Left = 16
+        Top = 9
+        Width = 34
+        Height = 16
+        HelpContext = 361011
+        Caption = 'Type:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object lblType: TLabel
+        Left = 56
+        Top = 9
+        Width = 4
+        Height = 16
+        HelpContext = 361032
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+        Transparent = True
+      end
+      object Label4: TLabel
+        Left = 248
+        Top = 9
+        Width = 54
+        Height = 16
+        HelpContext = 361033
+        Caption = 'Number:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object lblNumber: TLabel
+        Left = 311
+        Top = 9
+        Width = 4
+        Height = 16
+        HelpContext = 361034
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+        Transparent = True
+      end
+      object Label5: TLabel
+        Left = 466
+        Top = 9
+        Width = 55
+        Height = 16
+        HelpContext = 361035
+        Caption = 'Location'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object lblLocation: TLabel
+        Left = 532
+        Top = 9
+        Width = 4
+        Height = 16
+        HelpContext = 361036
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+        Transparent = True
+      end
+    end
+    object MemoAction: TMemo
+      Left = 12
+      Top = 8
+      Width = 690
+      Height = 66
+      HelpContext = 361025
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      ScrollBars = ssVertical
+      TabOrder = 2
+    end
+  end
+  object DNMPanel2: TDNMPanel [9]
+    Left = 8
+    Top = 58
+    Width = 713
+    Height = 42
+    HelpContext = 361037
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    DesignSize = (
+      713
+      42)
+    object Label3: TLabel
+      Left = 14
+      Top = 11
+      Width = 117
+      Height = 19
+      HelpContext = 361038
+      Caption = 'Current Status:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+    end
+    object lblState: TLabel
+      Left = 137
+      Top = 13
+      Width = 4
+      Height = 16
+      HelpContext = 361039
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      Transparent = True
+    end
+    object ProgressBar: TProgressBar
+      Left = 302
+      Top = 16
+      Width = 89
+      Height = 10
+      HelpContext = 361026
+      Max = 20
+      TabOrder = 0
+    end
+    object btnStop: TDNMSpeedButton
+      Left = 656
+      Top = 7
+      Width = 43
+      Height = 27
+      HelpContext = 361027
+      Caption = 'Stop'
+      DisableTransparent = False
+      HotTrackFont.Charset = ANSI_CHARSET
+      HotTrackFont.Color = clWindowText
+      HotTrackFont.Height = -12
+      HotTrackFont.Name = 'Arial'
+      HotTrackFont.Style = [fsBold]
+      TabOrder = 1
+      OnClick = btnStopClick
+    end
+    object btnProcess: TDNMSpeedButton
+      Left = 562
+      Top = 7
+      Width = 87
+      Height = 27
+      HelpContext = 361028
+      Anchors = [akLeft, akBottom]
+      Caption = 'Submit'
+      DisableTransparent = False
+      HotTrackFont.Charset = ANSI_CHARSET
+      HotTrackFont.Color = clWindowText
+      HotTrackFont.Height = -12
+      HotTrackFont.Name = 'Arial'
+      HotTrackFont.Style = [fsBold]
+      TabOrder = 2
+      OnClick = btnProcessClick
+    end
+  end
+  object DNMPanel3: TDNMPanel [10]
+    Left = 7
+    Top = 532
+    Width = 562
+    Height = 49
+    HelpContext = 361009
+    Anchors = [akLeft, akBottom]
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    object Label7: TLabel
+      Left = 7
+      Top = 15
+      Width = 79
+      Height = 19
+      HelpContext = 361010
+      Caption = 'Date From'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+    end
+    object Label8: TLabel
+      Left = 221
+      Top = 15
+      Width = 64
+      Height = 19
+      HelpContext = 361029
+      Caption = 'Date To:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+    end
+    object dtpFrom: TwwDBDateTimePicker
+      Left = 94
+      Top = 13
+      Width = 100
+      Height = 23
+      HelpContext = 361013
+      CalendarAttributes.Font.Charset = DEFAULT_CHARSET
+      CalendarAttributes.Font.Color = clWindowText
+      CalendarAttributes.Font.Height = -11
+      CalendarAttributes.Font.Name = 'MS Sans Serif'
+      CalendarAttributes.Font.Style = []
+      Epoch = 1950
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      ShowButton = True
+      TabOrder = 0
+    end
+    object dtpTo: TwwDBDateTimePicker
+      Left = 291
+      Top = 13
+      Width = 104
+      Height = 23
+      HelpContext = 361014
+      CalendarAttributes.Font.Charset = DEFAULT_CHARSET
+      CalendarAttributes.Font.Color = clWindowText
+      CalendarAttributes.Font.Height = -11
+      CalendarAttributes.Font.Name = 'MS Sans Serif'
+      CalendarAttributes.Font.Style = []
+      Epoch = 1950
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      ShowButton = True
+      TabOrder = 1
+    end
+    object btnRecovery: TDNMSpeedButton
+      Left = 433
+      Top = 11
+      Width = 82
+      Height = 27
+      HelpContext = 361015
+      Caption = 'Get List'
+      DisableTransparent = False
+      HotTrackFont.Charset = ANSI_CHARSET
+      HotTrackFont.Color = clWindowText
+      HotTrackFont.Height = -12
+      HotTrackFont.Name = 'Arial'
+      HotTrackFont.Style = [fsBold]
+      TabOrder = 2
+      OnClick = btnRecoveryClick
+    end
+  end
+  inherited ApplicationEvents1: TApplicationEvents
+    Left = 240
+  end
+  inherited MyConnection: TERPConnection
+    Left = 272
+    Top = 15
+  end
+  inherited popCustomiseGrid: TAdvPopupMenu
+    Left = 384
+    Top = 16
+  end
+  inherited imgsort: TImageList
+    Bitmap = {
+      494C010102009C009C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      0000000000003600000028000000400000001000000001002000000000000010
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000FFFF000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000FFFFFF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF00000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000FFFFFF0000000000FFFFFF0000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF000000000000FFFF000000000000FFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000FF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000FFFFFF0000000000FFFFFF0000000000FFFFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000000000FFFF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      000000FFFF000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000000000FF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      0000FFFFFF0000000000FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFFFF0000000000FFFFFF0000000000FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF000000000000FFFF000000000000FFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000FFFFFF0000000000FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000FFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF00000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000FFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000000000000000000000FF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000424D3E000000000000003E000000
+      2800000040000000100000000100010000000000800000000000000000000000
+      000000000000000000000000FFFFFF00E00FFDFF00000000E00FF8FF00000000
+      E00FF8FF00000000F00FF87F00000000F00FF81F00000000F80FF80F00000000
+      F007F00F00000000F007E00F00000000F007E00F00000000F00FE00F00000000
+      F01FF01F00000000F81FF00F00000000FE1FF00F00000000FF1FF00700000000
+      FF1FF00700000000FFBFF0070000000000000000000000000000000000000000
+      000000000000}
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 200
+    OnTimer = Timer1Timer
+    Left = 72
+    Top = 16
+  end
+end

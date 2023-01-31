@@ -1,0 +1,119 @@
+inherited fmShowMeERPOffices: TfmShowMeERPOffices
+  Left = 2293
+  Top = 141
+  HelpContext = 1275002
+  BorderStyle = bsNone
+  Caption = 'TrueERP Offices'
+  ClientHeight = 432
+  ClientWidth = 597
+  FormStyle = fsMDIChild
+  KeyPreview = True
+  Visible = True
+  ExplicitLeft = 2293
+  ExplicitTop = 141
+  ExplicitWidth = 613
+  ExplicitHeight = 471
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited lblSkingroupMsg: TLabel
+    Top = 432
+    Width = 597
+    HelpContext = 1275003
+    ExplicitTop = 504
+    ExplicitWidth = 399
+  end
+  object Panel1: TDNMPanel [4]
+    Left = 0
+    Top = 0
+    Width = 597
+    Height = 50
+    HelpContext = 1275005
+    Align = alTop
+    BevelOuter = bvNone
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentColor = True
+    ParentFont = False
+    TabOrder = 1
+    Transparent = False
+    object pnlHeader: TPanel
+      AlignWithMargins = True
+      Left = 111
+      Top = 3
+      Width = 375
+      Height = 44
+      HelpContext = 1275006
+      Margins.Left = 111
+      Margins.Right = 111
+      Align = alClient
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -35
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentColor = True
+      ParentFont = False
+      TabOrder = 0
+      object TitleShader: TShader
+        Left = 1
+        Top = 1
+        Width = 373
+        Height = 42
+        HelpContext = 1275007
+        Align = alClient
+        BevelOuter = bvNone
+        TabOrder = 0
+        FromColor = clBtnFace
+        ToColor = clWhite
+        FromColorMirror = clWhite
+        ToColorMirror = clBtnFace
+        Steps = 10
+        Direction = False
+        Version = '1.4.0.0'
+        object TitleLabel: TLabel
+          Left = 0
+          Top = 0
+          Width = 373
+          Height = 42
+          HelpContext = 1275008
+          Align = alClient
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Call/Click for Support'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -35
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+          Transparent = True
+          Layout = tlCenter
+          ExplicitLeft = -3
+          ExplicitWidth = 548
+          ExplicitHeight = 47
+        end
+      end
+    end
+  end
+  object pnlMain: TDNMPanel [5]
+    Left = 0
+    Top = 50
+    Width = 597
+    Height = 382
+    HelpContext = 1275004
+    Align = alClient
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentColor = True
+    ParentFont = False
+    TabOrder = 0
+    Transparent = False
+    ExplicitHeight = 375
+  end
+end

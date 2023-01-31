@@ -1,0 +1,180 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{DFBA6B41-64D7-42B4-85D1-83EBFCCED49C}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="ERPImages_Default\ERPImages_Default.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ERPImages_Girly\ERPImages_Girly.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ERPImages_Glossy_Night\ERPImages_Glossy_Night.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ERPImages_Misc_Range\ERPImages_Misc_Range.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ERPImages_Smiley\ERPImages_Smiley.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ERPImages_Super_Hero\ERPImages_Super_Hero.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ERPImages_Default_Small\ERPImages_Default_Small.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ERPImages_Girly_Small\ERPImages_Girly_Small.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ERPImages_Glossy_Night_Small\ERPImages_Glossy_Night_Small.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ERPImages_Misc_Range_Small\ERPImages_Misc_Range_Small.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ERPImages_Smiley_Small\ERPImages_Smiley_Small.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ERPImages_Super_Hero_Small\ERPImages_Super_Hero_Small.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ERP_Images_Test\ERPImagesTest.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="ERPImages_Default">
+			<MSBuild Projects="ERPImages_Default\ERPImages_Default.dproj"/>
+		</Target>
+		<Target Name="ERPImages_Default:Clean">
+			<MSBuild Projects="ERPImages_Default\ERPImages_Default.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPImages_Default:Make">
+			<MSBuild Projects="ERPImages_Default\ERPImages_Default.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPImages_Girly">
+			<MSBuild Projects="ERPImages_Girly\ERPImages_Girly.dproj"/>
+		</Target>
+		<Target Name="ERPImages_Girly:Clean">
+			<MSBuild Projects="ERPImages_Girly\ERPImages_Girly.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPImages_Girly:Make">
+			<MSBuild Projects="ERPImages_Girly\ERPImages_Girly.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPImages_Glossy_Night">
+			<MSBuild Projects="ERPImages_Glossy_Night\ERPImages_Glossy_Night.dproj"/>
+		</Target>
+		<Target Name="ERPImages_Glossy_Night:Clean">
+			<MSBuild Projects="ERPImages_Glossy_Night\ERPImages_Glossy_Night.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPImages_Glossy_Night:Make">
+			<MSBuild Projects="ERPImages_Glossy_Night\ERPImages_Glossy_Night.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPImages_Misc_Range">
+			<MSBuild Projects="ERPImages_Misc_Range\ERPImages_Misc_Range.dproj"/>
+		</Target>
+		<Target Name="ERPImages_Misc_Range:Clean">
+			<MSBuild Projects="ERPImages_Misc_Range\ERPImages_Misc_Range.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPImages_Misc_Range:Make">
+			<MSBuild Projects="ERPImages_Misc_Range\ERPImages_Misc_Range.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPImages_Smiley">
+			<MSBuild Projects="ERPImages_Smiley\ERPImages_Smiley.dproj"/>
+		</Target>
+		<Target Name="ERPImages_Smiley:Clean">
+			<MSBuild Projects="ERPImages_Smiley\ERPImages_Smiley.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPImages_Smiley:Make">
+			<MSBuild Projects="ERPImages_Smiley\ERPImages_Smiley.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPImages_Super_Hero">
+			<MSBuild Projects="ERPImages_Super_Hero\ERPImages_Super_Hero.dproj"/>
+		</Target>
+		<Target Name="ERPImages_Super_Hero:Clean">
+			<MSBuild Projects="ERPImages_Super_Hero\ERPImages_Super_Hero.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPImages_Super_Hero:Make">
+			<MSBuild Projects="ERPImages_Super_Hero\ERPImages_Super_Hero.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPImages_Default_Small">
+			<MSBuild Projects="ERPImages_Default_Small\ERPImages_Default_Small.dproj"/>
+		</Target>
+		<Target Name="ERPImages_Default_Small:Clean">
+			<MSBuild Projects="ERPImages_Default_Small\ERPImages_Default_Small.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPImages_Default_Small:Make">
+			<MSBuild Projects="ERPImages_Default_Small\ERPImages_Default_Small.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPImages_Girly_Small">
+			<MSBuild Projects="ERPImages_Girly_Small\ERPImages_Girly_Small.dproj"/>
+		</Target>
+		<Target Name="ERPImages_Girly_Small:Clean">
+			<MSBuild Projects="ERPImages_Girly_Small\ERPImages_Girly_Small.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPImages_Girly_Small:Make">
+			<MSBuild Projects="ERPImages_Girly_Small\ERPImages_Girly_Small.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPImages_Glossy_Night_Small">
+			<MSBuild Projects="ERPImages_Glossy_Night_Small\ERPImages_Glossy_Night_Small.dproj"/>
+		</Target>
+		<Target Name="ERPImages_Glossy_Night_Small:Clean">
+			<MSBuild Projects="ERPImages_Glossy_Night_Small\ERPImages_Glossy_Night_Small.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPImages_Glossy_Night_Small:Make">
+			<MSBuild Projects="ERPImages_Glossy_Night_Small\ERPImages_Glossy_Night_Small.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPImages_Misc_Range_Small">
+			<MSBuild Projects="ERPImages_Misc_Range_Small\ERPImages_Misc_Range_Small.dproj"/>
+		</Target>
+		<Target Name="ERPImages_Misc_Range_Small:Clean">
+			<MSBuild Projects="ERPImages_Misc_Range_Small\ERPImages_Misc_Range_Small.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPImages_Misc_Range_Small:Make">
+			<MSBuild Projects="ERPImages_Misc_Range_Small\ERPImages_Misc_Range_Small.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPImages_Smiley_Small">
+			<MSBuild Projects="ERPImages_Smiley_Small\ERPImages_Smiley_Small.dproj"/>
+		</Target>
+		<Target Name="ERPImages_Smiley_Small:Clean">
+			<MSBuild Projects="ERPImages_Smiley_Small\ERPImages_Smiley_Small.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPImages_Smiley_Small:Make">
+			<MSBuild Projects="ERPImages_Smiley_Small\ERPImages_Smiley_Small.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPImages_Super_Hero_Small">
+			<MSBuild Projects="ERPImages_Super_Hero_Small\ERPImages_Super_Hero_Small.dproj"/>
+		</Target>
+		<Target Name="ERPImages_Super_Hero_Small:Clean">
+			<MSBuild Projects="ERPImages_Super_Hero_Small\ERPImages_Super_Hero_Small.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPImages_Super_Hero_Small:Make">
+			<MSBuild Projects="ERPImages_Super_Hero_Small\ERPImages_Super_Hero_Small.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPImagesTest">
+			<MSBuild Projects="ERP_Images_Test\ERPImagesTest.dproj"/>
+		</Target>
+		<Target Name="ERPImagesTest:Clean">
+			<MSBuild Projects="ERP_Images_Test\ERPImagesTest.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPImagesTest:Make">
+			<MSBuild Projects="ERP_Images_Test\ERPImagesTest.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="ERPImages_Default;ERPImages_Girly;ERPImages_Glossy_Night;ERPImages_Misc_Range;ERPImages_Smiley;ERPImages_Super_Hero;ERPImages_Default_Small;ERPImages_Girly_Small;ERPImages_Glossy_Night_Small;ERPImages_Misc_Range_Small;ERPImages_Smiley_Small;ERPImages_Super_Hero_Small;ERPImagesTest"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="ERPImages_Default:Clean;ERPImages_Girly:Clean;ERPImages_Glossy_Night:Clean;ERPImages_Misc_Range:Clean;ERPImages_Smiley:Clean;ERPImages_Super_Hero:Clean;ERPImages_Default_Small:Clean;ERPImages_Girly_Small:Clean;ERPImages_Glossy_Night_Small:Clean;ERPImages_Misc_Range_Small:Clean;ERPImages_Smiley_Small:Clean;ERPImages_Super_Hero_Small:Clean;ERPImagesTest:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="ERPImages_Default:Make;ERPImages_Girly:Make;ERPImages_Glossy_Night:Make;ERPImages_Misc_Range:Make;ERPImages_Smiley:Make;ERPImages_Super_Hero:Make;ERPImages_Default_Small:Make;ERPImages_Girly_Small:Make;ERPImages_Glossy_Night_Small:Make;ERPImages_Misc_Range_Small:Make;ERPImages_Smiley_Small:Make;ERPImages_Super_Hero_Small:Make;ERPImagesTest:Make"/>
+		</Target>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
+	</Project>

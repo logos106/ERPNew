@@ -1,0 +1,28 @@
+{
+"displayprogress":false,
+"softwarereleasetype":"Dev",
+"updatelist":
+{
+"ERPWebServerConsole":
+{
+"modulefilename":"D:\\Work\\Delphi\\Dene\\Code\\ERP\\Utils\\ERPUtilsServer\\WebServerConsole\\ERPWebServerConsole.exe",
+"ServiceName":"ERPUtils",
+"ForceRestart":true
+},
+"ErpServiceMenu":
+{
+"modulefilename":"C:\\ERP Software\\Utilities\\ErpServiceMenu.exe",
+"installifnotfound":true
+},
+"FileUploader":
+{
+"modulefilename":"C:\\ERP Software\\Utilities\\ClientUploads.exe"
+},
+"MySQLServer":
+{
+"version":"5.1.52-community",
+"modulefilename":"C:\\MySQL_ERP\\bin\\mysqld.exe"
+}
+},
+"DoBatchUpdate":true
+}

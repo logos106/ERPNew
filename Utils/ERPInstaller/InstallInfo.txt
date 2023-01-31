@@ -1,0 +1,33 @@
+{
+ 	"Server":{
+ 		"items":{
+ 			"ERP MySQL Server": {"file": "Server_Setup_au_7508.exe", "password": "Loaded"},
+ 			"Client File Uploader": {"file": "File_Uploader_Setup_7401.exe", "password": "Loaded"},
+ 			"Email and Fax Server": {"file": "Email_Fax_Setup_7400.exe", "password": "Loaded"},
+ 			"ERP Utilities Service": {"file": "ERPUtils_Setup_1011.exe", "password": "Loaded"},
+ 			"User Utils Module": {"file": "UserUtilsModule_Setup_1016.exe", "password": "Loaded"},
+ 			"Multisite Module": {"file": "MultisiteModule_Setup_1022.exe", "password": "Loaded"},
+ 			"ERP Service Menu": {"file": "ERPServiceMenu_Setup_1010.exe", "password": "Loaded"},
+ 			"Server Updater": {"file": "Server_Updater_Setup_7408.exe", "password": "Loaded"}
+ 		}
+ 	},
+ 	"User":{
+ 		"items":{
+ 			"ERP User Application": {"file": "User_Setup_7508.exe", "password": "Swift"},
+ 			"ERP User Updater": {"file": "User_Updater_Setup_7402.exe", "password": "Swift"},
+ 			"CutePDF Writer": {"file": "CutePDF_Writer_Setup_2800.exe", "password": "Swift"},
+ 			"Training Videos": {"file": "ERP_Videos_Setup_1000.exe", "password": "Swift"}
+ 		}
+ 	},
+ 	"Services":{
+ 		"items":{
+ 			"Client File Uploader": {"file": "File_Uploader_Setup_7401.exe", "password": "Loaded"},
+ 			"Email and Fax Server": {"file": "Email_Fax_Setup_7400.exe", "password": "Loaded"},
+ 			"ERP Utilities Service": {"file": "ERPUtils_Setup_1011.exe", "password": "Loaded"},
+ 			"User Utils Module": {"file": "UserUtilsModule_Setup_1016.exe", "password": "Loaded"},
+ 			"Multisite Module": {"file": "MultisiteModule_Setup_1022.exe", "password": "Loaded"},
+ 			"ERP Service Menu": {"file": "ERPServiceMenu_Setup_1010.exe", "password": "Loaded"},
+ 			"Server Updater": {"file": "Server_Updater_Setup_7408.exe", "password": "Loaded"}
+ 		}
+ 	}
+}

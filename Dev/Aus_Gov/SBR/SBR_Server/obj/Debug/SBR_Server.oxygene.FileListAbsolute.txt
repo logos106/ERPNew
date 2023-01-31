@@ -1,0 +1,17 @@
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\bin\Debug\SBR_Server.exe
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\bin\Debug\SBR_Server.exe.mdb
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\bin\Debug\SBR_Server.pdb
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\obj\Debug\SBR_Server.Properties.Resources.resources
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\obj\Debug\SBR_Server.oxygene.GenerateResource.Cache
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\obj\Debug\SBR_Server.exe
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\obj\Debug\SBR_Server.pdb
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\bin\Debug\Newtonsoft.Json.dll
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\bin\Debug\Newtonsoft.Json.xml
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\bin\Debug\SBR_Server.exe.config
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\obj\Debug\SBR_Server.oxygeneResolveAssemblyReference.cache
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\bin\Debug\Abr.AuskeyManager.dll
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\bin\Debug\ABR.SecurityTokenManager.dll
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\bin\Debug\BouncyCastle.PbeS2.Crypto.dll
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\bin\Debug\Common.Logging.dll
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\bin\Debug\SBR.CoreServices.Requester.dll
+C:\Dev\ERP\Dev\Aus_Gov\SBR\SBR_Server\bin\Debug\Common.Logging.xml

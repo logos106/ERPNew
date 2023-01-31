@@ -1,0 +1,1095 @@
+{
+//	"ObjectsToSync":"CashSale,POSCashSale,POSSale,POSale",
+	"ObjectsToSync": {
+                "TPreferences": {},
+        	"TProductForecastFormula": {},
+                "TProductCodeAbbrevSetup": {},
+        	"TProductCodeAbbrevLines": {},
+                "TCurrency": {},
+                "TCurrencyRateHistory": {},
+                "TSource": {},
+                "TAccount": {},
+                "TAccountType": {},
+                "TClientType": {},
+        	"TClient": {},
+                "TGroupDiscounts": {},
+                "TTerms": {},
+                "TShippingMethod": {},
+                "TTaxCode": {},
+                "TDeptClass": {},
+                "TProductClassPreferences": {},
+                "TTaxScale": {},
+                "TAward": {},
+                "TAwardClassificationDetails": {},
+        	"TUnitOfMeasure": {},
+                "TProductBin": {},
+                "TProduct": {},
+                "TProductClass": {},
+        	"TProductCommission": {},
+        	"TProductRewardPoints": {},
+                "TProductSpecs": {},
+                "TProductBarcodeList": {},
+                "TProductPicture": {},
+                "TProductAttributeGroup": {},
+                "TProductAttributeName": {},
+                "TProductAttributeGroup2": {},
+                "TProductAttributeValue": {},
+                "TProductAttributeProduct": {},
+                "TPaymethod": {},
+        	"TFormula": {},
+                "TSale": {},
+                "TAudit": {},
+                "TReportTemplateType": {},
+                "TReportTemplate": {},
+                "TEmployeeType": {},
+                "TEmployeeDetails": {},
+                "TFuncRoom": {},
+                "TPOSKeypad": {},
+                "TPOSKeypadCustomize": {},
+	        "TPOSTill": {},
+                "TPOSEOP": {},
+        	"TPOSEOPPayment": {},
+        	"TPOSTillEOP": {},
+                "TProductExtraBuyPrice": {},
+                "TProductExtraSellPrice": {},
+                "TSpecialProducts": {},
+                "TForms": {},
+                "TEmployeeFormAccess": {}
+        },
+	"ObjectsNotToSync": {
+                "TPos": {"Note": "Tempory table"},
+                "TPosLines": {"Note": "Tempory table"},
+                "TPosGroup": {"Note": "Tempory table"},
+                "TPosPayment": {"Note": "Tempory table"},
+                "TPosFunctions": {"Note": "Lookup table - user can not edit"},
+                "TDBPreferences": { "Note": "Contains some info that is site specific"},
+                "TProductType": {"Note": "Lookup table - user can not edit"},
+                "tblForeignCurrencyOnReport": {"Note" : "User can not edit"}
+                "tblForeignCurrencyFieldsOnReport": {"Note" : "User can not edit"}
+        }
+	"CashSale": { "InheritsFrom": "TSale" },
+	"POSCashSale": { "InheritsFrom": "TSale" },
+	"POSSale": { "InheritsFrom": "TSale" },
+	"POSale": { "InheritsFrom": "TSale" },
+	"Currency": { "InheritsFrom": "TCurrency" },
+	"CurrencyRateHistory": { "InheritsFrom": "TCurrencyRateHistory" },
+	"Source": { "InheritsFrom": "TSource" },
+	"Account": { "InheritsFrom": "TAccount" },
+	"AccountType": { "InheritsFrom": "TAccountType" },
+	"ClientType": { "InheritsFrom": "TClientType" },
+	"Terms": { "InheritsFrom": "TTerms" },
+	"ShippingMethod": { "InheritsFrom": "TShippingMethod" },
+	"TaxCode": { "InheritsFrom": "TTaxCode" },
+        "Class": { "InheritsFrom": "TDeptClass" },
+        "TPreferences": {
+		"TableName": "tblpreferences",
+		"IdFieldName": "PreferenceID",
+		"LookupFields": "PreferenceID,GlobalRef,msTimeStamp"
+        },
+        "TDBPreferences": {
+		"TableName": "tbldbpreferences",
+		"IdFieldName": "PrefID",
+		"LookupFields": "PrefID,GlobalRef,msTimeStamp"
+        },
+	"TProductForecastFormula": {
+		"TableName": "tblproductforecastformula",
+		"IdFieldName": "FormulaID",
+		"LookupFields": "FormulaID,GlobalRef,msTimeStamp"
+        },
+	"TProductCodeAbbrevSetup": {
+		"TableName": "tblproductcodeabbrevsetup",
+		"IdFieldName": "DescriptionAttribID",
+		"LookupFields": "DescriptionAttribID,GlobalRef,msTimeStamp"
+        },
+	"TProductCodeAbbrevLines": {
+		"TableName": "tblproductcodeabbrevlines",
+		"IdFieldName": "DescriptionAttribLineID",
+		"LookupFields": "DescriptionAttribLineID,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"DescriptionAttribID": {
+				"ClassName": "TProductCodeAbbrevSetup",
+				"Field": "DescriptionAttribID"
+			}
+		}
+	},
+	"TProductClassPreferences": {
+		"TableName": "tblpartsclasspreferences",
+		"IdFieldName": "ID",
+		"LookupFields": "ID,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"ClassID": {
+				"ClassName": "TDeptClass",
+				"Field": "ClassID"
+			},
+			"ClassName": {
+				"ClassName": "TDeptClass",
+				"Field": "ClassName"
+			}
+		}
+	},
+	"TAudit": {
+		"TableName": "tblaudittrail",
+		"IdFieldName": "AuditID",
+		"LookupFields": "AuditID,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"EmployeeID": {
+				"ClassName": "TEmployeeDetails",
+				"Field": "EmployeeID"
+			}
+		}
+	},
+	"TSale": {
+		"TableName": "tblsales",
+		"IdFieldName": "saleid",
+		"LookupFields": "SaleId,GlobalRef,msTimeStamp",
+                "GroupField" : "OriginalNo",
+		"Mappings": {
+			"AccountId": {
+				"ClassName": "TAccount",
+				"Field": "AccountId"
+			},
+			"ClientId": {
+				"ClassName": "TCustomer",
+				"Field": "ClientId"
+			},
+			"ClassId": {
+				"ClassName": "TDeptClass",
+				"Field": "ClassID"
+			},
+			"EmployeeId": {
+				"ClassName": "TEmployeeDetails",
+				"Field": "EmployeeId"
+			},
+			"Terms": {
+				"ClassName": "TTerms",
+				"Field": "Terms"
+			},
+			"PayMethod": {
+				"ClassName": "TPaymethod",
+				"Field": "Name"
+			},
+			"TillId": {
+				"ClassName": "TPOSTill",
+				"Field": "TillId"
+			},
+			"EnteredBy": {
+				"ClassName": "TEmployeeDetails",
+				"Field": "EmployeeName"
+			},
+		},
+		"Objects": {
+			"Lines": {
+				"ClassName": "TSaleLine",
+				"IsList": true,
+				"Link": {
+					"ParentField": "SaleId",
+					"LinkField": "SaleId"
+				}
+			},
+			"Payments": {
+				"ClassName": "TSalesPayments",
+				"IsList": true,
+				"Link": {
+					"ParentField": "SaleId",
+					"LinkField": "SaleId"
+				}
+			}
+		}
+	},
+	"TAccount": {
+		"TableName": "tblChartOfAccounts",
+		"IdFieldName": "AccountId",
+		"LookupFields": "AccountId,AccountName,AccountNumber,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"AccountType": {
+				"ClassName": "TAccountType",
+				"Field": "AccType"
+			}
+                }
+	},
+	"TAccountType": {
+		"TableName": "tblacctypedesc",
+		"IdFieldName": "TypeId",
+		"LookupFields": "TypeId,AccType,GlobalRef,msTimeStamp"
+	},
+	"TCustomer": {
+		"TableName": "tblclients",
+		"IdFieldName": "clientid",
+		"LookupFields": "ClientId,GlobalRef,msTimeStamp"
+	},
+	"TEmployeeType": {
+		"TableName": "tblEmployeeTypes",
+		"IdFieldName": "EmployeeTypeId",
+		"LookupFields": "EmployeeTypeId,TypeName,GlobalRef,msTimeStamp"
+        },
+	"TEmployeeDetails": {
+		"TableName": "tblEmployees",
+		"IdFieldName": "EmployeeId",
+		"LookupFields": "EmployeeId,EmployeeName,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"ReportsTo": {
+				"ClassName": "TEmployeeDetails",
+				"Field": "EmployeeId"
+			},
+			"Award": {
+				"ClassName": "TAward",
+				"Field": "AwardId"
+			},
+			"Classification": {
+				"ClassName": "TAwardClassificationDetails",
+				"Field": "Classification"
+			},
+			"Department": {
+				"ClassName": "TDeptClass",
+				"Field": "ClassId"
+			},
+			"WorkersCompInsurer": {
+				"ClassName": "TClient",
+				"Field": "ClientId"
+			},
+			"TaxScaleID": {
+				"ClassName": "TTaxScale",
+				"Field": "ScaleId"
+			},
+			"DefaultClassName": {
+				"ClassName": "TDeptClass",
+				"Field": "ClassName"
+			},
+			"DefaultClassID": {
+				"ClassName": "TDeptClass",
+				"Field": "ClassID"
+			},
+			"DefaultInvoiceTemplateID": {
+				"ClassName": "TReportTemplate",
+				"Field": "TemplID"
+			},
+			"EmployeeTypeID": {
+				"ClassName": "TEmployeeType",
+				"Field": "EmployeeTypeId"
+			},
+			"HECSTaxScale": {
+				"ClassName": "TTaxScale",
+				"Field": "ScaleId"
+			},
+			"StudentLoanTaxScale": {
+				"ClassName": "TTaxScale",
+				"Field": "ScaleId"
+			}
+                }
+	},
+        "TEmployeePicture": {
+		"TableName": "tblemployeepics",
+		"IdFieldName": "EmployeePicID",
+		"LookupFields": "EmployeePicID,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"EmployeeID": {
+				"ClassName": "TEmployeeDetails",
+				"Field": "EmployeeID"
+			}
+                }
+	},
+        "TAwardClassificationDetails": {
+		"TableName": "tblawardclassificationdetails",
+		"IdFieldName": "ClassificationId",
+		"LookupFields": "ClassificationId,Classification,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"AwardID": {
+				"ClassName": "TAward",
+				"Field": "AwardId"
+			}
+                }
+	},
+        "TAward": {
+		"TableName": "tblawards",
+		"IdFieldName": "AwardId",
+		"LookupFields": "AwardId,AwardName,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"ClassID": {
+				"ClassName": "TDeptClass",
+				"Field": "ClassId"
+			}
+                }
+	},
+        "TTaxScale": {
+		"TableName": "tbltaxscales",
+		"IdFieldName": "ScaleId",
+		"LookupFields": "ScaleId,GlobalRef,msTimeStamp"
+	},
+        "TReportTemplate": {
+		"TableName": "tbltemplates",
+		"IdFieldName": "TemplID",
+		"LookupFields": "TemplId,TemplName,GlobalRef,msTimeStamp"
+		"Mappings": {
+			"TypeID": {
+				"ClassName": "TReportTemplateType",
+				"Field": "TypeID"
+			},
+			"EmployeeID": {
+				"ClassName": "TEmployeeDetails",
+				"Field": "EmployeeID"
+			}
+                }
+	},
+        "TReportTemplateType": {
+		"TableName": "tbltemplatetype",
+		"IdFieldName": "TypeID",
+		"LookupFields": "TypeId,TypeName,GlobalRef,msTimeStamp"
+        },
+	"TDeptClass": {
+		"TableName": "tblClass",
+		"IdFieldName": "ClassId",
+		"LookupFields": "ClassId,ClassName,GlobalRef,msTimeStamp"
+		"Mappings": {
+			"Level2": {
+				"ClassName": "TDeptClass",
+				"Field": "ClassName"
+			},
+			"Level3": {
+				"ClassName": "TDeptClass",
+				"Field": "ClassName"
+			},
+			"Level4": {
+				"ClassName": "TDeptClass",
+				"Field": "ClassName"
+			}
+                }
+	},
+	"TTerms": {
+		"TableName": "tblTerms",
+		"IdFieldName": "TermsId",
+		"LookupFields": "TermsId,Terms,GlobalRef,msTimeStamp"
+	},
+	"TPaymethod": {
+		"TableName": "tblPaymentMethods",
+		"IdFieldName": "PayMethodID",
+		"LookupFields": "PayMethodId,Name,GlobalRef,msTimeStamp"
+	},
+	"TPOSKeypad": {
+		"TableName": "tblPOSKeypads",
+		"IdFieldName": "KeypadID",
+		"LookupFields": "KeypadId,Description,GlobalRef,msTimeStamp"
+	},
+	"TPOSKeypadCustomize": {
+		"TableName": "tblposkeypadcustomize",
+		"IdFieldName": "KeyID",
+		"LookupFields": "KeyId,GlobalRef,msTimeStamp"
+		"Mappings": {
+			"KeypadId": {
+				"ClassName": "TPOSKeypad",
+				"Field": "KeypadId"
+			},
+			"PartID": {
+				"ClassName": "TProduct",
+				"Field": "PartsID"
+			},
+			"RoomId": {
+				"ClassName": "TFuncRoom",
+				"Field": "RoomID"
+			}
+                }
+	},
+	"TPOSTill": {
+		"TableName": "tblPOSTills",
+		"IdFieldName": "TillID",
+		"LookupFields": "TillId,TillName,GlobalRef,msTimeStamp"
+		"Mappings": {
+			"PrimaryPadId": {
+				"ClassName": "TPOSKeypad",
+				"Field": "KeypadId"
+			},
+			"RemoteTillId": {
+				"ClassName": "TPOSTill",
+				"Field": "TillID"
+			},
+			"ClassId": {
+				"ClassName": "TDeptClass",
+				"Field": "ClassID"
+			}
+                }
+	},
+	"TPOSEOP": {
+		"TableName": "tblposeop",
+		"IdFieldName": "PeriodID",
+		"LookupFields": "PeriodId,GlobalRef,msTimeStamp"
+		"Mappings": {
+			"TillId": {
+				"ClassName": "TPOSTill",
+				"Field": "TillId"
+			},
+			"TillName": {
+				"ClassName": "TPOSTill",
+				"Field": "TillName"
+			}
+                }
+        },
+	"TPOSEOPPayment": {
+		"TableName": "tblposeoppayments",
+		"IdFieldName": "ID",
+		"LookupFields": "Id,GlobalRef,msTimeStamp"
+		"Mappings": {
+			"TillId": {
+				"ClassName": "TPOSTill",
+				"Field": "TillId"
+			}
+                }
+        },
+	"TPOSTillEOP": {
+		"TableName": "tblpostilleop",
+		"IdFieldName": "PeriodID",
+		"LookupFields": "PeriodID,GlobalRef,msTimeStamp"
+		"Mappings": {
+			"TillId": {
+				"ClassName": "TPOSTill",
+				"Field": "TillId"
+			},
+			"TillName": {
+				"ClassName": "TPOSTill",
+				"Field": "TillName"
+			},
+			"EmployeeID": {
+				"ClassName": "TEmployeeDetails",
+				"Field": "EmployeeID"
+			}
+                }
+        },
+	"TSaleLine": {
+		"TableName": "tblsaleslines",
+		"IdFieldName": "salelineid",
+		"LookupFields": "SaleLineId,SaleId,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"SaleId": {
+				"ClassName": "parent",
+				"Field": "SaleId"
+			},
+			"ProductId": {
+				"ClassName": "TProduct",
+				"Field": "PartsId"
+			},
+			"IncomeAccnt": {
+				"ClassName": "TAccount",
+				"Field": "AccountName"
+			},
+			"AssetAccnt": {
+				"ClassName": "TAccount",
+				"Field": "AccountName"
+			},
+			"CogsAccnt": {
+				"ClassName": "TAccount",
+				"Field": "AccountName"
+			},
+			"UnitOfMeasureID": {
+				"ClassName": "TUnitOfMeasure",
+				"Field": "UnitID"
+			},
+			"BaseLineno": {
+				"ClassName": "TSaleLine",
+				"Field": "SaleLineId"
+			}
+		},
+		"Objects": {
+			"ProductQuantityAllocation": {
+				"ClassName": "TPQASale",
+				"IsList": true,
+				"Link": {
+					"ParentField": "SaleLineId",
+					"LinkField": "TransLineId"
+				}
+			},
+			"FormulaEntry": {
+				"ClassName": "TFESalesLines",
+				"IsList": true,
+				"Link": {
+					"ParentField": "SaleLineId",
+					"LinkField": "SaleLineId"
+				}
+			}
+		}
+	},
+	"TPQASale": {
+		"TableName": "tblPQA",
+                "Filter": "TransType in ('TInvoiceLine','TSalesOrderline','TRefundSaleLine','TPOSCashSaleline','TPOSLaybylines','TCashSaleLine')",
+		"IdFieldName": "PQAID",
+		"LookupFields": "PQAId,TransId,TransLineId,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"TransLineId": {
+				"ClassName": "parent",
+				"Field": "SaleLineId"
+			},
+			"TransId": {
+				"ClassName": "parent",
+				"Field": "SaleId"
+			},
+			"UOMId": {
+				"ClassName": "parent",
+				"Field": "UnitOfMeasureID"
+			},
+			"ProductId": {
+				"ClassName": "parent",
+				"Field": "ProductId"
+			},
+			"DepartmentId": {
+				"ClassName": "TDeptClass",
+				"Field": "ClassID"
+			}
+		},	
+		"Objects": {
+			"PQADetails": {
+				"ClassName": "TPQADetails",
+				"IsList": true,
+				"Link": {
+					"ParentField": "PQAId",
+					"LinkField": "PQAId"
+				}
+			}
+		}	
+	},
+	"TPQADetails": {
+		"TableName": "tblPQADetails",
+		"IdFieldName": "PQADetailID",
+		"LookupFields": "PQADetailId,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"PQAID": {
+				"ClassName": "parent",
+				"Field": "PQAID"
+			},
+			"BinID": {
+				"ClassName": "TProductBin",
+				"Field": "BinID"
+			}
+		}
+	},	
+	"TFESalesLines": {
+		"TableName": "tblFESalesLines",
+		"IdFieldName": "FESalesLineID",
+		"LookupFields": "FESalesLineID,SaleId,SaleLineId,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"SaleId": {
+				"ClassName": "parent",
+				"Field": "SaleId"
+			},
+			"SaleLineId": {
+				"ClassName": "parent",
+				"Field": "SaleLineId"
+			},
+			"ProductId": {
+				"ClassName": "parent",
+				"Field": "ProductId"
+			}
+		},	
+		"Objects": {
+			"RelatedProducts": {
+				"ClassName": "TFESalesLinesRelatedPrs",
+				"IsList": true,
+				"Link": {
+					"ParentField": "FESalesLineID",
+					"LinkField": "FESalesLineID"
+				}
+			}
+		}	
+	},
+	"TFESalesLinesRelatedPrs": {
+		"TableName": "tblFESalesLinesRelatedPrs",
+		"IdFieldName": "FESalesLinesRelatedPrID",
+		"LookupFields": "FESalesLinesRelatedPrID,FESalesLineId,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"FESalesLineId": {
+				"ClassName": "parent",
+				"Field": "FESalesLineId"
+			},
+			"ProductId": {
+				"ClassName": "parent",
+				"Field": "ProductId"
+			},
+			"FormulaID": {
+				"ClassName": "TFormula",
+				"Field": "FormulaID"
+			}
+		}
+	},
+	"TUnitOfMeasure": {
+		"TableName": "tblUnitsOfMeasure",
+		"IdFieldName": "UnitID",
+		"LookupFields": "UnitId,UnitName,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"BaseUnitID": {
+				"ClassName": "TUnitOfMeasure",
+				"Field": "UnitId"
+			},
+			"PartID": {
+				"ClassName": "TProduct",
+				"Field": "PartsId"
+			}
+		}
+	},
+	"TFormula": {
+		"TableName": "tblFEFormula",
+		"IdFieldName": "FormulaID",
+		"LookupFields": "FormulaID,FormulaName,GlobalRef,msTimeStamp"
+	},
+	"TSalesPayments": {
+		"TableName": "tblsalespayments",
+		"IdFieldName": "PaymentID",
+		"LookupFields": "PaymentID,SaleId,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"SaleID": {
+				"ClassName": "parent",
+				"Field": "SaleID"
+			}
+		}
+	},
+        "TProductType": {
+		"TableName": "tblparttypes",
+		"IdFieldName": "ID",
+		"LookupFields": "ID,TypeCode,GlobalRef,msTimeStamp"
+        },
+	"TProduct": {
+		"TableName": "tblparts",
+		"IdFieldName": "partsid",
+		"LookupFields": "PartsId,PartName,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"PartType": {
+				"ClassName": "TProductType",
+				"Field": "TypeCode"
+			},
+			"IncomeAccnt": {
+				"ClassName": "TAccount",
+				"Field": "AccountName"
+			},
+			"AssetAccnt": {
+				"ClassName": "TAccount",
+				"Field": "AccountName"
+			},
+			"COGSAccnt": {
+				"ClassName": "TAccount",
+				"Field": "AccountName"
+			},
+			"TaxCode": {
+				"ClassName": "TTaxCode",
+				"Field": "Name"
+			},
+			"PurchTaxCode": {
+				"ClassName": "TTaxCode",
+				"Field": "Name"
+			},
+			"PreferedSupp": {
+				"ClassName": "TSupplier",
+				"Field": "Company"
+			}
+		}
+        },
+        "TProductSpecs": {
+		"TableName": "tblpartsspecifications",
+		"IdFieldName": "PartSpecID",
+		"LookupFields": "PartSpecID,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"PartsId": {
+				"ClassName": "TProduct",
+				"Field": "PartsID"
+			}
+		}
+        },
+        "TProductBin": {
+		"TableName": "tblproductbin",
+		"IdFieldName": "BinID",
+		"LookupFields": "BinID,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"ClassId": {
+				"ClassName": "TDeptClass",
+				"Field": "ClassID"
+			}
+		}
+        },
+        "TProductClass": {
+		"TableName": "tblproductclasses",
+		"IdFieldName": "ID",
+		"LookupFields": "ID,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"ProductId": {
+				"ClassName": "TProduct",
+				"Field": "partsid"
+			},
+			"ClassId": {
+				"ClassName": "TDeptClass",
+				"Field": "ClassID"
+			},
+			"DefaultbinId": {
+				"ClassName": "TProductBin",
+				"Field": "BinID"
+			}
+		}
+        },
+	"TProductCommission": {
+		"TableName": "tblproductcommission",
+		"IdFieldName": "ProductCommissionID",
+		"LookupFields": "ProductCommissionID,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"PartsId": {
+				"ClassName": "TProduct",
+				"Field": "PartsID"
+			}
+		}
+        },
+	"TProductRewardPoints": {
+		"TableName": "tblproductrewardpoints",
+		"IdFieldName": "ProductRewardPointsID",
+		"LookupFields": "ProductRewardPointsID,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"PartsID": {
+				"ClassName": "TProduct",
+				"Field": "PartsID"
+			}
+		}
+        },
+	"TTaxCode": {
+		"TableName": "tbltaxcodes",
+		"IdFieldName": "taxcodeid",
+		"LookupFields": "taxcodeid,Name,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"RegionId": {
+				"ClassName": "TRegionalOptions",
+				"Field": "RegionID"
+			}
+		}
+        },
+	"TRegionalOptions": {
+		"TableName": "tblregionaloptions",
+		"IdFieldName": "RegionID",
+		"LookupFields": "RegionID,Region,GlobalRef,msTimeStamp"
+        },
+	"ProductBarcodeList": { "InheritsFrom": "TProductBarcodeList" },
+	"TProductBarcodeList": {
+		"TableName": "tblparts",
+		"SelectFields": "PartsID,GlobalRef,msTimeStamp",
+		"IdFieldName": "PartsId",
+		"LookupFields": "PartsID,GlobalRef,msTimeStamp"
+		"Objects": {
+			"Lines": {
+				"ClassName": "TProductBarcode",
+				"IsList": true,
+				"Link": {
+					"ParentField": "PartsId",
+					"LinkField": "PartsId"
+				}
+			}
+		}
+        },
+	"TProductBarcode": {
+		"TableName": "tblpartbarcodes",
+		"IdFieldName": "ProductBarcodeId",
+		"LookupFields": "ProductBarcodeID,GlobalRef,msTimeStamp"
+		"Mappings": {
+			"PartsId": {
+				"ClassName": "TProduct",
+				"Field": "PartsID"
+			}
+                }
+        },
+	"TProductPicture": {
+		"TableName": "tblpartspics",
+		"IdFieldName": "PartPicID",
+		"LookupFields": "PartPicID,GlobalRef,msTimeStamp"
+		"Mappings": {
+			"PartId": {
+				"ClassName": "TProduct",
+				"Field": "PartsID"
+			}
+                }
+        },
+        "TProductAttributeGroup": {
+		"TableName": "tblproductattributegroups",
+		"IdFieldName": "PAG_ID",
+		"LookupFields": "PAG_ID,Name,GlobalRef,msTimeStamp",
+		"IgnoreFields": "XAxisAttribute,YAxisAttribute",
+		"Mappings": {
+			"PartType": {
+				"ClassName": "TProductType",
+				"Field": "TypeCode"
+			}
+                }
+        },
+        "TProductAttributeName": {
+		"TableName": "tblproductattributenames",
+		"IdFieldName": "PAN_ID",
+		"LookupFields": "PAN_ID,Name,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"PAG_ID": {
+				"ClassName": "TProductAttributeGroup",
+				"Field": "PAG_ID"
+			}
+                }
+        },
+        "TProductAttributeGroup2": {
+		"TableName": "tblproductattributegroups",
+		"IdFieldName": "PAG_ID",
+		"LookupFields": "PAG_ID,Name,GlobalRef,msTimeStamp",
+                "ForceSync": true,
+		"Mappings": {
+			"PartType": {
+				"ClassName": "TProductType",
+				"Field": "TypeCode"
+			}
+                }
+        },
+        "TProductAttributeValue": {
+		"TableName": "tblproductattributevalues",
+		"IdFieldName": "PAV_ID",
+		"LookupFields": "PAV_ID,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"PAN_ID": {
+				"ClassName": "TProductAttributeName",
+				"Field": "PAN_ID"
+			}
+                }
+        },
+        "TProductAttributeProduct": {
+		"TableName": "tblproductattributeproducts",
+		"IdFieldName": "PAP_ID",
+		"LookupFields": "PAP_ID,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"GroupName": {
+				"ClassName": "TProductAttributeGroup",
+				"Field": "Name"
+			},
+			"ProductID": {
+				"ClassName": "TProduct",
+				"Field": "PartsID"
+			},
+			"ProductName": {
+				"ClassName": "TProduct",
+				"Field": "PartName"
+			}
+                }
+        },
+	"Supplier": { "InheritsFrom": "TSupplier" },
+	"TSupplier": { "InheritsFrom": "TClient" },
+	"TClient": {
+		"TableName": "tblclients",
+		"IdFieldName": "ClientId",
+		"LookupFields": "ClientID,Company,GlobalRef,msTimeStamp"
+		"IgnoreFields": "DefaultInvoiceTemplateID,DefaultDeliveryTemplateID",
+		"Mappings": {
+			"MedTypeID": {
+				"ClassName": "TSource",
+				"Field": "MedTypeID"
+			},
+			"Type": {
+				"ClassName": "TClientType",
+				"Field": "TypeName"
+			},
+			"TaxID": {
+				"ClassName": "TTaxCode",
+				"Field": "taxcodeid"
+			},
+			"ShippingMethod": {
+				"ClassName": "TShippingMethod",
+				"Field": "ShippingMethod"
+			},
+			"ShippingID": {
+				"ClassName": "TShippingMethod",
+				"Field": "ShippingMethodID"
+			},
+			"Terms": {
+				"ClassName": "TTerms",
+				"Field": "Terms"
+			},
+			"TermsID": {
+				"ClassName": "TTerms",
+				"Field": "TermsID"
+			},
+			"PayMethodID": {
+				"ClassName": "TPaymethod",
+				"Field": "PaymethodID"
+			},
+			"RepID": {
+				"ClassName": "TEmployeeDetails",
+				"Field": "EmployeeId"
+			},
+			"RepName": {
+				"ClassName": "TEmployeeDetails",
+				"Field": "EmployeeName"
+			},
+			"ParentClientID": {
+				"ClassName": "TClient",
+				"Field": "ClientID"
+			},
+//			"CombinedInvoiceBOID": {
+//				"ClassName": "",
+//				"Field": ""
+//			},
+//			"CombinedPurchaseBOID": {
+//				"ClassName": "",
+//				"Field": ""
+//			},
+//			"CombinedSalesOrderBOID": {
+//				"ClassName": "",
+//				"Field": ""
+//			},
+			"DefaultInvoiceTemplateID": {
+				"ClassName": "TReportTemplate",
+				"Field": "TemplID"
+			},
+			"DefaultDeliveryTemplateID": {
+				"ClassName": "TReportTemplate",
+				"Field": "TemplID"
+			},
+                        "ForeignExchangeSellCode": {
+				"ClassName": "TCurrency",
+				"Field": "Code"
+			},
+			"DefaultClass": {
+				"ClassName": "TDeptClass",
+				"Field": "ClassName"
+			},
+			"ParentRelatedClientID": {
+				"ClassName": "TClient",
+				"Field": "ClientID"
+			},
+			"CompanyTypeID": {
+				"ClassName": "TClientType",
+				"Field": "ClientTypeID"
+			}
+                }
+        },
+	"TSource": {
+		"TableName": "tblsource",
+		"IdFieldName": "MedTypeID",
+		"LookupFields": "MedTypeID,MediaType,GlobalRef,msTimeStamp"
+		"Mappings": {
+			"Account": {
+				"ClassName": "TAccount",
+				"Field": "AccountID"
+			}
+                }
+        },
+	"TClientType": {
+		"TableName": "tblclienttype",
+		"IdFieldName": "ClientTypeId",
+		"LookupFields": "ClientTypeID,TypeName,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"TermsID": {
+				"ClassName": "TTerms",
+				"Field": "TermsID"
+			},
+			"DefaultPostAccount": {
+				"ClassName": "TAccount",
+				"Field": "AccountName"
+			},
+			"DefaultPostAccountID": {
+				"ClassName": "TAccount",
+				"Field": "AccountID"
+			}
+                }
+        },
+        "TGroupDiscounts": {
+		"TableName": "tblprodgroupdiscs",
+		"IdFieldName": "GrpDiscID",
+		"LookupFields": "GrpDiscID,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"ClientID": {
+				"ClassName": "TClient",
+				"Field": "ClientID"
+			}
+                }
+        },
+	"TShippingMethod": {
+		"TableName": "tblShippingMethods",
+		"IdFieldName": "ShippingMethodID",
+		"LookupFields": "ShippingMethodID,ShippingMethod,GlobalRef,msTimeStamp"
+        },
+	"TCurrency": {
+		"TableName": "tblcurrencyconversion",
+		"IdFieldName": "CurrencyID",
+		"LookupFields": "CurrencyID,Country,Code,GlobalRef,msTimeStamp"
+        },
+	"TCurrencyRateHistory": {
+		"TableName": "tblcurrencyconversionhistory",
+		"IdFieldName": "CurrencyHistoryID",
+		"LookupFields": "CurrencyHistoryID,Code,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"CurrencyID": {
+				"ClassName": "TCurrency",
+				"Field": "CurrencyID"
+			},
+			"Code": {
+				"ClassName": "TCurrency",
+				"Field": "Code"
+			},
+                }
+        },
+	"TFuncRoom": {
+		"TableName": "tblfuncrooms",
+		"IdFieldName": "RoomID",
+		"LookupFields": "RoomID,Name,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"ParentRoomID": {
+				"ClassName": "TFuncRoom",
+				"Field": "RoomID"
+			}
+                }
+        },
+        "TProductExtraBuyPrice": {
+		"TableName": "tblextraprice",
+		"IdFieldName": "ExtraPartPriceID",
+		"LookupFields": "ExtraPartPriceID,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"PartsID": {
+				"ClassName": "TProduct",
+				"Field": "PartsID"
+			},
+			"SupplierID": {
+				"ClassName": "TClient",
+				"Field": "ClientID"
+			}
+                }
+        },
+        "TProductExtraSellPrice": {
+		"TableName": "tblextrapricesell",
+		"IdFieldName": "PriceID",
+		"LookupFields": "PriceID,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"PartsID": {
+				"ClassName": "TProduct",
+				"Field": "PartsID"
+			},
+			"ClientTypeID": {
+				"ClassName": "TClientType",
+				"Field": "ClientTypeID"
+			}
+                }
+        },
+        "TSpecialProducts": {
+		"TableName": "tblCustomerLines",
+		"IdFieldName": "CustomerLinesID",
+		"LookupFields": "CustomerLinesID,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"CustomerID": {
+				"ClassName": "TClient",
+				"Field": "ClientID"
+			},
+			"ProductID": {
+				"ClassName": "TProduct",
+				"Field": "PartsID"
+			}
+                }
+        },
+        "TForms": {
+		"TableName": "tblforms",
+		"IdFieldName": "FormID",
+		"LookupFields": "FormID,GlobalRef,msTimeStamp"
+        },
+        "TEmployeeFormAccess": {
+		"TableName": "tblemployeeformsaccess",
+		"IdFieldName": "FormAccessLineID",
+		"LookupFields": "FormAccessLineID,GlobalRef,msTimeStamp",
+		"Mappings": {
+			"EmployeeID": {
+				"ClassName": "TEmployeeDetails",
+				"Field": "EmployeeID"
+			},
+			"FormID": {
+				"ClassName": "TForms",
+				"Field": "FormID"
+			}
+                }
+	}
+}

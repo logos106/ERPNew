@@ -1,0 +1,121 @@
+unit POSConst;
+
+interface
+
+const
+  MAX_KEYPAD = 500;
+
+  DEFAULT_TILL   = 1; // id of primary till
+
+  NotesncoinsCount = 13;
+
+  // Functions
+  FN_PRODUCT       = 0;
+  FN_BARCODE       = 1;
+  FN_CANCEL        = 2;
+  FN_CASH          = 3;
+  FN_AMEX          = 4;
+  FN_CHEQUE        = 5;
+  FN_CREDIT_CARD   = 6;
+  FN_CUST_ACNT     = 8;
+  FN_DOL_DISC      = 9;
+  FN_INVOICE       = 10;
+  FN_DOL_SURCH     = 11;
+  FN_EFTPOS        = 13;
+  FN_EOP           = 14;
+  FN_LAYBY         = 17;
+  FN_LOCK          = 18;
+  FN_MEMO          = 20;
+  FN_NO_SALE       = 21;
+  FN_PCENT_DISC_ITM = 22;
+  FN_PCENT_DISC_TOT = 23;
+  FN_PCENT_SURCH_ITM = 24;
+  FN_PCENT_SURCH_TOT = 25;
+  FN_PRICE_CHANGE  = 26;
+  FN_PRINT_INV     = 27;
+  FN_PROD_CODE     = 28;
+  FN_RCPT_LF       = 31;
+  FN_PRN_TOGGLE    = 32;
+  FN_REFUND        = 33;
+  FN_SALESMAN      = 35;
+  FN_UOM           = 37;
+  FN_VISA          = 38;
+  FN_VOUCHER       = 39;
+  FN_CLEAR         = 41;
+  FN_PROD_LIST     = 43;
+  FN_QUANT         = 44;
+  FN_CHQ_NO        = 45;
+  FN_CHG_PAD       = 46;
+  FN_MAIN_PAD      = 47;
+  FN_TRAIN         = 48;
+  FN_SALESMAN_ID   = 49;
+  FN_CUST_LIST     = 50;
+  FN_PRINT_RCPT    = 51;
+  FN_MASTERCARD    = 52;
+  FN_INTERRUPT     = 53;
+  FN_VOUCHER_REDEEM = 54;
+  FN_VOUCHER_ISSUE = 55;
+  FN_VOUCHER_CREATE = 56;
+  FN_COMPLETE_SALE = 57;
+  FN_CASH_OUT      = 58;
+  FN_SUB_PRODUCT   = 59;
+  FN_PICK_SLIP     = 60;
+  FN_FIXED_AMOUNT  = 61;
+  FN_MEMO_LINE     = 62;
+  FN_DINER         = 63;
+  FN_REPRINT_EFT   = 64;
+  FN_LINEFEED      = 65;
+  FN_EFTPOS_CASHOUT = 66;
+  FN_EFT_SETTLEMENT = 67;
+  FN_EFT_CONTROL   = 68;
+  FN_BAR_TAB       = 69;
+  FN_PAY_TAB       = 70;
+  FN_CLOSE_TABS    = 71;
+  FN_CUST_SALES    = 72;
+  FN_PAY_ACCOUNT   = 73;
+  FN_SPLIT_ACCOUNT = 74;
+  FN_SPLIT_TAB     = 75;
+  FN_TAB_LIST      = 76;
+  FN_TABLE_SELECTOR = 77;
+  FN_TRANSFER_TAB  = 78;
+  FN_EOP_ALL       = 79;
+  FN_PREPAY_ACCOUNT = 80;
+  FN_PRESETMEMO    = 81;
+  FN_PCC_LOGIN     = 82;
+  FN_PCC_LOGOUT    = 83;
+  FN_PCC_AVAILABLE_TRANSACTIONS = 84;
+  FN_PCC_DISPENSER_TEST = 85;
+  FN_PCC_DELIVERY = 86;
+  FN_PCC_DIP_READING = 87;
+  FN_MATCH_PREV_QTY = 88;
+  FN_DEBIT_CARD    = 89;
+  FN_MAESTRO       = 90;
+  FN_ATTRIBUTEPROD  =91;
+  FN_CUSTOMERDETAILS=92;
+  FN_REDEEMPOINTS=93;
+  FN_FIXED_PCENT_DISC_ITM = 94;
+  FN_FIXED_PCENT_DISC_TOT = 95;
+  FN_FIXED_PCENT_SURCH_ITM = 96;
+  FN_FIXED_PCENT_SURCH_TOT = 97;
+  FN_FIXED_DISC = 98;
+  FN_FIXED_SURCH = 99;
+  FN_DEVMODE=100;
+  FN_READWEIGHT=101;
+  FN_PRICEMATRIX=102;
+  FN_VOUCHER_GROUP=103;
+  FN_TAX_CODE=104;
+  FN_PRINT_SALE =105;
+  FN_SINGLE_UOM = 106;
+  FN_SIGNATURE = 107;
+  FN_QUOTE = 108;
+  FN_SALES_ORDER = 109;
+  FN_INVOICE_LIST = 110;
+  FN_SMART_ORDER = 111;
+  FN_CALCULATOR = 112;
+  FN_CASHDROP = 113;
+  FN_SELECTALL = 114;
+  FN_AFTERPAY = 115;
+
+implementation
+
+end.

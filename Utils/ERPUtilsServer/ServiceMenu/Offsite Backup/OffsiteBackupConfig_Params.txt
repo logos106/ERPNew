@@ -1,0 +1,12 @@
+{
+"OffsiteBackupConfigText":"",
+"ERPUtilsServer":"localhost",
+"color":16770790,
+"Position":
+{
+"left":573,
+"top":223
+},
+"ModalResult":2,
+"OffsiteRestoreConfigText":""
+}

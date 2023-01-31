@@ -1,0 +1,31 @@
+{
+    "1":
+    {
+        "Test Case":"CONF-ATO-PAYEVNT-BULK-001_Submit_Request_01",
+        "Service":"Submit",
+        "Test Case Name":"Small Payer valid submission - simple mandatory values.",
+        "PAYEVNTEMP Records":["CONF-ATO-PAYEVNTEMP-BULK-001_Submit_Request_02","CONF-ATO-PAYEVNTEMP-BULK-001_Submit_Request_03","CONF-ATO-PAYEVNTEMP-BULK-001_Submit_Request_04"],
+        "Upload Filename":"ERPPayRun_2018-11-19-140911.xml",
+        "Performed By":"TrueERP Development",
+        "Date-Time":"2018-11-19 14:09:11",
+        "Test Result":"Successful"
+    },
+    "2":
+    {
+        "Test Case":"CONF-ATO-PAYEVNT-BULK-002_Submit_Request_01",
+        "Service":"Submit",
+        "Test Case Name":"Registered Agent valid submission - one payee with overseas address.",
+        "PAYEVNTEMP Records":["CONF-ATO-PAYEVNTEMP-BULK-002_Submit_Request_02"],
+        "Upload Filename":"ERPPayRun_2018-11-19-141158.xml",
+        "Performed By":"TrueERP Development",
+        "Date-Time":"2018-11-19 14:11:58",
+        "Test Result":"Successful"
+    },
+    "3":
+    {
+        "Test Case":"CONF-ATO-PAYEVNT-BULK-003_Submit_Request_01",
+        "Service":"Submit",
+        "Test Case Name":"Payer valid submission with Warning – Cross form validation firing on parent with \r\nincorrect Payee record count.\r\n",
+        "PAYEVNTEMP Records":["CONF-ATO-PAYEVNTEMP-BULK-003_Submit_Request_02","CONF-ATO-PAYEVNTEMP-BULK-003_Submit_Request_03","CONF-ATO-PAYEVNTEMP-BULK-003_Submit_Request_04"]
+    }
+}

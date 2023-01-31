@@ -1,0 +1,14 @@
+{
+	"DoPurge":true,
+	"DoEmailCheck":true,
+	"DoGoogleCalendar":true,
+	"DoGoogleQueue":true,
+	"DoSMSCheck":true,
+	"DoPingCheck":true,
+	"DoLicenceCheck":true,
+	"DoInactiveUserCheck":true,
+	"DoUpdateCheck":true,
+	"DoRemoveAdminUser":true,
+	"DoReportCheck":true,
+	"DoCustomCheck":true
+}

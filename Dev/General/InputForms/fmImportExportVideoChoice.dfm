@@ -1,0 +1,90 @@
+inherited frmImportExportVideoChoice: TfrmImportExportVideoChoice
+  Left = 150
+  Top = 251
+  HelpContext = 788001
+  BorderStyle = bsDialog
+  Caption = 'Choice'
+  ClientHeight = 163
+  ClientWidth = 264
+  FormStyle = fsStayOnTop
+  KeyPreview = True
+  Position = poScreenCenter
+  ExplicitLeft = 8
+  ExplicitTop = 8
+  ExplicitWidth = 270
+  ExplicitHeight = 191
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited lblSkingroupMsg: TLabel
+    Top = 163
+    Width = 264
+    ExplicitTop = 163
+    ExplicitWidth = 264
+    HelpContext = 788004
+  end
+  object btndoit: TDNMSpeedButton [4]
+    Left = 12
+    Top = 93
+    Width = 242
+    Height = 57
+    Hint = '"Export The Data"'
+    HelpContext = 788003
+    Anchors = [akTop]
+    Caption = 'Export'
+    Color = clWhite
+    DisableTransparent = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    HotTrackColor = clBtnShadow
+    HotTrackFont.Charset = DEFAULT_CHARSET
+    HotTrackFont.Color = clWindowText
+    HotTrackFont.Height = -11
+    HotTrackFont.Name = 'MS Sans Serif'
+    HotTrackFont.Style = []
+    MaxTextDisplay = False
+    ParentColor = False
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    SlowDecease = True
+    Style = bsModern
+    TabOrder = 1
+    WordWrap = True
+    OnClick = btndoitClick
+  end
+  object btnVideo: TDNMSpeedButton [5]
+    Left = 12
+    Top = 13
+    Width = 242
+    Height = 57
+    HelpContext = 788002
+    Anchors = [akTop]
+    Caption = 'Play Video'
+    Color = clWhite
+    DisableTransparent = False
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    HotTrackColor = clBtnShadow
+    HotTrackFont.Charset = DEFAULT_CHARSET
+    HotTrackFont.Color = clWindowText
+    HotTrackFont.Height = -11
+    HotTrackFont.Name = 'MS Sans Serif'
+    HotTrackFont.Style = []
+    MaxTextDisplay = False
+    ParentColor = False
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+    SlowDecease = True
+    Style = bsModern
+    TabOrder = 0
+    WordWrap = True
+    OnClick = btnVideoClick
+  end
+end

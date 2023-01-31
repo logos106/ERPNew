@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Platinum1XML DataVersion="7.2.1.3" Database="platinum1" User="Admin" Pass="Admin" RequestTiming="On">
+<Platinum1XMLRequest OnError="Stop">
+	<Request Command="Export" DataObject="TInvoice" Ref="InRef-123">
+		<ExcludeInactive>True</ExcludeInactive>
+		<Filter FilterName="SaleDateRange">
+			<DateFrom>2008-03-06</DateFrom>
+			<DateTo>2008-03-06</DateTo>
+		</Filter>
+	</Request>
+</Platinum1XMLRequest>
+</Platinum1XML>

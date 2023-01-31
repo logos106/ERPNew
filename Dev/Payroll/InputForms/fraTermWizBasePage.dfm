@@ -1,0 +1,2 @@
+inherited frTermWizBasePage: TfrTermWizBasePage
+end

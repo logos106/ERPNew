@@ -1,0 +1,27 @@
+{
+"displayprogress":false,
+"softwarereleasetype":"Production",
+"updatelist":
+{
+"ErpUtilsServerConsol":
+{
+"modulefilename":"C:\\Dev\\ERP\\Utils\\ERPUtilsServer\\EXE\\Debug\\Win32\\ErpUtilsServerConsol.exe",
+"ServiceName":"ERPUtils"
+},
+"ErpServiceMenu":
+{
+"modulefilename":"c:\\ERP Software\\Utilities\\ErpServiceMenu.exe",
+"installifnotfound":true
+},
+"FileUploader":
+{
+"modulefilename":"c:\\ERP Software\\Utilities\\ClientUploads.exe"
+},
+"MySQLServer":
+{
+"version":"5.1.52-community",
+"modulefilename":"C:\\Mysql_ERP\\bin\\mysqld.exe"
+}
+},
+"DoBatchUpdate":true
+}

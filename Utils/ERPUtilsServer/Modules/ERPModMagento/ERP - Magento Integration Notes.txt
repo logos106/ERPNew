@@ -1,0 +1,3 @@
+Attribute Sets in Magento are equivilent to a product type.
+The "First Column" on the ERP product card will me used for the Attribute Set
+in Magento.

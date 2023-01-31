@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- sample Open Company request  -->
+<!-- NOTE: The RequestTiming attribute is for internal use only.  -->
+<platinum1xml>
+	<xmlBlock ticket="1iMsDP44qXJ8FZf"  requestTiming="On">
+		<request command="terp.execute">
+			<request command="openCompany">
+				<!-- optional - defaults to localhost  -->
+				<dataServer>localhost</dataServer>	  
+				<!-- optional  -->
+				<dataServerPort>3309</dataServerPort>	  
+				<!-- all following required  -->
+				<database>Platinum1</database>	  
+				<user>Admin</user>	  
+				<pass>Admin</pass>
+			</request>		  
+		</request>
+	</xmlBlock>
+</platinum1xml>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Pip3A4PurchaseOrderRequest SYSTEM "3A4_MS_V02_00_PurchaseOrderRequest.dtd">
+<Pip3A4PurchaseOrderRequest>
+	<fromRole>
+		<PartnerRoleDescription>
+			<GlobalPartnerRoleClassificationCode></GlobalPartnerRoleClassificationCode>
+			<PartnerDescription>
+				<BusinessDescription>
+				</BusinessDescription>
+			</PartnerDescription>
+		</PartnerRoleDescription>
+	</fromRole>
+	<GlobalDocumentFunctionCode></GlobalDocumentFunctionCode>
+	<PurchaseOrder>
+		<GlobalPurchaseOrderTypeCode></GlobalPurchaseOrderTypeCode>
+		<isDropShip>
+			<AffirmationIndicator></AffirmationIndicator>
+		</isDropShip>
+		<ProductLineItem>
+			<GlobalProductUnitOfMeasureCode></GlobalProductUnitOfMeasureCode>
+			<isDropShip>
+				<AffirmationIndicator></AffirmationIndicator>
+			</isDropShip>
+			<LineNumber></LineNumber>
+			<OrderQuantity>
+				<requestedQuantity>
+					<ProductQuantity></ProductQuantity>
+				</requestedQuantity>
+			</OrderQuantity>
+			<ProductIdentification>
+			</ProductIdentification>
+			<requestedEvent>
+				<TransportationEvent>
+					<DateStamp></DateStamp>
+					<GlobalTransportEventCode></GlobalTransportEventCode>
+				</TransportationEvent>
+			</requestedEvent>
+		</ProductLineItem>
+	</PurchaseOrder>
+	<thisDocumentGenerationDateTime>
+		<DateTimeStamp></DateTimeStamp>
+	</thisDocumentGenerationDateTime>
+	<thisDocumentIdentifier>
+		<ProprietaryDocumentIdentifier></ProprietaryDocumentIdentifier>
+	</thisDocumentIdentifier>
+	<toRole>
+		<PartnerRoleDescription>
+			<GlobalPartnerRoleClassificationCode></GlobalPartnerRoleClassificationCode>
+			<PartnerDescription>
+				<BusinessDescription>
+				</BusinessDescription>
+			</PartnerDescription>
+		</PartnerRoleDescription>
+	</toRole>
+</Pip3A4PurchaseOrderRequest>

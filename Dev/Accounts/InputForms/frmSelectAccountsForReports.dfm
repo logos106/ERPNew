@@ -1,0 +1,1423 @@
+inherited fmSelectAccountsforReports: TfmSelectAccountsforReports
+  Left = 200
+  Top = 146
+  HelpContext = 667000
+  Caption = 'Income & Expense Report Configuration '
+  ClientHeight = 531
+  OldCreateOrder = True
+  ExplicitLeft = 200
+  ExplicitTop = 146
+  ExplicitWidth = 320
+  ExplicitHeight = 570
+  PixelsPerInch = 96
+  TextHeight = 15
+  inherited lblSkingroupMsg: TLabel
+    Top = 485
+    ExplicitTop = 485
+  end
+  object pnlTop: TDNMPanel [5]
+    Left = 0
+    Top = 0
+    Width = 949
+    Height = 78
+    HelpContext = 667040
+    Align = alTop
+    BevelOuter = bvNone
+    Color = 14153215
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    object pnlTitle: TDNMPanel
+      Left = 93
+      Top = 10
+      Width = 763
+      Height = 57
+      HelpContext = 667041
+      BevelInner = bvRaised
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -29
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      object TitleShader: TShader
+        Left = 2
+        Top = 2
+        Width = 759
+        Height = 53
+        HelpContext = 667042
+        Align = alClient
+        BevelOuter = bvNone
+        TabOrder = 0
+        FromColor = clBtnFace
+        ToColor = clWhite
+        FromColorMirror = clWhite
+        ToColorMirror = clBtnFace
+        Steps = 10
+        Direction = False
+        Version = '1.4.0.0'
+        object TitleLabel: TLabel
+          Left = 0
+          Top = 0
+          Width = 759
+          Height = 53
+          HelpContext = 667043
+          Align = alClient
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Income && Expense Report Configuration '
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -35
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+          Transparent = True
+          Layout = tlCenter
+        end
+      end
+    end
+  end
+  object pnlBottom: TDNMPanel [6]
+    Left = 0
+    Top = 485
+    Width = 949
+    Height = 46
+    HelpContext = 667037
+    Align = alBottom
+    BevelOuter = bvNone
+    Color = 14153215
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    DesignSize = (
+      949
+      46)
+    object cmdCancel: TDNMSpeedButton
+      Left = 522
+      Top = 11
+      Width = 87
+      Height = 27
+      HelpContext = 667038
+      Anchors = []
+      Caption = '&Cancel'
+      DisableTransparent = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        333333333333333333333333000033338833333333333333333F333333333333
+        0000333911833333983333333388F333333F3333000033391118333911833333
+        38F38F333F88F33300003339111183911118333338F338F3F8338F3300003333
+        911118111118333338F3338F833338F3000033333911111111833333338F3338
+        3333F8330000333333911111183333333338F333333F83330000333333311111
+        8333333333338F3333383333000033333339111183333333333338F333833333
+        00003333339111118333333333333833338F3333000033333911181118333333
+        33338333338F333300003333911183911183333333383338F338F33300003333
+        9118333911183333338F33838F338F33000033333913333391113333338FF833
+        38F338F300003333333333333919333333388333338FFF830000333333333333
+        3333333333333333333888330000333333333333333333333333333333333333
+        0000}
+      HotTrackFont.Charset = DEFAULT_CHARSET
+      HotTrackFont.Color = clWindowText
+      HotTrackFont.Height = -12
+      HotTrackFont.Name = 'Arial'
+      HotTrackFont.Style = []
+      ModalResult = 2
+      NumGlyphs = 2
+      ParentFont = False
+      TabOrder = 0
+      OnClick = cmdCancelClick
+    end
+    object cmdsave: TDNMSpeedButton
+      Left = 322
+      Top = 11
+      Width = 87
+      Height = 27
+      HelpContext = 667039
+      Anchors = []
+      Caption = '&Save'
+      DisableTransparent = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3333333333333333333333330000333333333333333333333333F33333333333
+        00003333344333333333333333388F3333333333000033334224333333333333
+        338338F3333333330000333422224333333333333833338F3333333300003342
+        222224333333333383333338F3333333000034222A22224333333338F338F333
+        8F33333300003222A3A2224333333338F3838F338F33333300003A2A333A2224
+        33333338F83338F338F33333000033A33333A222433333338333338F338F3333
+        0000333333333A222433333333333338F338F33300003333333333A222433333
+        333333338F338F33000033333333333A222433333333333338F338F300003333
+        33333333A222433333333333338F338F00003333333333333A22433333333333
+        3338F38F000033333333333333A223333333333333338F830000333333333333
+        333A333333333333333338330000333333333333333333333333333333333333
+        0000}
+      HotTrackFont.Charset = DEFAULT_CHARSET
+      HotTrackFont.Color = clWindowText
+      HotTrackFont.Height = -12
+      HotTrackFont.Name = 'Arial'
+      HotTrackFont.Style = []
+      NumGlyphs = 2
+      ParentFont = False
+      TabOrder = 1
+      OnClick = cmdSaveClick
+    end
+  end
+  object pnldetails: TDNMPanel [7]
+    Left = 0
+    Top = 78
+    Width = 949
+    Height = 407
+    HelpContext = 667031
+    Align = alClient
+    BevelOuter = bvNone
+    Color = 14153215
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    object b3: TBevel
+      Left = 380
+      Top = 0
+      Width = 190
+      Height = 407
+      HelpContext = 667032
+      Align = alLeft
+      Shape = bsFrame
+    end
+    object b1: TBevel
+      Left = 0
+      Top = 0
+      Width = 190
+      Height = 407
+      HelpContext = 667033
+      Align = alLeft
+      Shape = bsFrame
+    end
+    object b2: TBevel
+      Left = 190
+      Top = 0
+      Width = 190
+      Height = 407
+      HelpContext = 667034
+      Align = alLeft
+      Shape = bsFrame
+    end
+    object b5: TBevel
+      Left = 760
+      Top = 0
+      Width = 190
+      Height = 407
+      HelpContext = 667035
+      Align = alLeft
+      Shape = bsFrame
+    end
+    object Label3: TLabel
+      Left = 46
+      Top = 10
+      Width = 108
+      Height = 16
+      HelpContext = 667001
+      Caption = 'Income Accounts'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+    end
+    object Label2: TLabel
+      Left = 240
+      Top = 10
+      Width = 99
+      Height = 16
+      HelpContext = 667002
+      Caption = 'COGS Accounts'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+    end
+    object Label1: TLabel
+      Left = 422
+      Top = 10
+      Width = 115
+      Height = 16
+      HelpContext = 667003
+      Caption = 'Expense Accounts'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+    end
+    object b4: TBevel
+      Left = 570
+      Top = 0
+      Width = 190
+      Height = 407
+      HelpContext = 667036
+      Align = alLeft
+      Shape = bsFrame
+    end
+    object Label4: TLabel
+      Left = 620
+      Top = 10
+      Width = 94
+      Height = 16
+      HelpContext = 667004
+      Caption = 'Asset Accounts'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+    end
+    object Label5: TLabel
+      Left = 805
+      Top = 10
+      Width = 112
+      Height = 16
+      HelpContext = 667005
+      Caption = 'Liability Accounts'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+    end
+    object lblIncome: TLabel
+      Left = 12
+      Top = 367
+      Width = 49
+      Height = 32
+      HelpContext = 667006
+      Alignment = taRightJustify
+      Caption = 'Budget Amount'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+      WordWrap = True
+    end
+    object Label6: TLabel
+      Left = 201
+      Top = 367
+      Width = 49
+      Height = 32
+      HelpContext = 667007
+      Alignment = taRightJustify
+      Caption = 'Budget Amount'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+      WordWrap = True
+    end
+    object Label7: TLabel
+      Left = 394
+      Top = 367
+      Width = 49
+      Height = 32
+      HelpContext = 667008
+      Alignment = taRightJustify
+      Caption = 'Budget Amount'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+      WordWrap = True
+    end
+    object Label8: TLabel
+      Left = 586
+      Top = 367
+      Width = 49
+      Height = 32
+      HelpContext = 667009
+      Alignment = taRightJustify
+      Caption = 'Budget Amount'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+      WordWrap = True
+    end
+    object Label9: TLabel
+      Left = 777
+      Top = 367
+      Width = 49
+      Height = 32
+      HelpContext = 667010
+      Alignment = taRightJustify
+      Caption = 'Budget Amount'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = True
+      WordWrap = True
+    end
+    object pnlExp: TDNMPanel
+      Left = 381
+      Top = 30
+      Width = 186
+      Height = 159
+      Hint = 'Double Click to Select the Account'
+      HelpContext = 667011
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+    end
+    object pnlCogs: TDNMPanel
+      Left = 192
+      Top = 30
+      Width = 185
+      Height = 159
+      Hint = 'Double Click to Select the Account'
+      HelpContext = 667012
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+    end
+    object pnlIncome: TDNMPanel
+      Left = 1
+      Top = 30
+      Width = 186
+      Height = 159
+      Hint = 'Double Click to Select the Account'
+      HelpContext = 667013
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 2
+    end
+    object grdExp: TwwDBGrid
+      Left = 381
+      Top = 190
+      Width = 186
+      Height = 173
+      Hint = 'Double click to remove the Account from selection'
+      HelpContext = 667014
+      Selected.Strings = (
+        'Accountname'#9'25'#9'Account Name'#9'F')
+      IniAttributes.Delimiter = ';;'
+      TitleColor = clWhite
+      FixedCols = 0
+      ShowHorzScrollBar = False
+      DataSource = dsExpAccount
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = []
+      KeyOptions = []
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+      ParentFont = False
+      TabOrder = 3
+      TitleAlignment = taLeftJustify
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -12
+      TitleFont.Name = 'Arial'
+      TitleFont.Style = [fsBold]
+      TitleLines = 1
+      TitleButtons = False
+      OnDblClick = grdExpDblClick
+      FooterColor = clWhite
+      object grdExpIButton: TwwIButton
+        Left = 0
+        Top = 0
+        Width = 21
+        Height = 25
+        HelpContext = 667015
+        AllowAllUp = True
+        Glyph.Data = {
+          26040000424D2604000000000000360000002800000012000000120000000100
+          180000000000F0030000120B0000120B00000000000000000000FFFFFFFFFFFF
+          636393525293FEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFF555591616191FFFFFFFFFFFF0000FDFDFD6060820000D20000DA3F3F
+          7DF4F4F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7F7F741417D0000CC00
+          00CE5B5B80FBFBFB00009292A40000A40000C80000F60000BA30307BE7E7E7FF
+          FFFFFFFFFFFFFFFFFFFFFFE7E7E734347C0000B20000FC0000D40000A28D8DA1
+          000062628D0000BE0000D80000F80000F80000BA1F1F79DBDBDBFFFFFFFFFFFF
+          D9D9D91C1C790000B00000FF1717FF0000F40000CA5C5C8900007979A90000CC
+          0000D20000D60000F80000F40000B0131375DFDFDFDEDEDE1212750000B00000
+          FA0F0FFF0000EA0000E40000E47373AB0000EAEAEC3F3FB30000CC0000D20000
+          D80000F20000EE0000A812126B11116B0000A80000F60303FF0000E80000E200
+          00DE3F3FBDEAEAEC0000FFFFFFFFFFFF4949B30000CC0000CE0000CC0000E400
+          00DC00008A00008A0000DE0000EE0000E00000DE0000DC5252B6FFFFFFFFFFFF
+          0000FFFFFFFFFFFFFFFFFF6464AF0000D00000E00000E20000F60000D60000D6
+          0000F40000DC0000D40000D26A6AB4FFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFF
+          FFFFFFFFFFFF8888BB0101F60303FF0000F80000FC0000FC0000FC0505FF0303
+          E89696BEFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFABAB
+          AB0202910000E40000FC0000F80000F80000FC0000E2050592C7C7C7FFFFFFFF
+          FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFF94949C00005800007C0000D607
+          07FF0000FC0000FC0707FF0000CC00007600004EAEAEB2FFFFFFFFFFFFFFFFFF
+          0000FFFFFFFFFFFF8E8E960000540000840000E00F0FFF0303FF1111FF0F0FFF
+          0303FF0F0FFF0000D600007C00004CB1B1B3FFFFFFFFFFFF0000FFFFFF93939B
+          00004E00007C0000EA1F1FFF1111FF1F1FFF0505EC0000F21F1FFF0F0FFF1F1F
+          FF0000DC000078000044B3B3B7FFFFFF0000E0E0E100004400007E0000EC2D2D
+          FF1919FF2F2FFF0101FCD8D8DDC5C5CF0B0BFF2D2DFF1919FF2929FF0000E000
+          007A151547FBFBFB0000C7C7C80000820000F63535FF2525FF3D3DFF0202FFCA
+          CAD3FFFFFFFFFFFFACACC11515FF3939FF2525FF3535FF0000EA00006EEAEAEA
+          0000E0E0E20000EA5757FF2F2FFF4949FF0707FFCACAD3FFFFFFFFFFFFFFFFFF
+          FFFFFFA6A6BF1B1BFF4343FF3333FF5151FF1414D9F7F7F70000FFFFFFB6B6CD
+          1B1BFF6565FF1212FFC9C9D2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFACAC
+          C22929FF6565FF1616FAD3D3DCFFFFFF0000FFFFFFFFFFFFAFAFC43333E6CCCC
+          D5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9898BE3737E4E0
+          E0E3FFFFFFFFFFFF0000}
+        OnClick = grdExpDblClick
+      end
+    end
+    object grdcogs: TwwDBGrid
+      Left = 192
+      Top = 190
+      Width = 185
+      Height = 173
+      Hint = 'Double click to remove the Account from selection'
+      HelpContext = 667016
+      Selected.Strings = (
+        'Accountname'#9'25'#9'Account Name'#9'F')
+      IniAttributes.Delimiter = ';;'
+      TitleColor = clWhite
+      FixedCols = 0
+      ShowHorzScrollBar = False
+      DataSource = dsCOGSAccount
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = []
+      KeyOptions = []
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+      ParentFont = False
+      TabOrder = 4
+      TitleAlignment = taLeftJustify
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -12
+      TitleFont.Name = 'Arial'
+      TitleFont.Style = [fsBold]
+      TitleLines = 1
+      TitleButtons = False
+      OnDblClick = grdExpDblClick
+      FooterColor = clWhite
+      object grdcogsIButton: TwwIButton
+        Left = 0
+        Top = 0
+        Width = 21
+        Height = 25
+        HelpContext = 667017
+        AllowAllUp = True
+        Glyph.Data = {
+          26040000424D2604000000000000360000002800000012000000120000000100
+          180000000000F0030000120B0000120B00000000000000000000FFFFFFFFFFFF
+          636393525293FEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFF555591616191FFFFFFFFFFFF0000FDFDFD6060820000D20000DA3F3F
+          7DF4F4F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7F7F741417D0000CC00
+          00CE5B5B80FBFBFB00009292A40000A40000C80000F60000BA30307BE7E7E7FF
+          FFFFFFFFFFFFFFFFFFFFFFE7E7E734347C0000B20000FC0000D40000A28D8DA1
+          000062628D0000BE0000D80000F80000F80000BA1F1F79DBDBDBFFFFFFFFFFFF
+          D9D9D91C1C790000B00000FF1717FF0000F40000CA5C5C8900007979A90000CC
+          0000D20000D60000F80000F40000B0131375DFDFDFDEDEDE1212750000B00000
+          FA0F0FFF0000EA0000E40000E47373AB0000EAEAEC3F3FB30000CC0000D20000
+          D80000F20000EE0000A812126B11116B0000A80000F60303FF0000E80000E200
+          00DE3F3FBDEAEAEC0000FFFFFFFFFFFF4949B30000CC0000CE0000CC0000E400
+          00DC00008A00008A0000DE0000EE0000E00000DE0000DC5252B6FFFFFFFFFFFF
+          0000FFFFFFFFFFFFFFFFFF6464AF0000D00000E00000E20000F60000D60000D6
+          0000F40000DC0000D40000D26A6AB4FFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFF
+          FFFFFFFFFFFF8888BB0101F60303FF0000F80000FC0000FC0000FC0505FF0303
+          E89696BEFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFABAB
+          AB0202910000E40000FC0000F80000F80000FC0000E2050592C7C7C7FFFFFFFF
+          FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFF94949C00005800007C0000D607
+          07FF0000FC0000FC0707FF0000CC00007600004EAEAEB2FFFFFFFFFFFFFFFFFF
+          0000FFFFFFFFFFFF8E8E960000540000840000E00F0FFF0303FF1111FF0F0FFF
+          0303FF0F0FFF0000D600007C00004CB1B1B3FFFFFFFFFFFF0000FFFFFF93939B
+          00004E00007C0000EA1F1FFF1111FF1F1FFF0505EC0000F21F1FFF0F0FFF1F1F
+          FF0000DC000078000044B3B3B7FFFFFF0000E0E0E100004400007E0000EC2D2D
+          FF1919FF2F2FFF0101FCD8D8DDC5C5CF0B0BFF2D2DFF1919FF2929FF0000E000
+          007A151547FBFBFB0000C7C7C80000820000F63535FF2525FF3D3DFF0202FFCA
+          CAD3FFFFFFFFFFFFACACC11515FF3939FF2525FF3535FF0000EA00006EEAEAEA
+          0000E0E0E20000EA5757FF2F2FFF4949FF0707FFCACAD3FFFFFFFFFFFFFFFFFF
+          FFFFFFA6A6BF1B1BFF4343FF3333FF5151FF1414D9F7F7F70000FFFFFFB6B6CD
+          1B1BFF6565FF1212FFC9C9D2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFACAC
+          C22929FF6565FF1616FAD3D3DCFFFFFF0000FFFFFFFFFFFFAFAFC43333E6CCCC
+          D5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9898BE3737E4E0
+          E0E3FFFFFFFFFFFF0000}
+        OnClick = grdExpDblClick
+      end
+    end
+    object grdincome: TwwDBGrid
+      Left = 1
+      Top = 190
+      Width = 186
+      Height = 173
+      Hint = 'Double click to remove the Account from selection'
+      HelpContext = 667018
+      Selected.Strings = (
+        'Accountname'#9'25'#9'Account Name'#9'F')
+      IniAttributes.Delimiter = ';;'
+      TitleColor = clWhite
+      FixedCols = 0
+      ShowHorzScrollBar = False
+      DataSource = dsIncomeAccount
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = []
+      KeyOptions = []
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+      ParentFont = False
+      TabOrder = 5
+      TitleAlignment = taLeftJustify
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -12
+      TitleFont.Name = 'Arial'
+      TitleFont.Style = [fsBold]
+      TitleLines = 1
+      TitleButtons = False
+      OnDblClick = grdExpDblClick
+      FooterColor = clWhite
+      object grdincomeIButton: TwwIButton
+        Left = 0
+        Top = 0
+        Width = 21
+        Height = 25
+        HelpContext = 667019
+        AllowAllUp = True
+        Glyph.Data = {
+          26040000424D2604000000000000360000002800000012000000120000000100
+          180000000000F0030000120B0000120B00000000000000000000FFFFFFFFFFFF
+          636393525293FEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFF555591616191FFFFFFFFFFFF0000FDFDFD6060820000D20000DA3F3F
+          7DF4F4F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7F7F741417D0000CC00
+          00CE5B5B80FBFBFB00009292A40000A40000C80000F60000BA30307BE7E7E7FF
+          FFFFFFFFFFFFFFFFFFFFFFE7E7E734347C0000B20000FC0000D40000A28D8DA1
+          000062628D0000BE0000D80000F80000F80000BA1F1F79DBDBDBFFFFFFFFFFFF
+          D9D9D91C1C790000B00000FF1717FF0000F40000CA5C5C8900007979A90000CC
+          0000D20000D60000F80000F40000B0131375DFDFDFDEDEDE1212750000B00000
+          FA0F0FFF0000EA0000E40000E47373AB0000EAEAEC3F3FB30000CC0000D20000
+          D80000F20000EE0000A812126B11116B0000A80000F60303FF0000E80000E200
+          00DE3F3FBDEAEAEC0000FFFFFFFFFFFF4949B30000CC0000CE0000CC0000E400
+          00DC00008A00008A0000DE0000EE0000E00000DE0000DC5252B6FFFFFFFFFFFF
+          0000FFFFFFFFFFFFFFFFFF6464AF0000D00000E00000E20000F60000D60000D6
+          0000F40000DC0000D40000D26A6AB4FFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFF
+          FFFFFFFFFFFF8888BB0101F60303FF0000F80000FC0000FC0000FC0505FF0303
+          E89696BEFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFABAB
+          AB0202910000E40000FC0000F80000F80000FC0000E2050592C7C7C7FFFFFFFF
+          FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFF94949C00005800007C0000D607
+          07FF0000FC0000FC0707FF0000CC00007600004EAEAEB2FFFFFFFFFFFFFFFFFF
+          0000FFFFFFFFFFFF8E8E960000540000840000E00F0FFF0303FF1111FF0F0FFF
+          0303FF0F0FFF0000D600007C00004CB1B1B3FFFFFFFFFFFF0000FFFFFF93939B
+          00004E00007C0000EA1F1FFF1111FF1F1FFF0505EC0000F21F1FFF0F0FFF1F1F
+          FF0000DC000078000044B3B3B7FFFFFF0000E0E0E100004400007E0000EC2D2D
+          FF1919FF2F2FFF0101FCD8D8DDC5C5CF0B0BFF2D2DFF1919FF2929FF0000E000
+          007A151547FBFBFB0000C7C7C80000820000F63535FF2525FF3D3DFF0202FFCA
+          CAD3FFFFFFFFFFFFACACC11515FF3939FF2525FF3535FF0000EA00006EEAEAEA
+          0000E0E0E20000EA5757FF2F2FFF4949FF0707FFCACAD3FFFFFFFFFFFFFFFFFF
+          FFFFFFA6A6BF1B1BFF4343FF3333FF5151FF1414D9F7F7F70000FFFFFFB6B6CD
+          1B1BFF6565FF1212FFC9C9D2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFACAC
+          C22929FF6565FF1616FAD3D3DCFFFFFF0000FFFFFFFFFFFFAFAFC43333E6CCCC
+          D5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9898BE3737E4E0
+          E0E3FFFFFFFFFFFF0000}
+        OnClick = grdExpDblClick
+      end
+    end
+    object pnlAsset: TDNMPanel
+      Left = 571
+      Top = 30
+      Width = 186
+      Height = 159
+      Hint = 'Double Click to Select the Account'
+      HelpContext = 667020
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 9
+    end
+    object grdAsset: TwwDBGrid
+      Left = 571
+      Top = 190
+      Width = 186
+      Height = 173
+      Hint = 'Double click to remove the Account from selection'
+      HelpContext = 667021
+      Selected.Strings = (
+        'Accountname'#9'25'#9'Account Name'#9'F')
+      IniAttributes.Delimiter = ';;'
+      TitleColor = clWhite
+      FixedCols = 0
+      ShowHorzScrollBar = False
+      DataSource = dsAssetAccount
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = []
+      KeyOptions = []
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+      ParentFont = False
+      TabOrder = 10
+      TitleAlignment = taLeftJustify
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -12
+      TitleFont.Name = 'Arial'
+      TitleFont.Style = [fsBold]
+      TitleLines = 1
+      TitleButtons = False
+      OnDblClick = grdExpDblClick
+      FooterColor = clWhite
+      object grdAssetIButton: TwwIButton
+        Left = 0
+        Top = 0
+        Width = 21
+        Height = 25
+        HelpContext = 667022
+        AllowAllUp = True
+        Glyph.Data = {
+          26040000424D2604000000000000360000002800000012000000120000000100
+          180000000000F0030000120B0000120B00000000000000000000FFFFFFFFFFFF
+          636393525293FEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFF555591616191FFFFFFFFFFFF0000FDFDFD6060820000D20000DA3F3F
+          7DF4F4F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7F7F741417D0000CC00
+          00CE5B5B80FBFBFB00009292A40000A40000C80000F60000BA30307BE7E7E7FF
+          FFFFFFFFFFFFFFFFFFFFFFE7E7E734347C0000B20000FC0000D40000A28D8DA1
+          000062628D0000BE0000D80000F80000F80000BA1F1F79DBDBDBFFFFFFFFFFFF
+          D9D9D91C1C790000B00000FF1717FF0000F40000CA5C5C8900007979A90000CC
+          0000D20000D60000F80000F40000B0131375DFDFDFDEDEDE1212750000B00000
+          FA0F0FFF0000EA0000E40000E47373AB0000EAEAEC3F3FB30000CC0000D20000
+          D80000F20000EE0000A812126B11116B0000A80000F60303FF0000E80000E200
+          00DE3F3FBDEAEAEC0000FFFFFFFFFFFF4949B30000CC0000CE0000CC0000E400
+          00DC00008A00008A0000DE0000EE0000E00000DE0000DC5252B6FFFFFFFFFFFF
+          0000FFFFFFFFFFFFFFFFFF6464AF0000D00000E00000E20000F60000D60000D6
+          0000F40000DC0000D40000D26A6AB4FFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFF
+          FFFFFFFFFFFF8888BB0101F60303FF0000F80000FC0000FC0000FC0505FF0303
+          E89696BEFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFABAB
+          AB0202910000E40000FC0000F80000F80000FC0000E2050592C7C7C7FFFFFFFF
+          FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFF94949C00005800007C0000D607
+          07FF0000FC0000FC0707FF0000CC00007600004EAEAEB2FFFFFFFFFFFFFFFFFF
+          0000FFFFFFFFFFFF8E8E960000540000840000E00F0FFF0303FF1111FF0F0FFF
+          0303FF0F0FFF0000D600007C00004CB1B1B3FFFFFFFFFFFF0000FFFFFF93939B
+          00004E00007C0000EA1F1FFF1111FF1F1FFF0505EC0000F21F1FFF0F0FFF1F1F
+          FF0000DC000078000044B3B3B7FFFFFF0000E0E0E100004400007E0000EC2D2D
+          FF1919FF2F2FFF0101FCD8D8DDC5C5CF0B0BFF2D2DFF1919FF2929FF0000E000
+          007A151547FBFBFB0000C7C7C80000820000F63535FF2525FF3D3DFF0202FFCA
+          CAD3FFFFFFFFFFFFACACC11515FF3939FF2525FF3535FF0000EA00006EEAEAEA
+          0000E0E0E20000EA5757FF2F2FFF4949FF0707FFCACAD3FFFFFFFFFFFFFFFFFF
+          FFFFFFA6A6BF1B1BFF4343FF3333FF5151FF1414D9F7F7F70000FFFFFFB6B6CD
+          1B1BFF6565FF1212FFC9C9D2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFACAC
+          C22929FF6565FF1616FAD3D3DCFFFFFF0000FFFFFFFFFFFFAFAFC43333E6CCCC
+          D5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9898BE3737E4E0
+          E0E3FFFFFFFFFFFF0000}
+        OnClick = grdExpDblClick
+      end
+    end
+    object pnlLiability: TDNMPanel
+      Left = 762
+      Top = 30
+      Width = 185
+      Height = 159
+      Hint = 'Double Click to Select the Account'
+      HelpContext = 667023
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 11
+    end
+    object grdLiability: TwwDBGrid
+      Left = 762
+      Top = 190
+      Width = 185
+      Height = 173
+      Hint = 'Double click to remove the Account from selection'
+      HelpContext = 667024
+      Selected.Strings = (
+        'Accountname'#9'25'#9'Account Name'#9'F')
+      IniAttributes.Delimiter = ';;'
+      TitleColor = clWhite
+      FixedCols = 0
+      ShowHorzScrollBar = False
+      DataSource = dsLiabilityAccount
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = []
+      KeyOptions = []
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+      ParentFont = False
+      TabOrder = 12
+      TitleAlignment = taLeftJustify
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -12
+      TitleFont.Name = 'Arial'
+      TitleFont.Style = [fsBold]
+      TitleLines = 1
+      TitleButtons = False
+      OnDblClick = grdExpDblClick
+      FooterColor = clWhite
+      object grdLiabilityIButton: TwwIButton
+        Left = 0
+        Top = 0
+        Width = 21
+        Height = 25
+        HelpContext = 667025
+        AllowAllUp = True
+        Glyph.Data = {
+          26040000424D2604000000000000360000002800000012000000120000000100
+          180000000000F0030000120B0000120B00000000000000000000FFFFFFFFFFFF
+          636393525293FEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFF555591616191FFFFFFFFFFFF0000FDFDFD6060820000D20000DA3F3F
+          7DF4F4F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7F7F741417D0000CC00
+          00CE5B5B80FBFBFB00009292A40000A40000C80000F60000BA30307BE7E7E7FF
+          FFFFFFFFFFFFFFFFFFFFFFE7E7E734347C0000B20000FC0000D40000A28D8DA1
+          000062628D0000BE0000D80000F80000F80000BA1F1F79DBDBDBFFFFFFFFFFFF
+          D9D9D91C1C790000B00000FF1717FF0000F40000CA5C5C8900007979A90000CC
+          0000D20000D60000F80000F40000B0131375DFDFDFDEDEDE1212750000B00000
+          FA0F0FFF0000EA0000E40000E47373AB0000EAEAEC3F3FB30000CC0000D20000
+          D80000F20000EE0000A812126B11116B0000A80000F60303FF0000E80000E200
+          00DE3F3FBDEAEAEC0000FFFFFFFFFFFF4949B30000CC0000CE0000CC0000E400
+          00DC00008A00008A0000DE0000EE0000E00000DE0000DC5252B6FFFFFFFFFFFF
+          0000FFFFFFFFFFFFFFFFFF6464AF0000D00000E00000E20000F60000D60000D6
+          0000F40000DC0000D40000D26A6AB4FFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFF
+          FFFFFFFFFFFF8888BB0101F60303FF0000F80000FC0000FC0000FC0505FF0303
+          E89696BEFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFABAB
+          AB0202910000E40000FC0000F80000F80000FC0000E2050592C7C7C7FFFFFFFF
+          FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFF94949C00005800007C0000D607
+          07FF0000FC0000FC0707FF0000CC00007600004EAEAEB2FFFFFFFFFFFFFFFFFF
+          0000FFFFFFFFFFFF8E8E960000540000840000E00F0FFF0303FF1111FF0F0FFF
+          0303FF0F0FFF0000D600007C00004CB1B1B3FFFFFFFFFFFF0000FFFFFF93939B
+          00004E00007C0000EA1F1FFF1111FF1F1FFF0505EC0000F21F1FFF0F0FFF1F1F
+          FF0000DC000078000044B3B3B7FFFFFF0000E0E0E100004400007E0000EC2D2D
+          FF1919FF2F2FFF0101FCD8D8DDC5C5CF0B0BFF2D2DFF1919FF2929FF0000E000
+          007A151547FBFBFB0000C7C7C80000820000F63535FF2525FF3D3DFF0202FFCA
+          CAD3FFFFFFFFFFFFACACC11515FF3939FF2525FF3535FF0000EA00006EEAEAEA
+          0000E0E0E20000EA5757FF2F2FFF4949FF0707FFCACAD3FFFFFFFFFFFFFFFFFF
+          FFFFFFA6A6BF1B1BFF4343FF3333FF5151FF1414D9F7F7F70000FFFFFFB6B6CD
+          1B1BFF6565FF1212FFC9C9D2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFACAC
+          C22929FF6565FF1616FAD3D3DCFFFFFF0000FFFFFFFFFFFFAFAFC43333E6CCCC
+          D5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9898BE3737E4E0
+          E0E3FFFFFFFFFFFF0000}
+        OnClick = grdExpDblClick
+      end
+    end
+    object IncomeBudget: TwwDBEdit
+      Left = 77
+      Top = 371
+      Width = 110
+      Height = 23
+      HelpContext = 667026
+      DataField = 'IncomeBudget'
+      DataSource = dsCompanyInfo
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 6
+      UnboundDataType = wwDefault
+      WantReturns = False
+      WordWrap = False
+    end
+    object cogsbudget: TwwDBEdit
+      Left = 265
+      Top = 371
+      Width = 111
+      Height = 23
+      HelpContext = 667027
+      DataField = 'COGSBudget'
+      DataSource = dsCompanyInfo
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 7
+      UnboundDataType = wwDefault
+      WantReturns = False
+      WordWrap = False
+    end
+    object expbudget: TwwDBEdit
+      Left = 457
+      Top = 371
+      Width = 110
+      Height = 23
+      HelpContext = 667028
+      DataField = 'ExpenseBudget'
+      DataSource = dsCompanyInfo
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 8
+      UnboundDataType = wwDefault
+      WantReturns = False
+      WordWrap = False
+    end
+    object assetBudget: TwwDBEdit
+      Left = 647
+      Top = 371
+      Width = 110
+      Height = 23
+      HelpContext = 667029
+      DataField = 'AssetBudget'
+      DataSource = dsCompanyInfo
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 13
+      UnboundDataType = wwDefault
+      WantReturns = False
+      WordWrap = False
+    end
+    object liabilitybudget: TwwDBEdit
+      Left = 837
+      Top = 371
+      Width = 110
+      Height = 23
+      HelpContext = 667030
+      DataField = 'Liabilitybudget'
+      DataSource = dsCompanyInfo
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 14
+      UnboundDataType = wwDefault
+      WantReturns = False
+      WordWrap = False
+    end
+  end
+  inherited imgsort: TImageList
+    Bitmap = {
+      494C010102004801800110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      0000000000003600000028000000400000001000000001002000000000000010
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000FFFF000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000FFFFFF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF00000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000FFFFFF0000000000FFFFFF0000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF000000000000FFFF000000000000FFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000FF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000FFFFFF0000000000FFFFFF0000000000FFFFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000000000FFFF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      000000FFFF000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000000000FF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      0000FFFFFF0000000000FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFFFF0000000000FFFFFF0000000000FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF000000000000FFFF000000000000FFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000FFFFFF0000000000FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000FFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF00000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000FFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000000000000000000000FF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000424D3E000000000000003E000000
+      2800000040000000100000000100010000000000800000000000000000000000
+      000000000000000000000000FFFFFF00E00FFDFF00000000E00FF8FF00000000
+      E00FF8FF00000000F00FF87F00000000F00FF81F00000000F80FF80F00000000
+      F007F00F00000000F007E00F00000000F007E00F00000000F00FE00F00000000
+      F01FF01F00000000F81FF00F00000000FE1FF00F00000000FF1FF00700000000
+      FF1FF00700000000FFBFF0070000000000000000000000000000000000000000
+      000000000000}
+  end
+  object qryExpAccount: TERPQuery
+    Connection = MyConnection
+    SQL.Strings = (
+      
+        'Select * from tblSelectedAccountsforReprotsWhere accounttype = '#39 +
+        'EXP'#39';')
+    IndexFieldNames = 'AccountType,AccountName'
+    Left = 486
+    Top = 187
+    object qryExpAccountAccountname: TWideStringField
+      DisplayLabel = 'Account Name'
+      DisplayWidth = 25
+      FieldName = 'Accountname'
+      Origin = 'tblSelectedAccountsforReprots.Accountname'
+      Size = 255
+    end
+    object qryExpAccountGlobalref: TWideStringField
+      DisplayWidth = 255
+      FieldName = 'Globalref'
+      Origin = 'tblSelectedAccountsforReprots.Globalref'
+      Visible = False
+      Size = 255
+    end
+    object qryExpAccountID: TIntegerField
+      AutoGenerateValue = arAutoInc
+      DisplayWidth = 10
+      FieldName = 'ID'
+      Origin = 'tblSelectedAccountsforReprots.ID'
+      Visible = False
+    end
+    object qryExpAccountAccounttypeID: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'AccounttypeID'
+      Origin = 'tblSelectedAccountsforReprots.AccounttypeID'
+      Visible = False
+    end
+    object qryExpAccountAccountType: TWideStringField
+      DisplayWidth = 255
+      FieldName = 'AccountType'
+      Origin = 'tblSelectedAccountsforReprots.AccountType'
+      Visible = False
+      Size = 255
+    end
+    object qryExpAccountAccountId: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'AccountId'
+      Origin = 'tblSelectedAccountsforReprots.AccountId'
+      Visible = False
+    end
+  end
+  object qryIncomeAccount: TERPQuery
+    Connection = MyConnection
+    SQL.Strings = (
+      
+        'Select * from tblSelectedAccountsforReprotsWhere accounttype = '#39 +
+        'INC'#39';')
+    IndexFieldNames = 'AccountType,AccountName'
+    Left = 62
+    Top = 187
+    object qryIncomeAccountAccountname: TWideStringField
+      DisplayLabel = 'Account Name'
+      DisplayWidth = 25
+      FieldName = 'Accountname'
+      Origin = 'tblSelectedAccountsforReprots.Accountname'
+      Size = 255
+    end
+    object qryIncomeAccountGlobalref: TWideStringField
+      DisplayWidth = 255
+      FieldName = 'Globalref'
+      Origin = 'tblSelectedAccountsforReprots.Globalref'
+      Visible = False
+      Size = 255
+    end
+    object qryIncomeAccountID: TIntegerField
+      AutoGenerateValue = arAutoInc
+      DisplayWidth = 10
+      FieldName = 'ID'
+      Origin = 'tblSelectedAccountsforReprots.ID'
+      Visible = False
+    end
+    object qryIncomeAccountAccounttypeID: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'AccounttypeID'
+      Origin = 'tblSelectedAccountsforReprots.AccounttypeID'
+      Visible = False
+    end
+    object qryIncomeAccountAccountType: TWideStringField
+      DisplayWidth = 255
+      FieldName = 'AccountType'
+      Origin = 'tblSelectedAccountsforReprots.AccountType'
+      Visible = False
+      Size = 255
+    end
+    object qryIncomeAccountAccountId: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'AccountId'
+      Origin = 'tblSelectedAccountsforReprots.AccountId'
+      Visible = False
+    end
+  end
+  object qryCOGSAccount: TERPQuery
+    Connection = MyConnection
+    SQL.Strings = (
+      'Select * from tblSelectedAccountsforReprots'
+      'Where accounttype = '#39'COGS'#39';')
+    IndexFieldNames = 'AccountType,AccountName'
+    Left = 246
+    Top = 187
+    object qryCOGSAccountAccountname: TWideStringField
+      DisplayLabel = 'Account Name'
+      DisplayWidth = 25
+      FieldName = 'Accountname'
+      Origin = 'tblSelectedAccountsforReprots.Accountname'
+      Size = 255
+    end
+    object qryCOGSAccountGlobalref: TWideStringField
+      DisplayWidth = 255
+      FieldName = 'Globalref'
+      Origin = 'tblSelectedAccountsforReprots.Globalref'
+      Visible = False
+      Size = 255
+    end
+    object qryCOGSAccountID: TIntegerField
+      AutoGenerateValue = arAutoInc
+      DisplayWidth = 10
+      FieldName = 'ID'
+      Origin = 'tblSelectedAccountsforReprots.ID'
+      Visible = False
+    end
+    object qryCOGSAccountAccounttypeID: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'AccounttypeID'
+      Origin = 'tblSelectedAccountsforReprots.AccounttypeID'
+      Visible = False
+    end
+    object qryCOGSAccountAccountType: TWideStringField
+      DisplayWidth = 255
+      FieldName = 'AccountType'
+      Origin = 'tblSelectedAccountsforReprots.AccountType'
+      Visible = False
+      Size = 255
+    end
+    object qryCOGSAccountAccountId: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'AccountId'
+      Origin = 'tblSelectedAccountsforReprots.AccountId'
+      Visible = False
+    end
+  end
+  object dsExpAccount: TDataSource
+    DataSet = qryExpAccount
+    Left = 520
+    Top = 187
+  end
+  object dsCOGSAccount: TDataSource
+    DataSet = qryCOGSAccount
+    Left = 280
+    Top = 187
+  end
+  object dsIncomeAccount: TDataSource
+    DataSet = qryIncomeAccount
+    Left = 96
+    Top = 187
+  end
+  object QryCompanyInfo: TERPQuery
+    Connection = MyConnection
+    SQL.Strings = (
+      
+        'select SetUpID, IncomeBudget, COGSBudget ,ExpenseBudget, AssetBu' +
+        'dget, Liabilitybudget  from tblcompanyinformation')
+    Left = 398
+    Top = 399
+    object QryCompanyInfoIncomeBudget: TFloatField
+      FieldName = 'IncomeBudget'
+      currency = True
+    end
+    object QryCompanyInfoCOGSBudget: TFloatField
+      FieldName = 'COGSBudget'
+      currency = True
+    end
+    object QryCompanyInfoExpenseBudget: TFloatField
+      FieldName = 'ExpenseBudget'
+      currency = True
+    end
+    object QryCompanyInfoSetUpID: TIntegerField
+      FieldName = 'SetUpID'
+    end
+    object QryCompanyInfoAssetBudget: TFloatField
+      FieldName = 'AssetBudget'
+      currency = True
+    end
+    object QryCompanyInfoLiabilitybudget: TFloatField
+      FieldName = 'Liabilitybudget'
+      currency = True
+    end
+  end
+  object dsCompanyInfo: TDataSource
+    DataSet = QryCompanyInfo
+    Left = 304
+    Top = 472
+  end
+  object QryAssetAccount: TERPQuery
+    Connection = MyConnection
+    SQL.Strings = (
+      
+        'Select * from tblSelectedAccountsforReprotsWhere accounttype in ' +
+        '('#39'FIXASSET'#39' , '#39'OCASSET'#39', '#39'EQUITY'#39' , '#39'OASSET'#39')')
+    IndexFieldNames = 'AccountType,AccountName'
+    Left = 638
+    Top = 187
+    object StringField1: TWideStringField
+      DisplayLabel = 'Account Name'
+      DisplayWidth = 25
+      FieldName = 'Accountname'
+      Origin = 'tblSelectedAccountsforReprots.Accountname'
+      Size = 255
+    end
+    object StringField2: TWideStringField
+      DisplayWidth = 255
+      FieldName = 'Globalref'
+      Origin = 'tblSelectedAccountsforReprots.Globalref'
+      Visible = False
+      Size = 255
+    end
+    object IntegerField1: TIntegerField
+      AutoGenerateValue = arAutoInc
+      DisplayWidth = 10
+      FieldName = 'ID'
+      Origin = 'tblSelectedAccountsforReprots.ID'
+      Visible = False
+    end
+    object IntegerField2: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'AccounttypeID'
+      Origin = 'tblSelectedAccountsforReprots.AccounttypeID'
+      Visible = False
+    end
+    object StringField3: TWideStringField
+      DisplayWidth = 255
+      FieldName = 'AccountType'
+      Origin = 'tblSelectedAccountsforReprots.AccountType'
+      Visible = False
+      Size = 255
+    end
+    object IntegerField3: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'AccountId'
+      Origin = 'tblSelectedAccountsforReprots.AccountId'
+      Visible = False
+    end
+  end
+  object dsAssetAccount: TDataSource
+    DataSet = QryAssetAccount
+    Left = 672
+    Top = 187
+  end
+  object qryLiabilityAccount: TERPQuery
+    Connection = MyConnection
+    SQL.Strings = (
+      
+        'Select * from tblSelectedAccountsforReprotsWhere accounttype in ' +
+        '('#39'OCLIAB'#39' , '#39'LTLIAB'#39', '#39'CCARD'#39');')
+    IndexFieldNames = 'AccountType,AccountName'
+    Left = 822
+    Top = 187
+    object StringField4: TWideStringField
+      DisplayLabel = 'Account Name'
+      DisplayWidth = 25
+      FieldName = 'Accountname'
+      Origin = 'tblSelectedAccountsforReprots.Accountname'
+      Size = 255
+    end
+    object StringField5: TWideStringField
+      DisplayWidth = 255
+      FieldName = 'Globalref'
+      Origin = 'tblSelectedAccountsforReprots.Globalref'
+      Visible = False
+      Size = 255
+    end
+    object IntegerField4: TIntegerField
+      AutoGenerateValue = arAutoInc
+      DisplayWidth = 10
+      FieldName = 'ID'
+      Origin = 'tblSelectedAccountsforReprots.ID'
+      Visible = False
+    end
+    object IntegerField5: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'AccounttypeID'
+      Origin = 'tblSelectedAccountsforReprots.AccounttypeID'
+      Visible = False
+    end
+    object StringField6: TWideStringField
+      DisplayWidth = 255
+      FieldName = 'AccountType'
+      Origin = 'tblSelectedAccountsforReprots.AccountType'
+      Visible = False
+      Size = 255
+    end
+    object IntegerField6: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'AccountId'
+      Origin = 'tblSelectedAccountsforReprots.AccountId'
+      Visible = False
+    end
+  end
+  object dsLiabilityAccount: TDataSource
+    DataSet = qryLiabilityAccount
+    Left = 856
+    Top = 187
+  end
+end

@@ -1,0 +1,26 @@
+
+Test Case: CONF-ATO-PAYEVNT-BULK-001_Submit_Request_01
+Service: Submit
+Description: 
+Files:
+    CONF-ATO-PAYEVNT-BULK-001_Submit_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-001_Submit_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-001_Submit_Request_03.xml
+    CONF-ATO-PAYEVNTEMP-BULK-001_Submit_Request_04.xml
+Upload Filename: ERPPayRun_2018-11-21-122818.xml
+Performed By: Admin .
+Performed On: 2018-11-22 00:02:16
+Test Result: Successful
+
+Test Case: CONF-ATO-PAYEVNT-BULK-001_Submit_Request_01
+Service: Submit
+Description: 
+Files:
+    CONF-ATO-PAYEVNT-BULK-001_Submit_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-001_Submit_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-001_Submit_Request_03.xml
+    CONF-ATO-PAYEVNTEMP-BULK-001_Submit_Request_04.xml
+Upload Filename: ERPPayRun_2018-11-21-164844.xml
+Performed By: Admin .
+Performed On: 2018-11-22 00:02:16
+Test Result: Successful

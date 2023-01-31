@@ -1,0 +1,2 @@
+{.$define CheckForUpdated}
+{$define DebugMode}

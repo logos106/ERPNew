@@ -1,0 +1,20 @@
+{
+"module":"erp",
+"softwarereleasetype":"Dev",
+"update":
+{
+"parts":
+{
+"1":
+{
+"type":"innosetup",
+"file":"client\/user\/User_Setup_14.7.1.0.dat",
+"installpassword":"Swift"
+}
+}
+},
+"installpath":"C:\\Program Files (x86)\\ERP Software Madeurne\\",
+"erpfilename":"ERP_Madeurne.exe",
+"servername":"ERPServer1",
+"databasename":"d_mills"
+}

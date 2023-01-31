@@ -1,0 +1,114 @@
+"Approved","DateCreated","filename","GlobalRef","ID","PageCaption","Pagehint","PageIndex","Pagename","Seqno","Synchronized","VideoID"
+"TRUE",0,"Account Reports.mp4",,228,"Account Reports","Account Reports",2,"Accounts",0,"true",228
+"TRUE",0,"Accounts.mp4",,213,"Accounts Basics","Accounts Basics",2,"Accounts",0,"true",213
+"TRUE",0,"Account_Reports_Journals_etc.avi",,17,"Account Reports","Look at some of the general ledger reports",2,"Accounts",3,"true",17
+"TRUE",0,"Adding Accounts.mp4",,229,"Adding Accounts","How to add to your Chart of Accounts",2,"Accounts",0,"true",229
+"TRUE",0,"BAS Return.mp4",,138,"BAS Return","How to run your BAS",2,"Accounts",0,"true",138
+"TRUE",0,"Basic Accounts Training.mp4",,139,"Basic Accounts Training","Basic Accounts Training",2,"Accounts",0,"true",139
+"TRUE",0,"Budgets.mp4",,214,"Budgets","Understanding Budgets - Training",2,"Accounts",0,"true",214
+"TRUE",0,"Charts.mp4",,143,"Charts","How to create Charts for your reports",2,"Accounts",0,"true",143
+"TRUE",0,"Dashboard Training.mp4",,156,"Dashboard Training","Using The Dashboard",2,"Accounts",0,"true",156
+"TRUE",0,"Opening Balances.mp4",,179,"Opening Balances","How To Setup Opening Balances",2,"Accounts",0,"true",179
+"TRUE",0,"VAT Return.mp4",,209,"VAT Return","How to run your VAT Report",2,"Accounts",0,"true",209
+"TRUE",0,"Appointments and Support Log.mp4",,133,"Appointments and Support Log","Appointments and Support Log",3,"Appointments",0,"true",133
+"TRUE",0,"Banking Training.mp4",,136,"Banking Training","Understanding Banking - Training",4,"Banking",0,"true",136
+"TRUE",0,"EFT Training.mp4",,162,"EFT Training","How to configure and process EFT payments",4,"Banking",0,"true",162
+"false",0,"Making_Deposits.avi",,26,"Making Deposits","How to process bank deposits",4,"Banking",2,"true",26
+"TRUE",0,"Reconciliations.mp4",,184,"Reconciliations","How to reconcile your bank statements",4,"Banking",0,"true",184
+"TRUE",0,"Budget Training.mp4",,141,"Budget Training","Understanding Budgets - Training",5,"Budget",0,"true",141
+"TRUE",0,"CRM.mp4",,154,"CRM","Customer Resource Management",6,"CRM",0,"true",154
+"TRUE",0,"Reward Points .mp4",,187,"Reward Points ","Learn how to manage customer reward points",6,"CRM",0,"true",187
+"TRUE",0,"Telemarketing.mp4",,202,"Telemarketing","Learn how to set  up and use the telemarketing module.",6,"CRM",0,"true",202
+"TRUE",0,"Delivery Final.mp4",,159,"Delivery","Delivery Understanding",7,"Delivery",0,"true",159
+"TRUE",0,"Access Levels.mp4",,129,"Access Levels","How to set each employee's access levels",8,"Employee",0,"true",129
+"TRUE",0,"Commissions.mp4",,145,"Commissions","How to Set-up and Run Commissions",8,"Employee",0,"true",145
+"TRUE",0,"Create a New Employee.mp4",,216,"Create a New Employee","Create a New Employee",8,"Employee",0,"true",216
+"TRUE",0,"Create a REP.mp4",,147,"Create a REP","How and when to turn an employee into a Rep ",8,"Employee",0,"true",147
+"TRUE",0,"Employee Training.mp4",,218,"Employee Training","Employee Basics",8,"Employee",0,"true",218
+"TRUE",0,"Fixed Assets Training.mp4",,168,"Fixed Assets Training","Fixed Assets setup and Understanding",9,"Fixed Assets",0,"true",168
+"TRUE",0,"General Training.mp4",,171,"General Training","Understanding the General Module",10,"General",0,"true",171
+"TRUE",0,"Lists and Reports.mp4",,176,"Lists and Reports","Lists and Reports",10,"General",0,"true",176
+"TRUE",0,"Printing.mp4",,182,"Printing","Simple printing tips for lists and standard reports",10,"General",0,"true",182
+"TRUE",0,"Reports Training.mp4",,186,"Reports Training","Reports: both drillable and SQL",10,"General",0,"true",186
+"TRUE",0,"Reports_Filters_and_Queries.avi",,51,"Lists and Reports","Must watch  for standard lists and reports from within ERP ",10,"General",8,"true",51
+"TRUE",0,"SQL Reports.mp4",,198,"SQL Reports","SQL Reports",10,"General",0,"true",198
+"TRUE",0,"Template Designs.mp4",,203,"Template Designs","Template Designs",10,"General",0,"true",203
+"TRUE",0,"AssigningEmployees.mp4",,134,"Assigning Employees","Assigning Employees to the Training Roster",0,"Getting Started",0,"true",134
+"TRUE",0,"BackUp.mp4",,135,"Back Up","How to perform a data base Backup",0,"Getting Started",0,"true",135
+"TRUE",0,"Basic Features.mp4",,232,"Basic Features Training","Understand the Basics",0,"Getting Started",0,"true",232
+"TRUE",0,"Create New Employee.mp4",,149,"Create New Employee","Create New Employee",0,"Getting Started",0,"true",149
+"TRUE",0,"Database Setup.mp4",,233,"Database Setup","Setting up Your Company File",0,"Getting Started",0,"true",233
+"TRUE",0,"ERP Server.mp4",,163,"ERP Server","How to install the ERP Server",0,"Getting Started",0,"true",163
+"TRUE",0,"ERP User.mp4",,164,"ERP User","How to install the ERP User",0,"Getting Started",0,"true",164
+"TRUE",0,"Exporting Data.mp4",,234,"Exporting Data","Exporting Sample Data to a Spreadsheet",0,"Getting Started",0,"true",234
+"TRUE",0,"First Time User.mp4",,235,"First Time User","This  lays the foundation for all of the Program",0,"Getting Started",0,"true",235
+"TRUE",0,"Importing Data.mp4",,236,"Importing Data","Importing Sample Data from a Spreadsheet",0,"Getting Started",0,"true",236
+"TRUE",0,"OpeningBalances.mp4",,180,"Opening Balances","How To Setup Opening Balances",0,"Getting Started",0,"true",180
+"TRUE",0,"Roster Training.mp4",,237,"Roster Training","View and Adjust the Training Roster",0,"Getting Started",0,"true",237
+"TRUE",0,"Schedule Set Up.mp4",,238,"Schedule Set Up","Laying out the Training Schedule",0,"Getting Started",0,"true",238
+"TRUE",0,"Training Plan.mp4",,239,"Training Plan","Designing your Setup and Training Plan",0,"Getting Started",0,"true",239
+"TRUE",0,"Training Progress.mp4",,240,"Training Progress","Training Progress",0,"Getting Started",0,"true",240
+"TRUE",0,"Training Status.mp4",,241,"Training Status","View your Training Status",0,"Getting Started",0,"true",241
+"TRUE",0,"Barcode Picking.mp4",,137,"Barcode Picking","How to streamline product picking using barcodes ",11,"Inventory",0,"true",137
+"TRUE",0,"Clothing Matrix.mp4",,144,"Clothing Matrix","How to display products in a grid format (Clothing Matrix)",11,"Inventory",0,"true",144
+"TRUE",0,"Creating Batches.mp4",,152,"Creating Batches","How to set up batch tracking with expiry dates etc.",11,"Inventory",0,"true",152
+"TRUE",0,"Importing Formulas.mp4",,172,"Importing Formulas","How to copy formulas from Excel into the Clothing Matrix ",11,"Inventory",0,"true",172
+"TRUE",0,"Inventory Advanced Training.mp4",,219,"Inventory Advanced Training","Inventory Advanced Training",11,"Inventory",0,"true",219
+"TRUE",0,"Inventory Basics Training.mp4",,220,"Inventory Basics Training","Inventory Basics Training",11,"Inventory",0,"true",220
+"TRUE",0,"Product Basics.mp4",,183,"Product Basics","Learn the basics of creating and configuring a product ",11,"Inventory",0,"true",183
+"TRUE",0,"Related Parts.mp4",,185,"Related Parts","Learn how and when to use related products",11,"Inventory",0,"true",185
+"TRUE",0,"Serial Numbers.mp4",,195,"Serial Numbers","Everything you need to know on how to track serial numbers",11,"Inventory",0,"true",195
+"TRUE",0,"Setup Bins.mp4",,196,"Setup Bins","How to set up bins and racks for warehouse management ",11,"Inventory",0,"true",196
+"TRUE",0,"Stock Adjust.mp4",,200,"Stock Adjust","How to enter a Stock Adjustment",11,"Inventory",0,"true",200
+"TRUE",0,"Units of Measure.mp4",,207,"Units of Measure","How to track stock when purchasing and selling in different units of measure ",11,"Inventory",0,"true",207
+"TRUE",0,"Manufacturing Advanced.mp4",,221,"Manufacturing Advanced","Manufacturing Advanced",12,"Manufacturing",0,"true",221
+"TRUE",0,"Manufacturing Basics.mp4",,222,"Manufacturing Basics","Manufacturing Basics",12,"Manufacturing",0,"true",222
+"TRUE",0,"Leads.mp4",,175,"Leads","Leads",13,"Marketing",0,"true",175
+"TRUE",0,"Marketing Basics.mp4",,177,"Marketing Basics","Marketing and how it links to sales",13,"Marketing",0,"true",177
+"TRUE",0,"Sales Training (Marketing).mp4",,192,"Sales Training (Marketing)","Sales Training (Marketing)",13,"Marketing",0,"true",192
+"TRUE",0,"Accounts Receivable.mp4",,131,"Accounts Receivable","Accessing and using the Accounts Receivable Report ",14,"Payments",0,"true",131
+"TRUE",0,"Bulk Customer Payments.mp4",,142,"Bulk Customer Payments","How to receive Bulk Customer Payments",14,"Payments",0,"true",142
+"TRUE",0,"Customer Payments Training.mp4",,155,"Customer Payments Training","Customer Payments Training",14,"Payments",0,"true",155
+"TRUE",0,"Dishonoured Payments.mp4",,161,"Dishonoured Payments","How to process a dishonoured payment ",14,"Payments",0,"true",161
+"TRUE",0,"Frozen Fund.mp4",,169,"Frozen Fund","Frozen Fund",14,"Payments",0,"true",169
+"TRUE",0,"Receive_Bulk_Payments.avi",,67,"Bulk Customer Payments","How to process Customer Payments in bulk ",14,"Payments",4,"true",67
+"TRUE",0,"Statements.mp4",,199,"Statements","Learn how to configure customer statements ",14,"Payments",0,"true",199
+"TRUE",0,"Supplier Payments.mp4",,201,"Supplier Payments","How to receive and process Supplier Payments ",14,"Payments",0,"true",201
+"TRUE",0,"Payroll Training.mp4",,223,"Payroll Training","Payroll and how to set it up",15,"Payroll",0,"true",223
+"TRUE",0,"Run A Pay.mp4",,190,"Run A Pay","How to process a payroll run ",15,"Payroll",0,"true",190
+"TRUE",0,"Setup Payroll.mp4",,226,"Setup Payroll","How to set up ERP prior to running payroll ",15,"Payroll",0,"true",226
+"TRUE",0,"POS Training.mp4",,224,"POS Training","POS Training",16,"POS",0,"true",224
+"TRUE",0,"POS.mp4",,181,"POS","Learn to configure and use Point of Sale",16,"POS",0,"true",181
+"TRUE",0,"Reward Points.mp4",,188,"Reward Points","Learn how to manage customer reward points",16,"POS",0,"true",188
+"TRUE",0,"Creating a Supplier.mp4",,151,"Creating a Supplier","How to Create a Supplier",17,"Purchases",0,"true",151
+"TRUE",0,"Creating Purchases.mp4",,217,"Creating Purchases","Creating Purchases",17,"Purchases",0,"true",217
+"TRUE",0,"Frozen Orders (Purchases).mp4",,170,"Frozen Orders (Purchases)","Why orders can freeze and how to deal with them ",17,"Purchases",0,"true",170
+"TRUE",0,"Purchases Training.mp4",,225,"Purchases Training","Purchases Training",17,"Purchases",0,"true",225
+"TRUE",0,"Shipping Containers.mp4",,197,"Shipping Containers","Monitor where any product is at any time from the moment it is ordered to when it is unpacked in your warehouse. ~ Apply import costs etc to containers and Purchase Orders within containers. ",17,"Purchases",0,"true",197
+"TRUE",0,"Create a Customer.mp4",,146,"Create a Customer","Create a Customer",18,"Sales",0,"true",146
+"TRUE",0,"Creating a Job.mp4",,150,"Creating a Job","Learn how to create and when to use a Job",18,"Sales",0,"true",150
+"TRUE",0,"Creating Sales.mp4",,153,"Creating Sales","Sales Training",18,"Sales",0,"true",153
+"TRUE",0,"Dashboard.mp4",,157,"Dashboard","Dashboard",18,"Sales",0,"true",157
+"TRUE",0,"Discounts.mp4",,160,"Discounts","Learn the different ways to apply discounts and pricing levels to sales ",18,"Sales",0,"true",160
+"TRUE",0,"Leads Training.mp4",,174,"Leads Training","Take control of your sales force. Track calls follow-ups and monitor where every sales enquiry not only comes from but ends up. ",18,"Sales",0,"true",174
+"TRUE",0,"Sales Leads.mp4",,191,"Sales Leads","Sales Leads",18,"Sales",0,"true",191
+"TRUE",0,"Sales Training (Sales).mp4",,193,"Sales Training (Sales)","Sales Training (Sales)",18,"Sales",0,"true",193
+"TRUE",0,"Assigning Employees.mp4",,230,"Assigning Employees","Assigning Employees to the Training Roster",21,"Training",0,"true",230
+"TRUE",0,"BasicFeatures.mp4",,140,"BasicFeatures","BasicFeatures",21,"Training",0,"true",140
+"TRUE",0,"FirstTimeUser.mp4",,167,"FirstTimeUser","This  lays the foundation for all of the Program",21,"Training",0,"true",167
+"TRUE",0,"RosterTraining.mp4",,189,"Roster Training","View and Adjust the Training Roster",21,"Training",0,"true",189
+"TRUE",0,"ScheduleSetUp.mp4",,194,"Schedule Set Up","Laying out the Training Schedule",21,"Training",0,"true",194
+"TRUE",0,"TrainingPlan.mp4",,204,"Training Plan","Designing your Setup and Training Plan",21,"Training",0,"true",204
+"TRUE",0,"TrainingProgress.mp4",,205,"Training Progress","Training Progress",21,"Training",0,"true",205
+"TRUE",0,"TrainingStatus.mp4",,206,"Training Status","View your Training Status",21,"Training",0,"true",206
+"TRUE",0,"Back Up.mp4",,231,"Back Up","How to perform a data base Backup",19,"Utilities",0,"true",231
+"TRUE",0,"Connections.mp4",,215,"Connections","Resolve connection issues",19,"Utilities",0,"true",215
+"TRUE",0,"DatabaseSetup.mp4",,158,"Database Setup","Database Setup",19,"Utilities",0,"true",158
+"TRUE",0,"ExportingData.mp4",,165,"Exporting Data","How to export data from ERP",19,"Utilities",0,"true",165
+"TRUE",0,"File Maintenance.mp4",,166,"File Maintenance","Understand what is required for Database file maintenance",19,"Utilities",0,"true",166
+"TRUE",0,"ImportingData.mp4",,173,"Importing Data","How to import data into ERP",19,"Utilities",0,"true",173
+"TRUE",0,"Multiple Companies.mp4",,178,"Multiple Companies","Learn how to create and manage multiple companies on the same server",19,"Utilities",0,"true",178
+"TRUE",0,"Utilities Training.mp4",,208,"Utilities Training","Utilities and what they do",19,"Utilities",0,"true",208
+"TRUE",0,"Workshop Advanced.mp4",,227,"Workshop Advanced","Workshop Advanced",22,"Workshop",0,"true",227
+"TRUE",0,"Workshop and servicing.mp4",,211,"Workshop and servicing","Workshop and Servicing",22,"Workshop",0,"true",211
+"TRUE",0,"Workshop Training.mp4",,212,"Workshop Training","Workshop Training",22,"Workshop",0,"true",212

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- sample combined open read close request  -->
+<platinum1xml>
+	<xmlBlock requestTiming="on">
+		<request command="startSession">
+			<authCode>xxw3n6vf8fgtj</authCode>
+		</request>
+		<request command="terp.execute">
+			<request command="openCompany" clientRef="OPEN-1234">
+				<!-- optional - defaults to localhost  -->
+				<dataServer>localhost</dataServer>	  
+				<!-- optional  -->
+				<dataServerPort>3309</dataServerPort>	  
+				<!-- all following required  -->
+				<database>Platinum1</database>	  
+				<user>Admin</user>	  
+				<pass>Admin</pass>	  
+			</request>
+			<request command="setFields" clientRef="123-ABC">
+		    	<!-- Option can be: "add" to adds fields to default list (restores defaults then adds), "replace" to replace all with new list -->			
+	    		<!-- fields are seperated with "|" character -->			
+				<fieldList dataObject="Invoice" option="replace">DocNumber|SaleDate|CustomerName|TotalAmountInc</fieldList>
+				<fieldList dataObject="InvoiceLine" option="replace">ProductName|UOMQtySold|UOMQtyShipped|TotalLineAmountInc</fieldList>
+			</request>
+			<request command="read" dataObject="Invoice" limitFieldList="true" excludeInactive="false" clientRef="123-ABC">
+				<!-- return a single recorde with matching globalRef --> 
+				<!-- <request command="read" dataObject="Invoice" globalRef="DEF123" clientRef="123-ABC"> -->
+				<!-- return a single record with matching recId -->
+				<!-- <request command="read" dataObject="Invoice" recId="123" clientRef="123-ABC"> -->
+	    		<!-- option limit on number of records returned, where limitCount is count to return and limitFrom is starting position  -->			
+				<limit>
+					<limitCount>10</limitCount>
+					<limitFrom>1</limitFrom>
+				</limit>	
+	    		<!-- optional select statment to be passed as SQL. NOTE: for internal use only  -->			
+				<!-- <select>CustomerName = "Cust1"</select>  -->
+				<sort sortList="CustomerName,SaleDate">
+				</sort>
+			</request>
+			<request command="closeCompany" clientRef="CLOSE-1234">
+			</request>
+		</request>
+		<request command="endSession">
+		</request>
+	</xmlBlock>
+</platinum1xml>

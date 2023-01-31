@@ -1,0 +1,56 @@
+<!--Empty Template 
+  
+<Topic name="">
+<DisplayName></DisplayName>
+<Column>1</Column>
+<Videos>
+<Video>
+<No>1</No>
+<DisplayName></DisplayName>
+<Column>1</Column>
+<FileName>.avi</FileName>
+</Video>
+</Videos>
+</Topic>
+  
+  -->
+<Topics>
+<Topic name="Accounts" > 
+<DisplayName>Accounts</DisplayName>
+<Column>1</Column>
+<Bitmap>Accounts.bmp</Bitmap>
+<Videos>
+<Video>
+<No>1</No>
+<DisplayName>Overview</DisplayName>
+<Column>1</Column>
+<FileName>Overview.avi</FileName>
+</Video>
+<Video>
+<No>2</No>
+<DisplayName>How To Set Up A New Account</DisplayName>
+<Column>1</Column>
+<FileName>How to set up a new account.avi</FileName>
+</Video>
+<Video>
+<No>3</No>
+<DisplayName>New Account Express</DisplayName>
+<Column>1</Column>
+<FileName>New Account Express Video.avi</FileName>
+</Video>
+<Video>
+<No>4</No>
+<DisplayName>Journal Entries</DisplayName>
+<Column>2</Column>
+<FileName>Journal Entries.avi</FileName>
+</Video>
+<Video>
+<No>5</No>
+<DisplayName>Accounts Reports</DisplayName>
+<Column>2</Column>
+<FileName>Account Reports.avi</FileName>
+</Video>
+</Videos>
+</Topic>
+
+</Topics>

@@ -1,0 +1,12 @@
+{
+"OffsiteBackupConfigText":"{\r\n\"DatabaseList\":\"sample_company\",\r\n\"FTPHost\":\"[ERP Server]\",\r\n\"FTPPass\":\"\",\r\n\"FTPPath\":\"\",\r\n\"FTPUser\":\"\",\r\n\"OffsiteBackupEnabled\":true,\r\n\"OffsiteBackupTarget\":\"obERPServer\"\r\n}",
+"OffsiteRestoreConfigText":"{\r\n\"DatabaseList\":\"aus_sample_sync_test\",\r\n\"FTPHost\":\"erpny.dyndns.org\",\r\n\"FTPPass\":\"a8b2wA5e\",\r\n\"FTPPath\":\"erp_backup\\\/Ian Test\\\/\",\r\n\"FTPUser\":\"erpftp\",\r\n\"LocalPath\":\"C:\\\\ERP Software\\\\Backup\",\r\n\"OffsiteRestoreEnabled\":true,\r\n\"TimeEnd\":42389.9583333333,\r\n\"TimeStart\":42389.0000115741\r\n}",
+"ERPUtilsServer":"localhost",
+"color":16770790,
+"Position":
+{
+"left":573,
+"top":223
+},
+"ModalResult":2
+}

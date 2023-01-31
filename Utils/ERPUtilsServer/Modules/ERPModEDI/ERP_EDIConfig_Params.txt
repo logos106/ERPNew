@@ -1,0 +1,23 @@
+{
+"color":16770790,
+"Position":
+{
+"left":573,
+"top":223
+},
+"ERPDatabase":"",
+"Config":
+{
+"Active":true,
+"GuiInERP":true,
+"GuiInServiceMenu":true,
+"LoggerClassName":"TDbLogger",
+"LoggingLevel":"llDetail",
+"ModuleDescription":"ERP PMI Integration Module",
+"ModuleFileName":"C:\\ERP Software\\Utilities\\Modules\\ERPModEDI.exe",
+"ModuleName":"ERPModEDI",
+"ModuleVersion":"15.0.5.0"
+},
+"ERPUtilsServer":"localhost",
+"ModalResult":1
+}

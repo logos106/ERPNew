@@ -1,0 +1,24 @@
+1) Create manifest file (Win7UAC.manifest) containing somthing like:
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
+    <security>
+      <requestedPrivileges>
+        <requestedExecutionLevel level="requireAdministrator">
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+</assembly>
+
+2) Create Win7UAC.rc file containing the following single line:
+
+1 24 "Win7UAC.manifest"
+
+3) Use Delphi resource compiles to make resource file:
+
+brcc32.exe Win7UAC.rc
+
+4) Add resource to project file:
+
+{$R 'Win7UAC.res'}

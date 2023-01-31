@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- sample start session request  -->
+<platinum1xml>
+	<xmlBlock requestTiming="on">
+		<request command="startSession">
+			<authCode>xxw3n6vf8fgtj</authCode>
+		</request>
+	</xmlBlock>
+</platinum1xml>

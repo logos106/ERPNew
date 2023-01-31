@@ -1,0 +1,1 @@
+C:\UPX\UPX -9 ClientRegoManager.exe

@@ -1,0 +1,292 @@
+
+Test Case: CONF-ATO-PAYEVNT-BULK-001_Submit_Request_01
+Service: Submit
+Description: Small Payer valid submission - simple mandatory values.
+Files:
+    CONF-ATO-PAYEVNT-BULK-001_Submit_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-001_Submit_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-001_Submit_Request_03.xml
+    CONF-ATO-PAYEVNTEMP-BULK-001_Submit_Request_04.xml
+Upload Filename: ERPPayRun_2018-11-19-163442.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-20 00:01:22
+Test Result: Successful
+
+Test Case: CONF-ATO-PAYEVNT-BULK-002_Submit_Request_01
+Service: Submit
+Description: Registered Agent valid submission - one payee with overseas address.
+Files:
+    CONF-ATO-PAYEVNT-BULK-002_Submit_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-002_Submit_Request_02.xml
+Upload Filename: ERPPayRun_2018-11-20-083602.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-21 00:01:23
+Test Result: Successful
+
+Test Case: CONF-ATO-PAYEVNT-BULK-003_Submit_Request_01
+Service: Submit
+Description: Payer valid submission with Warning – Cross form validation firing on parent with 
+incorrect Payee record count.
+
+Files:
+    CONF-ATO-PAYEVNT-BULK-003_Submit_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-003_Submit_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-003_Submit_Request_03.xml
+    CONF-ATO-PAYEVNTEMP-BULK-003_Submit_Request_04.xml
+Upload Filename: ERPPayRun_2018-11-20-084759.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-21 00:01:23
+Test Result: Successful
+Errors:
+Severity: Warning
+  Message: Payee Record Count must be equal to the number of children (PAYEVNTEMP)
+
+
+Test Case: CONF-ATO-PAYEVNT-BULK-004_Submit_Request_01
+Service: Submit
+Description: Payer Invalid Submission -incorrect branch code.
+Files:
+    CONF-ATO-PAYEVNT-BULK-004_Submit_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-004_Submit_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-004_Submit_Request_03.xml
+    CONF-ATO-PAYEVNTEMP-BULK-004_Submit_Request_04.xml
+Upload Filename: ERPPayRun_2018-11-20-090434.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-21 00:01:23
+Test Result: Error
+Errors:
+Severity: Error
+  Message: Contact your AUSkey Administrator, or the person who setup your Cloud Authorisation, to review your profile and update the permission for your AUSkey or credential for this transaction type in ATO?s Access Manager, and then try again.
+
+If the issue persists, contact the ATO quoting this error code to resolve any issues.
+
+Test Case: CONF-ATO-PAYEVNT-BULK-005_Submit_Request_01
+Service: Submit
+Description: Intermediary Invalid Submission – parent uses duplicate submission id and child records with invalid email.
+Files:
+    CONF-ATO-PAYEVNT-BULK-005_Submit_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-005_Submit_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-005_Submit_Request_03.xml
+    CONF-ATO-PAYEVNTEMP-BULK-005_Submit_Request_04.xml
+Upload Filename: ERPPayRun_2018-11-20-090905.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-21 00:01:23
+Test Result: Error
+Errors:
+Severity: Error
+  Message: A text character must be one of the following: A to Z a to z 0 to 9 ! @ $ % & * ( ) - _ = [ ] ; : ' " , . ? / or a space character.
+  Location: Payee E-mail Address
+Severity: Error
+  Message: We were unable to process your submission because we already have a submission with this submission ID
+
+Test Case: CONF-ATO-PAYEVNT-BULK-006_Submit_Request_01
+Service: Submit
+Description: Payer Invalid Submission - 
+Parent submitted with no children present.
+
+Files:
+    CONF-ATO-PAYEVNT-BULK-006_Submit_Request_01.xml
+Upload Filename: ERPPayRun_2018-11-20-091644.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-21 00:01:23
+Test Result: Error
+Errors:
+Severity: Error
+  Message: At least one PAYEVNTEMP child must be provided
+
+Test Case: CONF-ATO-PAYEVNT-BULK-007_Submit_Request_01
+Service: Submit
+Description: Registered agent valid submission – Payer with withholding payer number.
+Files:
+    CONF-ATO-PAYEVNT-BULK-007_Submit_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-007_Submit_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-007_Submit_Request_03.xml
+Upload Filename: ERPPayRun_2018-11-20-095150.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-21 00:01:23
+Test Result: Error
+Errors:
+Severity: Error
+  Message: Inform your software provider that the eb:PartyInfo/From/PartyID details does not match the entity details for this submission. 
+
+Test Case: CONF-ATO-PAYEVNT-BULK-008_Submit_Request_01
+Service: Submit
+Description: Payer invalid Submission – 2 child records fail with invalid postcode and duplicate deduction types.
+Files:
+    CONF-ATO-PAYEVNT-BULK-008_Submit_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-008_Submit_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-008_Submit_Request_03.xml
+    CONF-ATO-PAYEVNTEMP-BULK-008_Submit_Request_04.xml
+    CONF-ATO-PAYEVNTEMP-BULK-008_Submit_Request_05.xml
+    CONF-ATO-PAYEVNTEMP-BULK-008_Submit_Request_06.xml
+    CONF-ATO-PAYEVNTEMP-BULK-008_Submit_Request_07.xml
+    CONF-ATO-PAYEVNTEMP-BULK-008_Submit_Request_08.xml
+    CONF-ATO-PAYEVNTEMP-BULK-008_Submit_Request_09.xml
+    CONF-ATO-PAYEVNTEMP-BULK-008_Submit_Request_10.xml
+    CONF-ATO-PAYEVNTEMP-BULK-008_Submit_Request_11.xml
+Upload Filename: ERPPayRun_2018-11-20-120729.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-21 00:01:23
+Test Result: Partial
+Errors:
+Severity: Error
+  Message: When the address is within Australia, the Postcode must be in the range of '0200-9999'
+  Location: Payee Postcode
+Severity: Error
+  Message: Deduction Type code has occurred more than once.  Delete the duplicate code or replace with an alternative code
+
+Test Case: CONF-ATO-PAYEVNT-BULK-009_Submit_Request_01
+Service: Submit
+Description: Payer Invalid submission – 1 child record uses invalid ETP date type combination.
+Files:
+    CONF-ATO-PAYEVNT-BULK-009_Submit_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-009_Submit_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-009_Submit_Request_03.xml
+    CONF-ATO-PAYEVNTEMP-BULK-009_Submit_Request_04.xml
+    CONF-ATO-PAYEVNTEMP-BULK-009_Submit_Request_05.xml
+    CONF-ATO-PAYEVNTEMP-BULK-009_Submit_Request_06.xml
+    CONF-ATO-PAYEVNTEMP-BULK-009_Submit_Request_07.xml
+    CONF-ATO-PAYEVNTEMP-BULK-009_Submit_Request_08.xml
+    CONF-ATO-PAYEVNTEMP-BULK-009_Submit_Request_09.xml
+    CONF-ATO-PAYEVNTEMP-BULK-009_Submit_Request_10.xml
+    CONF-ATO-PAYEVNTEMP-BULK-009_Submit_Request_11.xml
+Upload Filename: ERPPayRun_2018-11-20-121515.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-21 00:01:23
+Test Result: Partial
+Errors:
+Severity: Error
+  Message: The combination of ETP code and Payee ETP Payment Date has occurred more than once.  Either replace ETP code or ETP Payment Date with alternative codes
+
+Test Case: CONF-ATO-PAYEVNT-BULK-010_Submit_Request_01
+Service: Submit
+Description: Payer valid submission – Full file replacement
+Files:
+    CONF-ATO-PAYEVNT-BULK-010_Submit_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-010_Submit_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-010_Submit_Request_03.xml
+    CONF-ATO-PAYEVNTEMP-BULK-010_Submit_Request_04.xml
+Upload Filename: ERPPayRun_2018-11-20-123718.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-21 00:01:23
+Test Result: Successful
+
+Test Case: CONF-ATO-PAYEVNT-BULK-011_Submit_Request_01
+Service: Submit
+Description: Registered agent valid submission – deceased estate payments and date of birth variations.
+Files:
+    CONF-ATO-PAYEVNT-BULK-011_Submit_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-011_Submit_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-011_Submit_Request_03.xml
+    CONF-ATO-PAYEVNTEMP-BULK-011_Submit_Request_04.xml
+Upload Filename: ERPPayRun_2018-11-20-124202.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-21 00:01:23
+Test Result: Successful
+
+Test Case: CONF-ATO-PAYEVNT-BULK-012_Update_Request_01
+Service: Update
+Description: Payer valid update –demonstrate updating lodged information.
+Files:
+    CONF-ATO-PAYEVNT-BULK-012_Update_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-012_Update_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-012_Update_Request_03.xml
+    CONF-ATO-PAYEVNTEMP-BULK-012_Update_Request_04.xml
+Upload Filename: ERPPayRun_2018-11-20-124518.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-21 00:01:23
+Test Result: Successful
+
+Test Case: CONF-ATO-PAYEVNT-BULK-013_Update_Request_01
+Service: Update
+Description: Payer valid update – Payer period totals and Onboarding tuple included in payloads.
+Files:
+    CONF-ATO-PAYEVNT-BULK-013_Update_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-013_Update_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-013_Update_Request_03.xml
+Upload Filename: ERPPayRun_2018-11-21-092531.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-21 09:28:13
+Test Result: Error
+Errors:
+Severity: Error
+  Message: The Payer Period Totals tuple must not be provided
+Severity: Error
+  Message: The Onboarding tuple must not be present
+  Location: Onboarding
+
+Test Case: CONF-ATO-PAYEVNT-BULK-014_Update_Request_01
+Service: Update
+Description: Business intermediary valid update – duplicate submission id and invalid email address on child.
+Files:
+    CONF-ATO-PAYEVNT-BULK-014_Update_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-014_Update_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-014_Update_Request_03.xml
+    CONF-ATO-PAYEVNTEMP-BULK-014_Update_Request_04.xml
+Upload Filename: ERPPayRun_2018-11-21-093103.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-21 09:32:09
+Test Result: Error
+Errors:
+Severity: Error
+  Message: A text character must be one of the following: A to Z a to z 0 to 9 ! @ $ % & * ( ) - _ = [ ] ; : ' " , . ? / or a space character.
+  Location: Payee E-mail Address
+Severity: Error
+  Message: We were unable to process your submission because we already have a submission with this submission ID
+
+Test Case: CONF-ATO-PAYEVNT-BULK-015_Submit_Request_01
+Service: Submit
+Description: Business intermediary invalid submission – All children fail validation resulting in total rejection of message.
+Files:
+    CONF-ATO-PAYEVNT-BULK-015_Submit_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-015_Submit_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-015_Submit_Request_03.xml
+Upload Filename: ERPPayRun_2018-11-21-093413.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-21 09:40:47
+Test Result: Error
+Errors:
+Severity: Error
+  Message: A text character must be one of the following: A to Z a to z 0 to 9 ! @ $ % & * ( ) - _ = [ ] ; : ' " , . ? / or a space character.
+  Location: Payee E-mail Address
+Severity: Error
+  Message: When the address is within Australia, the Postcode must be in the range of '0200-9999'
+  Location: Payee Postcode
+
+Test Case: CONF-ATO-PAYEVNT-BULK-016_Submit_Request_01
+Service: Submit
+Description: Payer invalid submission – Incorrect declaration date for payer and invalid allowance and postcode validation errors for child records.
+Files:
+    CONF-ATO-PAYEVNT-BULK-016_Submit_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-016_Submit_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-016_Submit_Request_03.xml
+    CONF-ATO-PAYEVNTEMP-BULK-016_Submit_Request_04.xml
+Upload Filename: ERPPayRun_2018-11-21-095801.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-21 09:59:19
+Test Result: Error
+Errors:
+Severity: Error
+  Message: The date entered for Payer Declaration Date must not be later than today's date
+Severity: Error
+  Message: Other Allowance Type must be entered when Allowance Type of "Other" is selected
+Severity: Error
+  Message: When the address is within Australia, the Postcode must be in the range of '0200-9999'
+  Location: Payee Postcode
+
+Test Case: CONF-ATO-PAYEVNT-BULK-017_Submit_Request_01
+Service: Submit
+Description: Payer invalid submission – Cross form validation firing on child with invalid ETP date.
+Files:
+    CONF-ATO-PAYEVNT-BULK-017_Submit_Request_01.xml
+    CONF-ATO-PAYEVNTEMP-BULK-017_Submit_Request_02.xml
+    CONF-ATO-PAYEVNTEMP-BULK-017_Submit_Request_03.xml
+    CONF-ATO-PAYEVNTEMP-BULK-017_Submit_Request_04.xml
+Upload Filename: ERPPayRun_2018-11-21-100643.xml
+Performed By: TrueERP Development
+Performed On: 2018-11-21 10:13:39
+Test Result: Partial
+Errors:
+Severity: Error
+  Message: ETP payment date must be in the same financial year as the Pay/Update Date
+  Location: Payee ETP Payment Date

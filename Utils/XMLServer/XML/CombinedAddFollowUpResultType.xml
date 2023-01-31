@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<platinum1xml>
+	<xmlBlock requestTiming="on">
+		<request command="startSession">
+			<authCode>xxw3n6vf8fgtj</authCode>
+		</request>
+		<request command="terp.execute">
+			<request command="openCompany" clientRef="OPEN-1234">
+				<database>Platinum1</database>	  
+				<user>Admin</user>	  
+				<pass>Admin</pass>	  
+			</request>
+			<request command="add" dataObject="FollowUpResultType" clientRef="123-ABC">
+				<FollowUpResultType>
+					<typename>Test_Name</typename>
+					<description>Test_Description</description>
+				</FollowUpResultType>
+			</request>
+			<request command="closeCompany" clientRef="CLOSE-1234">
+			</request>
+		</request>
+		<request command="endSession">
+		</request>
+	</xmlBlock>
+</platinum1xml>

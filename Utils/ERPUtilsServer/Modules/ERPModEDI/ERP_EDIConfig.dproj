@@ -1,0 +1,180 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{163BC1C9-F23B-484F-B7C8-89871344BAD7}</ProjectGuid>
+			<ProjectVersion>12.3</ProjectVersion>
+			<MainSource>ERP_EDIConfig.dpr</MainSource>
+			<Base>True</Base>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<Platform>Win32</Platform>
+			<AppType>Application</AppType>
+			<FrameworkType>VCL</FrameworkType>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_DcuOutput>.\$(Config)\$(Platform)</DCC_DcuOutput>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_ExeOutput>.\$(Config)\$(Platform)</DCC_ExeOutput>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_ExeOutput>.\</DCC_ExeOutput>
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+			<DCC_Optimize>false</DCC_Optimize>
+			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="ERP_EDIConfig.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="frmEDIConfigMain.pas">
+				<Form>fmEDIConfigMain</Form>
+			</DCCReference>
+			<DCCReference Include="..\..\ServiceMenu\frmStandAloneConfigBase.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\UserUtilsClientObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\OpProgressObj.pas"/>
+			<DCCReference Include="..\..\JsonRPC\JsonRpcBase.pas"/>
+			<DCCReference Include="..\..\JsonRPC\JsonRpcConst.pas"/>
+			<DCCReference Include="..\..\JsonRPC\JsonRpcTcpClient.pas"/>
+			<DCCReference Include="..\..\..\..\Common\JsonToObject.pas"/>
+			<DCCReference Include="..\..\..\..\Common\CipherUtils.pas"/>
+			<DCCReference Include="..\ModuleConst.pas"/>
+			<DCCReference Include="..\..\..\..\Common\UtilsLib.pas"/>
+			<DCCReference Include="..\..\..\..\Common\AppEnvVirtualObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\DbSharedObjectsObj.pas"/>
+			<DCCReference Include="..\UserUtils\AppEnvironmentVirtual.pas"/>
+			<DCCReference Include="..\..\..\..\Common\ProgressInfoObj.pas"/>
+			<DCCReference Include="..\UserUtils\MachineSignature.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\DecimalRounding.pas"/>
+			<DCCReference Include="..\..\..\..\Common\VersionUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Common\InstallConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\TempTableUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Common\RandomUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Common\MySQLConst.pas"/>
+			<DCCReference Include="..\..\..\..\Common\MySQLUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\AppRunUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Common\DbConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\FileVersion.pas"/>
+			<DCCReference Include="ModEDIConfigObj.pas"/>
+			<DCCReference Include="EDIMapConfigObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\JsonDbPrefsConfigObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\JSONObject.pas"/>
+			<DCCReference Include="frmEDITrigger.pas">
+				<Form>fmEDITrigger</Form>
+			</DCCReference>
+			<DCCReference Include="frmEDIMapper.pas">
+				<Form>fmEDIMapper</Form>
+			</DCCReference>
+			<DCCReference Include="fraEDIFileCSV.pas">
+				<Form>frEDIFileCSV</Form>
+				<DesignClass>TFrame</DesignClass>
+			</DCCReference>
+			<DCCReference Include="..\..\..\..\Common\StringUtils.pas"/>
+			<DCCReference Include="frmEDIColumnEdit.pas">
+				<Form>fmEDIColumnEdit</Form>
+			</DCCReference>
+			<DCCReference Include="fraEDIMap.pas">
+				<Form>frEDIMap</Form>
+				<DesignClass>TFrame</DesignClass>
+			</DCCReference>
+			<DCCReference Include="frmEDIMapEdit.pas">
+				<Form>fmEDIMapEdit</Form>
+			</DCCReference>
+			<DCCReference Include="frmEDIDataFilter.pas">
+				<Form>fmEDIDataFilter</Form>
+			</DCCReference>
+			<DCCReference Include="..\..\..\..\Common\JsonObjectUtils.pas"/>
+			<DCCReference Include="EDIUtils.pas"/>
+			<DCCReference Include="..\ERPModUserUtils\EmailUtilsSimple.pas"/>
+			<DCCReference Include="..\..\..\..\Common\MailServerConst.pas"/>
+			<DCCReference Include="..\..\..\..\Common\CreditCardObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\DbGen.pas"/>
+			<DCCReference Include="..\..\..\..\Common\EncryptFix.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\DateTimeUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Common\DateTimeConvert.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\ERPServerDetailsObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\ModuleFileNameUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\FileDownloadFuncs.pas"/>
+			<DCCReference Include="..\..\..\..\Common\HTTPConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\SystemLib.pas"/>
+			<DCCReference Include="..\..\..\ERPUpdater\UpdaterConst.pas"/>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Delphi.Personality>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">2018</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">3081</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">TrueERP</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">ERP EDI Configuration</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">2018.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">2018.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\8.0\Bpl\InternalDev.bpl">ERP Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\8.0\Bpl\ERPDB.bpl">ERP MySQL Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k150.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+					</Excluded_Packages>
+					<Source>
+						<Source Name="MainSource">ERP_EDIConfig.dpr</Source>
+					</Source>
+				</Delphi.Personality>
+				<Platforms>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

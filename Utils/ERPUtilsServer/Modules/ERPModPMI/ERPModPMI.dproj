@@ -1,0 +1,487 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{055E7797-28E5-4BC1-96C7-FA29DFB002C9}</ProjectGuid>
+			<ProjectVersion>12.3</ProjectVersion>
+			<MainSource>ERPModPMI.dpr</MainSource>
+			<Base>True</Base>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<Platform>Win32</Platform>
+			<AppType>Console</AppType>
+			<FrameworkType>None</FrameworkType>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_DcuOutput>.\$(Config)\$(Platform)</DCC_DcuOutput>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_ExeOutput>.\$(Config)\$(Platform)</DCC_ExeOutput>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_ExeOutput>C:\Dev\ERP\Utils\ERPUtilsServer\EXE\Modules\</DCC_ExeOutput>
+			<DCC_UnitSearchPath>C:\Dev\ERP\Dev;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+			<DCC_Optimize>false</DCC_Optimize>
+			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="ERPModPMI.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="ModPMI.pas"/>
+			<DCCReference Include="..\..\..\..\Common\ServerModules\ServerModuleObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\ThreadProperty.pas"/>
+			<DCCReference Include="..\..\..\..\Common\ServerModules\ServerModuleThreadTask.pas"/>
+			<DCCReference Include="..\..\..\..\Common\ModuleComms3.pas"/>
+			<DCCReference Include="..\..\..\..\Common\ServerModules\ServerModuleConst.pas"/>
+			<DCCReference Include="..\..\..\..\Common\ModuleFileNameUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Common\JsonToObject.pas"/>
+			<DCCReference Include="..\..\..\..\Common\CipherUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\IntegerListObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\SystemLib.pas"/>
+			<DCCReference Include="..\..\JsonRPC\JsonRPCUtils.pas"/>
+			<DCCReference Include="..\NotificationItem.pas"/>
+			<DCCReference Include="..\..\..\..\Common\ConsoleLogObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\JsonDbPrefsConfigObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\ERPDbListObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\DbSharedObjectsObj.pas"/>
+			<DCCReference Include="..\ModuleDbUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Common\DbConst.pas"/>
+			<DCCReference Include="..\..\..\..\Common\XMLHelperUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\LogThreadDbLib.pas"/>
+			<DCCReference Include="..\..\..\..\Common\MySQLUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\AppRunUtils.pas"/>
+			<DCCReference Include="..\..\JsonRPC\JsonRpcConst.pas"/>
+			<DCCReference Include="..\..\..\..\Common\SecureBBox11RegoKey.pas"/>
+			<DCCReference Include="C:\Program Files (x86)\EldoS\SecureBlackbox.VCL\Classes\IndySFTP\Client\SBIdSFTP.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\BusObjStock.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BaseClasses\Objects\BusObjBase.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\UserLockObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\UserLockBaseObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\MySQLConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\AppEnvironmentVirtual.pas"/>
+			<DCCReference Include="..\..\..\..\Common\AppEnvVirtualObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\ProgressInfoObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\ProgressInfoDlgObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\CommonDbLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\tcTypes.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\CommonLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\DecimalRounding.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\DNMAccessManager.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BusinessObjects\BusObjConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\tcDataUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\tcConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\DNMLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\InventoryTypes.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\AuditTrailObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\AppEnvironment.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\AccessLevelObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\BranchObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Utilities\Objects\CompanyPrefObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\SMSConfigObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\UPSConfigObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\ShipIntegrationUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\BusObjSales.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BusinessObjects\BusObjGeneral.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\ValueListObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Module\DelayLib.pas"/>
+			<DCCReference Include="..\..\..\..\Common\EParser.pas"/>
+			<DCCReference Include="..\..\..\..\Common\StringUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BusinessObjects\BusObjAudit.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BusinessObjects\AuditTrailPurgeObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\GoogleCalendarConfigObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\BusObjRegionalOptions.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Employee\Objects\EmployeeObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\DefaultClassObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\Pay\PayPreferencesObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Utilities\Objects\busobjcompinfo.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\AppDatabase.pas"/>
+			<DCCReference Include="..\..\..\..\Common\SimpleEncrypt.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\ObjectFieldListObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\ColoursPrefsObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\SoundObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\UserUtilsClientObj.pas"/>
+			<DCCReference Include="..\..\JsonRPC\JsonRpcBase.pas"/>
+			<DCCReference Include="..\..\JsonRPC\JsonRpcTcpClient.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\OpProgressObj.pas"/>
+			<DCCReference Include="..\ModuleConst.pas"/>
+			<DCCReference Include="..\..\..\..\Common\UtilsLib.pas"/>
+			<DCCReference Include="..\..\..\..\Common\VersionUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Common\InstallConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\TempTableUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Common\RandomUtils.pas"/>
+			<DCCReference Include="..\UserUtils\MachineSignature.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\EFT\Objects\busobjAchInfo.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\BusObjGLAccount.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\BusObjBankCode.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BusinessObjects\BusObjectListObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\GoogleUpdateObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\GoogleAPI.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\DateTimeUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Common\URILib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\LogThreadBase.pas"/>
+			<DCCReference Include="..\..\..\..\Common\GoogleConfigObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\BusObjTaxCodes.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BaseClasses\Objects\BusObjTrans.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Clients\Common\Objects\BusObjClient.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Utilities\Objects\PreferenceLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\RegEdit.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BusinessObjects\BusObjSchemaLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\BusobjCountries.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\SharedObjs.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\busobjuom.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\BusobjProductProperties.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Utilities\Objects\BusObjDeletedItem.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BusinessObjects\BusObjUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\BusObjClass.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BusinessObjects\BusObjCommon.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Clients\Customers\Objects\BusObjShippingAgent.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\BusObjSalesLinesPoints.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\BusObjSalesRedeemPoints.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BaseClasses\Objects\BusObjSaleBase.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Clients\Common\Objects\BusObjContact.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Customfields\Objects\Busobjcustomfields.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BusinessObjects\BusObjManufacture.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Repairs\Objects\BusobjRepairsExportConfig.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BusinessObjects\BusObjModel.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Clients\Customers\Objects\BusObjShippingAddress.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\ShipIntegrationTypes.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Clients\Customers\Objects\busobjclienttaxexceptionproducts.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\BusObjPicture.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\BusObjSimpleTypes.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\BusobjAttribProduct.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\BusobjProdAttribGroup.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Equipment\Objects\BusObjEquipment.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Repairs\Objects\BusObjRepairs.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\Pay\BusObjTimeSheet.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjEmployeeDetails.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Employee\Objects\BusObjEmployee.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Employee\Objects\BusobjPersonalPreference.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\Pay\BusObjPayRate.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\ForeignExchangeObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BusinessObjects\BusObjPrintDoc.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\EmailUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\EmailUtilsDefaultMailClient.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\busobjPQA.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\BusObjProductPicture.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\busobjProductcommission.Pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\BusObjProductBarcode.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\BusObjProductbin.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Module\PQALib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Module\ProductQtyLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Clients\Customers\Objects\BusObjProductRewardPoints.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\BusobjProduct.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\ParserObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Manufacturing\Objects\BusObjProcTreePart.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BaseClasses\Objects\BusobjBaseProdTrans.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\BusobjCash.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\BusobjTransTaxCodes.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Clients\Customers\Objects\ClientDiscountObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\ProductPriceObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\busobjPartsPriceMatrix.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\LogUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\SalesConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\busobjsalesTaxcodes.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\BusobjSalesQtySplit.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\BusobjSalesShippingDetails.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Manufacturing\Objects\BusObjProcess.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BaseClasses\Objects\BusObjNDSBase.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BaseClasses\Objects\SaveExcludeListObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\ClassFuncs.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Manufacturing\Objects\BusObjProcessPartNDS.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Manufacturing\Objects\BusObjProcessStep.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Manufacturing\Objects\BusObjProcessTimeNDS.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Manufacturing\Objects\BusObjProcessPart.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Manufacturing\Objects\ProcessUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Manufacturing\Objects\BusObjProcResource.Pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Manufacturing\Module\ManufactureLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Manufacturing\Objects\BusObjProcPrefs.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BaseClasses\Objects\BusObjNDSGenDb.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Manufacturing\Objects\ProcessDataUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\BusObjSalesLookup.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\BusobjRelatedSales.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\busobjSalesDelDetails.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\BusObjManifest.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\BusObjShipment.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Manufacturing\Objects\BusobjBOMGroupLines.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\PersonNameObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\XMLToBusObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\GlobalEventsObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Purchases\Objects\BusObjSmartOrder.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Marketing\Objects\BusObjMarketingLeads.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Purchases\Objects\busobjOrders.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payments\Objects\busobjPrepayments.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\busobjSalesorderInvoice.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\LogLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\POS\Objects\BusObjPOSSale.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\POS\Objects\busobjPOSOrders.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\busobjvoucher.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Modules\VoucherLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\POS\Objects\busobjPOS.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payments\Objects\busobjPaymethods.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BaseClasses\Objects\BusObjOrderBase.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Purchases\Objects\BusObjShipContainerDetails.Pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\TransSumLinesObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Purchases\Objects\BusobjPurchaseTaxCodes.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Purchases\Objects\BusObjShippingContainer.Pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\BusObjApprovals.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\busobjAreaCodes.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Purchases\Objects\busobjExpenses.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\BusobjABA.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\GoogleAnalysis\Objects\BusobjGoogleAnalytic_ERPlink.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\busObjBankDepost.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payments\Objects\TransLockManagementObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payments\Objects\ReconciliationFlagsObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payments\Objects\TransLockManagementSQLs.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\Pay\PayCommon.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPayBase.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjEmployeepayrates.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPaysPayratesBASE.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjpaysLeave.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjLeaveAccruals.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjEmployeePaySettings.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPaysDeductions.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjEmployeeLeave.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjTaxBase.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjBenefitsBase.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPaysAllowances.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPayCommissionsBASE.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjcommissionTypes.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPaysTransactions.Pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPaySundriesBASE.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPayPaysplits.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPayLine.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjTerminationSimple.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjEmployeePay.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjEmployeePaysplit.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjEmployeeDeductions.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjDeductions.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjAllowances.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjTaxAUS.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPaysPayratesAUS.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPaysSuperannuation.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjEmpPaySettingsAUS.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPaysDeductionsAUS.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPaysAllowancesAUS.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPayLeavesAUS.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPaySundriesAUS.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPayPaysplitsAUS.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPayCommissionsAUS.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjLeavetypes.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\PayAccounts.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Employee\Objects\BusobjSalesCommission.Pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjfringeBenefitsTax.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\BusObjCorrespondence.pas"/>
+			<DCCReference Include="..\..\..\..\Common\SMSMessageObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjEmployeeAllowances.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjWorkersCompensation.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjAwards.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\InputForms\frmDelayMessageDlg.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjAwardShifts.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusobjAwardClassificationDetail.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjAwardsLeave.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjClassificationAllowances.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjClassificationDeductions.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjClassificationExtraPayrates.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Employee\Objects\BusobjEmpskills.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjSuperannuation.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Employee\Objects\CalcSalescommission.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Purchases\Objects\BusobjSmartOrderRFQ.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BaseClasses\Module\ParserLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\FixedAssets\Objects\BusObjFixedAsset.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\BusObjAttachment.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\AppContextObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BusinessObjects\BusObjAppointments.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BusinessObjects\BusObjRepServices.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BusinessObjects\BusObjAbility.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Employee\Objects\BusObjRep.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Marketing\Objects\BusobjMarketingcontacts.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CustomFieldConfigObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Module\timelib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\busobjSimpletypeActions.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Module\PartsPriceMatrixLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjRoster.Pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Training\Objects\BusobjTraining.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Training\modules\TrainingLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payments\Objects\BusObjPayments.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\BusObjTenderAccountPrefs.Pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payments\Objects\PaymentsLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\BusObjPickingAssembly.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\busobjvouchersale.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\BusObjPublicHolidays.Pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\BusObjAccountPosting.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\BusObjAccountPostingDetail.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\StoredProcedures.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BaseClasses\Objects\ClassExtenderListObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Module\AuditTrialTreeLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\POS\Objects\BusObjPosTill.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\busobjSerialnumbers.Pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\busobjStockMovement.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\busobjstockTransferentry.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\InventoryAdjust\Modules\StockLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\BusobjStockAdjustEntry.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\BusobjProductFormula.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\UserMessageConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BaseClasses\Objects\BusObjCurrency.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\BusObjLocation.Pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\MessageConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\BusobjBranch.Pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\BusobjDirty.Pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\XMLRequestConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\CustomPropConfigObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\JsonToBusObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\XMLFuncLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Utilities\Objects\busobjobjectproperties.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\ExportDataObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\TextFileObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\CSVParserObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\BusObjImportDataMap.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\ImportDataMappingConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BusinessObjects\BusObjDataUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\MergeObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\DataTreeBaseObj.pas"/>
+			<DCCReference Include="..\..\UtilsServerUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Common\DBUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\Rounding.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\QueryManipulationObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\DataTreeObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Utilities\Objects\SyncReportTableObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\DataTreeReader.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\BusObjPreference.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\SysInfo.pas"/>
+			<DCCReference Include="..\..\..\..\Common\MailServerConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\tcClasses.pas"/>
+			<DCCReference Include="..\ERPModUserUtils\EmailUtilsSimple.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Utilities\Objects\SMSUtils.pas"/>
+			<DCCReference Include="PMIThreadTask.pas"/>
+			<DCCReference Include="..\..\..\..\Common\JSONObject.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Utilities\Objects\BusobjDocPath.Pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BaseClasses\Objects\ReportSQLBase.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\GuiPrefReaderObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\TemplateReports\Objects\PrintTemplateBaseObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\TemplateReports\Objects\ReportTemplateBase.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\TemplateReports\InpuForms\frmDesigner.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Employee\Objects\BusRosterBreaks.Pas"/>
+			<DCCReference Include="..\..\..\..\Common\ModulePortObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\GoogleAuth.pas"/>
+			<DCCReference Include="..\..\..\..\Common\GoogleConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\FedExConfigObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\USPSConfigObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\BusObjProductClass.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\BusObjEmailConfig.pas"/>
+			<DCCReference Include="..\..\..\..\Common\EmailConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\EmailLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\InlineAttachmentListObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CorrespondenceObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\HTMLUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\FlipReverseRotateLibrary.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\PayTaxableTotalObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Payroll\Objects\BusObjPayTax.pas"/>
+			<DCCReference Include="..\..\..\..\Common\JsonToDatasetFuncs.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Modules\SalesDiscountValidationObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Hire\Objects\BusObjDuration.pas"/>
+			<DCCReference Include="..\..\..\..\Common\DateTimeConvert.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Customfields\Objects\BusObjCustomFieldsGeneral.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Hire\Objects\BusObjAssetHire.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Hire\Objects\BusObjHirePricingLine.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Module\EmployeeAccesses.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\BusobjCrossStockCompanies.Pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Manufacturing\Objects\busobjProcProgress.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Manufacturing\Objects\BusobjProctree.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\ERPServerDetailsObj.pas"/>
+			<DCCReference Include="..\..\..\ERPUpdater\UpdaterConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\FileDownloadFuncs.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\ERPErrorEmailUtils.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Manufacturing\Module\ProcProgressLib.pas"/>
+			<DCCReference Include="..\..\..\..\Common\HTTPConst.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Module\TypesLib.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\BusObjStateFreight.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\ApprovalObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\CAR\Objects\BusobjCAR.Pas"/>
+			<DCCReference Include="..\..\..\..\Common\ERPSets.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BaseClasses\Objects\BusObjFeTransLines.pas"/>
+			<DCCReference Include="..\..\..\..\Common\DbGen.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\FileVersion.pas"/>
+			<DCCReference Include="..\..\..\..\Common\CreditCardObj.pas"/>
+			<DCCReference Include="..\..\..\..\Common\EncryptFix.pas"/>
+			<DCCReference Include="..\..\..\..\Common\CardPaymentObj.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\BusObjSalesBatches.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\BaseClasses\Objects\BusObjTransLinetotals.pas"/>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Delphi.Personality>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">2017</VersionInfo>
+						<VersionInfo Name="MinorVer">7</VersionInfo>
+						<VersionInfo Name="Release">5</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">3081</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">Madeurne Pty Ltd</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">ERP PMI Integration Module</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">2017.7.5.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">2017.7.5.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k150.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+					</Excluded_Packages>
+					<Source>
+						<Source Name="MainSource">ERPModPMI.dpr</Source>
+					</Source>
+				</Delphi.Personality>
+				<Platforms>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

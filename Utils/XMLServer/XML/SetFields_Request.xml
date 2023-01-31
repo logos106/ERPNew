@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- sample setFields request  -->
+<platinum1xml>
+	<xmlBlock ticket="ADjufYSu4KX2yZd">
+		<request command="terp.execute">
+			<request command="setFields" clientRef="123-ABC">
+		    	<!-- Option can be: "add" to adds fields to default list (restores defaults then adds), "replace" to replace all with new list -->			
+	    		<!-- fields are seperated with "|" character -->			
+				<fieldList dataObject="Invoice" option="add">GLaccountName|Comments</fieldList>
+				<fieldList dataObject="InvoiceLine" option="add">PartType|IncomeAccount</fieldList>
+			</request>
+		</request>	
+	</xmlBlock>
+</platinum1xml>

@@ -1,0 +1,17 @@
+API Info: https://support.payeezy.com/hc/en-us
+API Demo Stuff (Inc WSDL): https://support.payeezy.com/hc/en-us/articles/203730579-Payeezy-Gateway-Demo-Accounts
+
+Link: https://demo.globalgatewaye4.firstdata.com 
+Test Merchant Name: 	TrueERP
+Test User Name: 	trueerp440
+Test User Password:	1Rooster
+
+ Framus and Warwick Music 
+ Live details
+ Acccount
+ Username: madisondcollett
+PW: Framus1922.
+ 
+ API
+ ID: I19331-00
+ Password: YEKAbGqUVgp6vvl1iAkpQuIfHg346fnp

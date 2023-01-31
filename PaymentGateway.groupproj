@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{97225417-14A1-4BC6-9CAE-16CAED71E0F1}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="C:\Users\user\Documents\Embarcadero\Studio\Projects\Test\PaymentGateway\PaymentGatewayTest.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Utils\ERPUtilsServer\Modules\ERPModPayGateway\ERPModPaymentGateway.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Try\GenDB\GenDbTokyo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\Try\Yodlee\Yodlee.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="PaymentGatewayTest">
+        <MSBuild Projects="C:\Users\user\Documents\Embarcadero\Studio\Projects\Test\PaymentGateway\PaymentGatewayTest.dproj"/>
+    </Target>
+    <Target Name="PaymentGatewayTest:Clean">
+        <MSBuild Projects="C:\Users\user\Documents\Embarcadero\Studio\Projects\Test\PaymentGateway\PaymentGatewayTest.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PaymentGatewayTest:Make">
+        <MSBuild Projects="C:\Users\user\Documents\Embarcadero\Studio\Projects\Test\PaymentGateway\PaymentGatewayTest.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ERPModPaymentGateway">
+        <MSBuild Projects="Utils\ERPUtilsServer\Modules\ERPModPayGateway\ERPModPaymentGateway.dproj"/>
+    </Target>
+    <Target Name="ERPModPaymentGateway:Clean">
+        <MSBuild Projects="Utils\ERPUtilsServer\Modules\ERPModPayGateway\ERPModPaymentGateway.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ERPModPaymentGateway:Make">
+        <MSBuild Projects="Utils\ERPUtilsServer\Modules\ERPModPayGateway\ERPModPaymentGateway.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GenDbTokyo">
+        <MSBuild Projects="..\Try\GenDB\GenDbTokyo.dproj"/>
+    </Target>
+    <Target Name="GenDbTokyo:Clean">
+        <MSBuild Projects="..\Try\GenDB\GenDbTokyo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GenDbTokyo:Make">
+        <MSBuild Projects="..\Try\GenDB\GenDbTokyo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Yodlee">
+        <MSBuild Projects="..\Try\Yodlee\Yodlee.dproj"/>
+    </Target>
+    <Target Name="Yodlee:Clean">
+        <MSBuild Projects="..\Try\Yodlee\Yodlee.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Yodlee:Make">
+        <MSBuild Projects="..\Try\Yodlee\Yodlee.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="PaymentGatewayTest;ERPModPaymentGateway;GenDbTokyo;Yodlee"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="PaymentGatewayTest:Clean;ERPModPaymentGateway:Clean;GenDbTokyo:Clean;Yodlee:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="PaymentGatewayTest:Make;ERPModPaymentGateway:Make;GenDbTokyo:Make;Yodlee:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -1,0 +1,82 @@
+inherited fmBaseList: TfmBaseList
+  Caption = 'fmBaseList'
+  ClientHeight = 314
+  ClientWidth = 735
+  OldCreateOrder = True
+  OnClose = FormClose
+  ExplicitWidth = 751
+  ExplicitHeight = 352
+  PixelsPerInch = 96
+  TextHeight = 15
+  object pnlTop: TPanel
+    Left = 0
+    Top = 0
+    Width = 735
+    Height = 42
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    object btnRefresh: TButton
+      Left = 8
+      Top = 8
+      Width = 75
+      Height = 25
+      Caption = 'Refresh'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnClick = btnRefreshClick
+    end
+  end
+  object gdMain: TwwDBGrid
+    Left = 0
+    Top = 42
+    Width = 735
+    Height = 272
+    IniAttributes.Delimiter = ';;'
+    TitleColor = clBtnFace
+    FixedCols = 0
+    ShowHorzScrollBar = True
+    Align = alClient
+    DataSource = dsMain
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+    TitleAlignment = taLeftJustify
+    TitleFont.Charset = ANSI_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Arial'
+    TitleFont.Style = [fsBold]
+    TitleLines = 1
+    TitleButtons = True
+    OnTitleButtonClick = gdMainTitleButtonClick
+  end
+  object qryMain: TMyQuery
+    Connection = MyConnection1
+    Left = 88
+    Top = 24
+  end
+  object dsMain: TDataSource
+    DataSet = qryMain
+    Left = 128
+    Top = 32
+  end
+  object MyConnection1: TMyConnection
+    Database = 'services'
+    Port = 3309
+    Username = 'P_One'
+    Password = '1w$p&LD07'
+    LoginPrompt = False
+    Left = 48
+    Top = 16
+  end
+end

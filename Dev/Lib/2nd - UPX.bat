@@ -1,0 +1,12 @@
+C:\UPX\UPX -9 ERPImages_Default.dll
+C:\UPX\UPX -9 ERPImages_Default_Small.dll
+C:\UPX\UPX -9 ERPImages_Girly.dll
+C:\UPX\UPX -9 ERPImages_Girly_Small.dll
+C:\UPX\UPX -9 ERPImages_Glossy_Night.dll
+C:\UPX\UPX -9 ERPImages_Glossy_Night_Small.dll
+C:\UPX\UPX -9 ERPImages_Misc_Range.dll
+C:\UPX\UPX -9 ERPImages_Misc_Range_Small.dll
+C:\UPX\UPX -9 ERPImages_Smiley.dll
+C:\UPX\UPX -9 ERPImages_Smiley_Small.dll
+C:\UPX\UPX -9 ERPImages_Super_Hero.dll
+C:\UPX\UPX -9 ERPImages_Super_Hero_Small.dll

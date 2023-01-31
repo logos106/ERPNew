@@ -1,0 +1,805 @@
+inherited fmTasksforVer: TfmTasksforVer
+  Left = 160
+  Top = 133
+  HelpContext = 1310002
+  Caption = 'Tasks for Version'
+  ClientHeight = 565
+  ClientWidth = 996
+  ExplicitLeft = 160
+  ExplicitTop = 133
+  ExplicitWidth = 1012
+  ExplicitHeight = 604
+  PixelsPerInch = 96
+  TextHeight = 15
+  inherited lblSkingroupMsg: TLabel
+    Top = 515
+    Width = 996
+    HelpContext = 1310003
+    ExplicitTop = 223
+    ExplicitWidth = 455
+  end
+  inherited shapehint: TShape
+    Left = 126
+    Top = 10
+    ExplicitLeft = 49
+    ExplicitTop = 10
+  end
+  inherited imgGridWatermark: TImage
+    Left = 305
+    Top = 10
+    ExplicitLeft = 305
+    ExplicitTop = 10
+  end
+  inherited shapehintextra1: TShape
+    Left = 267
+    Top = 10
+    ExplicitLeft = 113
+    ExplicitTop = 10
+  end
+  object DNMPanel2: TDNMPanel [5]
+    Left = 0
+    Top = 0
+    Width = 996
+    Height = 59
+    HelpContext = 1310010
+    Align = alTop
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    DesignSize = (
+      996
+      59)
+    object pnlTitle: TDNMPanel
+      Left = 250
+      Top = 9
+      Width = 495
+      Height = 39
+      HelpContext = 1310011
+      Anchors = [akLeft, akTop, akRight]
+      
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -29
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      Locked = True
+      ParentFont = False
+      TabOrder = 0
+      object TitleShader: TShader
+        Left = 1
+        Top = 1
+        Width = 493
+        Height = 37
+        HelpContext = 1310012
+        Align = alClient
+        BevelOuter = bvNone
+        TabOrder = 0
+        FromColor = clBtnFace
+        ToColor = clWhite
+        FromColorMirror = clWhite
+        ToColorMirror = clBtnFace
+        Steps = 10
+        Direction = False
+        Version = '1.4.0.0'
+        object TitleLabel: TLabel
+          Left = 0
+          Top = 0
+          Width = 493
+          Height = 37
+          HelpContext = 1310013
+          Align = alClient
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Tasks for Version'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -29
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+          Transparent = True
+          Layout = tlCenter
+          ExplicitWidth = 171
+        end
+      end
+    end
+  end
+  object DNMPanel3: TDNMPanel [6]
+    Left = 0
+    Top = 515
+    Width = 996
+    Height = 50
+    HelpContext = 1310014
+    Align = alBottom
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    DesignSize = (
+      996
+      50)
+    object Label3: TLabel
+      Left = 1
+      Top = 6
+      Width = 76
+      Height = 15
+      HelpContext = 1310017
+      Alignment = taCenter
+      Anchors = [akLeft, akBottom]
+      Caption = 'Total Records'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lblTotal: TLabel
+      Left = 1
+      Top = 26
+      Width = 77
+      Height = 22
+      HelpContext = 1310018
+      Alignment = taCenter
+      Anchors = [akLeft, akBottom]
+      AutoSize = False
+      Caption = '1'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object cmdClose: TDNMSpeedButton
+      Left = 282
+      Top = 11
+      Width = 93
+      Height = 29
+      HelpContext = 1310015
+      Anchors = [akBottom]
+      Caption = '&Save'
+      Default = True
+      DisableTransparent = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3333333333333333333333330000333333333333333333333333F33333333333
+        00003333344333333333333333388F3333333333000033334224333333333333
+        338338F3333333330000333422224333333333333833338F3333333300003342
+        222224333333333383333338F3333333000034222A22224333333338F338F333
+        8F33333300003222A3A2224333333338F3838F338F33333300003A2A333A2224
+        33333338F83338F338F33333000033A33333A222433333338333338F338F3333
+        0000333333333A222433333333333338F338F33300003333333333A222433333
+        333333338F338F33000033333333333A222433333333333338F338F300003333
+        33333333A222433333333333338F338F00003333333333333A22433333333333
+        3338F38F000033333333333333A223333333333333338F830000333333333333
+        333A333333333333333338330000333333333333333333333333333333333333
+        0000}
+      HotTrackFont.Charset = DEFAULT_CHARSET
+      HotTrackFont.Color = clWindowText
+      HotTrackFont.Height = -12
+      HotTrackFont.Name = 'Arial'
+      HotTrackFont.Style = []
+      NumGlyphs = 2
+      ParentFont = False
+      TabOrder = 0
+      OnClick = cmdCloseClick
+    end
+    object cmdCancel: TDNMSpeedButton
+      Left = 621
+      Top = 11
+      Width = 93
+      Height = 29
+      HelpContext = 1310016
+      Anchors = [akBottom]
+      Cancel = True
+      Caption = '&Cancel'
+      DisableTransparent = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        333333333333333333333333000033338833333333333333333F333333333333
+        0000333911833333983333333388F333333F3333000033391118333911833333
+        38F38F333F88F33300003339111183911118333338F338F3F8338F3300003333
+        911118111118333338F3338F833338F3000033333911111111833333338F3338
+        3333F8330000333333911111183333333338F333333F83330000333333311111
+        8333333333338F3333383333000033333339111183333333333338F333833333
+        00003333339111118333333333333833338F3333000033333911181118333333
+        33338333338F333300003333911183911183333333383338F338F33300003333
+        9118333911183333338F33838F338F33000033333913333391113333338FF833
+        38F338F300003333333333333919333333388333338FFF830000333333333333
+        3333333333333333333888330000333333333333333333333333333333333333
+        0000}
+      HotTrackFont.Charset = DEFAULT_CHARSET
+      HotTrackFont.Color = clWindowText
+      HotTrackFont.Height = -12
+      HotTrackFont.Name = 'Arial'
+      HotTrackFont.Style = []
+      ModalResult = 2
+      NumGlyphs = 2
+      ParentFont = False
+      TabOrder = 1
+      OnClick = cmdCancelClick
+    end
+    object btnReorder: TDNMSpeedButton
+      Left = 451
+      Top = 11
+      Width = 93
+      Height = 29
+      HelpContext = 1310021
+      Anchors = [akBottom]
+      Caption = 'Re-Order'
+      DisableTransparent = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      HotTrackFont.Charset = DEFAULT_CHARSET
+      HotTrackFont.Color = clWindowText
+      HotTrackFont.Height = -11
+      HotTrackFont.Name = 'MS Sans Serif'
+      HotTrackFont.Style = []
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+      TabStop = False
+      OnClick = btnReorderClick
+    end
+  end
+  object DNMPanel5: TDNMPanel [7]
+    Left = 0
+    Top = 59
+    Width = 996
+    Height = 42
+    HelpContext = 1310019
+    Align = alTop
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+    object grpFilters: TwwRadioGroup
+      AlignWithMargins = True
+      Left = 4
+      Top = 2
+      Width = 782
+      Height = 38
+      HelpContext = 1310009
+      Margins.Top = 1
+      Margins.Bottom = 1
+      DisableThemes = False
+      ItemIndex = 7
+      Align = alClient
+      Columns = 8
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      Items.Strings = (
+        'Changes'
+        'Bug '
+        'Feature'
+        'Tablet'
+        'Website'
+        'Popup'
+        'Tips'
+        'All')
+      ParentFont = False
+      TabOrder = 0
+      OnClick = grpFiltersClick
+    end
+    object optExtra: TRadioGroup
+      AlignWithMargins = True
+      Left = 792
+      Top = 2
+      Width = 200
+      Height = 38
+      HelpContext = 1310020
+      Margins.Top = 1
+      Margins.Bottom = 1
+      Align = alRight
+      Columns = 3
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      ItemIndex = 2
+      Items.Strings = (
+        'Active'
+        'Inactive'
+        'Both')
+      ParentFont = False
+      TabOrder = 1
+      OnClick = grpFiltersClick
+    end
+  end
+  object DNMPanel1: TDNMPanel [8]
+    Left = 0
+    Top = 101
+    Width = 996
+    Height = 414
+    HelpContext = 1310004
+    Align = alClient
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    object DNMPanel4: TDNMPanel
+      Left = 1
+      Top = 1
+      Width = 32
+      Height = 412
+      HelpContext = 1310005
+      Align = alLeft
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      DesignSize = (
+        32
+        412)
+      object btnMoveItemUp: TDNMSpeedButton
+        Left = 3
+        Top = 156
+        Width = 25
+        Height = 41
+        HelpContext = 1310006
+        Anchors = []
+        DisableTransparent = False
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000120B0000120B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333000000000
+          333333777777777F33333330B00000003333337F7777777F3333333000000000
+          333333777777777F333333330EEEEEE033333337FFFFFF7F3333333300000000
+          333333377777777F3333333330BFBFB03333333373333373F33333330BFBFBFB
+          03333337F33333F7F33333330FBFBF0F03333337F33337F7F33333330BFBFB0B
+          03333337F3F3F7F7333333330F0F0F0033333337F7F7F773333333330B0B0B03
+          3333333737F7F7F333333333300F0F03333333337737F7F33333333333300B03
+          333333333377F7F33333333333330F03333333333337F7F33333333333330B03
+          3333333333373733333333333333303333333333333373333333}
+        HotTrackFont.Charset = DEFAULT_CHARSET
+        HotTrackFont.Color = clWindowText
+        HotTrackFont.Height = -11
+        HotTrackFont.Name = 'MS Sans Serif'
+        HotTrackFont.Style = []
+        NumGlyphs = 2
+        TabOrder = 0
+        OnClick = DoChangeTaskOrder
+      end
+      object btnMoveItemDown: TDNMSpeedButton
+        Left = 3
+        Top = 214
+        Width = 25
+        Height = 41
+        HelpContext = 1310007
+        Anchors = []
+        DisableTransparent = False
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000120B0000120B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333033333
+          33333333373F33333333333330B03333333333337F7F33333333333330F03333
+          333333337F7FF3333333333330B00333333333337F773FF33333333330F0F003
+          333333337F7F773F3333333330B0B0B0333333337F7F7F7F3333333300F0F0F0
+          333333377F73737F33333330B0BFBFB03333337F7F33337F33333330F0FBFBF0
+          3333337F7333337F33333330BFBFBFB033333373F3333373333333330BFBFB03
+          33333337FFFFF7FF3333333300000000333333377777777F333333330EEEEEE0
+          33333337FFFFFF7FF3333333000000000333333777777777F33333330000000B
+          03333337777777F7F33333330000000003333337777777773333}
+        HotTrackFont.Charset = DEFAULT_CHARSET
+        HotTrackFont.Color = clWindowText
+        HotTrackFont.Height = -11
+        HotTrackFont.Name = 'MS Sans Serif'
+        HotTrackFont.Style = []
+        NumGlyphs = 2
+        TabOrder = 1
+        OnClick = DoChangeTaskOrder
+      end
+    end
+    object grdTasks: TwwDBGrid
+      Left = 33
+      Top = 1
+      Width = 962
+      Height = 412
+      HelpContext = 1310008
+      ControlType.Strings = (
+        'PageName;CustomEdit;cboPagename;F'
+        'Active;CheckBox;T;F')
+      Selected.Strings = (
+        'CustomerName'#9'20'#9'CustomerName'#9'T'#9
+        'Tasktype'#9'10'#9'Type'#9'T'#9
+        'TaskNo'#9'10'#9'Seq'#9#9
+        'Subject'#9'20'#9'Subject'#9'T'#9
+        'Details'#9'90'#9'Details'#9'T'#9)
+      MemoAttributes = [mSizeable, mWordWrap, mGridShow, mViewOnly, mDisableDialog]
+      IniAttributes.Delimiter = ';;'
+      TitleColor = clWhite
+      FixedCols = 0
+      ShowHorzScrollBar = True
+      EditControlOptions = [ecoCheckboxSingleClick, ecoSearchOwnerForm, ecoDisableCustomControls, ecoDisableDateTimePicker, ecoDisableEditorIfReadOnly]
+      Align = alClient
+      DataSource = dsTasks
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      KeyOptions = []
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+      ParentFont = False
+      TabOrder = 1
+      TitleAlignment = taLeftJustify
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -12
+      TitleFont.Name = 'Arial'
+      TitleFont.Style = [fsBold]
+      TitleLines = 1
+      TitleButtons = False
+      OnCalcCellColors = grdTasksCalcCellColors
+      OnDblClick = grdTasksDblClick
+      FooterColor = clWhite
+    end
+  end
+  inherited tmrProcessMessage: TTimer
+    Left = 151
+    Top = 13
+  end
+  inherited tmrdelay: TTimer
+    Left = 316
+    Top = 13
+  end
+  inherited popSpelling: TPopupMenu
+    Left = 118
+    Top = 13
+  end
+  inherited dlgReportSelect: TSelectionDialog
+    Left = 184
+    Top = 13
+  end
+  inherited ApplicationEvents1: TApplicationEvents
+    Left = 349
+    Top = 13
+  end
+  inherited MyConnection: TERPConnection
+    Server = 'localhost'
+    Connected = True
+    Left = 24
+    Top = 79
+  end
+  inherited DataState: TDataState
+    Left = 250
+    Top = 13
+  end
+  inherited popCustomiseGrid: TAdvPopupMenu
+    Left = 382
+    Top = 13
+  end
+  inherited imgsort: TImageList
+    Left = 283
+    Top = 13
+    Bitmap = {
+      494C010102009C00B00010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      0000000000003600000028000000400000001000000001002000000000000010
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000FFFF000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000FFFFFF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF00000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000FFFFFF0000000000FFFFFF0000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF000000000000FFFF000000000000FFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000FF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000FFFFFF0000000000FFFFFF0000000000FFFFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000000000FFFF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      000000FFFF000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000000000FF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      0000FFFFFF0000000000FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFFFF0000000000FFFFFF0000000000FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF000000000000FFFF000000000000FFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000FFFFFF0000000000FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000FFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF00000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000FFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000000000000000000000FF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000424D3E000000000000003E000000
+      2800000040000000100000000100010000000000800000000000000000000000
+      000000000000000000000000FFFFFF00E00FFDFF00000000E00FF8FF00000000
+      E00FF8FF00000000F00FF87F00000000F00FF81F00000000F80FF80F00000000
+      F007F00F00000000F007E00F00000000F007E00F00000000F00FE00F00000000
+      F01FF01F00000000F81FF00F00000000FE1FF00F00000000FF1FF00700000000
+      FF1FF00700000000FFBFF0070000000000000000000000000000000000000000
+      000000000000}
+  end
+  inherited QryCustomField: TERPQuery
+    Left = 85
+    Top = 13
+  end
+  inherited ProgressDialogOBJ: TProgressDialog
+    Left = 415
+    Top = 13
+  end
+  inherited mnuBusobjProperties: TAdvPopupMenu
+    Left = 217
+    Top = 13
+  end
+  inherited qryMemTrans: TERPQuery
+    Left = 52
+    Top = 13
+  end
+  object QryTasks: TERPQuery
+    Connection = MyConnection
+    SQL.Strings = (
+      'SELECT * FROM tblTasks'
+      'Order by Seqno')
+    AfterOpen = QryTasksAfterOpen
+    Left = 98
+    Top = 133
+    object QryTasksCustomerName: TWideStringField
+      DisplayWidth = 20
+      FieldName = 'CustomerName'
+      Origin = 'tbltasks.CustomerName'
+      Size = 100
+    end
+    object QryTasksTasktype: TWideStringField
+      DisplayLabel = 'Type'
+      DisplayWidth = 10
+      FieldName = 'Tasktype'
+      Origin = 'tbltasks.Tasktype'
+      Size = 50
+    end
+    object QryTasksTaskNo: TIntegerField
+      DisplayLabel = 'Seq'
+      DisplayWidth = 10
+      FieldName = 'TaskNo'
+      Origin = 'tbltasks.TaskNo'
+    end
+    object QryTasksSubject: TWideStringField
+      DisplayWidth = 20
+      FieldName = 'Subject'
+      Origin = 'tbltasks.Subject'
+      Size = 50
+    end
+    object QryTasksDetails: TWideMemoField
+      DisplayWidth = 90
+      FieldName = 'Details'
+      Origin = 'tbltasks.Details'
+      BlobType = ftWideMemo
+    end
+    object QryTasksGlobalref: TWideStringField
+      FieldName = 'Globalref'
+      Origin = 'tbltasks.GlobalRef'
+      Visible = False
+      Size = 255
+    end
+    object QryTasksActive: TWideStringField
+      DisplayWidth = 1
+      FieldName = 'Active'
+      Origin = 'tbltasks.Active'
+      Visible = False
+      FixedChar = True
+      Size = 1
+    end
+    object QryTasksID: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'ID'
+      Origin = 'tbltasks.ID'
+      Visible = False
+    end
+    object QryTasksVersionNo: TWideStringField
+      DisplayLabel = 'Version'
+      FieldName = 'VersionNo'
+      Origin = 'tbltasks.VersionNo'
+      Visible = False
+      Size = 50
+    end
+    object QryTasksCreatedOn: TDateTimeField
+      FieldName = 'CreatedOn'
+      Origin = 'tbltasks.CreatedOn'
+      Visible = False
+    end
+    object QryTasksEnteredByID: TIntegerField
+      FieldName = 'EnteredByID'
+      Origin = 'tbltasks.EnteredByID'
+      Visible = False
+    end
+    object QryTasksEnteredBy: TWideStringField
+      FieldName = 'EnteredBy'
+      Origin = 'tbltasks.EnteredBy'
+      Visible = False
+      Size = 50
+    end
+    object QryTasksEstimatedHrs: TFloatField
+      FieldName = 'EstimatedHrs'
+      Origin = 'tbltasks.EstimatedHrs'
+      Visible = False
+    end
+    object QryTasksPercentagedone: TFloatField
+      FieldName = 'Percentagedone'
+      Origin = 'tbltasks.Percentagedone'
+      Visible = False
+    end
+    object QryTasksmstimeStamp: TDateTimeField
+      FieldName = 'mstimeStamp'
+      Origin = 'tbltasks.mstimeStamp'
+      Visible = False
+    end
+    object QryTasksmsUpdateSiteCode: TWideStringField
+      FieldName = 'msUpdateSiteCode'
+      Origin = 'tbltasks.msUpdateSiteCode'
+      Visible = False
+      Size = 3
+    end
+    object QryTasksHelpcontextID: TIntegerField
+      FieldName = 'HelpcontextID'
+      Origin = 'tbltasks.HelpcontextID'
+      Visible = False
+    end
+    object QryTasksHyperlinkText: TWideStringField
+      FieldName = 'HyperlinkText'
+      Origin = 'tbltasks.HyperlinkText'
+      Visible = False
+      Size = 255
+    end
+    object QryTasksClientCode: TWideStringField
+      FieldName = 'ClientCode'
+      Origin = 'tbltasks.ClientCode'
+      Visible = False
+      Size = 5
+    end
+    object QryTasksSeqno: TIntegerField
+      FieldName = 'Seqno'
+      Origin = 'tbltasks.Seqno'
+      Visible = False
+    end
+  end
+  object dsTasks: TDataSource
+    DataSet = QryTasks
+    Left = 98
+    Top = 161
+  end
+end

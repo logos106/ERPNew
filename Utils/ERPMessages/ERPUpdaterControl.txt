@@ -1,0 +1,11 @@
+{
+"displayprogress":false,
+"softwarereleasetype":"all",
+"updatelist":
+{
+"TrueERPMessages":
+{
+"modulefilename":"C:\\Dev\\ERP\\Utils\\ERPMessages\\TrueERPMessages.exe"
+}
+}
+}

@@ -1,0 +1,691 @@
+inherited fmEquipmentxRef: TfmEquipmentxRef
+  Left = 258
+  Top = 196
+  HelpContext = 654000
+  Caption = 'Repair Equipments'
+  ClientHeight = 198
+  ClientWidth = 743
+  OldCreateOrder = True
+  ExplicitLeft = 258
+  ExplicitTop = 196
+  ExplicitWidth = 759
+  ExplicitHeight = 237
+  DesignSize = (
+    743
+    198)
+  PixelsPerInch = 96
+  TextHeight = 15
+  inherited lblSkingroupMsg: TLabel
+    Top = 149
+    Width = 743
+    ExplicitTop = 149
+    ExplicitWidth = 743
+    HelpContext = 654021
+  end
+  object grdEquip: TwwDBGrid [5]
+    Left = 0
+    Top = 0
+    Width = 743
+    Height = 149
+    HelpContext = 654003
+    ControlType.Strings = (
+      'OnSite;CheckBox;T;F'
+      'NextServiceDate;CustomEdit;dtNextServiceDate;F')
+    Selected.Strings = (
+      'WarantyPeriodTaken'#9'15'#9'Used'#9'F'#9
+      'WarantyPeriodLeft'#9'15'#9'Left'#9'Warranty'#9
+      'CustomField1'#9'20'#9'CustomField1'#9'F'#9
+      'CustomField2'#9'20'#9'CustomField2'#9'F'#9
+      'CustomField3'#9'20'#9'CustomField3'#9'F'#9
+      'CustomField4'#9'20'#9'CustomField4'#9'F'#9
+      'CustomField5'#9'20'#9'CustomField5'#9'F'#9
+      'CustomField6'#9'20'#9'CustomField6'#9'F'#9
+      'CustomField7'#9'20'#9'CustomField7'#9'F'#9
+      'CustomField8'#9'20'#9'CustomField8'#9'F'#9
+      'CustomField9'#9'20'#9'CustomField9'#9'F'#9
+      'CustomField10'#9'20'#9'CustomField10'#9'F'#9
+      'CustomerEquipmentID'#9'10'#9'CustomerEquipmentID'#9'F'#9
+      'Repairfault'#9'10'#9'Repair Fault'#9'F'#9
+      'OnSite'#9'1'#9'OnSite'#9#9
+      'UOM'#9'50'#9'UOM'#9'F'#9
+      'UOMID'#9'15'#9'UOMID'#9'F'#9
+      'UOMMultiplier'#9'10'#9'UOMMultiplier'#9'F'#9
+      'UOMQty'#9'10'#9'UOMQty'#9'F'#9
+      'Quantity'#9'10'#9'Quantity'#9'Warranty'#9
+      'InvoiceID'#9'15'#9'InvoiceID'#9'F'#9
+      'AppointmentID'#9'15'#9'AppointmentID'#9'F'#9
+      'Notes'#9'100'#9'Notes'#9'T'#9
+      'msTimeStamp'#9'18'#9'msTimeStamp'#9'F'#9
+      'msUpdateSiteCode'#9'3'#9'msUpdateSiteCode'#9'F'#9
+      'NextServiceDate'#9'12'#9'Next Service~Due Date'#9'F'
+      'Registration'#9'12'#9'Registration'#9'T'#9'Vehicle Registration Details'
+      
+        'VehicleRego_IDNo'#9'12'#9'Vehicle Identification Number (VIN)'#9'T'#9'Vehicl' +
+        'e Registration Details'
+      'Description'#9'12'#9'Description'#9'T'#9'Vehicle Registration Details'
+      'PurposeOfUse'#9'12'#9'Purpose Of Use'#9'T'#9'Vehicle Registration Details'
+      'Status'#9'12'#9'Status'#9'T'#9'Vehicle Registration Details'
+      'Expiry'#9'12'#9'Expiry'#9'T'#9'Vehicle Registration Details')
+    IniAttributes.Delimiter = ';;'
+    TitleColor = clWhite
+    OnRowChanged = grdEquipRowChanged
+    FixedCols = 0
+    ShowHorzScrollBar = True
+    EditControlOptions = [ecoCheckboxSingleClick, ecoSearchOwnerForm, ecoDisableDateTimePicker]
+    Align = alClient
+    DataSource = dsEquipmentxREfs
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = []
+    ParentFont = False
+    PopupMenu = popCustomiseGrid
+    TabOrder = 1
+    TitleAlignment = taLeftJustify
+    TitleFont.Charset = ANSI_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Arial'
+    TitleFont.Style = [fsBold]
+    TitleLines = 2
+    TitleButtons = False
+    OnCalcCellColors = grdEquipmentCalcCellColors
+    OnCalcTitleAttributes = grdEquipmentCalcTitleAttributes
+    OnDblClick = grdEquipDblClick
+    OnEnter = grdEquipEnter
+    OnExit = grdEquipmentExit
+    FooterColor = clWhite
+    object grdEquipIButton: TwwIButton
+      Left = 0
+      Top = 0
+      Width = 22
+      Height = 34
+      AllowAllUp = True
+      Glyph.Data = {
+        26040000424D2604000000000000360000002800000012000000120000000100
+        180000000000F0030000120B0000120B00000000000000000000FFFFFFFFFFFF
+        636393525293FEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFF555591616191FFFFFFFFFFFF0000FDFDFD6060820000D20000DA3F3F
+        7DF4F4F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7F7F741417D0000CC00
+        00CE5B5B80FBFBFB00009292A40000A40000C80000F60000BA30307BE7E7E7FF
+        FFFFFFFFFFFFFFFFFFFFFFE7E7E734347C0000B20000FC0000D40000A28D8DA1
+        000062628D0000BE0000D80000F80000F80000BA1F1F79DBDBDBFFFFFFFFFFFF
+        D9D9D91C1C790000B00000FF1717FF0000F40000CA5C5C8900007979A90000CC
+        0000D20000D60000F80000F40000B0131375DFDFDFDEDEDE1212750000B00000
+        FA0F0FFF0000EA0000E40000E47373AB0000EAEAEC3F3FB30000CC0000D20000
+        D80000F20000EE0000A812126B11116B0000A80000F60303FF0000E80000E200
+        00DE3F3FBDEAEAEC0000FFFFFFFFFFFF4949B30000CC0000CE0000CC0000E400
+        00DC00008A00008A0000DE0000EE0000E00000DE0000DC5252B6FFFFFFFFFFFF
+        0000FFFFFFFFFFFFFFFFFF6464AF0000D00000E00000E20000F60000D60000D6
+        0000F40000DC0000D40000D26A6AB4FFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFF
+        FFFFFFFFFFFF8888BB0101F60303FF0000F80000FC0000FC0000FC0505FF0303
+        E89696BEFFFFFFFFFFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFABAB
+        AB0202910000E40000FC0000F80000F80000FC0000E2050592C7C7C7FFFFFFFF
+        FFFFFFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFF94949C00005800007C0000D607
+        07FF0000FC0000FC0707FF0000CC00007600004EAEAEB2FFFFFFFFFFFFFFFFFF
+        0000FFFFFFFFFFFF8E8E960000540000840000E00F0FFF0303FF1111FF0F0FFF
+        0303FF0F0FFF0000D600007C00004CB1B1B3FFFFFFFFFFFF0000FFFFFF93939B
+        00004E00007C0000EA1F1FFF1111FF1F1FFF0505EC0000F21F1FFF0F0FFF1F1F
+        FF0000DC000078000044B3B3B7FFFFFF0000E0E0E100004400007E0000EC2D2D
+        FF1919FF2F2FFF0101FCD8D8DDC5C5CF0B0BFF2D2DFF1919FF2929FF0000E000
+        007A151547FBFBFB0000C7C7C80000820000F63535FF2525FF3D3DFF0202FFCA
+        CAD3FFFFFFFFFFFFACACC11515FF3939FF2525FF3535FF0000EA00006EEAEAEA
+        0000E0E0E20000EA5757FF2F2FFF4949FF0707FFCACAD3FFFFFFFFFFFFFFFFFF
+        FFFFFFA6A6BF1B1BFF4343FF3333FF5151FF1414D9F7F7F70000FFFFFFB6B6CD
+        1B1BFF6565FF1212FFC9C9D2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFACAC
+        C22929FF6565FF1616FAD3D3DCFFFFFF0000FFFFFFFFFFFFAFAFC43333E6CCCC
+        D5FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9898BE3737E4E0
+        E0E3FFFFFFFFFFFF0000}
+      OnClick = grdEquipIButtonClick
+      HelpContext = 654022
+    end
+  end
+  object pnlFooter: TDNMPanel [6]
+    Left = 0
+    Top = 149
+    Width = 743
+    Height = 49
+    HelpContext = 654001
+    Align = alBottom
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    DesignSize = (
+      743
+      49)
+    object btnSave: TDNMSpeedButton
+      Left = 330
+      Top = 10
+      Width = 82
+      Height = 27
+      HelpContext = 654002
+      Anchors = [akBottom]
+      Caption = '&Ok'
+      Default = True
+      DisableTransparent = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3333333333333333333333330000333333333333333333333333F33333333333
+        00003333344333333333333333388F3333333333000033334224333333333333
+        338338F3333333330000333422224333333333333833338F3333333300003342
+        222224333333333383333338F3333333000034222A22224333333338F338F333
+        8F33333300003222A3A2224333333338F3838F338F33333300003A2A333A2224
+        33333338F83338F338F33333000033A33333A222433333338333338F338F3333
+        0000333333333A222433333333333338F338F33300003333333333A222433333
+        333333338F338F33000033333333333A222433333333333338F338F300003333
+        33333333A222433333333333338F338F00003333333333333A22433333333333
+        3338F38F000033333333333333A223333333333333338F830000333333333333
+        333A333333333333333338330000333333333333333333333333333333333333
+        0000}
+      HotTrackFont.Charset = DEFAULT_CHARSET
+      HotTrackFont.Color = clWindowText
+      HotTrackFont.Height = -11
+      HotTrackFont.Name = 'MS Sans Serif'
+      HotTrackFont.Style = []
+      NumGlyphs = 2
+      ParentFont = False
+      TabOrder = 0
+      AutoDisableParentOnclick = True
+      OnClick = btnSaveClick
+    end
+  end
+  object cboEquipname: TwwDBLookupCombo [7]
+    Left = 576
+    Top = 56
+    Width = 121
+    Height = 23
+    HelpContext = 654004
+    ControlType.Strings = (
+      'Active;CheckBox;T;F')
+    DropDownAlignment = taLeftJustify
+    Selected.Strings = (
+      'EquipName'#9'15'#9'Name'#9'F'
+      'Manufacture'#9'10'#9'Manufacture'#9'F'
+      'model'#9'10'#9'Model'#9'F'
+      'Registration'#9'10'#9'Registration'#9'F'
+      'Serialno'#9'10'#9'Serial#'#9'F'
+      'WarantyStartDate'#9'18'#9'Warranty Start Date'#9'F'
+      'WarantyFinishDate'#9'18'#9'Warranty Finish Date'#9'F'
+      'WarantyPeriod'#9'10'#9'Warranty Period'#9'F'
+      'Active'#9'1'#9'Active'#9'F')
+    LookupTable = cboEquipmentLookup
+    LookupField = 'EquipName'
+    Options = [loTitles]
+    TabOrder = 2
+    AutoDropDown = True
+    ShowButton = True
+    PreciseEditRegion = False
+    AllowClearKey = False
+    OnDblClick = cboEquipnameDblClick
+    OnDropDown = cboEquipmentNameDropDown
+    OnCloseUp = cboEquipmentNameCloseUp
+    OnNotInList = cboEquipmentNameNotInList
+  end
+  object cboRepairFault: TwwDBLookupCombo [8]
+    Left = 576
+    Top = 85
+    Width = 121
+    Height = 23
+    DropDownAlignment = taLeftJustify
+    Selected.Strings = (
+      'Name'#9'10'#9'Name'#9'F')
+    DataSource = dsEquipmentxREfs
+    LookupField = 'NAme'
+    TabOrder = 4
+    AutoDropDown = True
+    ShowButton = True
+    PreciseEditRegion = False
+    AllowClearKey = False
+    OnDblClick = cboRepairFaultDblClick
+    OnNotInList = cboRepairFaultNotInList
+    HelpContext = 654023
+  end
+  object dtNextServiceDate: TwwDBDateTimePicker [9]
+    Left = 472
+    Top = 56
+    Width = 121
+    Height = 23
+    CalendarAttributes.Font.Charset = DEFAULT_CHARSET
+    CalendarAttributes.Font.Color = clWindowText
+    CalendarAttributes.Font.Height = -11
+    CalendarAttributes.Font.Name = 'Tahoma'
+    CalendarAttributes.Font.Style = []
+    DataField = 'NextServiceDate'
+    DataSource = dsEquipmentxREfs
+    Epoch = 1950
+    ShowButton = True
+    TabOrder = 5
+    HelpContext = 654024
+  end
+  object cboUnitOfMeasure: TwwDBLookupCombo [10]
+    Left = 355
+    Top = 92
+    Width = 85
+    Height = 26
+    HelpContext = 654005
+    AutoSize = False
+    DropDownAlignment = taLeftJustify
+    LookupTable = qryUnitOfMeasure
+    LookupField = 'UnitName'
+    TabOrder = 3
+    AutoDropDown = True
+    ShowButton = True
+    PreciseEditRegion = False
+    AllowClearKey = False
+  end
+  inherited dlgReportSelect: TSelectionDialog
+    Left = 320
+    Top = 16
+  end
+  inherited MyConnection: TERPConnection
+    Connected = True
+  end
+  inherited DataState: TDataState
+    Left = 352
+    Top = 24
+  end
+  inherited popCustomiseGrid: TAdvPopupMenu
+    OnPopup = popCustomiseGridPopup
+    object mmnuQLDRegoCheck: TMenuItem
+      Caption = 'QLD Rego Check'
+      OnClick = DoQLDRegoCheck
+      HelpContext = 654025
+    end
+  end
+  inherited imgsort: TImageList
+    Bitmap = {
+      494C010102004C00900010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      0000000000003600000028000000400000001000000001002000000000000010
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000FFFF000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000FFFFFF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF00000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000FFFFFF0000000000FFFFFF0000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000FFFF000000000000FFFF000000000000FFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000FF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000FFFFFF0000000000FFFFFF0000000000FFFFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000000000FFFF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      000000FFFF000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000000000FF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      0000FFFFFF0000000000FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFFFF0000000000FFFFFF0000000000FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF000000000000FFFF000000000000FFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000FFFF00FFFFFF0000FFFF00FFFFFF0000FFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000FFFFFF0000000000FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000FFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFF0000FFFF0000FFFF0000FFFF0000FFFF0000FFFF00000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000FFFFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000FFFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000000000000000000000FF
+      FF00000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000424D3E000000000000003E000000
+      2800000040000000100000000100010000000000800000000000000000000000
+      000000000000000000000000FFFFFF00E00FFDFF00000000E00FF8FF00000000
+      E00FF8FF00000000F00FF87F00000000F00FF81F00000000F80FF80F00000000
+      F007F00F00000000F007E00F00000000F007E00F00000000F00FE00F00000000
+      F01FF01F00000000F81FF00F00000000FE1FF00F00000000FF1FF00700000000
+      FF1FF00700000000FFBFF0070000000000000000000000000000000000000000
+      000000000000}
+  end
+  inherited QryCustomField: TERPQuery
+    Top = 80
+  end
+  inherited qryMemTrans: TERPQuery
+    Left = 53
+    Top = 80
+  end
+  object cboEquipmentLookup: TERPQuery
+    Connection = MyConnection
+    SQL.Strings = (
+      '/*'
+      'SELECT'
+      
+        '`tblcustomerequip`.ID, `tblcustomerequip`.`EquipmentID`,`tblcust' +
+        'omerequip`.`EquipName`,`tblcustomerequip`.`Description`,'
+      
+        '`tblcustomerequip`.`Manufacture`,`tblcustomerequip`.`model`,`tbl' +
+        'customerequip`.`Serialno`,`tblcustomerequip`.`Registration`,'
+      
+        '`tblcustomerequip`.`WarantyPeriod`,`tblcustomerequip`.`WarantyFi' +
+        'nishDate`,`tblcustomerequip`.WarantyStartDate, '
+      
+        '`tblequipment`.`ProductId`, `tblcustomerequip`.Active, `tblcusto' +
+        'merequip`.Notes'
+      
+        'from `tblcustomerequip` Inner Join `tblequipment` ON `tblcustome' +
+        'requip`.`EquipmentID` = `tblequipment`.`EquipmentID`'
+      
+        'Where `tblcustomerequip`.ClientId = :ClientId and `tblcustomereq' +
+        'uip`.Quantity <> 0'
+      'order by `tblcustomerequip`.EquipName'
+      '*/'
+      'SELECT'
+      'CE.ID, CE.EquipmentID,CE.EquipName,CE.Description,'
+      'CE.Manufacture,CE.model,CE.Serialno,CE.Registration,'
+      
+        'if (ifnull(CE.WarantyPeriod, 0)=0 and ifnull(EQ.ProductId, 0)=0,' +
+        ' null, ifnull(CE.WarantyPeriod, P.DefaultWarrantyDuration)) as W' +
+        'arantyPeriod,'
+      'ifnull(CE.WarantyStartDate,  CurDate()) as WarantyStartDate,'
+      
+        'ifnull(CE.WarantyFinishDate, ifnull(CE.WarantyStartDate,  CurDat' +
+        'e()) + INTERVAL if (ifnull(CE.WarantyPeriod, 0)=0 and ifnull(EQ.' +
+        'ProductId, 0)=0, null, P.DefaultWarrantyDuration) MONTH) as Wara' +
+        'ntyFinishDate,'
+      'EQ.ProductId, CE.Active, CE.Notes'
+      'from tblcustomerequip CE '
+      'Inner Join tblequipment EQ ON CE.EquipmentID = EQ.EquipmentID'
+      'left JOIN tblParts P on P.PartsId=EQ.ProductId'
+      'Where CE.ClientId = :ClientId and '
+      'CE.Quantity <> 0'
+      'order by CE.EquipName;')
+    AutoCalcFields = False
+    Left = 248
+    Top = 11
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'ClientId'
+        Value = 0
+      end>
+    object cboEquipmentLookupEquipName: TWideStringField
+      DisplayLabel = 'Name'
+      DisplayWidth = 15
+      FieldName = 'EquipName'
+      Origin = 'tblcustomerequip.EquipName'
+      Size = 255
+    end
+    object cboEquipmentLookupManufacture: TWideStringField
+      DisplayWidth = 10
+      FieldName = 'Manufacture'
+      Origin = 'tblcustomerequip.Manufacture'
+      Size = 100
+    end
+    object cboEquipmentLookupmodel: TWideStringField
+      DisplayLabel = 'Model'
+      DisplayWidth = 10
+      FieldName = 'model'
+      Origin = 'tblcustomerequip.model'
+      Size = 100
+    end
+    object cboEquipmentLookupRegistration: TWideStringField
+      DisplayWidth = 10
+      FieldName = 'Registration'
+      Origin = 'tblcustomerequip.Registration'
+      Size = 100
+    end
+    object cboEquipmentLookupSerialno: TWideStringField
+      DisplayLabel = 'Serial#'
+      DisplayWidth = 10
+      FieldName = 'Serialno'
+      Origin = 'tblcustomerequip.Serialno'
+      Size = 100
+    end
+    object cboEquipmentLookupWarantyStartDate: TDateTimeField
+      DisplayLabel = 'Warranty Start Date'
+      DisplayWidth = 18
+      FieldName = 'WarantyStartDate'
+    end
+    object cboEquipmentLookupWarantyFinishDate: TDateTimeField
+      DisplayLabel = 'Warranty Finish Date'
+      DisplayWidth = 18
+      FieldName = 'WarantyFinishDate'
+      Origin = 'tblcustomerequip.WarantyFinishDate'
+    end
+    object cboEquipmentLookupWarantyPeriod: TFloatField
+      DisplayLabel = 'Warranty Period'
+      DisplayWidth = 10
+      FieldName = 'WarantyPeriod'
+      Origin = 'tblcustomerequip.WarantyPeriod'
+    end
+    object cboEquipmentLookupActive: TWideStringField
+      DisplayWidth = 1
+      FieldName = 'Active'
+      FixedChar = True
+      Size = 1
+    end
+    object cboEquipmentLookupDescription: TWideStringField
+      DisplayWidth = 20
+      FieldName = 'Description'
+      Origin = 'tblcustomerequip.Description'
+      Visible = False
+      Size = 255
+    end
+    object cboEquipmentLookupEquipmentID: TIntegerField
+      FieldName = 'EquipmentID'
+      Origin = 'tblcustomerequip.EquipmentID'
+      Visible = False
+    end
+    object cboEquipmentLookupID: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'ID'
+      Origin = 'tblcustomerequip.id'
+      Visible = False
+    end
+    object cboEquipmentLookupProductId: TLargeintField
+      FieldName = 'ProductId'
+      Visible = False
+    end
+    object cboEquipmentLookupNotes: TWideMemoField
+      FieldName = 'Notes'
+      BlobType = ftWideMemo
+    end
+  end
+  object dsEquipmentxREfs: TDataSource
+    Left = 198
+    Top = 13
+  end
+  object AdvPopupMenu1: TAdvPopupMenu
+    AutoHotkeys = maManual
+    HelpContext = 654019
+    MenuStyler = datGUIStylers.MainMenuStyler
+    Version = '2.5.3.4'
+    Left = 167
+    Top = 9
+    object MenuItem1: TMenuItem
+      Caption = 'Customise Grid'
+      HelpContext = 654020
+    end
+  end
+  object qryUnitOfMeasure: TERPQuery
+    Connection = MyConnection
+    SQL.Strings = (
+      '/*SELECT  '
+      'U.UnitID,'
+      'U.UnitName, U.Multiplier, U.UnitDescription,U.BaseUnitName'
+      'FROM tblunitsofmeasure U'
+      
+        'WHERE U.ACTIVE = '#39'T'#39'  AND (ifnull(U.PartID,0) = :xPartID or U.Pa' +
+        'rtID = 0) '
+      'Group By U.UnitName Desc'
+      'Order By UnitID desc ,U.UnitName'
+      '*/'
+      'SELECT  '
+      'U.UnitID,'
+      'U.UnitName, U.Multiplier, U.UnitDescription,U.BaseUnitName'
+      'FROM tblunitsofmeasure U'
+      'WHERE U.ACTIVE = '#39'T'#39'  AND ifnull(U.PartID,0) = :xPartID'
+      'union all '
+      'SELECT  '
+      'U.UnitID,'
+      'U.UnitName, U.Multiplier, U.UnitDescription,U.BaseUnitName'
+      'FROM tblunitsofmeasure U'
+      
+        'WHERE U.ACTIVE = '#39'T'#39'  AND ifnull(U.PartID,0) = 0 and Unitname no' +
+        't  in (Select unitname from  tblunitsofmeasure where  ifnull(Par' +
+        'tID,0) = :xPartID  )'
+      'Order By UnitID desc ,UnitName;')
+    Left = 285
+    Top = 9
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'xPartID'
+      end
+      item
+        DataType = ftUnknown
+        Name = 'xPartID'
+      end>
+    object qryUnitOfMeasureUnitID: TIntegerField
+      FieldName = 'UnitID'
+    end
+    object qryUnitOfMeasureUnitName: TWideStringField
+      FieldName = 'UnitName'
+      Size = 15
+    end
+    object qryUnitOfMeasureUnitDescription: TWideStringField
+      FieldName = 'UnitDescription'
+      Size = 35
+    end
+    object qryUnitOfMeasureMultiplier: TFloatField
+      FieldName = 'Multiplier'
+    end
+    object qryUnitOfMeasureBaseUnitName: TWideStringField
+      FieldName = 'BaseUnitName'
+      Size = 15
+    end
+  end
+  object EquipNotesDialog1: TwwMemoDialog
+    DataSource = dsEquipmentxREfs
+    DataField = 'Notes'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    DlgLeft = 0
+    DlgTop = 0
+    DlgWidth = 561
+    DlgHeight = 396
+    OnUserButton1Click = EquipNotesDialog1UserButton1Click
+    UserButton1Caption = 'Add Date'
+    Left = 157
+    Top = 10
+  end
+  object tmrQLDRegisteredVehiclecheck: TTimer
+    Enabled = False
+    Interval = 500
+    OnTimer = tmrQLDRegisteredVehiclecheckTimer
+    Left = 480
+    Top = 88
+  end
+end

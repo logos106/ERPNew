@@ -1,0 +1,69 @@
+inherited DashBoardBaseGUI: TDashBoardBaseGUI
+  HelpContext = 672000
+  Caption = 'DashBoardBaseGUI'
+  PopupMenu = Customisemenu
+  ExplicitLeft = 8
+  ExplicitTop = 8
+  ExplicitWidth = 320
+  ExplicitHeight = 240
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlmain: TDNMPanel [4]
+    Left = 0
+    Top = 0
+    Width = 284
+    Height = 179
+    HelpContext = 672001
+    Align = alClient
+    Color = clInfoBk
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    PopupMenu = Customisemenu
+    TabOrder = 0
+    Transparent = False
+    object pnlHeader: TDNMPanel
+      Left = 1
+      Top = 1
+      Width = 282
+      Height = 23
+      HelpContext = 672002
+      Align = alTop
+      Caption = 'Description'
+      Color = clInfoBk
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      Transparent = False
+    end
+    object pnlDetails: TDNMPanel
+      Left = 1
+      Top = 24
+      Width = 282
+      Height = 154
+      HelpContext = 672003
+      Align = alClient
+      Color = clInfoBk
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+      Transparent = False
+    end
+  end
+  object Customisemenu: TPopupMenu
+    HelpContext = 672004
+    Left = 120
+    Top = 48
+  end
+end

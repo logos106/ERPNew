@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- sample transaction  -->
+<platinum1xml>
+	<xmlBlock ticket="ADjufYSu4KX2yZd">
+		<request command="terp.execute">
+    		<!-- transaction block, onError can be "stop" or "continue" -->			
+    		<!-- "stop" - if any sub-request fails all changes made will be rolled back -->			
+    		<!-- "continue" - if any sub-request fails just the changes made by that requst will be rolled back and execution will continue with next requst -->			
+			<request command="transaction" onError="stop" clientRef="TRANS-001">
+				<!-- "add" or "update" requests go here -->
+				<!-- ...  -->
+			</request>	
+		</request>
+	</xmlBlock>
+</platinum1xml>

@@ -1,0 +1,92 @@
+{
+"clientconfig":
+{
+"Active":true,
+"DateTime":41481.0085185185,
+"Id":2018,
+"Name":"Ian",
+"ServerList":
+{
+"Items":[
+{
+"Active":true,
+"ClientId":2018,
+"ComputerName":"DEV1",
+"ConfigList":
+{
+"Items":[
+{
+"Active":true,
+"ComputerId":2067,
+"DateTime":41480.1417361111,
+"Id":22649,
+"Notes":"Server configuration changed",
+"Text":"{\r\n\"computername\":\"DEV1\",\r\n\"memory\":\r\n{\r\n\"totalphysicalbytes\":-1\r\n},\r\n\"system\":\r\n{\r\n\"processorarchitecture\":0,\r\n\"pagesize\":4096,\r\n\"minimumapplicationaddress\":\"00010000\",\r\n\"maximumapplicationaddress\":\"7FFEFFFF\",\r\n\"numberofprocessors\":8,\r\n\"processortype\":586,\r\n\"allocationgranularity\":65536,\r\n\"processorrevision\":10759,\r\n\"processorlevel\":6\r\n},\r\n\"network\":\r\n{\r\n\"macaddress\":\"08-00-27-00-B0-FE\"\r\n},\r\n\"storage\":\r\n{\r\n\"C\":\r\n{\r\n\"storagetypedescription\":\"Fixed Disk\",\r\n\"volumename\":\"\",\r\n\"filesystem\":\"NTFS\",\r\n\"volumeserialnumber\":-1671671554,\r\n\"size\":2550132736\r\n},\r\n\"D\":\r\n{\r\n\"storagetypedescription\":\"CD-ROM Drive\",\r\n\"volumename\":\"\",\r\n\"filesystem\":\"\",\r\n\"volumeserialnumber\":-1671671554,\r\n\"size\":0\r\n},\r\n\"E\":\r\n{\r\n\"storagetypedescription\":\"Fixed Disk\",\r\n\"volumename\":\"Drive E\",\r\n\"filesystem\":\"NTFS\",\r\n\"volumeserialnumber\":-1068734077,\r\n\"size\":2570055680\r\n},\r\n\"F\":\r\n{\r\n\"storagetypedescription\":\"CD-ROM Drive\",\r\n\"volumename\":\"\",\r\n\"filesystem\":\"\",\r\n\"volumeserialnumber\":-1068734077,\r\n\"size\":0\r\n},\r\n\"G\":\r\n{\r\n\"storagetypedescription\":\"Fixed Disk\",\r\n\"volumename\":\"My Passport\",\r\n\"filesystem\":\"NTFS\",\r\n\"volumeserialnumber\":1958178252,\r\n\"size\":3204444160\r\n}\r\n},\r\n\"bios\":\r\n{\r\n\"date\":\"2011-11-22\"\r\n}\r\n}",
+"User":"ERP"
+},
+{
+"Active":true,
+"ComputerId":2067,
+"DateTime":41493.308900463,
+"Id":22855,
+"Notes":"Server configuration changed",
+"Text":"{\r\n\"computername\":\"DEV1\",\r\n\"memory\":\r\n{\r\n\"totalphysicalbytes\":-1\r\n},\r\n\"system\":\r\n{\r\n\"processorarchitecture\":0,\r\n\"pagesize\":4096,\r\n\"minimumapplicationaddress\":\"00010000\",\r\n\"maximumapplicationaddress\":\"7FFEFFFF\",\r\n\"numberofprocessors\":8,\r\n\"processortype\":586,\r\n\"allocationgranularity\":65536,\r\n\"processorrevision\":10759,\r\n\"processorlevel\":6\r\n},\r\n\"network\":\r\n{\r\n\"macaddress\":\"08-00-27-00-B0-FE\"\r\n},\r\n\"storage\":\r\n{\r\n\"C\":\r\n{\r\n\"storagetypedescription\":\"Fixed Disk\",\r\n\"volumename\":\"\",\r\n\"filesystem\":\"NTFS\",\r\n\"volumeserialnumber\":-1671671554,\r\n\"size\":2550132736\r\n},\r\n\"D\":\r\n{\r\n\"storagetypedescription\":\"CD-ROM Drive\",\r\n\"volumename\":\"\",\r\n\"filesystem\":\"\",\r\n\"volumeserialnumber\":-1671671554,\r\n\"size\":0\r\n},\r\n\"E\":\r\n{\r\n\"storagetypedescription\":\"Fixed Disk\",\r\n\"volumename\":\"Drive E\",\r\n\"filesystem\":\"NTFS\",\r\n\"volumeserialnumber\":-1068734077,\r\n\"size\":2570055680\r\n},\r\n\"F\":\r\n{\r\n\"storagetypedescription\":\"CD-ROM Drive\",\r\n\"volumename\":\"\",\r\n\"filesystem\":\"\",\r\n\"volumeserialnumber\":-1068734077,\r\n\"size\":0\r\n}\r\n},\r\n\"bios\":\r\n{\r\n\"date\":\"2011-11-22\"\r\n}\r\n}",
+"User":"ERP"
+},
+{
+"Active":true,
+"ComputerId":2067,
+"DateTime":41493.9388773148,
+"Id":22864,
+"Notes":"Server configuration changed",
+"Text":"{\r\n\"computername\":\"DEV1\",\r\n\"memory\":\r\n{\r\n\"totalphysicalbytes\":-1\r\n},\r\n\"system\":\r\n{\r\n\"processorarchitecture\":0,\r\n\"pagesize\":4096,\r\n\"minimumapplicationaddress\":\"00010000\",\r\n\"maximumapplicationaddress\":\"7FFEFFFF\",\r\n\"numberofprocessors\":8,\r\n\"processortype\":586,\r\n\"allocationgranularity\":65536,\r\n\"processorrevision\":10759,\r\n\"processorlevel\":6\r\n},\r\n\"network\":\r\n{\r\n\"macaddress\":\"08-00-27-00-B0-FE\"\r\n},\r\n\"storage\":\r\n{\r\n\"C\":\r\n{\r\n\"storagetypedescription\":\"Fixed Disk\",\r\n\"volumename\":\"\",\r\n\"filesystem\":\"NTFS\",\r\n\"volumeserialnumber\":-1671671554,\r\n\"size\":2550132736\r\n},\r\n\"D\":\r\n{\r\n\"storagetypedescription\":\"CD-ROM Drive\",\r\n\"volumename\":\"\",\r\n\"filesystem\":\"\",\r\n\"volumeserialnumber\":-1671671554,\r\n\"size\":0\r\n},\r\n\"E\":\r\n{\r\n\"storagetypedescription\":\"Fixed Disk\",\r\n\"volumename\":\"Drive E\",\r\n\"filesystem\":\"NTFS\",\r\n\"volumeserialnumber\":-1068734077,\r\n\"size\":2570055680\r\n},\r\n\"F\":\r\n{\r\n\"storagetypedescription\":\"CD-ROM Drive\",\r\n\"volumename\":\"\",\r\n\"filesystem\":\"\",\r\n\"volumeserialnumber\":-1068734077,\r\n\"size\":0\r\n},\r\n\"G\":\r\n{\r\n\"storagetypedescription\":\"Fixed Disk\",\r\n\"volumename\":\"My Passport\",\r\n\"filesystem\":\"NTFS\",\r\n\"volumeserialnumber\":1958178252,\r\n\"size\":3204444160\r\n}\r\n},\r\n\"bios\":\r\n{\r\n\"date\":\"2011-11-22\"\r\n}\r\n}",
+"User":"ERP"
+},
+{
+"Active":true,
+"ComputerId":2067,
+"DateTime":41500.120787037,
+"Id":22946,
+"Notes":"Server configuration changed",
+"Text":"{\r\n\"computername\":\"DEV1\",\r\n\"memory\":\r\n{\r\n\"totalphysicalbytes\":-1\r\n},\r\n\"system\":\r\n{\r\n\"processorarchitecture\":0,\r\n\"pagesize\":4096,\r\n\"minimumapplicationaddress\":\"00010000\",\r\n\"maximumapplicationaddress\":\"7FFEFFFF\",\r\n\"numberofprocessors\":8,\r\n\"processortype\":586,\r\n\"allocationgranularity\":65536,\r\n\"processorrevision\":10759,\r\n\"processorlevel\":6\r\n},\r\n\"network\":\r\n{\r\n\"macaddress\":\"08-00-27-00-B0-FE\"\r\n},\r\n\"storage\":\r\n{\r\n\"C\":\r\n{\r\n\"storagetypedescription\":\"Fixed Disk\",\r\n\"volumename\":\"\",\r\n\"filesystem\":\"NTFS\",\r\n\"volumeserialnumber\":-1671671554,\r\n\"size\":2550132736\r\n},\r\n\"D\":\r\n{\r\n\"storagetypedescription\":\"CD-ROM Drive\",\r\n\"volumename\":\"\",\r\n\"filesystem\":\"\",\r\n\"volumeserialnumber\":-528321135,\r\n\"size\":3510718464\r\n},\r\n\"E\":\r\n{\r\n\"storagetypedescription\":\"Fixed Disk\",\r\n\"volumename\":\"Drive E\",\r\n\"filesystem\":\"NTFS\",\r\n\"volumeserialnumber\":-1068734077,\r\n\"size\":2570055680\r\n},\r\n\"F\":\r\n{\r\n\"storagetypedescription\":\"CD-ROM Drive\",\r\n\"volumename\":\"\",\r\n\"filesystem\":\"\",\r\n\"volumeserialnumber\":-1068734077,\r\n\"size\":0\r\n},\r\n\"G\":\r\n{\r\n\"storagetypedescription\":\"Fixed Disk\",\r\n\"volumename\":\"My Passport\",\r\n\"filesystem\":\"NTFS\",\r\n\"volumeserialnumber\":1958178252,\r\n\"size\":3204444160\r\n}\r\n},\r\n\"bios\":\r\n{\r\n\"date\":\"2011-11-22\"\r\n}\r\n}",
+"User":"ERP"
+},
+{
+"Active":true,
+"ComputerId":2067,
+"DateTime":41500.169525463,
+"Id":22949,
+"Notes":"Server configuration changed",
+"Text":"{\r\n\"computername\":\"DEV1\",\r\n\"memory\":\r\n{\r\n\"totalphysicalbytes\":-1\r\n},\r\n\"system\":\r\n{\r\n\"processorarchitecture\":0,\r\n\"pagesize\":4096,\r\n\"minimumapplicationaddress\":\"00010000\",\r\n\"maximumapplicationaddress\":\"7FFEFFFF\",\r\n\"numberofprocessors\":8,\r\n\"processortype\":586,\r\n\"allocationgranularity\":65536,\r\n\"processorrevision\":10759,\r\n\"processorlevel\":6\r\n},\r\n\"network\":\r\n{\r\n\"macaddress\":\"08-00-27-00-B0-FE\"\r\n},\r\n\"storage\":\r\n{\r\n\"C\":\r\n{\r\n\"storagetypedescription\":\"Fixed Disk\",\r\n\"volumename\":\"\",\r\n\"filesystem\":\"NTFS\",\r\n\"volumeserialnumber\":-1671671554,\r\n\"size\":2550132736\r\n},\r\n\"D\":\r\n{\r\n\"storagetypedescription\":\"CD-ROM Drive\",\r\n\"volumename\":\"\",\r\n\"filesystem\":\"\",\r\n\"volumeserialnumber\":-1671671554,\r\n\"size\":0\r\n},\r\n\"E\":\r\n{\r\n\"storagetypedescription\":\"Fixed Disk\",\r\n\"volumename\":\"Drive E\",\r\n\"filesystem\":\"NTFS\",\r\n\"volumeserialnumber\":-1068734077,\r\n\"size\":2570055680\r\n},\r\n\"F\":\r\n{\r\n\"storagetypedescription\":\"CD-ROM Drive\",\r\n\"volumename\":\"\",\r\n\"filesystem\":\"\",\r\n\"volumeserialnumber\":-1068734077,\r\n\"size\":0\r\n},\r\n\"G\":\r\n{\r\n\"storagetypedescription\":\"Fixed Disk\",\r\n\"volumename\":\"My Passport\",\r\n\"filesystem\":\"NTFS\",\r\n\"volumeserialnumber\":1958178252,\r\n\"size\":3204444160\r\n}\r\n},\r\n\"bios\":\r\n{\r\n\"date\":\"2011-11-22\"\r\n}\r\n}",
+"User":"ERP"
+}]
+},
+"DateTime":40977.0477586343,
+"Id":2067,
+"LicenceList":
+{
+"Items":[
+{
+"Active":true,
+"ComputerId":2067,
+"ConcurrentUsers":3,
+"DataText":"{\r\n\"erpinfo\":\r\n{\r\n\"aix2\":\r\n{\r\n\"version\":\"11.3.1.0\",\r\n\"companyname\":\"AUTO INGRESS PTY LTD\",\r\n\"address\":\"46 ROWLAND ST,,SLACKS CREEK,QLD,4127,Australia\",\r\n\"postaladdress\":\"PO BOX 825,,SPRINGWOOD,QLD,4127,Australia\",\r\n\"contact\":\"Phone: 0732901500, Fax: 0732901567\"\r\n},\r\n\"beautyonbellepr\":\r\n{\r\n\"version\":\"11.3.1.0\",\r\n\"companyname\":\"Beauty On Belle\",\r\n\"address\":\"Ipswich City Plaze,Ground Floor 2 Bell St,IPSWICH,QLD,4305,Australia\",\r\n\"postaladdress\":\"Ipswich City Plaze,Ground Floor 2 Bell St,IPSWICH,QLD,4305,Australia\",\r\n\"contact\":\"Phone: , Fax: \"\r\n},\r\n\"blue_pot_pty_ltd\":\r\n{\r\n\"version\":\"11.3.1.0\",\r\n\"companyname\":\"Blue Pot Pty Ltd\",\r\n\"address\":\"6\\\/183 Currumburra Road,,ASHMORE,QLD,4214,Australia\",\r\n\"postaladdress\":\"PO Box 112,,ASHMORE CITY,QLD,4214,Australia\",\r\n\"contact\":\"Phone: 0755392700, Fax: 0755392701\"\r\n},\r\n\"integration_test\":\r\n{\r\n\"version\":\"11.3.1.0\",\r\n\"companyname\":\"Integration Test\",\r\n\"address\":\"Unit 6,183 Currumburra Road,ASHMORE,QLD,4214,Australia\",\r\n\"postaladdress\":\"Unit 6,183 Currumburra Road,ASHMORE,QLD,4214,Australia\",\r\n\"contact\":\"Phone: 0758745874, Fax: 07 5539 2701\"\r\n},\r\n\"jennysclassroom\":\r\n{\r\n\"version\":\"11.3.1.0\",\r\n\"companyname\":\"Jenny's Classroom & Toys2\",\r\n\"address\":\"113 KITE STREET,,ORANGE,NSW,2800,Australia\",\r\n\"postaladdress\":\"PO BOX 2152,,ORANGE,NSW,2800,Australia\",\r\n\"contact\":\"Phone: 02 6362 6078, Fax: 02 6362 8710\"\r\n},\r\n\"pnet\":\r\n{\r\n\"version\":\"11.3.1.0\",\r\n\"companyname\":\"PNET\",\r\n\"address\":\",,,,,\",\r\n\"postaladdress\":\",,,,,\",\r\n\"contact\":\"Phone: , Fax: \"\r\n},\r\n\"sample_company\":\r\n{\r\n\"version\":\"11.3.1.0\",\r\n\"companyname\":\"Sample Company\",\r\n\"address\":\"Unit 6,183 Currumburra Road,ASHMORE,QLD,4214,Australia\",\r\n\"postaladdress\":\"Unit 6,183 Currumburra Road,ASHMORE,QLD,4214,Australia\",\r\n\"contact\":\"Phone: 0758745874, Fax: 07 5539 2701\"\r\n},\r\n\"taxi_database\":\r\n{\r\n\"version\":\"11.3.1.0\",\r\n\"companyname\":\"Taxi Foods and Restaurant Co., LTD\",\r\n\"address\":\",,,,,\",\r\n\"postaladdress\":\",,,,,\",\r\n\"contact\":\"Phone: , Fax: \"\r\n},\r\n\"test_repairs\":\r\n{\r\n\"version\":\"11.3.1.0\",\r\n\"companyname\":\"Test Repairs\",\r\n\"address\":\",,,,,\",\r\n\"postaladdress\":\",,,,,\",\r\n\"contact\":\"Phone: , Fax: \"\r\n},\r\n\"zero1_erp\":\r\n{\r\n\"version\":\"11.3.1.0\",\r\n\"companyname\":\"Al Mantig Group - ZeroOne\",\r\n\"address\":\"Madinah Road,Dawlawi Plaza 2 Floor,Jeddah,MK,21416,Kingdom of Saudi Arabia\",\r\n\"postaladdress\":\"Madinah Road,Dawlawi Plaza 2 Floor,Jeddah,MK,21416,Kingdom of Saudi Arabia\",\r\n\"contact\":\"Phone: +96626879646, Fax: \"\r\n}\r\n}\r\n}",
+"DateTime":41521.2770601852,
+"ExpireDate":42248,
+"Id":73244,
+"Notes":"",
+"SoftwareName":"ERP",
+"StartDate":41153,
+"Status":"lsReview",
+"StatusReason":"Server configuration changed",
+"User":"ERP"
+}]
+},
+"Notes":"",
+"User":"ERP"
+}]
+},
+"SoftwareReleaseType":"Dev",
+"User":"ERP"
+}
+}

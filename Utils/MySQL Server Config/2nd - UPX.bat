@@ -1,0 +1,1 @@
+C:\UPX\UPX -9 MySQL_Config.exe

@@ -1,0 +1,21 @@
+object fmBase: TfmBase
+  Left = 314
+  Top = 228
+  Caption = 'fmBase'
+  ClientHeight = 308
+  ClientWidth = 640
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Arial'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  Position = poDefault
+  Visible = True
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 15
+end
