@@ -701,7 +701,7 @@
 			<DCCReference Include="..\..\..\Dev\Vs1\Modules\VS1PreferencesSQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\General\Objects\busobjProjectnTasks.pas"/>
 			<DCCReference Include="..\..\..\Dev\Clients\Common\Objects\BusObjLeavRequest.pas"/>
-			<DCCReference Include="..\..\..\..\TrueERP\TrueERPEDI\Dev\Chilkat\CK_DLL_Const.pas"/>
+			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Chilkat\CK_DLL_Const.pas"/>
 			<DCCReference Include="..\..\..\Dev\Accounts\Objects\BusObjBankReconciliationRules.pas"/>
 			<DCCReference Include="..\..\..\Dev\Inventory\Objects\StockTransferEntrySQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\InventoryAdjust\Objects\StockAdjustEntrySQL.pas"/>
@@ -787,7 +787,7 @@
 						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
 						<VersionInfo Name="MajorVer">2023</VersionInfo>
 						<VersionInfo Name="MinorVer">0</VersionInfo>
-						<VersionInfo Name="Release">1</VersionInfo>
+						<VersionInfo Name="Release">2</VersionInfo>
 						<VersionInfo Name="Build">0</VersionInfo>
 						<VersionInfo Name="Debug">False</VersionInfo>
 						<VersionInfo Name="PreRelease">False</VersionInfo>
@@ -798,15 +798,15 @@
 						<VersionInfo Name="CodePage">1252</VersionInfo>
 					</VersionInfo>
 					<VersionInfoKeys>
-						<VersionInfoKeys Name="CompanyName"/>
-						<VersionInfoKeys Name="FileDescription">ERP Web API Server</VersionInfoKeys>
-						<VersionInfoKeys Name="FileVersion">2023.0.1.0</VersionInfoKeys>
-						<VersionInfoKeys Name="InternalName">ERP Web API Server</VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">TrueERP</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">ERP WebAPI Server</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">2023.0.2.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName">ERP WebAPI Server</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalCopyright"/>
 						<VersionInfoKeys Name="LegalTrademarks"/>
 						<VersionInfoKeys Name="OriginalFilename"/>
 						<VersionInfoKeys Name="ProductName"/>
-						<VersionInfoKeys Name="ProductVersion">2023.0.1.0</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductVersion">2023.0.2.0</VersionInfoKeys>
 						<VersionInfoKeys Name="Comments"/>
 					</VersionInfoKeys>
 					<Excluded_Packages>

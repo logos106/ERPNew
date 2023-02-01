@@ -4,7 +4,7 @@ interface
 
 const
 
-  TABLE_VERSION = '2023.0.1.0';
+  TABLE_VERSION = '2023.0.2.0';
 
   Default_Install_Version = 'Production2023';
   
