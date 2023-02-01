@@ -5,6 +5,7 @@ interface
 uses ReportTransactionsTable;
 
 type
+
   TAR_Report_Obj = class(TReportTransactionTableObj)
   Private
   Protected
@@ -21,20 +22,20 @@ type
       CalenderMonthAgeing: boolean = false);
   end;
 
-(*Function Date_Thismonth(IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
-Function Datefrom_1_30 (IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
-Function Datefrom_30_60(IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
-Function Datefrom_60_90(IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
+  (*Function Date_Thismonth(IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
+  Function Datefrom_1_30 (IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
+  Function Datefrom_30_60(IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
+  Function Datefrom_60_90(IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
 
-Function Date_today (IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
-Function Date_1_7 (IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
-Function Date_7_14 (IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
-Function Date_14_21 (IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
+  Function Date_today (IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
+  Function Date_1_7 (IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
+  Function Date_7_14 (IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
+  Function Date_14_21 (IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
 
-Function Date_1_30 (IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
-Function Date_30_60 (IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
-Function Date_60_90 (IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
-Function DateformatStr(const Userformat:Boolean):String;*)
+  Function Date_1_30 (IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
+  Function Date_30_60 (IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
+  Function Date_60_90 (IgnoreDateRange: Boolean; const Point_In_Time: TDateTime; const Userformat:Boolean):String;
+  Function DateformatStr(const Userformat:Boolean):String;*)
 
 
 implementation
@@ -329,7 +330,6 @@ begin
     else
       AgeFieldName := 'DueDate';
 
-
     SevenDays := '7';
     FourteenDays := '14';
     TwentyOneDays := '21';
@@ -427,4 +427,5 @@ begin
     fDoingRefresh:= false;
   end;
 end;
+
 end.

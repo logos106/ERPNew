@@ -7263,16 +7263,15 @@ var
     aParams:TJsonObject;
     aDate:TDateTime;
   begin
-
-      fReportSQLObj := TAPReport.Create;
-      try
-          aParams := jo;
-          aParams.DT[TAG_DATEFROM]      := aDtFrom;
-          aParams.DT[TAG_DATETO]        := aDtTo;
-          fReportSQLObj.AssignParams(aParams);
-          sct.SQL.Clear;
-          fReportSQLObj.PopulateReportSQL(sct.SQL, msg);
-          sct.SQL.text := ' Drop table if exists tmp_vs1_dashboard_ap_report;' +
+    fReportSQLObj := TAPReport.Create;
+    try
+      aParams := JO;
+      aParams.DT[TAG_DATEFROM] := aDtFrom;
+      aParams.DT[TAG_DATETO] := aDtTo;
+      fReportSQLObj.AssignParams(aParams);
+      sct.SQL.Clear;
+      fReportSQLObj.PopulateReportSQL(sct.SQL, msg);
+      sct.SQL.text := ' DROP TABLE IF EXISTS tmp_vs1_dashboard_ap_report;' +
                             'CREATE TABLE tmp_vs1_dashboard_ap_report ( ' +
                             '	id INT(11) NOT NULL AUTO_INCREMENT, ' +
                             '	Datefrom DATETIME NULL DEFAULT NULL, ' +
@@ -7283,29 +7282,30 @@ var
                             '	total DOUBLE NULL DEFAULT NULL, ' +
                             '	PRIMARY KEY (id), ' +
                             '	UNIQUE INDEX Datefrom (Datefrom)) COLLATE="utf8_general_ci" ENGINE=MyISAM;'+
-                            ' INSERT IGNORE INTO tmp_VS1_Dashboard_AP_Report (Datefrom, dateto, month1, MONTH2, MONTH3 ,total) SELECT ' +
-                            ' date_add(date_add(LAST_DAY(Orderdate),interval 1 DAY),interval -1 MONTH) Datefrom, ' +
+                            ' INSERT IGNORE INTO tmp_VS1_Dashboard_AP_Report (Datefrom, dateto, month1, MONTH2, MONTH3, total) SELECT ' +
+                            ' date_add(date_add(LAST_DAY(Orderdate), interval 1 DAY), interval - 1 MONTH) Datefrom, ' +
                             ' LAST_DAY(orderdate) dateto, ' +
                             ' DATE_FORMAT(orderdate,"%M") AS month1, ' +
                             ' DATE_FORMAT(orderdate,"%b") AS MONTH2, ' +
-                            ' DATE_FORMAT(orderdate,"%b-%Y") AS MONTH3, SUM(Originalamount)  total ' +
-                            ' FROM (' +sct.SQL.text +') aa  where orderdate between ' + quotedStr(Formatdatetime(mysqldatetimeformat,aDtfrom)) +' and ' + quotedStr(Formatdatetime(mysqldatetimeformat,aDtto)) +' GROUP BY LAST_DAY(orderdate);';
-          aDate :=  StartOfThemonth(aDtFrom);
-          while aDate <= aDtTo do begin
-            sct.SQL.add('INSERT IGNORE INTO tmp_VS1_Dashboard_AP_Report (Datefrom, dateto, month1, MONTH2, MONTH3 ,total) '+
-                                                                      ' SELECT ' + quotedStr(Formatdatetime(mysqldatetimeformat,aDate))+' Datefrom, '+
-                                                                      ' LAST_DAY('+quotedStr(Formatdatetime(mysqldatetimeformat,aDate))+') DateTo, '+
-                                                                      ' DATE_FORMAT( ' + quotedStr(Formatdatetime(mysqldatetimeformat,aDate))+',"%M") AS month1, ' +
-                                                                      ' DATE_FORMAT( ' + quotedStr(Formatdatetime(mysqldatetimeformat,aDate))+',"%b") AS MONTH2, ' +
-                                                                      ' DATE_FORMAT( ' + quotedStr(Formatdatetime(mysqldatetimeformat,aDate))+',"%b-%Y") AS MONTH3, ' +
-                                                                      ' 0.0 total ;' );
+                            ' DATE_FORMAT(orderdate,"%b-%Y") AS MONTH3, SUM(Originalamount) total ' +
+                            ' FROM (' + sct.SQL.text +') aa WHERE orderdate BETWEEN ' + quotedStr(Formatdatetime(mysqldatetimeformat,aDtfrom)) +' and ' + quotedStr(Formatdatetime(mysqldatetimeformat,aDtto)) +' GROUP BY LAST_DAY(orderdate);';
 
-            aDate := incmonth(aDate,1);
-          end;
-          sct.Execute;
-      finally
-        Freeandnil(fReportSQLObj);
+      aDate :=  StartOfThemonth(aDtFrom);
+      while aDate <= aDtTo do begin
+        sct.SQL.add('INSERT IGNORE INTO tmp_VS1_Dashboard_AP_Report (Datefrom, dateto, month1, MONTH2, MONTH3, total) '+
+                      ' SELECT ' + quotedStr(Formatdatetime(mysqldatetimeformat,aDate))+' Datefrom, '+
+                      ' LAST_DAY('+quotedStr(Formatdatetime(mysqldatetimeformat,aDate))+') DateTo, '+
+                      ' DATE_FORMAT( ' + quotedStr(Formatdatetime(mysqldatetimeformat,aDate))+',"%M") AS month1, ' +
+                      ' DATE_FORMAT( ' + quotedStr(Formatdatetime(mysqldatetimeformat,aDate))+',"%b") AS MONTH2, ' +
+                      ' DATE_FORMAT( ' + quotedStr(Formatdatetime(mysqldatetimeformat,aDate))+',"%b-%Y") AS MONTH3, ' +
+                      ' 0.0 total ;' );
+
+        aDate := incmonth(aDate,1);
       end;
+      sct.Execute;
+    finally
+      Freeandnil(fReportSQLObj);
+    end;
   end;
 
   procedure Make_VS1_SalesList;

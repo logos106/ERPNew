@@ -189,15 +189,15 @@ const
     installFileName: string;
     installRunName: string;
     installRunParams: string;
-    stopBeforeUpdate: boolean;
-    WaitMilliseconds: integer;
+    stopBeforeUpdate: Boolean;
+    WaitMilliseconds: Integer;
   begin
     Result := True;
     for partCount := 0 to ver.O['parts'].Count - 1 do begin
       updatePart := ver.O['parts'].Items[partCount].Value.AsObject;
       if updatePart.S['type'] = 'innosetup' then begin
         if updatePart.BooleanExists('stopbeforeupdate') then
-          stopBeforeUpdate:= updatePart.B['stopbeforeupdate']
+          stopBeforeUpdate := updatePart.B['stopbeforeupdate']
         else
           stopBeforeUpdate := true;
         { download file }

@@ -456,19 +456,18 @@ begin
 
   try
     if (KeyId = 0) then begin
-      if not UserLock.Lock('tblreconciliation',KeyId,'Reconciliation') then begin
-        AccessLevel:= 6;
+      if not UserLock.Lock('tblreconciliation', KeyId, 'Reconciliation') then begin
+        AccessLevel := 6;
         CommonLib.MessageDlgXP_Vista('Currently the User "' + UserLock.LockInfo.Username + '" is Reconciling. Try Again Later.', mtWarning, [mbOK], 0);
         PostMessage(Self.Handle, WM_CLOSE, 0, 0);
         Exit;
       end;
     end;
 
-    OnShowFinished := false;
+    OnShowFinished := False;
     try
       //Access is Full Or None
       if AccessLevel <> 1 then AccessLevel := 6;
-
 
       inherited;
       if UseStatements then begin
@@ -481,16 +480,15 @@ begin
       if (KeyID = -1) then Exit;
       Openrec;
 
-      qryAccount.Parambyname('AccountId').asInteger :=ReconciliationObj.AccountID;
+      qryAccount.Parambyname('AccountId').AsInteger := ReconciliationObj.AccountID;
       qryAccount.Open;
 
-
       if KeyID = 0 then begin
-        Label3.Visible     := false;
-        chkDeleted.Visible := false;
+        Label3.Visible     := False;
+        chkDeleted.Visible := False;
       end else begin
-        Label3.Visible     := true;
-        chkDeleted.Visible := true;
+        Label3.Visible     := True;
+        chkDeleted.Visible := True;
         LastRec := CheckIfLastReconciliation;
         Label3.Enabled := LastRec;
         chkDeleted.Enabled := LastRec;
@@ -3140,7 +3138,7 @@ begin
           'ALTER TABLE tempClient ADD FULLTEXT INDEX ft_idx (Company, Printname);';
   qry  := TERPQuery.Create(nil);
   try
-    qry.Connection:= CommonDbLib.GetSharedMyDacConnection;
+    qry.Connection := CommonDbLib.GetSharedMyDacConnection;
     qry.SQL.Text  := sSQL;
     qry.ExecSQL;
   finally
@@ -4584,6 +4582,7 @@ begin
   ReconciliationObj.Connection.connection := Self.MyConnection;
   ReconciliationObj.BusObjEvent := DoBusinessObjectEvent;
 end;
+
 Function TReconciliationGUI.SaveRecord :Boolean;
 begin
   result:= False;
@@ -4591,19 +4590,21 @@ begin
   if not(ReconciliationObj.Save) then exit;
   Result:= True;
 end;
+
 procedure TReconciliationGUI.Openrec;
 begin
   ReconciliationObj.Load(KeyID);
   ReconciliationObj.connection.BeginTransaction;
-  if ReconciliationObj.count=0 then
-    ReconciliationObj.new;
-  ReconciliationObj.Dirty := false;
+  if ReconciliationObj.count = 0 then
+    ReconciliationObj.New;
+  ReconciliationObj.Dirty := False;
   if keyid <> 0 then begin
     ReconciliationObj.Withdrawallines;
     ReconciliationObj.DepositLines;
     //ReconciliationObj.TestDelete;
   end;
 end;
+
 procedure TReconciliationGUI.DNMSpeedButton6Click(Sender: TObject);begin  SearchText(COL_REF, '1679564 / 2679564', grdWithdrawals);end;
 procedure TReconciliationGUI.DNMSpeedButton7Click(Sender: TObject);begin  SearchText(COL_REF, '2892550', grdWithdrawals);end;
 procedure TReconciliationGUI.DNMSpeedButton8Click(Sender: TObject);begin  SearchText(COL_REF, '2582779 / 1582778', grdWithdrawals);end;

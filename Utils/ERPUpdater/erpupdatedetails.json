@@ -1,0 +1,1011 @@
+{
+	"updates":{
+		"fileuploader":{
+			"actiontype": "latest",
+			"versions":{
+				"production2020": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/fileuploader\/File_Uploader_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":true}}}
+				},	
+				"beta": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/fileuploader\/File_Uploader_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":true}}}
+				},	
+				"alpha": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/fileuploader\/File_Uploader_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":true}}}
+				},	
+				"dev": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/fileuploader\/File_Uploader_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":true}}}
+				},	
+				"test": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/fileuploader\/File_Uploader_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":true}}}
+				}	
+
+			}
+		},
+		"erpservicemenu":{
+			"actiontype": "latest",
+			"versions":{
+				"production2020": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/erpservicemenu\/ERPServiceMenu_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":true}}}
+				},	
+				"beta": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/erpservicemenu\/ERPServiceMenu_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":true}}}
+				},	
+				"alpha": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/erpservicemenu\/ERPServiceMenu_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":true}}}
+				},	
+				"dev": {
+					"2023.0.2.0":{"parts": {"1": {"type": "innosetup", "file": "server\/erpservicemenu\/ERPServiceMenu_Setup_2023.0.2.0.dat","installpassword": "Loaded","stopbeforeupdate":true}}}
+				},	
+				"test": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/erpservicemenu\/ERPServiceMenu_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":true}}}
+				}
+			}
+		},
+		"erputilsservice":{
+			"actiontype": "latest",
+			"versions":{
+				"production2020": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/erputilsservice\/ERPUtilsService_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":false}}}
+				},	
+				"beta": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/erputilsservice\/ERPUtilsService_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":false}}}
+				},	
+				"alpha": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/erputilsservice\/ERPUtilsService_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":false}}}
+				},	
+				"dev": {
+					"2023.0.2.0":{"parts": {"1": {"type": "innosetup", "file": "server\/erputilsservice\/ERPUtilsService_Setup_2023.0.2.0.dat","installpassword": "Loaded","stopbeforeupdate":false}}}
+				},	
+				"test": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/erputilsservice\/ERPUtilsService_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":false}}}
+				}	
+			}
+		},
+		"erpwebservice":{
+			"actiontype": "latest",
+			"versions":{
+				"production2020": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/erpwebservice\/ERPWebService_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":false}}}
+				},	
+				"beta": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/erpwebservice\/ERPWebService_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":false}}}
+				},	
+				"alpha": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/erpwebservice\/ERPWebService_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":false}}}
+				},	
+				"dev": {
+					"2023.0.2.0":{"parts": {"1": {"type": "innosetup", "file": "server\/erpwebservice\/ERPWebService_Setup_2023.0.2.0.dat","installpassword": "Loaded","stopbeforeupdate":false}}}
+				},	
+				"test": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/erpwebservice\/ERPWebService_Setup_2020.0.0.0.dat","installpassword": "Loaded","stopbeforeupdate":false}}}
+				}	
+			}
+		},
+		"ERPModGoogle":{
+			"actiontype": "latest",
+			"versions":{
+				"Production2020": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModGoogleAnalytics_Setup_2020.0.0.0.dat","installpassword": "Loaded"}}}
+				},	
+				"beta": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModGoogleAnalytics_Setup_2020.0.0.0.dat","installpassword": "Loaded"}}}
+				},	
+				"alpha": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModGoogleAnalytics_Setup_2020.0.0.0.dat","installpassword": "Loaded"}}}
+				},	
+				"dev": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModGoogleAnalytics_Setup_2020.0.0.0.dat","installpassword": "Loaded"}}}
+				},	
+				"test": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModGoogleAnalytics_Setup_2020.0.0.0.dat","installpassword": "Loaded"}}}
+				}	
+			}
+		},
+		"ERPModUserUtils":{
+			"actiontype": "latest",
+			"versions":{
+				"Production2020": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModUserUtils_Setup_2020.0.0.0.dat","installpassword": "Loaded"}}}
+				},	
+				"beta": {
+					"2020.0.8.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModUserUtils_Setup_2020.0.8.0.dat","installpassword": "Loaded"}}}
+				},	
+				"alpha": {
+					"2020.7.1.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModUserUtils_Setup_2020.7.1.0.dat","installpassword": "Loaded"}}}
+				},	
+				"dev": {
+					"2023.0.2.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModUserUtils_Setup_2023.0.2.0.dat","installpassword": "Loaded"}}}
+				},	
+				"test": {
+					"2020.0.0.4":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModUserUtils_Setup_2020.0.0.4.dat","installpassword": "Loaded"}}}
+				}	
+			}
+		},
+		"ERPModWebAPI":{
+			"actiontype": "latest",
+			"versions":{
+				"Production2020": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModWebAPI_Setup_2020.0.0.0.dat","installpassword": "Loaded"}}}
+				},	
+				"beta": {
+					"2020.6.4.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModWebAPI_Setup_2020.6.4.0.dat","installpassword": "Loaded"}}}
+				},	
+				"alpha": {
+					"2022.8.2.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModWebAPI_Setup_2022.8.2.0.dat","installpassword": "Loaded"}}}
+				},	
+				"dev": {
+					"2023.0.2.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModWebAPI_Setup_2023.0.2.0.dat","installpassword": "Loaded"}}}
+				},	
+				"test": {
+					"2020.1.9.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModWebAPI_Setup_2020.1.9.0.dat","installpassword": "Loaded"}}}
+				}	
+			}
+		},
+		"ERPModEbay":{
+			"actiontype": "latest",
+			"versions":{
+				"Production2020": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModEbay_Setup_2020.0.0.0.dat","installpassword": "Loaded"}}}
+				},	
+				"beta": {
+					"2020.0.3.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModEbay_Setup_2020.0.3.0.dat","installpassword": "Loaded"}}}
+				},	
+				"alpha": {
+					"2020.0.3.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModEbay_Setup_2020.0.3.0.dat","installpassword": "Loaded"}}}
+				},	
+				"dev": {
+					"2020.0.3.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModEbay_Setup_2020.0.3.0.dat","installpassword": "Loaded"}}}
+				},	
+				"test": {
+					"2020.0.3.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModEbay_Setup_2020.0.3.0.dat","installpassword": "Loaded"}}}
+				}	
+			}
+		},
+		"ERPModPaymentGateway":{
+			"actiontype": "latest",
+			"versions":{
+				"Production2020": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModPayGateway_Setup_2020.0.0.0.dat","installpassword": "Loaded"}}}
+				},
+				"beta": {
+					"2020.0.0.2":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModPayGateway_Setup_2020.0.0.2.dat","installpassword": "Loaded"}}}
+				},	
+				"alpha": {
+					"2020.0.0.2":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModPayGateway_Setup_2020.0.0.2.dat","installpassword": "Loaded"}}}
+				},	
+				"dev": {
+					"2020.0.0.2":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModPayGateway_Setup_2020.0.0.2.dat","installpassword": "Loaded"}}}
+				},	
+				"test": {
+					"2020.0.0.2":{"parts": {"1": {"type": "innosetup", "file": "server\/utilsmodules\/ModPayGateway_Setup_2020.0.0.2.dat","installpassword": "Loaded"}}}
+				}	
+			}
+		},
+		"ERPStarterService":{
+			"actiontype": "latest",
+			"versions":{
+				"all": {
+					"14.0.0.7":{"parts": {"1": {"type": "innosetup", "file": "server\/custom\/ERPStarterService_Setup_14.0.0.7.dat","installpassword": "Loaded"}}}
+				}	
+			}
+		},
+		"erpdatabase":{
+			"actiontype": "progressive",
+			"versions":{
+				"Production2020": {
+                    "2018.0.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2017.9.0.0to2018.0.0.0.dat"}}},
+                    "2018.0.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.0.0to2018.0.1.0.dat"}}},
+                    "2018.0.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.1.0to2018.0.2.0.dat"}}},
+                    "2018.0.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.2.0to2018.0.3.0.dat"}}},
+                    "2018.0.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.3.0to2018.0.4.0.dat"}}},
+                    "2018.0.4.1":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.0to2018.0.4.1.dat"}}},
+                    "2018.0.4.2":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.1to2018.0.4.2.dat"}}},
+                    "2018.0.4.3":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.2to2018.0.4.3.dat"}}},
+                    "2018.0.4.4":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.3to2018.0.4.4.dat"}}},
+                    "2018.0.4.5":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.4to2018.0.4.5.dat"}}},
+                    "2018.0.4.6":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.5to2018.0.4.6.dat"}}},
+                    "2018.0.4.7":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.6to2018.0.4.7.dat"}}},
+                    "2018.0.4.8":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.7to2018.0.4.8.dat"}}},
+                    "2018.0.4.9":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.8to2018.0.4.9.dat"}}},
+                    "2018.0.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.9to2018.0.5.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2017.8.4.0to2018.0.5.0.dat"}}},
+                    "2018.0.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.5.0to2018.0.6.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.0.5.0to2018.0.6.0.dat"}}},
+                    "2018.0.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.6.0to2018.0.7.0.dat"}}},
+                    "2018.0.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.7.0to2018.0.8.0.dat"}}},
+                    "2018.0.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.8.0to2018.0.9.0.dat"}}},
+                    "2018.1.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.9.0to2018.1.0.0.dat"}}},
+                    "2018.1.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.0.0to2018.1.1.0.dat"}}},
+                    "2018.1.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.1.0to2018.1.2.0.dat"}}},
+                    "2018.1.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.2.0to2018.1.3.0.dat"}}},
+                    "2018.1.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.3.0to2018.1.4.0.dat"}}},
+                    "2018.1.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.4.0to2018.1.5.0.dat"}}},
+                    "2018.1.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.5.0to2018.1.6.0.dat"}}},
+                    "2018.1.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.6.0to2018.1.7.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.0.6.0to2018.1.7.0.dat"}}},
+                    "2018.1.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.7.0to2018.1.8.0.dat"}}},
+                    "2018.1.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.8.0to2018.1.9.0.dat"}}},
+                    "2018.2.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.9.0to2018.2.0.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.1.7.0to2018.2.0.0.dat"}}},
+                    "2018.2.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.0.0to2018.2.1.0.dat"}}},
+                    "2018.2.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.1.0to2018.2.2.0.dat"}}},
+                    "2018.2.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.2.0to2018.2.3.0.dat"}}},
+                    "2018.2.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.3.0to2018.2.4.0.dat"}}},
+                    "2018.2.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.4.0to2018.2.5.0.dat"}}},
+                    "2018.2.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.5.0to2018.2.6.0.dat"}}},
+                    "2018.2.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.6.0to2018.2.7.0.dat"}}},
+                    "2018.2.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.7.0to2018.2.8.0.dat"}}},
+                    "2018.2.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.8.0to2018.2.9.0.dat"}}},
+                    "2018.3.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.9.0to2018.3.0.0.dat"}}},
+                    "2018.3.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.0.0to2018.3.1.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.2.0.0to2018.3.1.0.dat"}}},
+                    "2018.3.1.1":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.0to2018.3.1.1.dat"}}},
+                    "2018.3.1.2":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.1to2018.3.1.2.dat"}}},
+                    "2018.3.1.3":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.2to2018.3.1.3.dat"}}},
+                    "2018.3.1.4":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.3to2018.3.1.4.dat"}}},
+                    "2018.3.1.5":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.4to2018.3.1.5.dat"}}},
+                    "2018.3.1.6":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.5to2018.3.1.6.dat"}}},
+                    "2018.3.1.7":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.6to2018.3.1.7.dat"}}},
+                    "2018.3.1.8":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.7to2018.3.1.8.dat"}}},
+                    "2018.3.1.9":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.8to2018.3.1.9.dat"}}},
+                    "2018.3.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.9to2018.3.2.0.dat"}}},
+                    "2018.3.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.2.0to2018.3.3.0.dat"}}},
+                    "2018.3.3.1":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.0to2018.3.3.1.dat"}}},
+                    "2018.3.3.2":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.1to2018.3.3.2.dat"}}},
+                    "2018.3.3.3":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.2to2018.3.3.3.dat"}}},
+                    "2018.3.3.4":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.3to2018.3.3.4.dat"}}},
+                    "2018.3.3.5":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.4to2018.3.3.5.dat"}}},
+                    "2018.3.3.6":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.5to2018.3.3.6.dat"}}},
+                    "2018.3.3.7":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.6to2018.3.3.7.dat"}}},
+                    "2018.3.3.8":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.7to2018.3.3.8.dat"}}},
+                    "2018.3.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.8to2018.3.4.0.dat"}}},
+                    "2018.3.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.4.0to2018.3.5.0.dat"}}},
+                    "2018.3.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.5.0to2018.3.6.0.dat"}}},
+                    "2018.3.6.1":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.6.0to2018.3.6.1.dat"}}},
+                    "2018.3.6.2":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.6.1to2018.3.6.2.dat"}}},
+                    "2018.3.6.3":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.6.2to2018.3.6.3.dat"}}},
+                    "2018.3.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.6.3to2018.3.7.0.dat"}}},
+                    "2018.3.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.7.0to2018.3.8.0.dat"}}},
+                    "2018.3.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.8.0to2018.3.9.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.3.1.0to2018.3.9.0.dat"}}},
+                    "2018.4.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.9.0to2018.4.0.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.3.9.0to2018.4.0.0.dat"}}},
+                    "2018.4.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.0.0to2018.4.1.0.dat"}}},
+                    "2018.4.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.1.0to2018.4.2.0.dat"}}},
+                    "2018.4.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.2.0to2018.4.3.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.4.0.0to2018.4.3.0.dat"}}},
+                    "2018.4.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.3.0to2018.4.4.0.dat"}}},
+                    "2018.4.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.4.0to2018.4.5.0.dat"}}},
+                    "2018.4.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.5.0to2018.4.6.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.4.3.0to2018.4.6.0.dat"}}},
+                    "2018.4.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.6.0to2018.4.7.0.dat"}}},
+                    "2018.4.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.7.0to2018.4.8.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.4.6.0to2018.4.8.0.dat"}}},
+                    "2018.4.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.8.0to2018.4.9.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.4.8.0to2018.4.9.0.dat"}}},
+                    "2018.5.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.9.0to2018.5.0.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.4.9.0to2018.5.0.0.dat"}}},
+                    "2018.5.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.0.0to2018.5.1.0.dat"}}},
+                    "2018.5.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.1.0to2018.5.2.0.dat"}}},
+                    "2018.5.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.2.0to2018.5.3.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.5.0.0to2018.5.3.0.dat"}}},
+                    "2018.5.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.3.0to2018.5.4.0.dat"}}},
+                    "2018.5.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.4.0to2018.5.5.0.dat"}}},
+                    "2018.5.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.5.0to2018.5.6.0.dat"}}},
+                    "2018.5.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.6.0to2018.5.7.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.5.3.0to2018.5.7.0.dat"}}},
+                    "2018.5.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.7.0to2018.5.8.0.dat"}}},
+                    "2018.5.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.8.0to2018.5.9.0.dat"}}},
+                    "2018.6.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.9.0to2018.6.0.0.dat"}}},
+                    "2018.6.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.0.0to2018.6.1.0.dat"}}},
+                    "2018.6.1.1":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.1.0to2018.6.1.1.dat"}}},
+                    "2018.6.1.2":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.1.1to2018.6.1.2.dat"}}},
+                    "2018.6.1.3":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.1.2to2018.6.1.3.dat"}}},
+                    "2018.6.1.4":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.1.3to2018.6.1.4.dat"}}},
+                    "2018.6.1.5":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.1.4to2018.6.1.5.dat"}}},
+                    "2018.6.1.6":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.1.5to2018.6.1.6.dat"}}},
+                    "2018.6.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.1.6to2018.6.2.0.dat"}}},
+                    "2018.6.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.2.0to2018.6.3.0.dat"}}},
+                    "2018.6.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.3.0to2018.6.4.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.5.7.0to2018.6.4.0.dat"}}},
+                    "2018.6.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.4.0to2018.6.5.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.6.4.0to2018.6.5.0.dat"}}},
+                    "2018.6.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.5.0to2018.6.6.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.6.5.0to2018.6.6.0.dat"}}},
+                    "2018.6.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.6.0to2018.6.7.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.6.6.0to2018.6.7.0.dat"}}},
+                    "2018.6.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.7.0to2018.6.8.0.dat"}}},
+                    "2018.6.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.8.0to2018.6.9.0.dat"}}},
+                    "2018.7.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.9.0to2018.7.0.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.6.7.0to2018.7.0.0.dat"}}},
+                    "2018.7.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.0.0to2018.7.1.0.dat"}}},
+                    "2018.7.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.1.0to2018.7.2.0.dat"}}},
+                    "2018.7.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.2.0to2018.7.3.0.dat"}}},
+                    "2018.7.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.3.0to2018.7.4.0.dat"}}},
+                    "2018.7.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.4.0to2018.7.5.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.7.0.0to2018.7.5.0.dat"}}},
+                    "2018.7.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.5.0to2018.7.6.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.7.5.0to2018.7.6.0.dat"}}},
+                    "2018.7.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.6.0to2018.7.7.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.7.6.0to2018.7.7.0.dat"}}},
+                    "2018.7.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.7.0to2018.7.8.0.dat"}}},
+                    "2018.7.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.8.0to2018.7.9.0.dat"}}},
+                    "2018.8.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.9.0to2018.8.0.0.dat"}}},
+                    "2018.8.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.8.0.0to2018.8.1.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.7.7.0to2018.8.1.0.dat"}}},
+                    "2018.8.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.8.1.0to2018.8.2.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.8.1.0to2018.8.2.0.dat"}}},
+                    "2018.8.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.8.2.0to2018.8.3.0.dat"}}},
+                    "2018.8.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.8.3.0to2018.8.4.0.dat"}}},
+                    "2020.0.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.8.4.0to2020.0.0.0.dat"}}}
+				},	
+				"beta": {
+                    "2018.0.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2017.9.0.0to2018.0.0.0.dat"}}},
+                    "2018.0.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.0.0to2018.0.1.0.dat"}}},
+                    "2018.0.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.1.0to2018.0.2.0.dat"}}},
+                    "2018.0.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.2.0to2018.0.3.0.dat"}}},
+                    "2018.0.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.3.0to2018.0.4.0.dat"}}},
+                    "2018.0.4.1":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.0to2018.0.4.1.dat"}}},
+                    "2018.0.4.2":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.1to2018.0.4.2.dat"}}},
+                    "2018.0.4.3":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.2to2018.0.4.3.dat"}}},
+                    "2018.0.4.4":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.3to2018.0.4.4.dat"}}},
+                    "2018.0.4.5":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.4to2018.0.4.5.dat"}}},
+                    "2018.0.4.6":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.5to2018.0.4.6.dat"}}},
+                    "2018.0.4.7":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.6to2018.0.4.7.dat"}}},
+                    "2018.0.4.8":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.7to2018.0.4.8.dat"}}},
+                    "2018.0.4.9":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.8to2018.0.4.9.dat"}}},
+                    "2018.0.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.4.9to2018.0.5.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2017.8.4.0to2018.0.5.0.dat"}}},
+                    "2018.0.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.5.0to2018.0.6.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.0.5.0to2018.0.6.0.dat"}}},
+                    "2018.0.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.6.0to2018.0.7.0.dat"}}},
+                    "2018.0.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.7.0to2018.0.8.0.dat"}}},
+                    "2018.0.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.8.0to2018.0.9.0.dat"}}},
+                    "2018.1.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.0.9.0to2018.1.0.0.dat"}}},
+                    "2018.1.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.0.0to2018.1.1.0.dat"}}},
+                    "2018.1.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.1.0to2018.1.2.0.dat"}}},
+                    "2018.1.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.2.0to2018.1.3.0.dat"}}},
+                    "2018.1.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.3.0to2018.1.4.0.dat"}}},
+                    "2018.1.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.4.0to2018.1.5.0.dat"}}},
+                    "2018.1.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.5.0to2018.1.6.0.dat"}}},
+                    "2018.1.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.6.0to2018.1.7.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.0.6.0to2018.1.7.0.dat"}}},
+                    "2018.1.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.7.0to2018.1.8.0.dat"}}},
+                    "2018.1.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.8.0to2018.1.9.0.dat"}}},
+                    "2018.2.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.1.9.0to2018.2.0.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.1.7.0to2018.2.0.0.dat"}}},
+                    "2018.2.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.0.0to2018.2.1.0.dat"}}},
+                    "2018.2.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.1.0to2018.2.2.0.dat"}}},
+                    "2018.2.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.2.0to2018.2.3.0.dat"}}},
+                    "2018.2.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.3.0to2018.2.4.0.dat"}}},
+                    "2018.2.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.4.0to2018.2.5.0.dat"}}},
+                    "2018.2.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.5.0to2018.2.6.0.dat"}}},
+                    "2018.2.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.6.0to2018.2.7.0.dat"}}},
+                    "2018.2.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.7.0to2018.2.8.0.dat"}}},
+                    "2018.2.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.8.0to2018.2.9.0.dat"}}},
+                    "2018.3.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.2.9.0to2018.3.0.0.dat"}}},
+                    "2018.3.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.0.0to2018.3.1.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.2.0.0to2018.3.1.0.dat"}}},
+                    "2018.3.1.1":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.0to2018.3.1.1.dat"}}},
+                    "2018.3.1.2":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.1to2018.3.1.2.dat"}}},
+                    "2018.3.1.3":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.2to2018.3.1.3.dat"}}},
+                    "2018.3.1.4":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.3to2018.3.1.4.dat"}}},
+                    "2018.3.1.5":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.4to2018.3.1.5.dat"}}},
+                    "2018.3.1.6":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.5to2018.3.1.6.dat"}}},
+                    "2018.3.1.7":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.6to2018.3.1.7.dat"}}},
+                    "2018.3.1.8":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.7to2018.3.1.8.dat"}}},
+                    "2018.3.1.9":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.8to2018.3.1.9.dat"}}},
+                    "2018.3.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.1.9to2018.3.2.0.dat"}}},
+                    "2018.3.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.2.0to2018.3.3.0.dat"}}},
+                    "2018.3.3.1":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.0to2018.3.3.1.dat"}}},
+                    "2018.3.3.2":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.1to2018.3.3.2.dat"}}},
+                    "2018.3.3.3":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.2to2018.3.3.3.dat"}}},
+                    "2018.3.3.4":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.3to2018.3.3.4.dat"}}},
+                    "2018.3.3.5":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.4to2018.3.3.5.dat"}}},
+                    "2018.3.3.6":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.5to2018.3.3.6.dat"}}},
+                    "2018.3.3.7":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.6to2018.3.3.7.dat"}}},
+                    "2018.3.3.8":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.7to2018.3.3.8.dat"}}},
+                    "2018.3.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.3.8to2018.3.4.0.dat"}}},
+                    "2018.3.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.4.0to2018.3.5.0.dat"}}},
+                    "2018.3.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.5.0to2018.3.6.0.dat"}}},
+                    "2018.3.6.1":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.6.0to2018.3.6.1.dat"}}},
+                    "2018.3.6.2":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.6.1to2018.3.6.2.dat"}}},
+                    "2018.3.6.3":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.6.2to2018.3.6.3.dat"}}},
+                    "2018.3.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.6.3to2018.3.7.0.dat"}}},
+                    "2018.3.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.7.0to2018.3.8.0.dat"}}},
+                    "2018.3.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.8.0to2018.3.9.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.3.1.0to2018.3.9.0.dat"}}},
+                    "2018.4.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.3.9.0to2018.4.0.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.3.9.0to2018.4.0.0.dat"}}},
+                    "2018.4.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.0.0to2018.4.1.0.dat"}}},
+                    "2018.4.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.1.0to2018.4.2.0.dat"}}},
+                    "2018.4.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.2.0to2018.4.3.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.4.0.0to2018.4.3.0.dat"}}},
+                    "2018.4.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.3.0to2018.4.4.0.dat"}}},
+                    "2018.4.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.4.0to2018.4.5.0.dat"}}},
+                    "2018.4.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.5.0to2018.4.6.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.4.3.0to2018.4.6.0.dat"}}},
+                    "2018.4.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.6.0to2018.4.7.0.dat"}}},
+                    "2018.4.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.7.0to2018.4.8.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.4.6.0to2018.4.8.0.dat"}}},
+                    "2018.4.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.8.0to2018.4.9.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.4.8.0to2018.4.9.0.dat"}}},
+                    "2018.5.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.4.9.0to2018.5.0.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.4.9.0to2018.5.0.0.dat"}}},
+                    "2018.5.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.0.0to2018.5.1.0.dat"}}},
+                    "2018.5.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.1.0to2018.5.2.0.dat"}}},
+                    "2018.5.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.2.0to2018.5.3.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.5.0.0to2018.5.3.0.dat"}}},
+                    "2018.5.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.3.0to2018.5.4.0.dat"}}},
+                    "2018.5.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.4.0to2018.5.5.0.dat"}}},
+                    "2018.5.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.5.0to2018.5.6.0.dat"}}},
+                    "2018.5.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.6.0to2018.5.7.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.5.3.0to2018.5.7.0.dat"}}},
+                    "2018.5.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.7.0to2018.5.8.0.dat"}}},
+                    "2018.5.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.8.0to2018.5.9.0.dat"}}},
+                    "2018.6.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.5.9.0to2018.6.0.0.dat"}}},
+                    "2018.6.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.0.0to2018.6.1.0.dat"}}},
+                    "2018.6.1.1":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.1.0to2018.6.1.1.dat"}}},
+                    "2018.6.1.2":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.1.1to2018.6.1.2.dat"}}},
+                    "2018.6.1.3":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.1.2to2018.6.1.3.dat"}}},
+                    "2018.6.1.4":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.1.3to2018.6.1.4.dat"}}},
+                    "2018.6.1.5":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.1.4to2018.6.1.5.dat"}}},
+                    "2018.6.1.6":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.1.5to2018.6.1.6.dat"}}},
+                    "2018.6.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.1.6to2018.6.2.0.dat"}}},
+                    "2018.6.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.2.0to2018.6.3.0.dat"}}},
+                    "2018.6.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.3.0to2018.6.4.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.5.7.0to2018.6.4.0.dat"}}},
+                    "2018.6.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.4.0to2018.6.5.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.6.4.0to2018.6.5.0.dat"}}},
+                    "2018.6.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.5.0to2018.6.6.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.6.5.0to2018.6.6.0.dat"}}},
+                    "2018.6.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.6.0to2018.6.7.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.6.6.0to2018.6.7.0.dat"}}},
+                    "2018.6.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.7.0to2018.6.8.0.dat"}}},
+                    "2018.6.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.8.0to2018.6.9.0.dat"}}},
+                    "2018.7.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.6.9.0to2018.7.0.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.6.7.0to2018.7.0.0.dat"}}},
+                    "2018.7.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.0.0to2018.7.1.0.dat"}}},
+                    "2018.7.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.1.0to2018.7.2.0.dat"}}},
+                    "2018.7.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.2.0to2018.7.3.0.dat"}}},
+                    "2018.7.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.3.0to2018.7.4.0.dat"}}},
+                    "2018.7.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.4.0to2018.7.5.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.7.0.0to2018.7.5.0.dat"}}},
+                    "2018.7.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.5.0to2018.7.6.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.7.5.0to2018.7.6.0.dat"}}},
+                    "2018.7.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.6.0to2018.7.7.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.7.6.0to2018.7.7.0.dat"}}},
+                    "2018.7.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.7.0to2018.7.8.0.dat"}}},
+                    "2018.7.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.8.0to2018.7.9.0.dat"}}},
+                    "2018.8.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.7.9.0to2018.8.0.0.dat"}}},
+                    "2018.8.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.8.0.0to2018.8.1.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.7.7.0to2018.8.1.0.dat"}}},
+                    "2018.8.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.8.1.0to2018.8.2.0.dat"}, "2": {"type": "templates", "file": "server\/db\/Templates2018.8.1.0to2018.8.2.0.dat"}}},
+                    "2018.8.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.8.2.0to2018.8.3.0.dat"}}},
+                    "2018.8.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.8.3.0to2018.8.4.0.dat"}}},
+                    "2020.0.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.8.4.0to2020.0.0.0.dat"}}},
+                    "2020.0.0.1":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.0.0to2020.0.0.1.dat"}}},
+                    "2020.0.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.0.1to2020.0.1.0.dat"}}},
+                    "2020.0.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.1.0to2020.0.2.0.dat"}}},
+                    "2020.0.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.2.0to2020.0.3.0.dat"}}},
+                    "2020.0.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.3.0to2020.0.4.0.dat"}}},
+                    "2020.0.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.4.0to2020.0.5.0.dat"}}},
+                    "2020.0.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.5.0to2020.0.6.0.dat"}}},
+                    "2020.0.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.6.0to2020.0.7.0.dat"}}},
+                    "2020.0.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.7.0to2020.0.8.0.dat"}}},
+                    "2020.0.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.8.0to2020.0.9.0.dat"}}},
+                    "2020.1.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.9.0to2020.1.0.0.dat"}}},
+                    "2020.1.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.0.0to2020.1.1.0.dat"}}},
+                    "2020.1.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.1.0to2020.1.2.0.dat"}}},
+                    "2020.1.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.2.0to2020.1.3.0.dat"}}},
+                    "2020.1.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.3.0to2020.1.4.0.dat"}}},
+                    "2020.1.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.4.0to2020.1.5.0.dat"}}},
+                    "2020.1.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.5.0to2020.1.6.0.dat"}}},
+                    "2020.1.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.6.0to2020.1.7.0.dat"}}},
+                    "2020.1.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.7.0to2020.1.8.0.dat"}}},
+                    "2020.1.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.8.0to2020.1.9.0.dat"}}},
+                    "2020.2.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.9.0to2020.2.0.0.dat"}}},
+                    "2020.2.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.0.0to2020.2.1.0.dat"}}},
+                    "2020.2.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.1.0to2020.2.2.0.dat"}}},
+                    "2020.2.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.2.0to2020.2.3.0.dat"}}},
+                    "2020.2.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.3.0to2020.2.4.0.dat"}}},
+                    "2020.2.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.4.0to2020.2.5.0.dat"}}},
+                    "2020.2.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.5.0to2020.2.6.0.dat"}}},
+                    "2020.2.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.6.0to2020.2.7.0.dat"}}},
+                    "2020.2.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.7.0to2020.2.8.0.dat"}}},
+                    "2020.2.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.8.0to2020.2.9.0.dat"}}},
+                    "2020.3.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.9.0to2020.3.0.0.dat"}}},
+                    "2020.3.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.0.0to2020.3.1.0.dat"}}},
+                    "2020.3.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.1.0to2020.3.2.0.dat"}}},
+                    "2020.3.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.2.0to2020.3.3.0.dat"}}},
+                    "2020.3.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.3.0to2020.3.4.0.dat"}}},
+                    "2020.3.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.4.0to2020.3.5.0.dat"}}},
+                    "2020.3.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.5.0to2020.3.6.0.dat"}}},
+                    "2020.3.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.6.0to2020.3.7.0.dat"}}},
+                    "2020.3.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.7.0to2020.3.8.0.dat"}}},
+                    "2020.3.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.8.0to2020.3.9.0.dat"}}},
+                    "2020.4.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.9.0to2020.4.0.0.dat"}}},
+                    "2020.4.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.0.0to2020.4.1.0.dat"}}},
+                    "2020.4.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.1.0to2020.4.2.0.dat"}}},
+                    "2020.4.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.2.0to2020.4.3.0.dat"}}},
+                    "2020.4.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.3.0to2020.4.4.0.dat"}}},
+                    "2020.4.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.4.0to2020.4.5.0.dat"}}},
+                    "2020.4.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.5.0to2020.4.6.0.dat"}}},
+                    "2020.4.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.6.0to2020.4.7.0.dat"}}},
+                    "2020.4.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.7.0to2020.4.8.0.dat"}}},
+                    "2020.4.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.8.0to2020.4.9.0.dat"}}},
+                    "2020.5.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.9.0to2020.5.0.0.dat"}}},
+                    "2020.5.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.0.0to2020.5.1.0.dat"}}},
+                    "2020.5.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.1.0to2020.5.2.0.dat"}}},
+                    "2020.5.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.2.0to2020.5.3.0.dat"}}},
+                    "2020.5.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.3.0to2020.5.4.0.dat"}}},
+                    "2020.5.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.4.0to2020.5.5.0.dat"}}},
+                    "2020.5.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.5.0to2020.5.6.0.dat"}}},
+                    "2020.5.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.6.0to2020.5.7.0.dat"}}},
+                    "2020.5.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.7.0to2020.5.8.0.dat"}}},
+                    "2020.5.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.8.0to2020.5.9.0.dat"}}},
+                    "2020.6.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.9.0to2020.6.0.0.dat"}}},
+                    "2020.6.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.0.0to2020.6.1.0.dat"}}},
+                    "2020.6.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.1.0to2020.6.2.0.dat"}}},
+                    "2020.6.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.2.0to2020.6.3.0.dat"}}},
+                    "2020.6.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.3.0to2020.6.4.0.dat"}}},
+                    "2020.6.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.4.0to2020.6.5.0.dat"}}},
+                    "2020.6.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.5.0to2020.6.6.0.dat"}}},
+					"2020.6.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.6.0to2020.6.7.0.dat"}}},
+					"2020.6.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.7.0to2020.6.8.0.dat"}}},
+					"2020.6.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.8.0to2020.6.9.0.dat"}}}
+				},	
+				"alpha": {
+                    "2020.0.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.8.4.0to2020.0.0.0.dat"}}},
+                    "2020.0.0.1":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.0.0to2020.0.0.1.dat"}}},
+                    "2020.0.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.0.1to2020.0.1.0.dat"}}},
+                    "2020.0.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.1.0to2020.0.2.0.dat"}}},
+                    "2020.0.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.2.0to2020.0.3.0.dat"}}},
+                    "2020.0.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.3.0to2020.0.4.0.dat"}}},
+                    "2020.0.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.4.0to2020.0.5.0.dat"}}},
+                    "2020.0.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.5.0to2020.0.6.0.dat"}}},
+                    "2020.0.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.6.0to2020.0.7.0.dat"}}},
+                    "2020.0.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.7.0to2020.0.8.0.dat"}}},
+                    "2020.0.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.8.0to2020.0.9.0.dat"}}},
+                    "2020.1.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.9.0to2020.1.0.0.dat"}}},
+                    "2020.1.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.0.0to2020.1.1.0.dat"}}},
+                    "2020.1.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.1.0to2020.1.2.0.dat"}}},
+                    "2020.1.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.2.0to2020.1.3.0.dat"}}},
+                    "2020.1.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.3.0to2020.1.4.0.dat"}}},
+                    "2020.1.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.4.0to2020.1.5.0.dat"}}},
+                    "2020.1.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.5.0to2020.1.6.0.dat"}}},
+                    "2020.1.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.6.0to2020.1.7.0.dat"}}},
+                    "2020.1.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.7.0to2020.1.8.0.dat"}}},
+                    "2020.1.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.8.0to2020.1.9.0.dat"}}},
+                    "2020.2.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.9.0to2020.2.0.0.dat"}}},
+                    "2020.2.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.0.0to2020.2.1.0.dat"}}},
+                    "2020.2.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.1.0to2020.2.2.0.dat"}}},
+                    "2020.2.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.2.0to2020.2.3.0.dat"}}},
+                    "2020.2.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.3.0to2020.2.4.0.dat"}}},
+                    "2020.2.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.4.0to2020.2.5.0.dat"}}},
+                    "2020.2.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.5.0to2020.2.6.0.dat"}}},
+                    "2020.2.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.6.0to2020.2.7.0.dat"}}},
+                    "2020.2.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.7.0to2020.2.8.0.dat"}}},
+                    "2020.2.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.8.0to2020.2.9.0.dat"}}},
+                    "2020.3.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.9.0to2020.3.0.0.dat"}}},
+                    "2020.3.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.0.0to2020.3.1.0.dat"}}},
+                    "2020.3.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.1.0to2020.3.2.0.dat"}}},
+                    "2020.3.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.2.0to2020.3.3.0.dat"}}},
+                    "2020.3.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.3.0to2020.3.4.0.dat"}}},
+                    "2020.3.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.4.0to2020.3.5.0.dat"}}},
+                    "2020.3.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.5.0to2020.3.6.0.dat"}}},
+                    "2020.3.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.6.0to2020.3.7.0.dat"}}},
+                    "2020.3.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.7.0to2020.3.8.0.dat"}}},
+                    "2020.3.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.8.0to2020.3.9.0.dat"}}},
+                    "2020.4.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.9.0to2020.4.0.0.dat"}}},
+                    "2020.4.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.0.0to2020.4.1.0.dat"}}},
+                    "2020.4.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.1.0to2020.4.2.0.dat"}}},
+                    "2020.4.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.2.0to2020.4.3.0.dat"}}},
+                    "2020.4.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.3.0to2020.4.4.0.dat"}}},
+                    "2020.4.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.4.0to2020.4.5.0.dat"}}},
+                    "2020.4.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.5.0to2020.4.6.0.dat"}}},
+                    "2020.4.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.6.0to2020.4.7.0.dat"}}},
+                    "2020.4.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.7.0to2020.4.8.0.dat"}}},
+                    "2020.4.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.8.0to2020.4.9.0.dat"}}},
+                    "2020.5.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.9.0to2020.5.0.0.dat"}}},
+                    "2020.5.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.0.0to2020.5.1.0.dat"}}},
+                    "2020.5.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.1.0to2020.5.2.0.dat"}}},
+                    "2020.5.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.2.0to2020.5.3.0.dat"}}},
+                    "2020.5.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.3.0to2020.5.4.0.dat"}}},
+                    "2020.5.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.4.0to2020.5.5.0.dat"}}},
+                    "2020.5.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.5.0to2020.5.6.0.dat"}}},
+                    "2020.5.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.6.0to2020.5.7.0.dat"}}},
+                    "2020.5.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.7.0to2020.5.8.0.dat"}}},
+                    "2020.5.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.8.0to2020.5.9.0.dat"}}},
+                    "2020.6.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.9.0to2020.6.0.0.dat"}}},
+                    "2020.6.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.0.0to2020.6.1.0.dat"}}},
+                    "2020.6.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.1.0to2020.6.2.0.dat"}}},
+                    "2020.6.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.2.0to2020.6.3.0.dat"}}},
+                    "2020.6.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.3.0to2020.6.4.0.dat"}}},
+                    "2020.6.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.4.0to2020.6.5.0.dat"}}},
+                    "2020.6.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.5.0to2020.6.6.0.dat"}}},
+					"2020.6.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.6.0to2020.6.7.0.dat"}}},
+					"2020.6.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.7.0to2020.6.8.0.dat"}}},
+					"2020.6.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.8.0to2020.6.9.0.dat"}}},
+					"2020.7.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.9.0to2020.7.0.0.dat"}}},
+					"2020.7.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.0.0to2020.7.1.0.dat"}}},
+					"2020.7.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.1.0to2020.7.2.0.dat"}}},
+					"2020.7.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.2.0to2020.7.3.0.dat"}}},
+					"2020.7.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.3.0to2020.7.4.0.dat"}}},
+					"2020.7.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.4.0to2020.7.5.0.dat"}}},
+					"2020.7.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.5.0to2020.7.6.0.dat"}}},
+					"2020.7.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.6.0to2020.7.7.0.dat"}}},
+					"2020.7.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.7.0to2020.7.8.0.dat"}}},
+					"2020.7.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.8.0to2020.7.9.0.dat"}}},
+					"2020.8.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.9.0to2020.8.0.0.dat"}}},
+					"2020.8.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.0.0to2020.8.1.0.dat"}}},
+					"2020.8.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.1.0to2020.8.2.0.dat"}}},
+					"2020.8.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.2.0to2020.8.3.0.dat"}}},
+					"2020.8.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.3.0to2020.8.4.0.dat"}}},
+					"2020.8.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.4.0to2020.8.5.0.dat"}}},
+					"2020.8.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.5.0to2020.8.6.0.dat"}}},
+					"2020.8.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.6.0to2020.8.7.0.dat"}}},
+					"2020.8.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.7.0to2020.8.8.0.dat"}}},
+					"2020.8.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.8.0to2020.8.9.0.dat"}}},
+					"2020.9.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.9.0to2020.9.0.0.dat"}}},
+					"2020.9.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.0.0to2020.9.1.0.dat"}}},
+					"2020.9.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.1.0to2020.9.2.0.dat"}}},
+					"2020.9.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.2.0to2020.9.3.0.dat"}}},
+					"2020.9.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.3.0to2020.9.4.0.dat"}}},
+					"2020.9.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.4.0to2020.9.5.0.dat"}}},
+					"2020.9.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.5.0to2020.9.6.0.dat"}}},
+					"2020.9.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.6.0to2020.9.7.0.dat"}}},
+					"2020.9.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.7.0to2020.9.8.0.dat"}}},
+					"2020.9.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.8.0to2020.9.9.0.dat"}}},
+					"2022.0.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.9.0to2022.0.1.0.dat"}}},
+					"2022.0.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.1.0to2022.0.2.0.dat"}}},
+					"2022.0.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.2.0to2022.0.3.0.dat"}}},
+					"2022.0.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.3.0to2022.0.4.0.dat"}}},
+					"2022.0.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.4.0to2022.0.5.0.dat"}}},
+					"2022.0.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.5.0to2022.0.6.0.dat"}}},
+					"2022.0.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.6.0to2022.0.7.0.dat"}}},
+					"2022.0.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.7.0to2022.0.8.0.dat"}}},
+					"2022.0.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.8.0to2022.0.9.0.dat"}}},
+					"2022.1.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.9.0to2022.1.0.0.dat"}}},
+					"2022.1.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.0.0to2022.1.1.0.dat"}}},
+					"2022.1.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.1.0to2022.1.2.0.dat"}}},
+					"2022.1.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.2.0to2022.1.3.0.dat"}}},
+					"2022.1.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.3.0to2022.1.4.0.dat"}}},
+					"2022.1.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.4.0to2022.1.5.0.dat"}}},
+					"2022.1.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.5.0to2022.1.6.0.dat"}}},
+					"2022.1.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.6.0to2022.1.7.0.dat"}}},
+					"2022.1.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.7.0to2022.1.8.0.dat"}}},
+					"2022.1.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.8.0to2022.1.9.0.dat"}}},
+					"2022.2.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.9.0to2022.2.0.0.dat"}}},
+					"2022.2.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.0.0to2022.2.1.0.dat"}}},
+					"2022.2.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.1.0to2022.2.2.0.dat"}}},
+					"2022.2.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.2.0to2022.2.3.0.dat"}}},
+					"2022.2.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.3.0to2022.2.4.0.dat"}}},
+					"2022.2.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.4.0to2022.2.5.0.dat"}}},
+					"2022.2.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.5.0to2022.2.6.0.dat"}}},
+					"2022.2.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.6.0to2022.2.7.0.dat"}}},
+					"2022.2.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.7.0to2022.2.8.0.dat"}}},
+					"2022.2.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.8.0to2022.2.9.0.dat"}}},
+					"2022.3.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.9.0to2022.3.0.0.dat"}}},
+					"2022.3.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.0.0to2022.3.1.0.dat"}}},
+					"2022.3.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.1.0to2022.3.2.0.dat"}}},
+					"2022.3.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.2.0to2022.3.3.0.dat"}}},
+					"2022.3.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.3.0to2022.3.4.0.dat"}}},
+					"2022.3.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.4.0to2022.3.5.0.dat"}}},
+					"2022.3.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.5.0to2022.3.6.0.dat"}}},
+					"2022.3.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.6.0to2022.3.7.0.dat"}}},			
+					"2022.3.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.7.0to2022.3.8.0.dat"}}},					
+					"2022.3.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.8.0to2022.3.9.0.dat"}}},													
+					"2022.4.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.9.0to2022.4.0.0.dat"}}},													
+					"2022.4.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.0.0to2022.4.1.0.dat"}}},													
+					"2022.4.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.1.0to2022.4.2.0.dat"}}},
+					"2022.4.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.2.0to2022.4.3.0.dat"}}},													
+					"2022.4.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.3.0to2022.4.4.0.dat"}}},													
+					"2022.4.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.4.0to2022.4.5.0.dat"}}},													
+					"2022.4.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.5.0to2022.4.6.0.dat"}}},													
+					"2022.4.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.6.0to2022.4.7.0.dat"}}},													
+					"2022.4.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.7.0to2022.4.8.0.dat"}}},													
+					"2022.4.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.8.0to2022.4.9.0.dat"}}},													
+					"2022.5.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.9.0to2022.5.0.0.dat"}}},													
+					"2022.5.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.0.0to2022.5.1.0.dat"}}},													
+					"2022.5.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.1.0to2022.5.2.0.dat"}}},													
+					"2022.5.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.2.0to2022.5.3.0.dat"}}},													
+					"2022.5.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.3.0to2022.5.4.0.dat"}}},													
+					"2022.5.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.4.0to2022.5.5.0.dat"}}},													
+					"2022.5.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.5.0to2022.5.6.0.dat"}}},													
+					"2022.5.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.6.0to2022.5.7.0.dat"}}},													
+					"2022.5.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.7.0to2022.5.8.0.dat"}}},													
+					"2022.5.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.8.0to2022.5.9.0.dat"}}},													
+					"2022.6.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.9.0to2022.6.0.0.dat"}}},													
+					"2022.6.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.0.0to2022.6.1.0.dat"}}},													
+					"2022.6.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.1.0to2022.6.2.0.dat"}}},													
+					"2022.6.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.2.0to2022.6.3.0.dat"}}},													
+					"2022.6.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.3.0to2022.6.4.0.dat"}}},													
+					"2022.6.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.4.0to2022.6.5.0.dat"}}},													
+					"2022.6.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.5.0to2022.6.6.0.dat"}}},													
+					"2022.6.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.6.0to2022.6.7.0.dat"}}},													
+					"2022.6.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.7.0to2022.6.8.0.dat"}}},													
+					"2022.6.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.8.0to2022.6.9.0.dat"}}},													
+					"2022.7.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.9.0to2022.7.0.0.dat"}}},													
+					"2022.7.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.0.0to2022.7.1.0.dat"}}},													
+					"2022.7.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.1.0to2022.7.2.0.dat"}}},													
+					"2022.7.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.2.0to2022.7.3.0.dat"}}},													
+					"2022.7.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.3.0to2022.7.4.0.dat"}}},													
+					"2022.7.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.4.0to2022.7.5.0.dat"}}},													
+					"2022.7.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.5.0to2022.7.6.0.dat"}}},													
+					"2022.7.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.6.0to2022.7.7.0.dat"}}},													
+					"2022.7.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.7.0to2022.7.8.0.dat"}}},													
+					"2022.7.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.8.0to2022.7.9.0.dat"}}},													
+					"2022.8.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.9.0to2022.8.0.0.dat"}}},													
+					"2022.8.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.8.0.0to2022.8.1.0.dat"}}},												
+					"2022.8.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.8.1.0to2022.8.2.0.dat"}}},													
+					"2022.8.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.8.2.0to2022.8.3.0.dat"}}},													
+					"2022.8.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.8.3.0to2022.8.4.0.dat"}}}																		
+				},	
+				"dev": {
+                    "2020.0.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.8.4.0to2020.0.0.0.dat"}}},
+                    "2020.0.0.1":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.0.0to2020.0.0.1.dat"}}},
+                    "2020.0.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.0.1to2020.0.1.0.dat"}}},
+                    "2020.0.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.1.0to2020.0.2.0.dat"}}},
+                    "2020.0.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.2.0to2020.0.3.0.dat"}}},
+                    "2020.0.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.3.0to2020.0.4.0.dat"}}},
+                    "2020.0.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.4.0to2020.0.5.0.dat"}}},
+                    "2020.0.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.5.0to2020.0.6.0.dat"}}},
+                    "2020.0.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.6.0to2020.0.7.0.dat"}}},
+                    "2020.0.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.7.0to2020.0.8.0.dat"}}},
+                    "2020.0.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.8.0to2020.0.9.0.dat"}}},
+                    "2020.1.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.9.0to2020.1.0.0.dat"}}},
+                    "2020.1.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.0.0to2020.1.1.0.dat"}}},
+                    "2020.1.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.1.0to2020.1.2.0.dat"}}},
+                    "2020.1.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.2.0to2020.1.3.0.dat"}}},
+                    "2020.1.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.3.0to2020.1.4.0.dat"}}},
+                    "2020.1.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.4.0to2020.1.5.0.dat"}}},
+                    "2020.1.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.5.0to2020.1.6.0.dat"}}},
+                    "2020.1.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.6.0to2020.1.7.0.dat"}}},
+                    "2020.1.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.7.0to2020.1.8.0.dat"}}},
+                    "2020.1.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.8.0to2020.1.9.0.dat"}}},
+                    "2020.2.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.9.0to2020.2.0.0.dat"}}},
+                    "2020.2.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.0.0to2020.2.1.0.dat"}}},
+                    "2020.2.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.1.0to2020.2.2.0.dat"}}},
+                    "2020.2.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.2.0to2020.2.3.0.dat"}}},
+                    "2020.2.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.3.0to2020.2.4.0.dat"}}},
+                    "2020.2.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.4.0to2020.2.5.0.dat"}}},
+                    "2020.2.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.5.0to2020.2.6.0.dat"}}},
+                    "2020.2.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.6.0to2020.2.7.0.dat"}}},
+                    "2020.2.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.7.0to2020.2.8.0.dat"}}},
+                    "2020.2.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.8.0to2020.2.9.0.dat"}}},
+                    "2020.3.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.2.9.0to2020.3.0.0.dat"}}},
+                    "2020.3.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.0.0to2020.3.1.0.dat"}}},
+                    "2020.3.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.1.0to2020.3.2.0.dat"}}},
+                    "2020.3.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.2.0to2020.3.3.0.dat"}}},
+                    "2020.3.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.3.0to2020.3.4.0.dat"}}},
+                    "2020.3.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.4.0to2020.3.5.0.dat"}}},
+                    "2020.3.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.5.0to2020.3.6.0.dat"}}},
+                    "2020.3.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.6.0to2020.3.7.0.dat"}}},
+                    "2020.3.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.7.0to2020.3.8.0.dat"}}},
+                    "2020.3.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.8.0to2020.3.9.0.dat"}}},
+                    "2020.4.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.3.9.0to2020.4.0.0.dat"}}},
+                    "2020.4.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.0.0to2020.4.1.0.dat"}}},
+                    "2020.4.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.1.0to2020.4.2.0.dat"}}},
+                    "2020.4.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.2.0to2020.4.3.0.dat"}}},
+                    "2020.4.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.3.0to2020.4.4.0.dat"}}},
+                    "2020.4.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.4.0to2020.4.5.0.dat"}}},
+                    "2020.4.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.5.0to2020.4.6.0.dat"}}},
+                    "2020.4.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.6.0to2020.4.7.0.dat"}}},
+                    "2020.4.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.7.0to2020.4.8.0.dat"}}},
+                    "2020.4.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.8.0to2020.4.9.0.dat"}}},
+                    "2020.5.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.4.9.0to2020.5.0.0.dat"}}},
+                    "2020.5.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.0.0to2020.5.1.0.dat"}}},
+                    "2020.5.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.1.0to2020.5.2.0.dat"}}},
+                    "2020.5.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.2.0to2020.5.3.0.dat"}}},
+                    "2020.5.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.3.0to2020.5.4.0.dat"}}},
+                    "2020.5.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.4.0to2020.5.5.0.dat"}}},
+                    "2020.5.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.5.0to2020.5.6.0.dat"}}},
+                    "2020.5.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.6.0to2020.5.7.0.dat"}}},
+                    "2020.5.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.7.0to2020.5.8.0.dat"}}},
+                    "2020.5.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.8.0to2020.5.9.0.dat"}}},
+                    "2020.6.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.5.9.0to2020.6.0.0.dat"}}},
+                    "2020.6.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.0.0to2020.6.1.0.dat"}}},
+                    "2020.6.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.1.0to2020.6.2.0.dat"}}},
+                    "2020.6.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.2.0to2020.6.3.0.dat"}}},
+                    "2020.6.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.3.0to2020.6.4.0.dat"}}},
+                    "2020.6.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.4.0to2020.6.5.0.dat"}}},
+                    "2020.6.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.5.0to2020.6.6.0.dat"}}},
+					"2020.6.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.6.0to2020.6.7.0.dat"}}},
+					"2020.6.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.7.0to2020.6.8.0.dat"}}},
+					"2020.6.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.8.0to2020.6.9.0.dat"}}},
+					"2020.7.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.6.9.0to2020.7.0.0.dat"}}},
+					"2020.7.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.0.0to2020.7.1.0.dat"}}},
+					"2020.7.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.1.0to2020.7.2.0.dat"}}},
+					"2020.7.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.2.0to2020.7.3.0.dat"}}},
+					"2020.7.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.3.0to2020.7.4.0.dat"}}},
+					"2020.7.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.4.0to2020.7.5.0.dat"}}},
+					"2020.7.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.5.0to2020.7.6.0.dat"}}},
+					"2020.7.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.6.0to2020.7.7.0.dat"}}},
+					"2020.7.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.7.0to2020.7.8.0.dat"}}},
+					"2020.7.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.8.0to2020.7.9.0.dat"}}},
+					"2020.8.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.7.9.0to2020.8.0.0.dat"}}},
+					"2020.8.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.0.0to2020.8.1.0.dat"}}},
+					"2020.8.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.1.0to2020.8.2.0.dat"}}},
+					"2020.8.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.2.0to2020.8.3.0.dat"}}},
+					"2020.8.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.3.0to2020.8.4.0.dat"}}},
+					"2020.8.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.4.0to2020.8.5.0.dat"}}},
+					"2020.8.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.5.0to2020.8.6.0.dat"}}},
+					"2020.8.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.6.0to2020.8.7.0.dat"}}},
+					"2020.8.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.7.0to2020.8.8.0.dat"}}},
+					"2020.8.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.8.0to2020.8.9.0.dat"}}},
+					"2020.9.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.8.9.0to2020.9.0.0.dat"}}},
+					"2020.9.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.0.0to2020.9.1.0.dat"}}},
+					"2020.9.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.1.0to2020.9.2.0.dat"}}},
+					"2020.9.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.2.0to2020.9.3.0.dat"}}},
+					"2020.9.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.3.0to2020.9.4.0.dat"}}},
+					"2020.9.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.4.0to2020.9.5.0.dat"}}},
+					"2020.9.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.5.0to2020.9.6.0.dat"}}},
+					"2020.9.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.6.0to2020.9.7.0.dat"}}},
+					"2020.9.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.7.0to2020.9.8.0.dat"}}},
+					"2020.9.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.8.0to2020.9.9.0.dat"}}},
+					"2022.0.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.9.9.0to2022.0.1.0.dat"}}},
+					"2022.0.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.1.0to2022.0.2.0.dat"}}},
+					"2022.0.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.2.0to2022.0.3.0.dat"}}},
+					"2022.0.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.3.0to2022.0.4.0.dat"}}},
+					"2022.0.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.4.0to2022.0.5.0.dat"}}},
+					"2022.0.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.5.0to2022.0.6.0.dat"}}},
+					"2022.0.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.6.0to2022.0.7.0.dat"}}},
+					"2022.0.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.7.0to2022.0.8.0.dat"}}},
+					"2022.0.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.8.0to2022.0.9.0.dat"}}},
+					"2022.1.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.0.9.0to2022.1.0.0.dat"}}},
+					"2022.1.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.0.0to2022.1.1.0.dat"}}},
+					"2022.1.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.1.0to2022.1.2.0.dat"}}},
+					"2022.1.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.2.0to2022.1.3.0.dat"}}},
+					"2022.1.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.3.0to2022.1.4.0.dat"}}},
+					"2022.1.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.4.0to2022.1.5.0.dat"}}},
+					"2022.1.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.5.0to2022.1.6.0.dat"}}},
+					"2022.1.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.6.0to2022.1.7.0.dat"}}},
+					"2022.1.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.7.0to2022.1.8.0.dat"}}},
+					"2022.1.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.8.0to2022.1.9.0.dat"}}},
+					"2022.2.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.1.9.0to2022.2.0.0.dat"}}},
+					"2022.2.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.0.0to2022.2.1.0.dat"}}},
+					"2022.2.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.1.0to2022.2.2.0.dat"}}},
+					"2022.2.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.2.0to2022.2.3.0.dat"}}},
+					"2022.2.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.3.0to2022.2.4.0.dat"}}},
+					"2022.2.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.4.0to2022.2.5.0.dat"}}},
+					"2022.2.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.5.0to2022.2.6.0.dat"}}},
+					"2022.2.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.6.0to2022.2.7.0.dat"}}},
+					"2022.2.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.7.0to2022.2.8.0.dat"}}},
+					"2022.2.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.8.0to2022.2.9.0.dat"}}},
+					"2022.3.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.2.9.0to2022.3.0.0.dat"}}},
+					"2022.3.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.0.0to2022.3.1.0.dat"}}},
+					"2022.3.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.1.0to2022.3.2.0.dat"}}},
+					"2022.3.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.2.0to2022.3.3.0.dat"}}},
+					"2022.3.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.3.0to2022.3.4.0.dat"}}},
+					"2022.3.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.4.0to2022.3.5.0.dat"}}},
+					"2022.3.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.5.0to2022.3.6.0.dat"}}},
+					"2022.3.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.6.0to2022.3.7.0.dat"}}},					
+					"2022.3.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.7.0to2022.3.8.0.dat"}}},					
+					"2022.3.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.8.0to2022.3.9.0.dat"}}},													
+					"2022.4.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.3.9.0to2022.4.0.0.dat"}}},													
+					"2022.4.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.0.0to2022.4.1.0.dat"}}},													
+					"2022.4.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.1.0to2022.4.2.0.dat"}}},													
+					"2022.4.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.2.0to2022.4.3.0.dat"}}},													
+					"2022.4.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.3.0to2022.4.4.0.dat"}}},													
+					"2022.4.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.4.0to2022.4.5.0.dat"}}},													
+					"2022.4.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.5.0to2022.4.6.0.dat"}}},													
+					"2022.4.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.6.0to2022.4.7.0.dat"}}},													
+					"2022.4.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.7.0to2022.4.8.0.dat"}}},													
+					"2022.4.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.8.0to2022.4.9.0.dat"}}},													
+					"2022.5.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.4.9.0to2022.5.0.0.dat"}}},													
+					"2022.5.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.0.0to2022.5.1.0.dat"}}},													
+					"2022.5.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.1.0to2022.5.2.0.dat"}}},													
+					"2022.5.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.2.0to2022.5.3.0.dat"}}},													
+					"2022.5.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.3.0to2022.5.4.0.dat"}}},													
+					"2022.5.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.4.0to2022.5.5.0.dat"}}},													
+					"2022.5.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.5.0to2022.5.6.0.dat"}}},													
+					"2022.5.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.6.0to2022.5.7.0.dat"}}},													
+					"2022.5.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.7.0to2022.5.8.0.dat"}}},													
+					"2022.5.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.8.0to2022.5.9.0.dat"}}},													
+					"2022.6.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.5.9.0to2022.6.0.0.dat"}}},													
+					"2022.6.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.0.0to2022.6.1.0.dat"}}},													
+					"2022.6.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.1.0to2022.6.2.0.dat"}}},													
+					"2022.6.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.2.0to2022.6.3.0.dat"}}},													
+					"2022.6.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.3.0to2022.6.4.0.dat"}}},													
+					"2022.6.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.4.0to2022.6.5.0.dat"}}},													
+					"2022.6.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.5.0to2022.6.6.0.dat"}}},													
+					"2022.6.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.6.0to2022.6.7.0.dat"}}},													
+					"2022.6.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.7.0to2022.6.8.0.dat"}}},													
+					"2022.6.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.8.0to2022.6.9.0.dat"}}},													
+					"2022.7.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.6.9.0to2022.7.0.0.dat"}}},													
+					"2022.7.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.0.0to2022.7.1.0.dat"}}},													
+					"2022.7.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.1.0to2022.7.2.0.dat"}}},													
+					"2022.7.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.2.0to2022.7.3.0.dat"}}},													
+					"2022.7.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.3.0to2022.7.4.0.dat"}}},													
+					"2022.7.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.4.0to2022.7.5.0.dat"}}},													
+					"2022.7.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.5.0to2022.7.6.0.dat"}}},													
+					"2022.7.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.6.0to2022.7.7.0.dat"}}},													
+					"2022.7.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.7.0to2022.7.8.0.dat"}}},													
+					"2022.7.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.8.0to2022.7.9.0.dat"}}},													
+					"2022.8.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.7.9.0to2022.8.0.0.dat"}}},													
+					"2022.8.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.8.0.0to2022.8.1.0.dat"}}},													
+					"2022.8.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.8.1.0to2022.8.2.0.dat"}}},													
+					"2022.8.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.8.2.0to2022.8.3.0.dat"}}},													
+					"2022.8.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.8.3.0to2022.8.4.0.dat"}}},													
+					"2022.8.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.8.4.0to2022.8.5.0.dat"}}},													
+					"2022.8.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.8.5.0to2022.8.6.0.dat"}}},													
+					"2022.8.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.8.6.0to2022.8.7.0.dat"}}},													
+					"2022.8.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.8.7.0to2022.8.8.0.dat"}}},													
+					"2023.0.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2022.8.8.0to2023.0.0.0.dat"}}},													
+					"2023.0.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2023.0.0.0to2023.0.1.0.dat"}}},													
+					"2023.0.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2023.0.1.0to2023.0.2.0.dat"}}}													
+				},	
+				"test": {
+                    "2020.0.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2018.8.4.0to2020.0.0.0.dat"}}},
+                    "2020.0.0.1":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.0.0to2020.0.0.1.dat"}}},
+                    "2020.0.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.0.1to2020.0.1.0.dat"}}},
+                    "2020.0.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.1.0to2020.0.2.0.dat"}}},
+                    "2020.0.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.2.0to2020.0.3.0.dat"}}},
+                    "2020.0.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.3.0to2020.0.4.0.dat"}}},
+                    "2020.0.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.4.0to2020.0.5.0.dat"}}},
+                    "2020.0.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.5.0to2020.0.6.0.dat"}}},
+                    "2020.0.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.6.0to2020.0.7.0.dat"}}},
+                    "2020.0.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.7.0to2020.0.8.0.dat"}}},
+                    "2020.0.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.8.0to2020.0.9.0.dat"}}},
+                    "2020.1.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.0.9.0to2020.1.0.0.dat"}}},
+                    "2020.1.1.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.0.0to2020.1.1.0.dat"}}},
+                    "2020.1.2.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.1.0to2020.1.2.0.dat"}}},
+                    "2020.1.3.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.2.0to2020.1.3.0.dat"}}},
+                    "2020.1.4.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.3.0to2020.1.4.0.dat"}}},
+                    "2020.1.5.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.4.0to2020.1.5.0.dat"}}},
+                    "2020.1.6.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.5.0to2020.1.6.0.dat"}}},
+                    "2020.1.7.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.6.0to2020.1.7.0.dat"}}},
+                    "2020.1.8.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.7.0to2020.1.8.0.dat"}}},
+                    "2020.1.9.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.8.0to2020.1.9.0.dat"}}},
+                    "2020.2.0.0":{"parts": {"1": {"type": "db", "file": "server\/db\/Update2020.1.9.0to2020.2.0.0.dat"}}}
+				}	
+			}	
+		},
+		"erp":{
+			"actiontype": "latest",
+			"versions":{
+				"Production2020": {
+					"2020.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "client\/user\/User_Setup_2020.0.0.0.dat","installpassword": "Swift"}}}
+				},	
+				"beta": {
+					"2020.6.9.0":{"parts": {"1": {"type": "innosetup", "file": "client\/user\/User_Setup_2020.6.9.0.dat","installpassword": "Swift"}}}					
+				},	
+				"alpha": {
+					"2022.8.4.0":{"parts": {"1": {"type": "innosetup", "file": "client\/user\/User_Setup_2022.8.4.0.dat","installpassword": "Swift"}}}					
+				},	
+				"dev": {
+					"2023.0.2.0":{"parts": {"1": {"type": "innosetup", "file": "client\/user\/User_Setup_2023.0.2.0.dat","installpassword": "Swift"}}}					
+				},	
+				"test": {
+					"2020.2.0.0":{"parts": {"1": {"type": "innosetup", "file": "client\/user\/User_Setup_2020.2.0.0.dat","installpassword": "Swift"}}}
+				}	
+			}
+		},
+		"TrueERPMessages":{
+			"actiontype": "latest",
+			"versions":{
+				"all": {
+					"14.0.0.3":{"parts": {"1": {"type": "innosetup", "file": "client\/trueerpmessages\/TrueERPMessages_Setup_14.0.0.3.dat","installpassword": "Swift"}}}
+				}	
+			}
+		},
+		"CustomConfig":{
+			"OffsiteBackupConfig":{
+				"actiontype": "latest",
+		  		"versions":{
+					"15.0.0.0":{"erp_version": "15.2.5.0", "file": "server\/config\/OffsiteBackupConfig_15.0.0.0.dat"},
+					"15.0.0.1":{"erp_version": "15.2.7.0", "file": "server\/config\/OffsiteBackupConfig_15.0.0.1.dat"},
+					"15.0.0.2":{"erp_version": "15.2.8.0", "file": "server\/config\/OffsiteBackupConfig_15.0.0.2.dat"},
+					"15.0.0.3":{"erp_version": "15.2.9.0", "file": "server\/config\/OffsiteBackupConfig_15.0.0.3.dat"}
+				}
+			},	  
+			"ERP_EDIConfig":{
+				"actiontype": "latest",
+		  		"versions":{
+					"15.0.0.0":{"erp_version": "15.3.1.0", "file": "server\/config\/ERP_EDIConfig_15.0.0.0.dat"},
+					"15.0.0.1":{"erp_version": "15.3.1.0", "file": "server\/config\/ERP_EDIConfig_15.0.0.1.dat"},
+					"15.0.0.2":{"erp_version": "15.3.1.0", "file": "server\/config\/ERP_EDIConfig_15.0.0.2.dat"},
+					"15.0.0.3":{"erp_version": "15.3.1.0", "file": "server\/config\/ERP_EDIConfig_15.0.0.3.dat"},
+					"15.0.0.4":{"erp_version": "15.3.1.0", "file": "server\/config\/ERP_EDIConfig_15.0.0.4.dat"},
+					"15.0.0.5":{"erp_version": "15.4.4.0", "file": "server\/config\/ERP_EDIConfig_15.0.0.5.dat"},
+					"15.0.0.6":{"erp_version": "15.4.4.0", "file": "server\/config\/ERP_EDIConfig_15.0.0.6.dat"},
+					"2018.0.0.0":{"erp_version": "2018.0.0.0", "file": "server\/config\/ERP_EDIConfig_2018.0.0.0.dat"}
+				}
+			}	  
+		},
+		"mysqlserver":{
+			"actiontype": "latest",
+			"versions":{
+				"production": {
+				},	
+				"production10": {
+					"5.1.52":{"parts": {"1": {"type": "innosetup", "file": "server\/db\/MySQL_Server_Update_8000.dat","installpassword": "Loaded","waitmilliseconds":4294967295,"stopbeforeupdate":false}}}
+				},	
+				"production11": {
+					"5.1.52":{"parts": {"1": {"type": "innosetup", "file": "server\/db\/MySQL_Server_Update_8000.dat","installpassword": "Loaded","waitmilliseconds":4294967295,"stopbeforeupdate":false}}}
+				},	
+				"Production12": {
+					"5.1.52":{"parts": {"1": {"type": "innosetup", "file": "server\/db\/MySQL_Server_Update_8000.dat","installpassword": "Loaded","waitmilliseconds":4294967295,"stopbeforeupdate":false}}}
+				},	
+				"Production14": {
+					"5.1.52":{"parts": {"1": {"type": "innosetup", "file": "server\/db\/MySQL_Server_Update_8000.dat","installpassword": "Loaded","waitmilliseconds":4294967295,"stopbeforeupdate":false}}}
+				},	
+				"Production15": {
+					"5.1.52":{"parts": {"1": {"type": "innosetup", "file": "server\/db\/MySQL_Server_Update_8000.dat","installpassword": "Loaded","waitmilliseconds":4294967295,"stopbeforeupdate":false}}}
+				},	
+				"Production2017": {
+					"5.1.52":{"parts": {"1": {"type": "innosetup", "file": "server\/db\/MySQL_Server_Update_8000.dat","installpassword": "Loaded","waitmilliseconds":4294967295,"stopbeforeupdate":false}}}
+				},	
+				"Production2018": {
+					"5.1.52":{"parts": {"1": {"type": "innosetup", "file": "server\/db\/MySQL_Server_Update_8000.dat","installpassword": "Loaded","waitmilliseconds":4294967295,"stopbeforeupdate":false}}}
+				},	
+				"beta": {
+					"5.1.52":{"parts": {"1": {"type": "innosetup", "file": "server\/db\/MySQL_Server_Update_8000.dat","installpassword": "Loaded","waitmilliseconds":4294967295,"stopbeforeupdate":false}}}
+				},	
+				"alpha": {
+					"5.1.52":{"parts": {"1": {"type": "innosetup", "file": "server\/db\/MySQL_Server_Update_8000.dat","installpassword": "Loaded","waitmilliseconds":4294967295,"stopbeforeupdate":false}}}
+				},	
+				"dev": {
+					"5.1.52":{"parts": {"1": {"type": "innosetup", "file": "server\/db\/MySQL_Server_Update_8000.dat","installpassword": "Loaded","waitmilliseconds":4294967295,"stopbeforeupdate":false}}}
+				},	
+				"test": {
+					"8.0.0.0":{"parts": {"1": {"type": "innosetup", "file": "server\/db\/MySQL_Server_Update_8.0.dat","installpassword": "Loaded","waitmilliseconds":4294967295,"stopbeforeupdate":false}}}
+				}	
+			}
+		}
+	}
+}

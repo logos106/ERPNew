@@ -367,14 +367,14 @@ begin
   FCFields := '';
 
 
-  FCR :=  DbSharedObjectsObj.DbSharedObj.GetQuery(TERPConnection(AppEnvVirt.Obj['CommonDbLib.GetSharedMyDacConnection']));
+  FCR := DbSharedObjectsObj.DbSharedObj.GetQuery(TERPConnection(AppEnvVirt.Obj['CommonDbLib.GetSharedMyDacConnection']));
   try
     LoadFCPref(FCR,fReportClassName, true);
-    if FCR.recordCount > 0 then begin
+    if FCR.RecordCount > 0 then begin
       FCR.First;
       while not FCR.Eof do begin
         if SQL <> '' then SQL := SQL + #13#10;
-        SQL := SQL + 'alter table ' + TempTableName + ' add column `' + FCR.Fieldbyname('Code').asString + '_FCRate` Double;';
+        SQL := SQL + 'alter table ' + TempTableName + ' add column `' + FCR.Fieldbyname('Code').AsString + '_FCRate` Double;';
         if FCFields <> '' then FCFields := FCFields + ',' ;
         FCFields := FCFields + FCR.Fieldbyname('Code').asString + '_FCRate';
         FCR.Next;
