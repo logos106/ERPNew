@@ -155,7 +155,6 @@ begin
   fLogger := aLogger;
   FModulePathName := aModulePathName;
 
-//  if not ProcessExists(ModuleName + '.exe') then begin
   if (not ProcessExists(ModuleName + '.exe')) and (not SameText(ModuleName, 'ERPModWebAPI')) then begin
     ExecNewProcess(fModulePathName, False);
     if not ProcessExists(ModuleName + '.exe') then
@@ -188,26 +187,26 @@ var
   aNotificationName, aNotificationData: string;
   idx: integer;
 begin
-  if Length(aData) < 1 then exit;
-  typeStr := Copy(aData,1,1);
+  if Length(aData) < 1 then Exit;
+  typeStr := Copy(aData, 1, 1);
   if SameText(typeStr, IntToStr(Ord(mtString))) and Assigned(fOnModStringMessage) then
     fOnModStringMessage(self, aClientId,Copy(aData, 2, MaxInt))
   else if SameText(typeStr,IntToStr(Ord(mtJson))) and Assigned(fOnModJsonMessage) then begin
     dataJson := JO;
     try
-      dataJson.AsString := Copy(aData,2,MaxInt);
+      dataJson.AsString := Copy(aData, 2, MaxInt);
       fOnModJsonMessage(self, aClientID, dataJson);
     finally
       dataJson.Free;
     end;
   end
-  else if SameText(typeStr,IntToStr(Ord(mtCommand))) then begin
-    if SameText(Copy(aData,2,MaxInt), 'RestartMe') then begin
-      Log('Received message to restart module .. terminating ..',ltWarning);
+  else if SameText(typeStr, IntToStr(Ord(mtCommand))) then begin
+    if SameText(Copy(aData, 2, MaxInt), 'RestartMe') then begin
+      Log('Received message to restart module .. terminating ..', ltWarning);
       TerminateEXE;
-      Log('Restarting module ..',ltWarning);
+      Log('Restarting module ..', ltWarning);
       try
-        ExecNewProcess(fModulePathName,false);
+        ExecNewProcess(fModulePathName, False);
       except
         on e: exception do begin
           raise Exception.Create('Failed to Create Module with message: ' + e.Message);

@@ -47,6 +47,11 @@
 			<DelphiCompile Include="ERPModUserUtils.dpr">
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
+			<RcCompile Include="ERPModUserUtils.rc">
+				<ContainerId>RC</ContainerId>
+				<ContainerId>RC</ContainerId>
+				<Form>ERPModUserUtils.res</Form>
+			</RcCompile>
 			<DCCReference Include="..\..\..\..\Common\ServerModules\ServerModuleObj.pas"/>
 			<DCCReference Include="..\..\..\..\Common\SimplePipes.pas"/>
 			<DCCReference Include="..\..\..\..\Common\ThreadProperty.pas"/>

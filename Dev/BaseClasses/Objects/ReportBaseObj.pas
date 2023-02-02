@@ -101,14 +101,13 @@ uses
 
 procedure TReportBase.AssignParams(params: TJsonObject);
 begin
-try
-  JsonToObj(params, self);
-Except
-  on E:Exception do begin
-    Errormsg:= e.message;
+  try
+    JsonToObj(params, Self);
+  Except
+    on E:Exception do begin
+      Errormsg:= e.message;
+    end;
   end;
-
-end;
 end;
 
 constructor TReportBase.Create;

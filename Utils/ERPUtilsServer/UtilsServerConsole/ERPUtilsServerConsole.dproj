@@ -1,0 +1,171 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{24D6FDED-D24F-497E-9C24-2FE1B6020568}</ProjectGuid>
+			<ProjectVersion>12.3</ProjectVersion>
+			<MainSource>ERPUtilsServerConsole.dpr</MainSource>
+			<Base>True</Base>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<Platform>Win32</Platform>
+			<AppType>Console</AppType>
+			<FrameworkType>None</FrameworkType>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_UsePackage>dsnap;ipstudiowinclient;ipstudiowindataset;ipstudiowin;ipstudiowinwordxp;dclOfficeXP;vcl;vcldb;vclimg;vclx;dbrtl;Rave90VCL;bdertl;VclSmp;rtl;svnui;svn;vclactnband;vcldbx;vcltouch;xmlrtl;dsnapcon;vclib;ibxpress;adortl;IndyCore;IndySystem;IndyProtocols;inet;intrawebdb_110_150;Intraweb_110_150;vclie;inetdb;webdsnap;websnap;inetdbbde;inetdbxpress;soaprtl;vclribbon;DbxCommonDriver;DBXInterBaseDriver;DBXMySQLDriver;dbexpress;dbxcds;CodeSiteExpressVcl;DbxClientDriver;AzureCloud;crcontrols150;dac150;dacvcl150;ERPDB;mydac150;tmsd2011;tmsexd2011;tmswizd2011;tmsxlsd2011;kbmMemRunDXEStd;DropMasterVcl;rbCIDE1215;rbIDE1215;rbRCL1215;rbBDE1215;dclRBBDE1215;rbDBDE1215;rbDAD1215;rbDB1215;dclRBADO1215;rbADO1215;rbDIDE1215;rbUSERDesign1215;rbUSER1215;VirtualTreesD15;B305vr2010;TP_LockBox3;G114_R140;XmlComponents_D7;InternalDev;mydacvcl150;VclPD2010p;PC_EFT;GanttSuiteVcl_D2010;P164_D70;P164_R70;SSLBBoxSrvIndy10D15;SSLBBoxCliIndy10D15;SSLBBoxSrvD15;SSLBBoxCliD15;BaseBBoxD15;CloudBBoxD15;HTTPBBoxCliD15;XMLBBoxD15;DAVBBoxCliD15;DAVBBoxSrvD15;HTTPBBoxSrvD15;DCBBoxD15;DsgnBBoxD15;EDIBBoxD15;FTPSBBoxCliD15;MIMEBBoxD15;FTPSBBoxSrvD15;LDAPBBoxD15;MailBBoxD15;OfficeBBoxD15;ZIPBBoxD15;XMLBBoxSecD15;PGPBBoxD15;PDFBBoxD15;PGPLDAPBBoxD15;PGPMIMEBBoxD15;PGPSSHBBoxD15;SSHBBoxCliD15;PGPTLSBBoxD15;PKIBBoxD15;PKIPDFBBoxD15;PKISSHBBoxD15;SFTPBBoxCliD15;SFTPBBoxSrvD15;SSHBBoxSrvD15;SMIMEBBoxD15;WebHub;ZaphodsMapLib;ldiRegExLib;WebHubNewAppIDWizard;TeeImage915;TeeWorld915;TeeLanguage915;TeePro915;TeeGL915;TeeUI915;TeeDB915;Tee915</DCC_UsePackage>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_DcuOutput>.\$(Config)\$(Platform)</DCC_DcuOutput>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_ExeOutput>.\$(Config)\$(Platform)</DCC_ExeOutput>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_ExeOutput>..\EXE</DCC_ExeOutput>
+			<DCC_UnitSearchPath>..\..\..\Dev;..\..\..\\Utils\ERPUtilsServer\UtilsService;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+			<DCC_Optimize>false</DCC_Optimize>
+			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="ERPUtilsServerConsole.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="..\JsonRPC\JsonRpcBase.pas"/>
+			<DCCReference Include="..\JsonRPC\JsonRpcConst.pas"/>
+			<DCCReference Include="..\ModuleFunctions.pas"/>
+			<DCCReference Include="..\JsonRPC\JsonRpcTcpServer.pas"/>
+			<DCCReference Include="..\Modules\ModuleUtils.pas"/>
+			<DCCReference Include="..\UtilsServerObj.pas"/>
+			<DCCReference Include="..\Modules\ModuleBaseServerObj.pas"/>
+			<DCCReference Include="..\Modules\ModuleConst.pas"/>
+			<DCCReference Include="..\Modules\ModuleBaseObj.pas"/>
+			<DCCReference Include="..\Modules\frmModuleConfigBase.pas">
+				<Form>fmModuleConfigBase</Form>
+			</DCCReference>
+			<DCCReference Include="..\Modules\ModuleBaseClientObj.pas"/>
+			<DCCReference Include="..\JsonRPC\JsonRpcTcpClient.pas"/>
+			<DCCReference Include="..\..\ERPUpdater\UpdaterCallUtils.pas"/>
+			<DCCReference Include="..\..\ERPUpdater\UpdaterConst.pas"/>
+			<DCCReference Include="..\IpRangeListObj.pas"/>
+			<DCCReference Include="..\..\..\Common\JSONObject.pas"/>
+			<DCCReference Include="..\..\..\Common\JsonToObject.pas"/>
+			<DCCReference Include="..\..\..\Dev\General\Objects\CommonObjects\InternetConnectivityUtils.pas"/>
+			<DCCReference Include="..\..\..\Dev\General\Objects\CommonObjects\FileDownloadFuncs.pas"/>
+			<DCCReference Include="..\..\..\Dev\General\Objects\CommonObjects\AppRunUtils.pas"/>
+			<DCCReference Include="..\..\..\Dev\General\Objects\CommonObjects\SystemLib.pas"/>
+			<DCCReference Include="..\..\..\Common\CipherUtils.pas"/>
+			<DCCReference Include="..\..\..\Common\MySQLUtils.pas"/>
+			<DCCReference Include="..\..\..\Common\DbConst.pas"/>
+			<DCCReference Include="..\..\..\Common\InstallConst.pas"/>
+			<DCCReference Include="..\..\..\Dev\General\Objects\CommonObjects\LogThreadLib.pas"/>
+			<DCCReference Include="..\..\..\Dev\General\Objects\CommonObjects\MultiEventObj.pas"/>
+			<DCCReference Include="..\HTTPServerConfigObj.pas"/>
+			<DCCReference Include="..\UtilsServerConfigObj.pas"/>
+			<DCCReference Include="..\..\..\Common\WebApiConst.pas"/>
+			<DCCReference Include="..\..\..\Dev\General\Objects\CommonObjects\LogThreadBase.pas"/>
+			<DCCReference Include="..\..\..\Dev\General\Objects\CommonObjects\LogMessageTypes.pas"/>
+			<DCCReference Include="..\..\..\Common\SimplePipes.pas"/>
+			<DCCReference Include="..\..\..\Common\ThreadProperty.pas"/>
+			<DCCReference Include="..\..\..\Common\ModuleFileNameUtils.pas"/>
+			<DCCReference Include="..\..\..\Dev\General\Objects\CommonObjects\IntegerListObj.pas"/>
+			<DCCReference Include="..\..\..\Common\ServerModules\ServerModuleConst.pas"/>
+			<DCCReference Include="..\..\..\Common\ServerModules\ServerModuleStubObj.pas"/>
+			<DCCReference Include="..\Modules\NotificationItem.pas"/>
+			<DCCReference Include="..\JsonRPC\JsonRPCUtils.pas"/>
+			<DCCReference Include="..\Modules\UserUtils\ClientConfigObj.pas"/>
+			<DCCReference Include="..\..\..\Common\JsonObjectUtils.pas"/>
+			<DCCReference Include="..\..\..\Dev\General\Objects\CommonObjects\DateTimeUtils.pas"/>
+			<DCCReference Include="..\Modules\ServerModuleList.pas"/>
+			<DCCReference Include="..\..\..\Common\ModuleComms3.pas"/>
+			<DCCReference Include="..\..\..\Dev\General\Objects\CommonObjects\DbSharedObjectsObj.pas"/>
+			<DCCReference Include="..\..\..\Common\ModulePortObj.pas"/>
+			<DCCReference Include="..\..\..\Common\DBUtils.pas"/>
+			<DCCReference Include="..\..\..\Common\DateTimeConvert.pas"/>
+			<DCCReference Include="..\..\..\Common\HTTPConst.pas"/>
+			<DCCReference Include="..\..\..\Common\DbGen.pas"/>
+			<DCCReference Include="..\..\..\Common\ConfigDbObj.pas"/>
+			<DCCReference Include="..\..\..\Common\utDbServerThreadTaskList.pas"/>
+			<DCCReference Include="..\Modules\ERPModWebAPI\utVS1Const.pas"/>
+			<DCCReference Include="..\..\..\Dev\SeedTosale\Modules\StSConst.pas"/>
+			<DCCReference Include="..\Modules\ERPModWebAPI\utCloudconst.pas"/>
+			<DCCReference Include="..\Modules\ERPModUserUtils\ERPLicenseLib.pas"/>
+			<DCCReference Include="..\Modules\ModuleDbUtils.pas"/>
+			<None Include="..\..\..\Dev\ERP.inc"/>
+			<None Include="..\Service\ERPUtilsService.inc"/>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Delphi.Personality>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">3081</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName"/>
+						<VersionInfoKeys Name="FileDescription"/>
+						<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k150.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+					</Excluded_Packages>
+					<Source>
+						<Source Name="MainSource">ERPUtilsServerConsole.dpr</Source>
+					</Source>
+				</Delphi.Personality>
+				<Platforms>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

@@ -141,7 +141,8 @@ Const
     VS1_TAG_Fields                  = 'fields';
     VS1_TAG_DashboardError          = 'DashboardError';
     VS1_TAG_Dashboard_AP_report     = 'AP_Report';
-    VS1_TAG_Dashboard_PnL_report    = 'PnL_report';
+    VS1_TAG_Dashboard_PnL_report    = 'PnL_Report';
+    VS1_TAG_Dashboard_PnL_report2   = 'PnL_Period_Report';
     VS1_TAG_Dashboard_SalesList     = 'SalesList';
     VS1_TAG_Dashboard_SalesPerEmp   = 'SalesPerEmp';
     VS1_TAG_Dashboard_Summary       = 'Summary';

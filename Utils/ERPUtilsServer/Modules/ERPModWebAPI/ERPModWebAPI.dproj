@@ -34,7 +34,7 @@
 			<DCC_DcuOutput>.\$(Config)\$(Platform)</DCC_DcuOutput>
 			<DCC_MapFile>3</DCC_MapFile>
 			<DCC_ExeOutput>..\..\exe\modules</DCC_ExeOutput>
-			<DCC_UnitSearchPath>..\..\..\..\Dev;C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Indy\Lib\Core;C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Indy\Lib\Protocols;C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Indy\Lib\System;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DCC_UnitSearchPath>..\..\..\..\Dev;D:\Work\Delphi\Dene\Code\ERPNew\Dev\General\Objects\CommonObjects\FastFuncs;C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Indy\Lib\Core;C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Indy\Lib\Protocols;C:\Program Files (x86)\Embarcadero\RAD Studio\8.0\ThirdParty\Indy\Lib\System;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
 			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
 			<DCC_Optimize>false</DCC_Optimize>
 			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
@@ -49,6 +49,11 @@
 			<DelphiCompile Include="ERPModWebAPI.dpr">
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
+			<RcCompile Include="ERPModWebAPI.rc">
+				<ContainerId>RC</ContainerId>
+				<ContainerId>RC</ContainerId>
+				<Form>ERPModWebAPI.res</Form>
+			</RcCompile>
 			<DCCReference Include="ModWebAPI.pas"/>
 			<DCCReference Include="..\..\..\..\Common\ServerModules\ServerModuleObj.pas"/>
 			<DCCReference Include="..\..\..\..\Common\ModuleComms3.pas"/>
@@ -695,7 +700,7 @@
 			<DCCReference Include="Objects\PayNotes.pas"/>
 			<DCCReference Include="Objects\Vs1CardPreference.pas"/>
 			<DCCReference Include="Objects\VS1Superannuation.pas"/>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Chilkat\CK_DLL_Const.pas"/>
+			<DCCReference Include="..\..\..\..\..\TrueERP\TrueERPEDI\Dev\Chilkat\CK_DLL_Const.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\BusObjBankReconciliationRules.pas"/>
 			<DCCReference Include="Objects\TemplateSettings.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\StockTransferEntrySQL.pas"/>
@@ -748,7 +753,6 @@
 			<DCCReference Include="..\..\..\..\Dev\Payments\Objects\BusObjReceiptLog.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\ChartOfAccountsListSQL.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Returns\Objects\BusObjVatReturns.Pas"/>
-			<None Include="ERPModWebAPI.dpr"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

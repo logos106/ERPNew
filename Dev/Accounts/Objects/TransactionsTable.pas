@@ -262,7 +262,7 @@ uses
   {$IFNDEF CONSOLE}  {$IFDEF DevMode}  , LogLib  {$ENDIF}  {$ENDIF}
   ,ProfitAndLossPeriodCompareSQL, JSONObject, utCloudconst,
   APReportSQL, SalesListSQL   , ProfitAndLossSQL,
-  ProductStockReportLib, BalanceSheetSQL, CommonDbLib;
+  ProductStockReportLib, BalanceSheetSQL, CommonDbLib, LogLib;
 
 {$IFDEF DevMode}
 Const
@@ -7234,7 +7234,7 @@ var
   aDtFrom, aDtTo: Tdatetime;
   msg: String;
 
-  procedure Make_VS1_PnLReport;
+  procedure Make_VS1_PnLPeriodReport;
   var
     fReportSQLObj : TProfitAndLossPeriodReport;//TReportSQLProfitAndLossPeriod;
     aParams:TJsonObject;
@@ -7379,33 +7379,32 @@ var
       end;
   end;
 
-  procedure Make_VS1_PnLReport_Sum;
+  procedure Make_VS1_PnLReport;
   var
     fReportSQLObj : TProfitAndLossReport;
     aParams:TJsonObject;
   begin
       fReportSQLObj := TProfitAndLossReport.Create;
       try
-          aParams := jo;
-          aParams.DT[TAG_DATEFROM]      := aDtFrom;
-          aParams.DT[TAG_DATETO]        := aDtto;
-          fReportSQLObj.AssignParams(aParams);
-          sct.SQL.Clear;
-          fReportSQLObj.PopulateReportSQL(sct.SQL, msg);
-          sct.SQL.text :=   ' Drop table if exists tmp_VS1_Dashboard_Summary_5;' +
-                            ' Create table tmp_VS1_Dashboard_Summary_5 ' + sct.SQL.text +
-                            ' delete from tmp_VS1_Dashboard_Summary_5  WHERE not(`account type` LIKE "Total%" OR `account type` LIKE "Net%");' +
-                            ' Update tmp_VS1_Dashboard_Summary Set PnL_TotalIncomeEx  =(Select totalAmountEx  from tmp_VS1_Dashboard_Summary_5   where UCASE(`account type`)  = UCASE("Total Income"));' +
-                            ' Update tmp_VS1_Dashboard_Summary Set PnL_TotalIncomeInc =(Select TotalAmountinc from tmp_VS1_Dashboard_Summary_5   where UCASE(`account type`)  = UCASE("Total Income"));' +
-                            ' Update tmp_VS1_Dashboard_Summary Set PnL_TotalExpenseEx =(Select totalAmountEx  from tmp_VS1_Dashboard_Summary_5   where UCASE(`account type`)  = UCASE("Total Expenses"));' +
-                            ' Update tmp_VS1_Dashboard_Summary Set PnL_TotalExpenseIn =(Select TotalAmountinc from tmp_VS1_Dashboard_Summary_5   where UCASE(`account type`)  = UCASE("Total Expenses"));' +
-                            ' Update tmp_VS1_Dashboard_Summary Set PnL_TotalCOGSEx    =(Select totalAmountEx  from tmp_VS1_Dashboard_Summary_5   where UCASE(`account type`)  = UCASE("Total COGS"));' +
-                            ' Update tmp_VS1_Dashboard_Summary Set PnL_TotalCOGSIn    =(Select TotalAmountinc from tmp_VS1_Dashboard_Summary_5   where UCASE(`account type`)  = UCASE("Total COGS"));' +
-                            ' Update tmp_VS1_Dashboard_Summary Set PnL_NetIncomeEx    =(Select totalAmountEx  from tmp_VS1_Dashboard_Summary_5   where UCASE(`account type`)  = UCASE("Net Income"));' +
-                            ' Update tmp_VS1_Dashboard_Summary Set PnL_NetIncomeIn    =(Select TotalAmountinc from tmp_VS1_Dashboard_Summary_5   where UCASE(`account type`)  = UCASE("Net Income"));' ;
-//          if not Devmode then
-//              sct.SQL.add(' Drop table if exists tmp_VS1_Dashboard_Summary_5;');
-          sct.Execute;
+        aParams := jo;
+        aParams.DT[TAG_DATEFROM] := aDtFrom;
+        aParams.DT[TAG_DATETO]   := aDtto;
+        fReportSQLObj.AssignParams(aParams);
+        sct.SQL.Clear;
+        fReportSQLObj.PopulateReportSQL(sct.SQL, msg);
+        LogText(sct.SQL.Text);
+        sct.SQL.text := ' DROP TABLE IF EXISTS tmp_VS1_Dashboard_PNL;' +
+                        ' CREATE TABLE tmp_VS1_Dashboard_PNL ' + sct.SQL.text +
+//                        ' DELETE FROM tmp_VS1_Dashboard_PNL  WHERE NOT(`account type` LIKE "Total%" OR `account type` LIKE "Net%");' +
+                        ' UPDATE tmp_VS1_Dashboard_Summary Set PnL_TotalIncomeEx  =(SELECT totalAmountEx  FROM tmp_VS1_Dashboard_PNL   WHERE UCASE(`account type`)  = UCASE("Total Income"));' +
+                        ' UPDATE tmp_VS1_Dashboard_Summary Set PnL_TotalIncomeInc =(SELECT TotalAmountinc FROM tmp_VS1_Dashboard_PNL   WHERE UCASE(`account type`)  = UCASE("Total Income"));' +
+                        ' UPDATE tmp_VS1_Dashboard_Summary Set PnL_TotalExpenseEx =(SELECT totalAmountEx  FROM tmp_VS1_Dashboard_PNL   WHERE UCASE(`account type`)  = UCASE("Total Expenses"));' +
+                        ' UPDATE tmp_VS1_Dashboard_Summary Set PnL_TotalExpenseIn =(SELECT TotalAmountinc FROM tmp_VS1_Dashboard_PNL   WHERE UCASE(`account type`)  = UCASE("Total Expenses"));' +
+                        ' UPDATE tmp_VS1_Dashboard_Summary Set PnL_TotalCOGSEx    =(SELECT totalAmountEx  FROM tmp_VS1_Dashboard_PNL   WHERE UCASE(`account type`)  = UCASE("Total COGS"));' +
+                        ' UPDATE tmp_VS1_Dashboard_Summary Set PnL_TotalCOGSIn    =(SELECT TotalAmountinc FROM tmp_VS1_Dashboard_PNL   WHERE UCASE(`account type`)  = UCASE("Total COGS"));' +
+                        ' UPDATE tmp_VS1_Dashboard_Summary Set PnL_NetIncomeEx    =(SELECT totalAmountEx  FROM tmp_VS1_Dashboard_PNL   WHERE UCASE(`account type`)  = UCASE("Net Income"));' +
+                        ' UPDATE tmp_VS1_Dashboard_Summary Set PnL_NetIncomeIn    =(SELECT TotalAmountinc FROM tmp_VS1_Dashboard_PNL   WHERE UCASE(`account type`)  = UCASE("Net Income"));' ;
+        sct.Execute;
       finally
         Freeandnil(fReportSQLObj);
       end;
@@ -7867,17 +7866,17 @@ begin
     showprogressDlg('VS1 Update', 10);
     try
       Log( 'UpdateVS1DashBoardTables :' + CurDBName, ltDetail);
-      aDtFrom := IncMonth(Date,-6);
-      aDtTo:= IncDay(Date,+1);
+      aDtFrom := IncMonth(Date, -6);
+      aDtTo := IncDay(Date, +1);
       sct := NewScript;
       try
-         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_sum']           then begin StepProgressDlg('Make VS1 Sum')          ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_Sum'           ,ltDetail); try Make_VS1_Sum;           Except on E:Exception do begin Log( 'Error in Make_VS1_Sum : '           + E.message, ltDetail); end;end;end;
-         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_PnLReport']     then begin StepProgressDlg('Make VS1 PnLReport')    ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_PnLReport'     ,ltDetail); try Make_VS1_PnLReport;     Except on E:Exception do begin Log( 'Error in Make_VS1_PnLReport : '     + E.message, ltDetail); end;end;end;
-         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_PnLReport_Sum'] then begin StepProgressDlg('Make VS1 PnLReport_Sum');Log( 'UpdateVS1DashBoardTables -> Make_VS1_PnLReport_Sum' ,ltDetail); try Make_VS1_PnLReport_Sum; Except on E:Exception do begin Log( 'Error in Make_VS1_PnLReport_Sum : ' + E.message, ltDetail); end;end;end;
-         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_APReport']      then begin StepProgressDlg('Make VS1 APReport')     ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_APReport'      ,ltDetail); try Make_VS1_APReport;      Except on E:Exception do begin Log( 'Error in Make_VS1_APReport : '      + E.message, ltDetail); end;end;end;
-         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_SalesList']     then begin StepProgressDlg('Make VS1 SalesList')    ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_SalesList'     ,ltDetail); try Make_VS1_SalesList;     Except on E:Exception do begin Log( 'Error in Make_VS1_SalesList : '     + E.message, ltDetail); end;end;end;
-         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_PQASumList']    then begin StepProgressDlg('Make VS1 PQASumList')   ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_PQASumList'    ,ltDetail); try Make_VS1_PQASumList;    Except on E:Exception do begin Log( 'Error in Make_VS1_PQASumList: '     + E.message, ltDetail); end;end;end;
-         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 Sum2')         ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_PQASumList'    ,ltDetail); try Make_VS1_Sum2;          Except on E:Exception do begin Log( 'Error in Make_VS1_Sum2: '           + E.message, ltDetail); end;end;end;
+         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_sum']           then begin StepProgressDlg('Make VS1 Sum')              ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_Sum'              ,ltDetail); try Make_VS1_Sum;             Except on E:Exception do begin Log( 'Error in Make_VS1_Sum : '              + E.message, ltDetail); end;end;end;
+         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_PnLReport']     then begin StepProgressDlg('Make VS1 PnLPeriodReport')  ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_PnLPeriodReport'  ,ltDetail); try Make_VS1_PnLPeriodReport; Except on E:Exception do begin Log( 'Error in Make_VS1_PnLPeriodReport : '  + E.message, ltDetail); end;end;end;
+         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_PnLReport_Sum'] then begin StepProgressDlg('Make VS1 PnLReport')        ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_PnLReport'        ,ltDetail); try Make_VS1_PnLReport;       Except on E:Exception do begin Log( 'Error in Make_VS1_PnLReport : '        + E.message, ltDetail); end;end;end;
+         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_APReport']      then begin StepProgressDlg('Make VS1 APReport')         ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_APReport'         ,ltDetail); try Make_VS1_APReport;        Except on E:Exception do begin Log( 'Error in Make_VS1_APReport : '         + E.message, ltDetail); end;end;end;
+         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_SalesList']     then begin StepProgressDlg('Make VS1 SalesList')        ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_SalesList'        ,ltDetail); try Make_VS1_SalesList;       Except on E:Exception do begin Log( 'Error in Make_VS1_SalesList : '        + E.message, ltDetail); end;end;end;
+         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_PQASumList']    then begin StepProgressDlg('Make VS1 PQASumList')       ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_PQASumList'       ,ltDetail); try Make_VS1_PQASumList;      Except on E:Exception do begin Log( 'Error in Make_VS1_PQASumList: '        + E.message, ltDetail); end;end;end;
+         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 Sum2')             ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_PQASumList'       ,ltDetail); try Make_VS1_Sum2;            Except on E:Exception do begin Log( 'Error in Make_VS1_Sum2: '              + E.message, ltDetail); end;end;end;
       finally
         Freeandnil(Sct);
       end;

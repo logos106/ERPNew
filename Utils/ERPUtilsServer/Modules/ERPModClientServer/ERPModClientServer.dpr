@@ -2,6 +2,8 @@ program ERPModClientServer;
 
 {$APPTYPE CONSOLE}
 
+{$R 'ERPModClientServer.res' 'ERPModClientServer.rc'}
+
 uses
   SysUtils,
   ConsoleLogObj in '..\..\..\..\Common\ConsoleLogObj.pas',
@@ -54,8 +56,6 @@ uses
 var
   ServerModule1: TModClientServer;
   ConsoleLogger: TConsoleLogger;
-
-{$R *.res}
 
 begin
   ServerModule1 := TModClientServer.Create;

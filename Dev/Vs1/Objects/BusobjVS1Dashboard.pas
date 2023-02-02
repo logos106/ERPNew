@@ -180,11 +180,13 @@ type
     procedure SetTotalsales            (const Value: Double    );
     procedure Setinvoicetotal          (const Value: Double    );
     procedure Setquotetotal            (const Value: Double    );
+
   protected
     procedure OnDataIdChange(const ChangeType: TBusObjDataChangeType);  override;
     procedure DoFieldOnChange(Sender: TField);                          override;
     function  GetSQL                             : string;              override;
     function  DoAfterPost(Sender:TDatasetBusObj) : Boolean;             override;
+
   public
     class function  GetIDField                   : string;              override;
     class function  GetBusObjectTablename        : string;              override;
@@ -194,6 +196,7 @@ type
     procedure    SaveToXMLNode(const node: IXMLNode);                   override;
     function     ValidateData: Boolean ;                                override;
     function     Save: Boolean ;                                        override;
+
   published
     property EmployeeID             :Integer     read GetEmployeeID           write SetEmployeeID        ;
     property employeename           :string      read Getemployeename         write Setemployeename      ;
@@ -201,6 +204,7 @@ type
     property invoicetotal           :Double      read Getinvoicetotal         write Setinvoicetotal      ;
     property quotetotal             :Double      read Getquotetotal           write Setquotetotal        ;
   end;
+
   TVS1_Dashboard_saleslist = class(TMSBusObj)
   private
     function GetDatefrom              : TDateTime ;
@@ -217,11 +221,13 @@ type
     procedure SetMONTH3                (const Value: string    );
     procedure Setinvoicetotal          (const Value: Double    );
     procedure Setquotetotal            (const Value: Double    );
+
   protected
     procedure OnDataIdChange(const ChangeType: TBusObjDataChangeType);  override;
     procedure DoFieldOnChange(Sender: TField);                          override;
     function  GetSQL                             : string;              override;
     function  DoAfterPost(Sender:TDatasetBusObj) : Boolean;             override;
+
   public
     class function  GetIDField                   : string;              override;
     class function  GetBusObjectTablename        : string;              override;
@@ -231,6 +237,7 @@ type
     procedure    SaveToXMLNode(const node: IXMLNode);                   override;
     function     ValidateData: Boolean ;                                override;
     function     Save: Boolean ;                                        override;
+
   published
     property Datefrom               :TDateTime   read GetDatefrom             write SetDatefrom          ;
     property dateto                 :TDateTime   read Getdateto               write Setdateto            ;
@@ -239,6 +246,102 @@ type
     property MONTH3                 :string      read GetMONTH3               write SetMONTH3            ;
     property invoicetotal           :Double      read Getinvoicetotal         write Setinvoicetotal      ;
     property quotetotal             :Double      read Getquotetotal           write Setquotetotal        ;
+  end;
+
+  TVS1_Dashboard_pnl = class(TMSBusObj)
+  private
+    function GetSeqNo               :Integer;
+    function GetIsRoot              :Boolean;
+    function GetAccountID           :Integer;
+    function GetAccountNo           :String;
+    function GetAccountName         :String;
+    function GetAccountType         :String;
+    function GetAccountTypeDesc     :String;
+    function GetFinalOrder          :Integer;
+    function GetAccountHeaderOrder  :String;
+    function GetAccountSub1Order    :String;
+    function GetAccountSub2Order    :String;
+    function GetAccountSub3Order    :String;
+    function GetTotalAmountInc      :Double;
+    function GetTotalAmountEx       :Double;
+    function GetSubTotalInc         :Double;
+    function GetSubTotalEx          :Double;
+    function GetHeadOfficeInc       :Double;
+    function GetHeadofficeEx        :Double;
+    function GetHideTotal           :Boolean;
+    function GetLevel1              :String;
+    function GetLevel2              :String;
+    function GetLevel3              :String;
+    function GetLevel4              :String;
+    function GetLevel5              :String;
+
+    procedure SetSeqNo               (const Value: Integer);
+    procedure SetIsRoot              (const Value: Boolean);
+    procedure SetAccountID           (const Value: Integer);
+    procedure SetAccountNo           (const Value: String);
+    procedure SetAccountName         (const Value: String);
+    procedure SetAccountType         (const Value: String);
+    procedure SetAccountTypeDesc     (const Value: String);
+    procedure SetFinalOrder          (const Value: Integer);
+    procedure SetAccountHeaderOrder  (const Value: String);
+    procedure SetAccountSub1Order    (const Value: String);
+    procedure SetAccountSub2Order    (const Value: String);
+    procedure SetAccountSub3Order    (const Value: String);
+    procedure SetTotalAmountInc      (const Value: Double);
+    procedure SetTotalAmountEx       (const Value: Double);
+    procedure SetSubTotalInc         (const Value: Double);
+    procedure SetSubTotalEx          (const Value: Double);
+    procedure SetHeadOfficeInc       (const Value: Double);
+    procedure SetHeadofficeEx        (const Value: Double);
+    procedure SetHideTotal           (const Value: Boolean);
+    procedure SetLevel1              (const Value: String);
+    procedure SetLevel2              (const Value: String);
+    procedure SetLevel3              (const Value: String);
+    procedure SetLevel4              (const Value: String);
+    procedure SetLevel5              (const Value: String);
+
+  protected
+    procedure OnDataIdChange(const ChangeType: TBusObjDataChangeType);  override;
+    procedure DoFieldOnChange(Sender: TField);                          override;
+    function  GetSQL                             : string;              override;
+    function  DoAfterPost(Sender:TDatasetBusObj) : Boolean;             override;
+
+  public
+    class function  GetIDField                   : string;              override;
+    class function  GetBusObjectTablename        : string;              override;
+    constructor  Create(AOwner: TComponent);                            override;
+    destructor   Destroy;                                               override;
+    procedure    LoadFromXMLNode(const node: IXMLNode);                 override;
+    procedure    SaveToXMLNode(const node: IXMLNode);                   override;
+    function     ValidateData: Boolean ;                                override;
+    function     Save: Boolean ;                                        override;
+
+  published
+    property SeqNo              :Integer      read GetSeqNo               write SetAccountID;
+    property IsRoot             :Boolean      read GetIsRoot              write SetIsRoot;
+    property AccountID          :Integer      read GetAccountID           write SetAccountID;
+    property AccountNo          :String       read GetAccountNo           write SetAccountNo;
+    property AccountName        :String       read GetAccountName         write SetAccountName;
+    property AccountType        :String       read GetAccountType         write SetAccountType;
+    property AccountTypeDesc    :String       read GetAccountTypeDesc     write SetAccountTypeDesc;
+    property FinalOrder         :Integer      read GetFinalOrder          write SetFinalOrder;
+    property AccountHeaderOrder :String       read GetAccountHeaderOrder  write SetAccountHeaderOrder;
+    property AccountSub1Order   :String       read GetAccountSub1Order    write SetAccountSub1Order;
+    property AccountSub2Order   :String       read GetAccountSub2Order    write SetAccountSub2Order;
+    property AccountSub3Order   :String       read GetAccountSub3Order    write SetAccountSub3Order;
+    property TotalAmountInc     :Double       read GetTotalAmountInc      write SetTotalAmountInc;
+    property TotalAmountEx      :Double       read GetTotalAmountEx       write SetTotalAmountEx;
+    property SubTotalInc        :Double       read GetSubTotalInc         write SetSubTotalInc;
+    property SubTotalEx         :Double       read GetSubTotalEx          write SetSubTotalEx;
+    property HeadOfficeInc      :Double       read GetHeadOfficeInc       write SetHeadOfficeInc;
+    property HeadOfficeEx       :Double       read GetHeadofficeEx        write SetHeadOfficeEx;
+    property HideTotal          :Boolean      read GetHideTotal           write SetHideTotal;
+    property Level1             :String       read GetLevel1              write SetLevel1;
+    property Level2             :String       read GetLevel2              write SetLevel2;
+    property Level3             :String       read GetLevel3              write SetLevel3;
+    property Level4             :String       read GetLevel4              write SetLevel4;
+    property Level5             :String       read GetLevel5              write SetLevel5;
+
   end;
 
   TVS1_Dashboard_pnl_period = class(TMSBusObj)
@@ -423,11 +526,13 @@ type
     procedure SetAccountSub2Order      (const Value: string    );
     procedure SetAccountSub3Order      (const Value: string    );
     procedure SetHideTotal             (const Value: Boolean   );
+
   protected
     procedure OnDataIdChange(const ChangeType: TBusObjDataChangeType);  override;
     procedure DoFieldOnChange(Sender: TField);                          override;
     function  GetSQL                             : string;              override;
     function  DoAfterPost(Sender:TDatasetBusObj) : Boolean;             override;
+
   public
     class function  GetIDField                   : string;              override;
     class function  GetBusObjectTablename        : string;              override;
@@ -437,6 +542,7 @@ type
     procedure    SaveToXMLNode(const node: IXMLNode);                   override;
     function     ValidateData: Boolean ;                                override;
     function     Save: Boolean ;                                        override;
+
   published
     property DateFrom_1             :TDateTime   read GetDateFrom_1           write SetDateFrom_1        ;
     property DateTo_1               :TDateTime   read GetDateTo_1             write SetDateTo_1          ;
@@ -544,11 +650,13 @@ type
     procedure SetMONTH2      (const Value: string    );
     procedure SetMONTH3      (const Value: string    );
     procedure Settotal       (const Value: Double    );
+
   protected
     procedure OnDataIdChange(const ChangeType: TBusObjDataChangeType);  override;
     procedure DoFieldOnChange(Sender: TField);                          override;
     function  GetSQL                             : string;              override;
     function  DoAfterPost(Sender:TDatasetBusObj) : Boolean;             override;
+
   public
     class function  GetIDField                   : string;              override;
     class function  GetBusObjectTablename        : string;              override;
@@ -558,6 +666,7 @@ type
     procedure    SaveToXMLNode(const node: IXMLNode);                   override;
     function     ValidateData: Boolean ;                                override;
     function     Save: Boolean ;                                        override;
+
   published
     property Datefrom     :TDateTime   read GetDatefrom   write SetDatefrom;
     property dateto       :TDateTime   read Getdateto     write Setdateto  ;
@@ -663,13 +772,9 @@ type
     property Sheet_AssetToLiab : Double  read GetSheetAssetToLiab write SetSheetAssetToLiab;
   end;
 
-
-
 implementation
 
-
 uses tcDataUtils, CommonLib, JSONObject, CommonDbLib, MySQLConst;
-
 
 
   {TVS1_Dashboard_summary}
@@ -681,12 +786,10 @@ begin
   fSQL := 'SELECT * FROM tmp_vs1_dashboard_summary';
 end;
 
-
 destructor TVS1_Dashboard_summary.Destroy;
 begin
   inherited;
 end;
-
 
 procedure TVS1_Dashboard_summary.LoadFromXMLNode(const node: IXMLNode);
 begin
@@ -732,7 +835,6 @@ begin
   SetPropertyFromNode(node,'PnL_NetIncomeIn');
 end;
 
-
 procedure TVS1_Dashboard_summary.SaveToXMLNode(Const node: IXMLNode);
 begin
   inherited;
@@ -777,14 +879,12 @@ begin
   AddXMLNode(node,'PnL_NetIncomeIn' ,PnL_NetIncomeIn);
 end;
 
-
 function TVS1_Dashboard_summary.ValidateData: Boolean ;
 begin
   Result := False;
   Resultstatus.Clear;
   Result := True;
 end;
-
 
 function TVS1_Dashboard_summary.Save: Boolean ;
 begin
@@ -793,18 +893,15 @@ begin
   Result := inherited Save;
 end;
 
-
 procedure TVS1_Dashboard_summary.OnDataIdChange(Const ChangeType: TBusObjDataChangeType);
 begin
   inherited;
 end;
 
-
 procedure TVS1_Dashboard_summary.DoFieldOnChange(Sender: TField);
 begin
   inherited;
 end;
-
 
 function TVS1_Dashboard_summary.GetSQL: string;
 begin
@@ -825,7 +922,6 @@ function TVS1_Dashboard_summary.DoAfterPost(Sender: TDatasetBusObj): Boolean;
 begin
   Result := inherited DoAfterPost(Sender);
 end;
-
 
 {Property Functions}
 function  TVS1_Dashboard_summary.GetERPVersionNo                      : Integer   ; begin Result := GetIntegerField('ERPVersionNo')                     ;end;
@@ -928,12 +1024,10 @@ begin
   fSQL := 'SELECT * FROM tmp_vs1_dashboard_salesperemployee';
 end;
 
-
 destructor TVS1_Dashboard_salesperemployee.Destroy;
 begin
   inherited;
 end;
-
 
 procedure TVS1_Dashboard_salesperemployee.LoadFromXMLNode(const node: IXMLNode);
 begin
@@ -945,7 +1039,6 @@ begin
   SetPropertyFromNode(node,'quotetotal');
 end;
 
-
 procedure TVS1_Dashboard_salesperemployee.SaveToXMLNode(Const node: IXMLNode);
 begin
   inherited;
@@ -956,14 +1049,12 @@ begin
   AddXMLNode(node,'quotetotal' ,quotetotal);
 end;
 
-
 function TVS1_Dashboard_salesperemployee.ValidateData: Boolean ;
 begin
   Result := False;
   Resultstatus.Clear;
   Result := True;
 end;
-
 
 function TVS1_Dashboard_salesperemployee.Save: Boolean ;
 begin
@@ -972,42 +1063,35 @@ begin
   Result := inherited Save;
 end;
 
-
 procedure TVS1_Dashboard_salesperemployee.OnDataIdChange(Const ChangeType: TBusObjDataChangeType);
 begin
   inherited;
 end;
-
 
 procedure TVS1_Dashboard_salesperemployee.DoFieldOnChange(Sender: TField);
 begin
   inherited;
 end;
 
-
 function TVS1_Dashboard_salesperemployee.GetSQL: string;
 begin
   Result := inherited GetSQL;
 end;
-
 
 class function TVS1_Dashboard_salesperemployee.GetIDField: string;
 begin
   Result := 'ID'
 end;
 
-
 class function TVS1_Dashboard_salesperemployee.GetBusObjectTablename: string;
 begin
   Result:= 'tmp_vs1_dashboard_salesperemployee';
 end;
 
-
 function TVS1_Dashboard_salesperemployee.DoAfterPost(Sender: TDatasetBusObj): Boolean;
 begin
   Result := inherited DoAfterPost(Sender);
 end;
-
 
 {Property Functions}
 function  TVS1_Dashboard_salesperemployee.GetEmployeeID        : Integer   ; begin Result := GetIntegerField('EmployeeID');end;
@@ -1031,12 +1115,10 @@ begin
   fSQL := 'SELECT * FROM tmp_vs1_dashboard_saleslist';
 end;
 
-
 destructor TVS1_Dashboard_saleslist.Destroy;
 begin
   inherited;
 end;
-
 
 procedure TVS1_Dashboard_saleslist.LoadFromXMLNode(const node: IXMLNode);
 begin
@@ -1050,7 +1132,6 @@ begin
   SetPropertyFromNode(node,'quotetotal');
 end;
 
-
 procedure TVS1_Dashboard_saleslist.SaveToXMLNode(Const node: IXMLNode);
 begin
   inherited;
@@ -1063,14 +1144,12 @@ begin
   AddXMLNode(node,'quotetotal' ,quotetotal);
 end;
 
-
 function TVS1_Dashboard_saleslist.ValidateData: Boolean ;
 begin
   Result := False;
   Resultstatus.Clear;
   Result := True;
 end;
-
 
 function TVS1_Dashboard_saleslist.Save: Boolean ;
 begin
@@ -1079,42 +1158,35 @@ begin
   Result := inherited Save;
 end;
 
-
 procedure TVS1_Dashboard_saleslist.OnDataIdChange(Const ChangeType: TBusObjDataChangeType);
 begin
   inherited;
 end;
-
 
 procedure TVS1_Dashboard_saleslist.DoFieldOnChange(Sender: TField);
 begin
   inherited;
 end;
 
-
 function TVS1_Dashboard_saleslist.GetSQL: string;
 begin
   Result := inherited GetSQL;
 end;
-
 
 class function TVS1_Dashboard_saleslist.GetIDField: string;
 begin
   Result := 'ID'
 end;
 
-
 class function TVS1_Dashboard_saleslist.GetBusObjectTablename: string;
 begin
   Result:= 'tmp_vs1_dashboard_saleslist';
 end;
 
-
 function TVS1_Dashboard_saleslist.DoAfterPost(Sender: TDatasetBusObj): Boolean;
 begin
   Result := inherited DoAfterPost(Sender);
 end;
-
 
 {Property Functions}
 function  TVS1_Dashboard_saleslist.GetDatefrom          : TDateTime ; begin Result := GetDateTimeField('Datefrom');end;
@@ -1132,6 +1204,173 @@ procedure TVS1_Dashboard_saleslist.SetMONTH3            (const Value: string    
 procedure TVS1_Dashboard_saleslist.Setinvoicetotal      (const Value: Double    ); begin SetFloatField('invoicetotal'       , Value);end;
 procedure TVS1_Dashboard_saleslist.Setquotetotal        (const Value: Double    ); begin SetFloatField('quotetotal'         , Value);end;
 
+  {TVS1_Dashboard_pnl}
+
+constructor TVS1_Dashboard_pnl.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+  fBusObjectTypeDescription:= 'vs1_dashboard_pnl';
+  fSQL := 'SELECT * FROM tmp_vs1_dashboard_pnl';
+end;
+
+destructor TVS1_Dashboard_pnl.Destroy;
+begin
+  inherited;
+end;
+
+procedure TVS1_Dashboard_pnl.LoadFromXMLNode(const node: IXMLNode);
+begin
+  inherited;
+  SetPropertyFromNode(node, 'SeqNo');
+  SetBooleanPropertyFromNode(node, 'IsRoot');
+  SetPropertyFromNode(node, 'AccountID');
+  SetPropertyFromNode(node, 'AccountNo');
+  SetPropertyFromNode(node, 'AccountName');
+  SetPropertyFromNode(node, 'AccountType');
+  SetPropertyFromNode(node, 'AccountTypeDesc');
+  SetPropertyFromNode(node, 'FinalOrder');
+  SetPropertyFromNode(node,'AccountHeaderOrder');
+  SetPropertyFromNode(node, 'AccountSub1Order');
+  SetPropertyFromNode(node, 'AccountSub2Order');
+  SetPropertyFromNode(node, 'AccountSub3Order');
+  SetPropertyFromNode(node, 'TotalAmountInc');
+  SetPropertyFromNode(node, 'TotalAmountEx');
+  SetPropertyFromNode(node, 'SubTotalInc');
+  SetPropertyFromNode(node, 'SubTotalEx');
+  SetPropertyFromNode(node, 'HeaderOfficeInc');
+  SetPropertyFromNode(node, 'HeaderOfficeEx');
+  SetBooleanPropertyFromNode(node, 'HideTotal');
+  SetPropertyFromNode(node, 'Level1');
+  SetPropertyFromNode(node, 'Level2');
+  SetPropertyFromNode(node,'Level3');
+  SetPropertyFromNode(node,'Level4');
+  SetPropertyFromNode(node,'Level5');
+end;
+
+procedure TVS1_Dashboard_pnl.SaveToXMLNode(Const node: IXMLNode);
+begin
+  inherited;
+  AddXMLNode(node,'SeqNo', SeqNo);
+  AddXMLNode(node,'IsRoot', IsRoot);
+  AddXMLNode(node,'AccountID', AccountID);
+  AddXMLNode(node,'AccountNo', AccountNo);
+  AddXMLNode(node,'AccounName', AccountName);
+  AddXMLNode(node,'AccountType', AccountType);
+  AddXMLNode(node,'AccountTypeDesc', AccountTypeDesc);
+  AddXMLNode(node,'FinalOrder', FinalOrder);
+  AddXMLNode(node,'AccountHeaderOrder', AccountHeaderOrder);
+  AddXMLNode(node,'AccountSub1Order', AccountSub1Order);
+  AddXMLNode(node,'AccountSub2Order', AccountSub2Order);
+  AddXMLNode(node,'AccountSub3Order', AccountSub3Order);
+  AddXMLNode(node,'TotalAmountInc', TotalAmountInc);
+  AddXMLNode(node,'TotalAmountEx', TotalAmountEx);
+  AddXMLNode(node,'SubTotalInc', SubTotalInc);
+  AddXMLNode(node,'SubTotalEx', SubTotalEx);
+  AddXMLNode(node,'HeaderOfficeInc', HeadOfficeInc);
+  AddXMLNode(node,'HeaderOfficeEx', HeadOfficeInc);
+  AddXMLNode(node,'HideTotal', HideTotal);
+  AddXMLNode(node,'Level1', Level1);
+  AddXMLNode(node,'Level2', Level2);
+  AddXMLNode(node,'Level3', Level3);
+  AddXMLNode(node,'Level4', Level4);
+  AddXMLNode(node,'Level5', Level5);
+end;
+
+function TVS1_Dashboard_pnl.ValidateData: Boolean ;
+begin
+  Result := False;
+  Resultstatus.Clear;
+  Result := True;
+end;
+
+function TVS1_Dashboard_pnl.Save: Boolean ;
+begin
+  Result := False;
+  if not ValidateData then Exit;
+  Result := inherited Save;
+end;
+
+procedure TVS1_Dashboard_pnl.OnDataIdChange(Const ChangeType: TBusObjDataChangeType);
+begin
+  inherited;
+end;
+
+procedure TVS1_Dashboard_pnl.DoFieldOnChange(Sender: TField);
+begin
+  inherited;
+end;
+
+function TVS1_Dashboard_pnl.GetSQL: string;
+begin
+  Result := inherited GetSQL;
+end;
+
+class function TVS1_Dashboard_pnl.GetIDField: string;
+begin
+  Result := 'seqno'
+end;
+
+class function TVS1_Dashboard_pnl.GetBusObjectTablename: string;
+begin
+  Result:= 'tmp_vs1_dashboard_pnl';
+end;
+
+
+function TVS1_Dashboard_pnl.DoAfterPost(Sender: TDatasetBusObj): Boolean;
+begin
+  Result := inherited DoAfterPost(Sender);
+end;
+
+function  TVS1_Dashboard_pnl.GetSeqNo:                Integer;  begin Result := GetIntegerField('seqno');               end;
+function  TVS1_Dashboard_pnl.GetIsRoot:               Boolean;  begin Result := GetBooleanField('IsRoot');               end;
+function  TVS1_Dashboard_pnl.GetAccountID:            Integer;  begin Result := GetIntegerField('AccountID');               end;
+function  TVS1_Dashboard_pnl.GetAccountNo:            String;   begin Result := GetStringField('AccountNo');                end;
+function  TVS1_Dashboard_pnl.GetAccountName:          String;   begin Result := GetStringField('AccountName');                end;
+function  TVS1_Dashboard_pnl.GetAccountType:          String;   begin Result := GetStringField('AccountType');                end;
+function  TVS1_Dashboard_pnl.GetAccountTypeDesc:      String;   begin Result := GetStringField('AccountTypeDesc');                end;
+function  TVS1_Dashboard_pnl.GetFinalOrder:           Integer;  begin Result := GetIntegerField('FinalOrder');          end;
+function  TVS1_Dashboard_pnl.GetAccountHeaderOrder:   String;   begin Result := GetStringField('AccountHeaderOrder');  end;
+function  TVS1_Dashboard_pnl.GetAccountSub1Order:     String;   begin Result := GetStringField('AccountSub1Order');     end;
+function  TVS1_Dashboard_pnl.GetAccountSub2Order:     String;   begin Result := GetStringField('AccountSub2Order');     end;
+function  TVS1_Dashboard_pnl.GetAccountSub3Order:     String;   begin Result := GetStringField('AccountSub3Order');     end;
+function  TVS1_Dashboard_pnl.GetTotalAmountInc:       Double;   begin Result := GetFloatField('TotalAmountInc');        end;
+function  TVS1_Dashboard_pnl.GetTotalAmountEx:        Double;   begin Result := GetFloatField('TotalAmountEx');         end;
+function  TVS1_Dashboard_pnl.GetSubTotalInc:          Double;   begin Result := GetFloatField('SubTotalInc');           end;
+function  TVS1_Dashboard_pnl.GetSubTotalEx:           Double;   begin Result := GetFloatField('SubTotalEx');            end;
+function  TVS1_Dashboard_pnl.GetHeadOfficeInc:        Double;   begin Result := GetFloatField('HeadOfficInc');           end;
+function  TVS1_Dashboard_pnl.GetHeadOfficeEx:         Double;   begin Result := GetFloatField('HeadOfficEx');            end;
+function  TVS1_Dashboard_pnl.GetHideTotal:            Boolean;  begin Result := GetBooleanField('HideTotal');           end;
+function  TVS1_Dashboard_pnl.GetLevel1:               String;   begin Result := GetStringField('Level1');               end;
+function  TVS1_Dashboard_pnl.GetLevel2:               String;   begin Result := GetStringField('Level2');               end;
+function  TVS1_Dashboard_pnl.GetLevel3:               String;   begin Result := GetStringField('Level3');               end;
+function  TVS1_Dashboard_pnl.GetLevel4:               String;   begin Result := GetStringField('Level4');               end;
+function  TVS1_Dashboard_pnl.GetLevel5:               String;   begin Result := GetStringField('Level5');               end;
+
+procedure  TVS1_Dashboard_pnl.SetSeqNo                (const Value: Integer);  begin SetIntegerField('seqno', Value);               end;
+procedure  TVS1_Dashboard_pnl.SetIsRoot               (const Value: Boolean);  begin SetBooleanField('IsRoot', Value);              end;
+procedure  TVS1_Dashboard_pnl.SetAccountID            (const Value: Integer);  begin SetIntegerField('AccountID', Value);           end;
+procedure  TVS1_Dashboard_pnl.SetAccountNo            (const Value: String);   begin SetStringField('AccountNo', Value);            end;
+procedure  TVS1_Dashboard_pnl.SetAccountName          (const Value: String);   begin SetStringField('AccountName', Value);          end;
+procedure  TVS1_Dashboard_pnl.SetAccountType          (const Value: String);   begin SetStringField('AccountType', Value);          end;
+procedure  TVS1_Dashboard_pnl.SetAccountTypeDesc      (const Value: String);   begin SetStringField('AccountTypeDesc', Value);      end;
+procedure  TVS1_Dashboard_pnl.SetFinalOrder           (const Value: Integer);  begin SetIntegerField('FinalOrder', Value);          end;
+procedure  TVS1_Dashboard_pnl.SetAccountHeaderOrder   (const Value: String);   begin SetStringField('AccountHeaderOrder', Value);  end;
+procedure  TVS1_Dashboard_pnl.SetAccountSub1Order     (const Value: String);   begin SetStringField('AccountSub1Order', Value);     end;
+procedure  TVS1_Dashboard_pnl.SetAccountSub2Order     (const Value: String);   begin SetStringField('AccountSub2Order', Value);     end;
+procedure  TVS1_Dashboard_pnl.SetAccountSub3Order     (const Value: String);   begin SetStringField('AccountSub3Order', Value);     end;
+procedure  TVS1_Dashboard_pnl.SetTotalAmountInc       (const Value: Double);   begin SetFloatField('TotalAmountInc', Value);        end;
+procedure  TVS1_Dashboard_pnl.SetTotalAmountEx        (const Value: Double);   begin SetFloatField('TotalAmountEx', Value);         end;
+procedure  TVS1_Dashboard_pnl.SetSubTotalInc          (const Value: Double);   begin SetFloatField('SubTotalInc', Value);           end;
+procedure  TVS1_Dashboard_pnl.SetSubTotalEx           (const Value: Double);   begin SetFloatField('SubTotalEx', Value);            end;
+procedure  TVS1_Dashboard_pnl.SetHeadOfficeInc        (const Value: Double);   begin SetFloatField('HeadOfficeInc', Value);           end;
+procedure  TVS1_Dashboard_pnl.SetHeadOfficeEx         (const Value: Double);   begin SetFloatField('HeadOfficeEx', Value);            end;
+procedure  TVS1_Dashboard_pnl.SetHideTotal            (const Value: Boolean);  begin SetBooleanField('HideTotal', Value);           end;
+procedure  TVS1_Dashboard_pnl.SetLevel1               (const Value: String);   begin SetStringField('Level1', Value);               end;
+procedure  TVS1_Dashboard_pnl.SetLevel2               (const Value: String);   begin SetStringField('Level2', Value);               end;
+procedure  TVS1_Dashboard_pnl.SetLevel3               (const Value: String);   begin SetStringField('Level3', Value);               end;
+procedure  TVS1_Dashboard_pnl.SetLevel4               (const Value: String);   begin SetStringField('Level4', Value);               end;
+procedure  TVS1_Dashboard_pnl.SetLevel5               (const Value: String);   begin SetStringField('Level5', Value);               end;
+
 
   {TVS1_Dashboard_pnl_period}
 
@@ -1142,12 +1381,10 @@ begin
   fSQL := 'SELECT * FROM tmp_vs1_dashboard_pnl_period';
 end;
 
-
 destructor TVS1_Dashboard_pnl_period.Destroy;
 begin
   inherited;
 end;
-
 
 procedure TVS1_Dashboard_pnl_period.LoadFromXMLNode(const node: IXMLNode);
 begin
@@ -1244,7 +1481,6 @@ begin
   SetBooleanPropertyFromNode(node,'HideTotal');
 end;
 
-
 procedure TVS1_Dashboard_pnl_period.SaveToXMLNode(Const node: IXMLNode);
 begin
   inherited;
@@ -1340,14 +1576,12 @@ begin
   AddXMLNode(node,'HideTotal' ,HideTotal);
 end;
 
-
 function TVS1_Dashboard_pnl_period.ValidateData: Boolean ;
 begin
   Result := False;
   Resultstatus.Clear;
   Result := True;
 end;
-
 
 function TVS1_Dashboard_pnl_period.Save: Boolean ;
 begin
@@ -1356,30 +1590,25 @@ begin
   Result := inherited Save;
 end;
 
-
 procedure TVS1_Dashboard_pnl_period.OnDataIdChange(Const ChangeType: TBusObjDataChangeType);
 begin
   inherited;
 end;
-
 
 procedure TVS1_Dashboard_pnl_period.DoFieldOnChange(Sender: TField);
 begin
   inherited;
 end;
 
-
 function TVS1_Dashboard_pnl_period.GetSQL: string;
 begin
   Result := inherited GetSQL;
 end;
 
-
 class function TVS1_Dashboard_pnl_period.GetIDField: string;
 begin
   Result := 'ID'
 end;
-
 
 class function TVS1_Dashboard_pnl_period.GetBusObjectTablename: string;
 begin
@@ -1391,7 +1620,6 @@ function TVS1_Dashboard_pnl_period.DoAfterPost(Sender: TDatasetBusObj): Boolean;
 begin
   Result := inherited DoAfterPost(Sender);
 end;
-
 
 {Property Functions}
 function  TVS1_Dashboard_pnl_period.GetDateFrom_1        : TDateTime ; begin Result := GetDateTimeField('DateFrom_1');end;
@@ -1583,12 +1811,10 @@ begin
   fSQL := 'SELECT * FROM tmp_vs1_dashboard_ap_report';
 end;
 
-
 destructor TVS1_Dashboard_ap_report.Destroy;
 begin
   inherited;
 end;
-
 
 procedure TVS1_Dashboard_ap_report.LoadFromXMLNode(const node: IXMLNode);
 begin
@@ -1601,7 +1827,6 @@ begin
   SetPropertyFromNode(node,'total');
 end;
 
-
 procedure TVS1_Dashboard_ap_report.SaveToXMLNode(Const node: IXMLNode);
 begin
   inherited;
@@ -1613,14 +1838,12 @@ begin
   AddXMLNode(node,'total' ,total);
 end;
 
-
 function TVS1_Dashboard_ap_report.ValidateData: Boolean ;
 begin
   Result := False;
   Resultstatus.Clear;
   Result := True;
 end;
-
 
 function TVS1_Dashboard_ap_report.Save: Boolean ;
 begin
@@ -1639,7 +1862,6 @@ begin
   inherited;
 end;
 
-
 function TVS1_Dashboard_ap_report.GetSQL: string;
 begin
   Result := inherited GetSQL;
@@ -1654,7 +1876,6 @@ class function TVS1_Dashboard_ap_report.GetBusObjectTablename: string;
 begin
   Result:= 'tmp_vs1_dashboard_ap_report';
 end;
-
 
 function TVS1_Dashboard_ap_report.DoAfterPost(Sender: TDatasetBusObj): Boolean;
 begin
@@ -1933,6 +2154,6 @@ initialization
   RegisterClass(TVS1_Dashboard_saleslist);
   RegisterClass(TVS1_Dashboard_salesperemployee);
   RegisterClass(TVS1_Dashboard_summary);
-
+  RegisterClass(TVS1_Dashboard_pnl);
 end.
 

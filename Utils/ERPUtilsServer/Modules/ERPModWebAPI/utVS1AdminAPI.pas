@@ -2854,11 +2854,11 @@ var
                 aResultJson.DT[VS1_TAG_TransTableLastUpdated] := AppEnvVirt.Float['CompanyPrefs.TransactionTableLastUpdated']
               end;
 
-{------------}Procedure Do_VS1_dashboard_ap_report;
+{------------}Procedure Do_VS1_dashboard_AP_Report;
               var
                 avs1_dashboard_ap_report : TVS1_dashboard_ap_report;
               begin
-                avs1_dashboard_ap_report := TVS1_dashboard_ap_report.create(nil);
+                avs1_dashboard_ap_report := TVS1_dashboard_ap_report.Create(nil);
                 try
                   avs1_dashboard_ap_report.Connection := objconn;
                   avs1_dashboard_ap_report.SQLOrder := 'datefrom';
@@ -2873,7 +2873,7 @@ var
               var
                 avs1_dashboard_PnL_Period : TVS1_dashboard_PnL_Period;
               begin
-                avs1_dashboard_PnL_Period := TVS1_dashboard_PnL_Period.create(nil);
+                avs1_dashboard_PnL_Period := TVS1_dashboard_PnL_Period.Create(nil);
                 try
                   avs1_dashboard_PnL_Period.Connection := objconn;
                   avs1_dashboard_PnL_Period.Load;
@@ -2923,6 +2923,20 @@ var
                   AddbusObj(avs1_dashboard_Summary, False);
                 finally
                   Freeandnil(avs1_dashboard_Summary);
+                end;
+              end;
+
+{------------}Procedure Do_VS1_Dashboard_PNL;
+              var
+                pnl_obj: TVS1_Dashboard_pnl;
+              begin
+                pnl_obj := TVS1_Dashboard_pnl.Create(nil);
+                try
+                  pnl_obj.Connection := objconn;
+                  pnl_obj.Load;
+                  AddbusObj(pnl_obj, False);
+                finally
+                  Freeandnil(pnl_obj);
                 end;
               end;
 
@@ -2994,8 +3008,9 @@ var
 begin
   Params := JO(fParams);
 
-  DateFrom := '1970-01-01';
-  DateTo := '2050-12-30';
+  DateFrom := FormatDateTime('yyyy-md-dd', IncMonth(Date, -6)); //'1970-01-01';
+  DateTo := FormatDateTime('yyyy-md-dd', IncDay(Date, +1));   //'2050-12-30';
+
   if Params.Exists(TAG_CLOUD_Params) and Params.O[TAG_CLOUD_Params].Exists('DateFrom') then
     DateFrom := Params.O[TAG_CLOUD_Params].S['DateFrom'];
 
@@ -3031,16 +3046,17 @@ begin
                 aResultJson.I[VS1_TAG_EmployeeID]   := aUser.employeeID;
                 aResultJson.S[VS1_TAG_Employeename] := TEmployee.idtoggle(aUser.employeeID);
 
-                try Do_VS1_dashboard_Employee             ; Except On E:Exception do begin  aResultJson.S['1->'+VS1_TAG_DashboardError+'_'+VS1_TAG_Dashboard_Employee    ] := E.message;  end; end;
-                try Do_VS1_dashboard_EmployeePicture      ; Except On E:Exception do begin  aResultJson.S['2->'+VS1_TAG_DashboardError+'_'+VS1_TAG_Dashboard_EmpPicture  ] := E.message;  end; end;
-                try Do_VS1_dashboard_EmployeeAccessLevel  ; Except On E:Exception do begin  aResultJson.S['3->'+VS1_TAG_DashboardError+'_'+VS1_TAG_Dashboard_EmpAccess   ] := E.message;  end; end;
-                try Do_VS1_dashboard_TransTableLastUpdated; Except On E:Exception do begin  aResultJson.S['4->'+VS1_TAG_DashboardError+'_'+VS1_TAG_Dashboard_LastSumDate ] := E.message;  end; end;
-                try Do_VS1_dashboard_ap_report            ; Except On E:Exception do begin  aResultJson.S['5->'+VS1_TAG_DashboardError+'_'+VS1_TAG_Dashboard_AP_report   ] := E.message;  end; end;
-                try Do_VS1_dashboard_pnl_period           ; Except On E:Exception do begin  aResultJson.S['6->'+VS1_TAG_DashboardError+'_'+VS1_TAG_Dashboard_PnL_report  ] := E.message;  end; end;
-                try Do_VS1_dashboard_saleslist            ; Except On E:Exception do begin  aResultJson.S['7->'+VS1_TAG_DashboardError+'_'+VS1_TAG_Dashboard_SalesList   ] := E.message;  end; end;
-                try Do_VS1_dashboard_salesperemployee     ; Except On E:Exception do begin  aResultJson.S['8->'+VS1_TAG_DashboardError+'_'+VS1_TAG_Dashboard_SalesPerEmp ] := E.message;  end; end;
-                try Do_VS1_Dashboard_Summary              ; Except On E:Exception do begin  aResultJson.S['9->'+VS1_TAG_DashboardError+'_'+VS1_TAG_Dashboard_Summary     ] := E.message;  end; end;
-//                try Do_VS1_Dashboard_Summary2             ; Except On E:Exception do begin  aResultJson.S['10->'+VS1_TAG_DashboardError+'_'+VS1_TAG_Dashboard_Summary2   ] := E.message;  end; end;
+                try Do_VS1_dashboard_Employee             ; Except On E:Exception do begin  aResultJson.S['1->' + VS1_TAG_DashboardError + '_' + VS1_TAG_Dashboard_Employee    ] := E.message;  end; end;
+                try Do_VS1_dashboard_EmployeePicture      ; Except On E:Exception do begin  aResultJson.S['2->' + VS1_TAG_DashboardError + '_' + VS1_TAG_Dashboard_EmpPicture  ] := E.message;  end; end;
+                try Do_VS1_dashboard_EmployeeAccessLevel  ; Except On E:Exception do begin  aResultJson.S['3->' + VS1_TAG_DashboardError + '_' + VS1_TAG_Dashboard_EmpAccess   ] := E.message;  end; end;
+                try Do_VS1_dashboard_TransTableLastUpdated; Except On E:Exception do begin  aResultJson.S['4->' + VS1_TAG_DashboardError + '_' + VS1_TAG_Dashboard_LastSumDate ] := E.message;  end; end;
+                try Do_VS1_dashboard_AP_Report            ; Except On E:Exception do begin  aResultJson.S['5->' + VS1_TAG_DashboardError + '_' + VS1_TAG_Dashboard_AP_report   ] := E.message;  end; end;
+                try Do_VS1_dashboard_PNL_period           ; Except On E:Exception do begin  aResultJson.S['6->' + VS1_TAG_DashboardError + '_' + VS1_TAG_Dashboard_PnL_Report2 ] := E.message;  end; end;
+                try Do_VS1_dashboard_Saleslist            ; Except On E:Exception do begin  aResultJson.S['7->' + VS1_TAG_DashboardError + '_' + VS1_TAG_Dashboard_SalesList   ] := E.message;  end; end;
+                try Do_VS1_dashboard_Salesperemployee     ; Except On E:Exception do begin  aResultJson.S['8->' + VS1_TAG_DashboardError + '_' + VS1_TAG_Dashboard_SalesPerEmp ] := E.message;  end; end;
+                try Do_VS1_Dashboard_Summary              ; Except On E:Exception do begin  aResultJson.S['9->' + VS1_TAG_DashboardError + '_' + VS1_TAG_Dashboard_Summary     ] := E.message;  end; end;
+                try Do_VS1_Dashboard_PNL                  ; Except On E:Exception do begin  aResultJson.S['10->' + VS1_TAG_DashboardError + '_' + VS1_TAG_Dashboard_PnL_Report ] := E.message;  end; end;
+                //try Do_VS1_Dashboard_Summary2             ; Except On E:Exception do begin  aResultJson.S['10->'+VS1_TAG_DashboardError+'_'+VS1_TAG_Dashboard_Summary2   ] := E.message;  end; end;
 
                 aResultJson.I[TAG_ResponseNo] := VS1_HTTP_Success_Code; { "OK" }
                 AddEventdata(fOnEvent, TAG_Obj, aResultJson.AsString, True, aUser.ClassName);

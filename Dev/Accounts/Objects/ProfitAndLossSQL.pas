@@ -64,9 +64,29 @@ implementation
 uses
   TempTableUtils,BaseListUtilsObj, Report_ProfitnLoss_Obj,
   StrUtils, tcConst, TransactionsTable, AppEnvVirtualObj, AppEnvironmentVirtual, DbSharedObjectsObj, FCOnreportLib, ClipBrd, Dialogs,
-  LogLib;
+  LogLib, DateUtils;
 
 { TProfitAndLossReport }
+
+constructor TProfitAndLossReport.Create;
+begin
+  inherited;
+
+  fClientID := 0;
+  fStringListForSQL := nil;
+  fAllAccounts := true;
+  fDetailReport := true;
+  fReportClassName := 'TProfitandLossGUI';
+  fIncludedataPriorToClosingDate := false;
+  DateFrom := IncMonth(Date, -6); //0;
+  DateTo := IncDay(Date, +1);     //Date;
+  fSelectedDepartments := TStringList.Create;
+  fSelectedDepartments.CaseSensitive := False;
+  fTempTableName :=  UniqueTableName('PnL', SharedConnection);
+
+  fCustomLayout := False;
+  fLayoutID := 0;
+end;
 
 function TProfitAndLossReport.ActiveDepartments: TERPQuery;
 begin
@@ -85,42 +105,22 @@ procedure TProfitAndLossReport.CleanRefresh_PL_Table;
 var
   ReportTransactionTableObj: TProfitnLoss_Report_Obj;
   cmd: TERPCommand;
-  ctr: integer;
-  I: integer;
+  ctr: Integer;
+  I: Integer;
   pClass: pClassRec;
 
-  function TransTablename(Loopno :Integer):String;
+  function TransTablename(Loopno: Integer):String;
   begin
-    if ctr = 1 then result := 'tbltransactions' else result := 'tbltransactionsummarydetails';
+    if ctr = 1 then result := 'tbltransactions' else Result := 'tbltransactionsummarydetails';
   end;
 
 begin
   ReportTransactionTableObj := TProfitnLoss_Report_Obj.Create(True);
   try
-    ReportTransactionTableObj.CleanRefresh_PL_Table(DateFrom, DateTo, TempTablename, FCFields , ClientId , IncludePriorClosingDate, APIMode);
+    ReportTransactionTableObj.CleanRefresh_PL_Table(DateFrom, DateTo, TempTablename, FCFields, ClientId, IncludePriorClosingDate, APIMode);
   finally
     ReportTransactionTableObj.Free;
   end;
-end;
-
-constructor TProfitAndLossReport.Create;
-begin
-  inherited;
-  fClientID := 0;
-  fStringListForSQL := nil;
-  fAllAccounts := true;
-  fDetailReport := true;
-  fReportClassName := 'TProfitandLossGUI';
-  fIncludedataPriorToClosingDate := false;
-  DateFrom := 0;
-  DateTo := Date;
-  fSelectedDepartments := TStringList.Create;
-  fSelectedDepartments.CaseSensitive := false;
-  fTempTableName :=  UniqueTableName('PnL', SharedConnection);
-
-  fCustomLayout := false;
-  fLayoutID := 0;
-
 end;
 
 function TProfitAndLossReport.DepartmentSelected(const aDeptName: string): boolean;
@@ -1588,7 +1588,7 @@ begin
 
         SQL.Clear;
         SQL.Text := QrymainSQLList.Text;
-        //self.RefreshOrignalSQL;
+        LogText(SQL.Text);
       finally
         if Assigned(QrymainSQLList) then FreeAndNil(QrymainSQLList);
       end;

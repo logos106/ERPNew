@@ -2,6 +2,8 @@ program ERPModWebAPI;
 
 {$APPTYPE CONSOLE}
 
+{$R 'ERPModWebAPI.res' 'ERPModWebAPI.rc'}
+
 uses
   SysUtils,
   ModWebAPI in 'ModWebAPI.pas',
@@ -705,8 +707,6 @@ uses
 var
   ServerModule1: TModWebAPI;
   ConsoleLogger: TConsoleLogger;
-
-{$R *.res}
 
 begin
   ServerModule1 := TModWebAPI.Create();

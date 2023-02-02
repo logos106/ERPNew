@@ -2,6 +2,10 @@ program ERPModUserUtils;
 
 {$APPTYPE CONSOLE}
 
+
+
+{$R 'ERPModUserUtils.res' 'ERPModUserUtils.rc'}
+
 uses
   SysUtils,
   ServerModuleObj in '..\..\..\..\Common\ServerModules\ServerModuleObj.pas',
@@ -530,8 +534,6 @@ uses
 var
   ServerModule1: TModUserUtils;
   ConsoleLogger: TConsoleLogger;
-
-{$R *.res}
 
 begin
   ServerModule1 := TModUserUtils.Create;

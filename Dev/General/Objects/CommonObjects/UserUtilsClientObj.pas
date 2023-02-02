@@ -190,7 +190,6 @@ begin
   end;
 end;
 
-
 function TUserUtilsClient.ConnectUser(var msg: string;
   const aServerName, aDatabaseName, aUserName: string;
   aFirstName: string = ''; aLastName: string = ''; aMultilogon: boolean = false): boolean;

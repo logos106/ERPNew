@@ -46,6 +46,11 @@
 			<DelphiCompile Include="ERPModClientServer.dpr">
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
+			<RcCompile Include="ERPModClientServer.rc">
+				<ContainerId>RC</ContainerId>
+				<ContainerId>RC</ContainerId>
+				<Form>ERPModClientServer.res</Form>
+			</RcCompile>
 			<DCCReference Include="..\..\..\..\Common\ConsoleLogObj.pas"/>
 			<DCCReference Include="ModClientServer.pas"/>
 			<DCCReference Include="..\..\..\..\Common\ServerModules\ServerModuleObj.pas"/>

@@ -3,9 +3,6 @@
 			<ProjectGuid>{B3794664-7D47-476B-84B6-2F0000F5F61E}</ProjectGuid>
 		</PropertyGroup>
 		<ItemGroup>
-			<Projects Include="Utils\ERPUtilsServer\Modules\ERPModWebAPI\ERPModWebAPI.dproj">
-				<Dependencies/>
-			</Projects>
 			<Projects Include="Utils\ERPUtilsServer\ServiceMenu\ERPServiceMenu.dproj">
 				<Dependencies/>
 			</Projects>
@@ -27,9 +24,6 @@
 			<Projects Include="Dev\ERP.dproj">
 				<Dependencies/>
 			</Projects>
-			<Projects Include="Utils\ERPUtilsServer\EXE\ErpUtilsServerConsole.dproj">
-				<Dependencies/>
-			</Projects>
 			<Projects Include="Utils\ERPUtilsServer\WebServerConsole\ERPWebServerConsole.dproj">
 				<Dependencies/>
 			</Projects>
@@ -42,6 +36,15 @@
 			<Projects Include="Utils\ERPUtilsServer\WebService\ERPWebService.dproj">
 				<Dependencies/>
 			</Projects>
+			<Projects Include="Utils\ERPUtilsServer\UtilsServerConsole\ERPUtilsServerConsole.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Utils\ERPUtilsServer\Modules\ERPModWebAPI\ERPModWebAPI.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\..\Test\Test5\Project1.dproj">
+				<Dependencies/>
+			</Projects>
 		</ItemGroup>
 		<ProjectExtensions>
 			<Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -50,15 +53,6 @@
 				<Default.Personality/>
 			</BorlandProject>
 		</ProjectExtensions>
-		<Target Name="ERPModWebAPI">
-			<MSBuild Projects="Utils\ERPUtilsServer\Modules\ERPModWebAPI\ERPModWebAPI.dproj"/>
-		</Target>
-		<Target Name="ERPModWebAPI:Clean">
-			<MSBuild Projects="Utils\ERPUtilsServer\Modules\ERPModWebAPI\ERPModWebAPI.dproj" Targets="Clean"/>
-		</Target>
-		<Target Name="ERPModWebAPI:Make">
-			<MSBuild Projects="Utils\ERPUtilsServer\Modules\ERPModWebAPI\ERPModWebAPI.dproj" Targets="Make"/>
-		</Target>
 		<Target Name="ERPServiceMenu">
 			<MSBuild Projects="Utils\ERPUtilsServer\ServiceMenu\ERPServiceMenu.dproj"/>
 		</Target>
@@ -122,15 +116,6 @@
 		<Target Name="ERP:Make">
 			<MSBuild Projects="Dev\ERP.dproj" Targets="Make"/>
 		</Target>
-		<Target Name="ErpUtilsServerConsole">
-			<MSBuild Projects="Utils\ERPUtilsServer\EXE\ErpUtilsServerConsole.dproj"/>
-		</Target>
-		<Target Name="ErpUtilsServerConsole:Clean">
-			<MSBuild Projects="Utils\ERPUtilsServer\EXE\ErpUtilsServerConsole.dproj" Targets="Clean"/>
-		</Target>
-		<Target Name="ErpUtilsServerConsole:Make">
-			<MSBuild Projects="Utils\ERPUtilsServer\EXE\ErpUtilsServerConsole.dproj" Targets="Make"/>
-		</Target>
 		<Target Name="ERPWebServerConsole">
 			<MSBuild Projects="Utils\ERPUtilsServer\WebServerConsole\ERPWebServerConsole.dproj"/>
 		</Target>
@@ -167,14 +152,41 @@
 		<Target Name="ERPWebService:Make">
 			<MSBuild Projects="Utils\ERPUtilsServer\WebService\ERPWebService.dproj" Targets="Make"/>
 		</Target>
+		<Target Name="ERPUtilsServerConsole">
+			<MSBuild Projects="Utils\ERPUtilsServer\UtilsServerConsole\ERPUtilsServerConsole.dproj"/>
+		</Target>
+		<Target Name="ERPUtilsServerConsole:Clean">
+			<MSBuild Projects="Utils\ERPUtilsServer\UtilsServerConsole\ERPUtilsServerConsole.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPUtilsServerConsole:Make">
+			<MSBuild Projects="Utils\ERPUtilsServer\UtilsServerConsole\ERPUtilsServerConsole.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="ERPModWebAPI">
+			<MSBuild Projects="Utils\ERPUtilsServer\Modules\ERPModWebAPI\ERPModWebAPI.dproj"/>
+		</Target>
+		<Target Name="ERPModWebAPI:Clean">
+			<MSBuild Projects="Utils\ERPUtilsServer\Modules\ERPModWebAPI\ERPModWebAPI.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="ERPModWebAPI:Make">
+			<MSBuild Projects="Utils\ERPUtilsServer\Modules\ERPModWebAPI\ERPModWebAPI.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Project1">
+			<MSBuild Projects="..\..\..\Test\Test5\Project1.dproj"/>
+		</Target>
+		<Target Name="Project1:Clean">
+			<MSBuild Projects="..\..\..\Test\Test5\Project1.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Project1:Make">
+			<MSBuild Projects="..\..\..\Test\Test5\Project1.dproj" Targets="Make"/>
+		</Target>
 		<Target Name="Build">
-			<CallTarget Targets="ERPModWebAPI;ERPServiceMenu;ERPModClientServer;ERPModEbay;ERPModPMI;ERPModUserUtils;BusObjCreator;ERP;ErpUtilsServerConsole;ERPWebServerConsole;ERPUpdater;ERPUtilsService;ERPWebService"/>
+			<CallTarget Targets="ERPServiceMenu;ERPModClientServer;ERPModEbay;ERPModPMI;ERPModUserUtils;BusObjCreator;ERP;ERPWebServerConsole;ERPUpdater;ERPUtilsService;ERPWebService;ERPUtilsServerConsole;ERPModWebAPI;Project1"/>
 		</Target>
 		<Target Name="Clean">
-			<CallTarget Targets="ERPModWebAPI:Clean;ERPServiceMenu:Clean;ERPModClientServer:Clean;ERPModEbay:Clean;ERPModPMI:Clean;ERPModUserUtils:Clean;BusObjCreator:Clean;ERP:Clean;ErpUtilsServerConsole:Clean;ERPWebServerConsole:Clean;ERPUpdater:Clean;ERPUtilsService:Clean;ERPWebService:Clean"/>
+			<CallTarget Targets="ERPServiceMenu:Clean;ERPModClientServer:Clean;ERPModEbay:Clean;ERPModPMI:Clean;ERPModUserUtils:Clean;BusObjCreator:Clean;ERP:Clean;ERPWebServerConsole:Clean;ERPUpdater:Clean;ERPUtilsService:Clean;ERPWebService:Clean;ERPUtilsServerConsole:Clean;ERPModWebAPI:Clean;Project1:Clean"/>
 		</Target>
 		<Target Name="Make">
-			<CallTarget Targets="ERPModWebAPI:Make;ERPServiceMenu:Make;ERPModClientServer:Make;ERPModEbay:Make;ERPModPMI:Make;ERPModUserUtils:Make;BusObjCreator:Make;ERP:Make;ErpUtilsServerConsole:Make;ERPWebServerConsole:Make;ERPUpdater:Make;ERPUtilsService:Make;ERPWebService:Make"/>
+			<CallTarget Targets="ERPServiceMenu:Make;ERPModClientServer:Make;ERPModEbay:Make;ERPModPMI:Make;ERPModUserUtils:Make;BusObjCreator:Make;ERP:Make;ERPWebServerConsole:Make;ERPUpdater:Make;ERPUtilsService:Make;ERPWebService:Make;ERPUtilsServerConsole:Make;ERPModWebAPI:Make;Project1:Make"/>
 		</Target>
 		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
 	</Project>
