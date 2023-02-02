@@ -49,11 +49,6 @@
 			<DelphiCompile Include="ERPModWebAPI.dpr">
 				<MainSource>MainSource</MainSource>
 			</DelphiCompile>
-			<RcCompile Include="ERPModWebAPI.rc">
-				<ContainerId>RC</ContainerId>
-				<ContainerId>RC</ContainerId>
-				<Form>ERPModWebAPI.res</Form>
-			</RcCompile>
 			<DCCReference Include="ModWebAPI.pas"/>
 			<DCCReference Include="..\..\..\..\Common\ServerModules\ServerModuleObj.pas"/>
 			<DCCReference Include="..\..\..\..\Common\ModuleComms3.pas"/>
@@ -753,6 +748,10 @@
 			<DCCReference Include="..\..\..\..\Dev\Payments\Objects\BusObjReceiptLog.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\ChartOfAccountsListSQL.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Returns\Objects\BusObjVatReturns.Pas"/>
+			<RcCompile Include="ERPModWebAPI.rc">
+				<ContainerId>RC</ContainerId>
+				<Form>ERPModWebAPI.res</Form>
+			</RcCompile>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

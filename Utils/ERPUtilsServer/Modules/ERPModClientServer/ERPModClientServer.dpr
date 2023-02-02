@@ -2,8 +2,6 @@ program ERPModClientServer;
 
 {$APPTYPE CONSOLE}
 
-{$R 'ERPModClientServer.res' 'ERPModClientServer.rc'}
-
 uses
   SysUtils,
   ConsoleLogObj in '..\..\..\..\Common\ConsoleLogObj.pas',
@@ -52,6 +50,8 @@ uses
   ModuleDbUtils in '..\ModuleDbUtils.pas',
   JSONObject in '..\..\..\..\Common\JSONObject.pas',
   LogMessageTypes in '..\..\..\..\Dev\General\Objects\CommonObjects\LogMessageTypes.pas';
+
+{$R *.RES}
 
 var
   ServerModule1: TModClientServer;

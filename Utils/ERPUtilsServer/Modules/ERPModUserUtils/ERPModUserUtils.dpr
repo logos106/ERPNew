@@ -2,10 +2,6 @@ program ERPModUserUtils;
 
 {$APPTYPE CONSOLE}
 
-
-
-{$R 'ERPModUserUtils.res' 'ERPModUserUtils.rc'}
-
 uses
   SysUtils,
   ServerModuleObj in '..\..\..\..\Common\ServerModules\ServerModuleObj.pas',
@@ -530,6 +526,8 @@ uses
   BusObjFCOnReport in '..\..\..\..\Dev\BaseClasses\Objects\BusObjFCOnReport.pas',
   ExportERPDBExternal in '..\ExportERPDBExternal.pas',
   ModUserUtils in 'ModUserUtils.pas';
+
+{$R *.RES}
 
 var
   ServerModule1: TModUserUtils;

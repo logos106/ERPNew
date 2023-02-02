@@ -2,8 +2,6 @@ program ERPModWebAPI;
 
 {$APPTYPE CONSOLE}
 
-{$R 'ERPModWebAPI.res' 'ERPModWebAPI.rc'}
-
 uses
   SysUtils,
   ModWebAPI in 'ModWebAPI.pas',
@@ -703,6 +701,8 @@ uses
   BusObjVatReturns in '..\..\..\..\Dev\Returns\Objects\BusObjVatReturns.Pas';
 
 //  BusObjPQAList in '..\..\..\..\Dev\Inventory\Objects\BusObjPQAList.pas';
+
+{$R *.RES}
 
 var
   ServerModule1: TModWebAPI;
