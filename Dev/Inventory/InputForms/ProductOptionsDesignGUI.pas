@@ -978,6 +978,30 @@ begin
   //get partsId from either the combo or from the caller
   //populate cst,price etc from TSimpleProduct or the combo
 
+    ThisLine      := TConfig.Create;
+    With qryGeneral do begin
+      Close;
+      SQL.Text := 'SELECT id FROM tblproductheader h WHERE h.trueerp_product_id = :pid';
+      ParamByName('pid').AsInteger := partsId;
+      Open;
+      if EOF then begin
+        Inc(MaxId);
+        ThisLine.id           := MaxId;
+        FNew                  := True;
+      end else begin
+        ThisLine.id           := FieldByName('id').ASInteger;
+        FNew                  := False;
+      end;
+      if FNew then begin
+        ThisLine.parentId     := 0;
+        ThisLine.OptionName   := edProductName.Text;
+        ThisLine.OptionAbbrev := Copy(edProductName.Text,1,10);
+        ThisLine.OptionCost   := cboProductQry.FieldByName('COST1').AsExtended;
+        ThisLine.OptionPrice  := cboProductQry.FieldByName('PRICE1').AsExtended;
+        ThisLine.ObjectType   := 'S';
+        ProductConfig.Add(ThisLine);
+      end;
+    end;
     ProgDlg.Caption  := 'Getting Product Tree';
     ProgDlg.MaxValue := 10;
     ProgDlg.Value    := 1;
@@ -1022,7 +1046,6 @@ begin
         Next;
       end;
     end;
-
     BuildTreeView(ProgDlg);
     if tvProduct.Items.Count > 0 then begin
       tvProduct.Items[0].Selected := True;
@@ -1068,15 +1091,15 @@ begin
         //Application.ProcessMessages;
       end;
       tempConfig := ProductConfig.Items[i];
-//      if tempConfig.parentId = 0 then begin //root
-//         tempNode            := tvProduct.Items.Add(Nil, tempConfig.OptionName);
-//         tempConfig.parentId := 0;
-//         tempNode.Data       := tempConfig;
-//          VTable.Append;
-//          VTable.FieldByName('Node').ASInteger := Integer(tempNode);
-//          VTable.FieldByName('id').ASInteger := TConfig(tempNode.Data).id;
-//          VTable.Post;
-//      end else  begin
+      if tempConfig.parentId = 0 then begin //root
+         tempNode            := tvProduct.Items.Add(Nil, tempConfig.OptionName);
+         tempConfig.parentId := 0;
+         tempNode.Data       := tempConfig;
+          VTable.Append;
+          VTable.FieldByName('Node').ASInteger := Integer(tempNode);
+          VTable.FieldByName('id').ASInteger := TConfig(tempNode.Data).id;
+          VTable.Post;
+      end else  begin
         if parentNode <> Nil then begin
           if TConfig(parentNode.Data).id <> tempConfig.parentId then
             parentNode          := FindParentNode(tempConfig.parentId);
@@ -1089,7 +1112,7 @@ begin
         VTable.FieldByName('Node').ASInteger := Integer(tempNode);
         VTable.FieldByName('id').ASInteger := TConfig(tempNode.Data).id;
         VTable.Post;
-      //end;
+      end;
     end;
   finally
     tvProduct.Items.EndUpdate;
