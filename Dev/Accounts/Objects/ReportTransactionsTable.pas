@@ -50,7 +50,7 @@ end;
 procedure TReportTransactionTableObj.MyScriptBeforeExecute(Sender: TObject;var SQL: String; var Omit: Boolean);
 begin
   inherited;
-  fdTime := now;
+  fdTime := Now;
 end;
 
 function TReportTransactionTableObj.TempMyQuery(Connection: TERPConnection): TERPQuery;
@@ -89,30 +89,30 @@ end;
 procedure TReportTransactionTableObj.ExecuteBulkSQL;
 begin
   try
-      if Assigned(ProgressDlg) then begin
-        ProgressDlg.Caption := 'Please Wait .......';
-        ProgressDlg.MinValue := 0;
-        ProgressDlg.Step := 1;
-      end;
-      if not Assigned(qryMyScript) then qryMyScript:= TempMyScript;
-      qryMyScript.BeforeExecute := MyScriptBeforeExecute;
-      qryMyScript.AfterExecute  := MyScriptAfterExecute;
-      qryMyScript.SQL.Clear;
-      qryMyScript.SQL.Text := ChangeQuery(BulkSQL.Text);
-      if Assigned(ProgressDlg) then begin
-        ProgressDlg.MaxValue:= qryMyScript.Statements.Count;
-        ProgressDlg.Execute;
-      end;
-      BulkSQL.Clear;
-      qryMyScript.IgnorenContinueOnError := True;
-      qryMyScript.ProcessScriptExecteError := DoProcessScriptExecteError;
-      qryMyScript.Execute;
-    finally
-      FreeAndNil(qryMyScript);
-      if Assigned(ProgressDlg) then begin
-        ProgressDlg.CloseDialog;
-      end;
+    if Assigned(ProgressDlg) then begin
+      ProgressDlg.Caption := 'Please Wait .......';
+      ProgressDlg.MinValue := 0;
+      ProgressDlg.Step := 1;
     end;
+    if not Assigned(qryMyScript) then qryMyScript:= TempMyScript;
+    qryMyScript.BeforeExecute := MyScriptBeforeExecute;
+    qryMyScript.AfterExecute  := MyScriptAfterExecute;
+    qryMyScript.SQL.Clear;
+    qryMyScript.SQL.Text := ChangeQuery(BulkSQL.Text);
+    if Assigned(ProgressDlg) then begin
+      ProgressDlg.MaxValue:= qryMyScript.Statements.Count;
+      ProgressDlg.Execute;
+    end;
+    BulkSQL.Clear;
+    qryMyScript.IgnorenContinueOnError := True;
+    qryMyScript.ProcessScriptExecteError := DoProcessScriptExecteError;
+    qryMyScript.Execute;
+  finally
+    FreeAndNil(qryMyScript);
+    if Assigned(ProgressDlg) then begin
+      ProgressDlg.CloseDialog;
+    end;
+  end;
 end;
 
 Function TReportTransactionTableObj.GetAccountID(const AccountName: String): Integer;

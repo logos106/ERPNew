@@ -29,10 +29,12 @@ var
   Save_Cursor: TCursor;
   fsTablename :String;
   ctr:Integer;
+
   function Transtablename(const counter:Integer):String;
   begin
-    if counter = 1 then result := 'tbltransactions' else result := 'tbltransactionsummarydetails';
+    if counter = 1 then Result := 'tbltransactions' else Result := 'tbltransactionsummarydetails';
   end;
+
   function AccountHeaders:String;  begin
     Result := Firstcolumn('A')  +' as AccountHeaderOrder,'+
       Secondcolumn('A') +' as AccountSub1Order,'+
@@ -64,7 +66,7 @@ begin
     try
       with BulkSQL do begin
         Clear;
-        Add('DELETE  FROM ' + fsTablename + ' ;');
+        Add('DELETE FROM ' + fsTablename + ' ;');
         Add('ALTER TABLE ' + fsTablename + ' CHANGE `ID` `ID` INT(11)  NOT NULL;');
         Add('ALTER TABLE ' + fsTablename + '  ENGINE = InnoDB;');
         Add('ALTER TABLE ' + fsTablename + '  ENGINE = MyISAM;');
@@ -359,19 +361,6 @@ begin
           end;
         end;
      end;
-      (*ProgressDlg.Caption := 'Please Wait .......';
-      ProgressDlg.MinValue := 0;
-      ProgressDlg.Step := 1;
-      if not Assigned(qryMyScript) then qryMyScript:= TempMyScript;
-      qryMyScript.BeforeExecute := MyScriptBeforeExecute;
-      qryMyScript.SQL.Clear;
-      qryMyScript.SQL.Text := ChangeQuery(BulkSQL.Text);
-      ProgressDlg.MaxValue := qryMyScript.Statements.Count;
-      ProgressDlg.Execute;
-      BulkSQL.Clear;
-      qryMyScript.IgnorenContinueOnError := True;
-      qryMyScript.ProcessScriptExecteError := DoProcessScriptExecteError;
-      qryMyScript.Execute;*)
       ExecuteBulkSQL;
     finally
       (*ProgressDlg.CloseDialog;*)

@@ -302,7 +302,7 @@ function TReportSQLProfitAndLossBase.Prepareforreport: Boolean;
 var
   ProfitnLossPeriod_Report_Obj: TProfitnLossPeriod_Report_Obj;
 begin
-  if BudgetId = 0 then  BudgetId := GuiPrefs.Node['Budget.Id'].asInteger;
+  if BudgetId = 0 then BudgetId := GuiPrefs.Node['Budget.Id'].AsInteger;
   ClosenfreeFCOnReport; // will reopen the fc table if any new currency is selected
   AddFCFields; // this is to make sure if any new currecny field is selected
   ProfitnLossPeriod_Report_Obj := TProfitnLossPeriod_Report_Obj.Create(True);

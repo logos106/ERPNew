@@ -38,7 +38,7 @@ var
   ExportToreportDB: TExportToreportDB;
 begin
   ExportToreportDB:= TExportToreportDB(Sender);
-  if SameText(ExportToreportDB.Progress.SubOperationName,'Error') then Log(ExportToreportDB.Progress.Detail,ltError)
+  if SameText(ExportToreportDB.Progress.SubOperationName, 'Error') then Log(ExportToreportDB.Progress.Detail,ltError)
   else Log(ExportToreportDB.Progress.Detail, ltDetail);
 end;
 
@@ -155,9 +155,6 @@ begin
         ExportToreportDB.ServerName := Conn.Server;
         ExportToreportDB.DatabaseName := Conn.Database;
 
-        //ExportExternal.ServerName := Conn.Server;
-        //ExportExternal.DatabaseName := Conn.Database;
-
         TAppEnvVirtualGUI(AppEnvVirt).SharedDbConnection := Conn;
         try
           UserCount := TSharedAppUserList.ExDatabaseUserCount(sl[x], MySQLServer);
@@ -196,15 +193,13 @@ begin
 
               if DoNonERPClone then begin
                 Self.StatusMessage := 'Cloning: ' + DbBackup.DatabaseName;
-                DbBackup.Clone(DbBackup.DatabaseName+'_NonERPClone', False, True)
-              end else Log(Conn.Database +' : NonERPCloning database is not Enabled', ltInfo);
+                DbBackup.Clone(DbBackup.DatabaseName + '_NonERPClone', False, True)
+              end else Log(Conn.Database + ' : NonERPCloning database is not Enabled', ltInfo);
 
               LastTask := '';
               IsError := False;
               LastSubTask := '';
               LastDetail := '';
-//              qry.Connection := Conn;
-//              DbBackup.Optimise;
 
               try
                 AppEnvVirt.Bool['CompanyPrefs.BatchUpdateInProgress'] := False;

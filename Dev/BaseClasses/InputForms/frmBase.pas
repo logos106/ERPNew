@@ -375,11 +375,13 @@ begin
     Self.width := NewWidth;
   Makeitcentralized;
 end;
+
 Procedure TfrmBaseGUI.TallerForm(NewHeight :Integer =700);
 begin
   Self.height := NewHeight;
   Makeitcentralized;
 end;
+
 procedure TfrmBaseGUI.CMDialogKey(var msg: TCMDialogKey);
 begin
   if (msg.Charcode = VK_TAB) then begin
@@ -1204,15 +1206,16 @@ end;
 
 procedure TfrmBaseGUI.SetDefaultColor;
 var
-  ctr:Integer;
+  ctr: Integer;
 begin
-  for ctr := 0 to componentcount-1 do begin
+  for ctr := 0 to componentcount - 1 do begin
     if components[ctr] is TShader then begin
-      TShader(components[ctr]).FromColor := self.color;
-      TShader(components[ctr]).ToColorMirror :=self.color;
+      TShader(components[ctr]).FromColor := Self.color;
+      TShader(components[ctr]).ToColorMirror := Self.color;
     end;
   end;
 end;
+
 Function TfrmBaseGUI.MenuItemByname(PopupMenu:TAdvPopupMenu; Caption:String):TMenuitem;
 begin
   REsult := nil;

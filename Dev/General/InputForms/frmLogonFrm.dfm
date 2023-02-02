@@ -808,7 +808,7 @@ inherited frmLogon: TfrmLogon
           OnChange = cboServerChange
         end
       end
-      object DNMPanel1: TDNMPanel
+      object pnlLogon: TDNMPanel
         AlignWithMargins = True
         Left = 1
         Top = 223
@@ -887,6 +887,7 @@ inherited frmLogon: TfrmLogon
           Font.Style = [fsBold]
           ParentFont = False
           Visible = False
+          ExplicitWidth = 229
         end
         object edtPassword: TEdit
           Left = 39
@@ -974,7 +975,6 @@ inherited frmLogon: TfrmLogon
           TabOrder = 3
           AutoDisableParentOnclick = True
           OnClick = btnNewPasswordClick
-          ExplicitTop = 73
         end
       end
       object DNMPanel2: TDNMPanel
@@ -999,12 +999,11 @@ inherited frmLogon: TfrmLogon
         ParentColor = True
         ParentFont = False
         TabOrder = 3
-        ExplicitTop = 362
         DesignSize = (
           378
           43)
         object cmdLogon: TDNMSpeedButton
-          Left = 20
+          Left = 18
           Top = 5
           Width = 106
           Height = 30
@@ -1143,8 +1142,6 @@ inherited frmLogon: TfrmLogon
         ParentColor = True
         ParentFont = False
         TabOrder = 4
-        ExplicitTop = 405
-        ExplicitHeight = 45
         object lblVersionLabel: TLabel
           Left = 0
           Top = 0

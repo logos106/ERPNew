@@ -34,12 +34,14 @@ type
    { month, quarter, year }
     property PeriodType: string read fPeriodType write fPeriodType;
   end;
+
   TProfitAndLossPeriodCompareReport = Class(TProfitAndLossPeriodReportBase)
     Private
     Protected
     Public
       constructor Create; override;
   End;
+
   TProfitAndLossPeriodReport = Class(TProfitAndLossPeriodReportBase)
     Private
     Protected
@@ -61,8 +63,8 @@ constructor TProfitAndLossPeriodReportBase.Create;
 begin
   inherited;
   //fReportSQLObj := TProfitandLossPeriodCompare.Create(nil);
-  fDateTo := EndOfAMonth(YearOf(Date),MonthOf(Date));
-  fDateFrom := Trunc(IncDay(IncYear(fDateTo,-2),1));
+  fDateTo := EndOfAMonth(YearOf(Date), MonthOf(Date));
+  fDateFrom := Trunc(IncDay(IncYear(fDateTo, -2), 1));
   fPeriodType := Month1;
   fIncludedataPriorToClosingDate := true;
 end;
@@ -87,18 +89,17 @@ end;
 
 function TProfitAndLossPeriodReportBase.PopulateReportSQL(SQL: TStrings; var msg: string; SQLHeading, SQLDetails :String ): boolean;
 begin
-  result := PopulateReportSQL(SQL, msg);
-  SQLHeading :=fReportSQLobj.ReportSQLMain_Heading;
-  SQLDetails :=fReportSQLobj.ReportSQLMain_Details;
+  Result := PopulateReportSQL(SQL, msg);
+  SQLHeading := fReportSQLobj.ReportSQLMain_Heading;
+  SQLDetails := fReportSQLobj.ReportSQLMain_Details;
 end;
 
 
 function TProfitAndLossPeriodReportBase.PopulateReportSQL(SQL: TStrings;  var msg: string): boolean;
 begin
-  result := inherited;
+  Result := inherited;
   fReportSQLobj.employeeID := AppEnvVirt.Int['Employee.employeeID'];// EmployeeId;//Appenv.Employee.EmployeeID;
   fReportSQLobj.IncludedataPriorToClosingDate := IncludePriorClosingDate;
-
 
   if SameText(PeriodType, Months12) then begin
     fReportSQLobj.Periodtype := ptYear;

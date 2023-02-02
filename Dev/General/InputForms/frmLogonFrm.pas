@@ -32,7 +32,7 @@ type
     lbServerName: TLabel;
     cboDatabases: TwwDBComboBox;
     cboServer: TwwDBComboBox;
-    DNMPanel1: TDNMPanel;
+    pnlLogon: TDNMPanel;
     Label1: TLabel;
     Label3: TLabel;
     lblPasswordMessage: TLabel;
@@ -91,8 +91,10 @@ type
     procedure RefreshDbname;
     procedure MinimiseAllApps;
     procedure initcolor;
+
   Protected
     function ignorelogInuseform:boolean;Override;
+
   public
     CompaniesAlreadyCreated: boolean;
 
@@ -147,18 +149,19 @@ begin
     h := GetNextWindow(h, GW_HWNDNEXT);
   end;
 end;
+
 procedure TfrmLogon.FormCreate(Sender: TObject);
 begin
   inherited;
   MinimiseAllApps;
-  SetButtonProperties(Self , '');
+  SetButtonProperties(Self, '');
   lblPAsswordMessage.Caption := '';
   DaysUntilPasswordExpiry := 0;
-  CompaniesAlreadyCreated:= false;
-  Initialising:= true;
+  CompaniesAlreadyCreated:= False;
+  Initialising := True;
   try
-    bControlKeyDown := false;
-    bClosing := false;
+    bControlKeyDown := False;
+    bClosing := False;
     fbExitOnComplete := False;
     cboServer.Items.Text:= AppEnv.AppDb.ServerList.Text;
     if (cboServer.Items.Count > 0) and (AppEnv.AppDb.Server <> '') then begin
@@ -171,35 +174,36 @@ begin
     GetUsers;
 
     if (GetKeyState(VK_CONTROL) < 0) then begin
-      bControlKeyDown      := true;
-      cboServer.Visible    := true;
-      lbServerName.Visible := true;
-(*      bevVersion.Visible := false;
-      lblVersionLabel.Visible := false;*)
-      //lbClientVersion.Visible := false;
-
+      bControlKeyDown      := True;
+      cboServer.Visible    := True;
+      lbServerName.Visible := True;
     end else begin
       {$IFDEF DevMode}
-        cboServer.Visible    := true;
-        lbServerName.Visible := true;
+        cboServer.Visible    := True;
+        lbServerName.Visible := True;
       {$ENDIF}
     end;
+
     if lbServerName.Visible then begin
-       pnldb.height := 90;
+       pnldb.Height := 90;
        Self.Height := 385;
     end else begin
        pnldb.height := 60;
        Self.Height := 350;
     end;
+
+    btnNewPassword.Left := 273;
+    btnNewPassword.Top := 74;
+
     if cboDatabases.Items.Count > 0 then begin
       if (cboDatabases.Items.Count = 1) and (cboDatabases.Text > '') and
         (cboDatabases.Text[1] <> '(') and (not cboServer.Visible) then begin
-        cboDatabases.Visible := false;
-        Label2.Visible := false;
+        cboDatabases.Visible := False;
+        Label2.Visible := False;
       end;
 
     end else begin
-      cboUser.Enabled:= false;
+      cboUser.Enabled:= False;
       cboDatabases.Text  := 'NO DATABASE FOUND';
     end;
 
@@ -208,7 +212,7 @@ begin
     lblVersionLabel.Alignment := taCenter;
 
   finally
-    Initialising:= false;
+    Initialising := False;
   end;
 end;
 
@@ -218,10 +222,10 @@ s:String;
 begin
   inherited;
   if not(DEvmode) then exit;
-  if cboServer.Visible=False then exit;
+  if cboServer.Visible = False then exit;
   s := inputBox('Server name:','' , '');
-  if s='' then exit;
-  if cboServer.Items.IndexOf(s)<0 then begin
+  if s = '' then exit;
+  if cboServer.Items.IndexOf(s) < 0 then begin
     cboServer.Items.Add(s);
     cboServer.Refresh;
   end;
@@ -587,7 +591,6 @@ begin
 end;
 
 procedure TfrmLogon.cboUserChange(Sender: TObject);
-
   procedure ShowPassWarning(const aMsg: string);
   begin
     lblPasswordMessage.Caption := aMsg;
@@ -595,10 +598,9 @@ procedure TfrmLogon.cboUserChange(Sender: TObject);
     lblPasswordMessage.Transparent := false;
     lblPasswordMessage.Transparent := true;
   end;
-
 begin
   AppEnv.AppDb.UserName:= cboUser.Text;
-  lblPasswordMessage.Visible := false;
+  lblPasswordMessage.Visible := False;
 
   if TPersonalPreferences.UserPasswordNeverExpires(cboUser.Text, cboServer.Text, cboDatabases.Text) then
     exit;
@@ -972,9 +974,6 @@ begin
   end
   else
     MessageDlgXP_Vista('Cannot Find Help File "Log In issue.pdf"', mtWarning,[mbOk], 0);
-
-
-
 end;
 
 procedure TfrmLogon.btnNewPasswordClick(Sender: TObject);

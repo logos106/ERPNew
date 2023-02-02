@@ -204,22 +204,22 @@ type
     procedure GetClasses(SelectedDepartments: TStrings= nil; includeInactive:Boolean =True);
     procedure ClearClasses;
 
-    function CreatePermanentSummaryTable:Boolean;
-    function CleanRefreshTrnsTable(const RefreshBatch: boolean = false; const SummaryDetailsTable: boolean = false; const VerfiyBalances: boolean = false; const KeepSummariseDt: boolean = false):Boolean;
-    Function CleanOutTempTables:boolean;
+    function CreatePermanentSummaryTable: Boolean;
+    function CleanRefreshTrnsTable(const RefreshBatch: Boolean = False; const SummaryDetailsTable: Boolean = False; const VerfiyBalances: Boolean = False; const KeepSummariseDt: Boolean = False): Boolean;
+    Function CleanOutTempTables: Boolean;
     Procedure CleanOutUserTempTables;
     Procedure InitforRefreshTrnsTable;
-    property RecalcGroupItemCosts: boolean read bRecalcGroupItemCosts write bRecalcGroupItemCosts;
+    property RecalcGroupItemCosts: Boolean read bRecalcGroupItemCosts write bRecalcGroupItemCosts;
     property NoExecuteUpdates: boolean read bNoExecuteUpdates write bNoExecuteUpdates;
     property LstClass: TList read fLstClass;
     property LstFC: TList read fLstFC;
     property DoingRefresh: boolean read fDoingRefresh;
     Property IsOwnerListing:boolean read fbIsOwnerListing write fbIsOwnerListing;
-    Function Lock(Groupname:STring):boolean;
+    Function Lock(Groupname:STring): Boolean;
     Procedure UnLock(Groupname:STring);
     property Logger: TLoggerBase read fLogger write fLogger;
     property BeforeScriptExecute: TBeforeStatementExecuteEvent read fBeforeScriptExecute write fBeforeScriptExecute;
-    Procedure DoProcessScriptExecteError(const Value:String);
+    Procedure DoProcessScriptExecteError(const Value: String);
 
     //function NonInvProductcostinBOM(const tblParts:String ='P'; const tblproctree:string ='PT'):String;
     Function aQuery:TERPQuery;
@@ -6753,7 +6753,7 @@ begin
     result := '`' +trim(fieldname) +'`';
 end;
 
-function TTransactionTableObj.CleanRefreshTrnsTable(const RefreshBatch: boolean=false; const SummaryDetailsTable: boolean = false; const VerfiyBalances: boolean = false; const KeepSummariseDt: boolean = false):Boolean;
+function TTransactionTableObj.CleanRefreshTrnsTable(const RefreshBatch: Boolean = False; const SummaryDetailsTable: Boolean = False; const VerfiyBalances: Boolean = False; const KeepSummariseDt: Boolean = False): Boolean;
 var
     AccruedLeaveLiabAdj           : TAccruedLeaveLiabilitiesAdjObj;
     Save_Cursor                   : TCursor;
@@ -7241,15 +7241,15 @@ var
   begin
     fReportSQLObj := TProfitAndLossPeriodReport.Create;
     try
-      aParams := jo;
+      aParams := JO;
       aParams.DT[TAG_DATEFROM] := aDtFrom;
       aParams.DT[TAG_DATETO] := aDtTo;
       aParams.S[TAG_PeriodType] := 'Month';
       fReportSQLObj.AssignParams(aParams);
       sct.SQL.Clear;
       fReportSQLObj.PopulateReportSQL(sct.SQL, msg);
-      sct.SQL.text := 'DROP TABLE IF EXISTS tmp_VS1_Dashboard_Pnl_Period;' +
-                        'CREATE TABLE tmp_VS1_Dashboard_Pnl_Period ' + sct.SQL.text + ';' +
+      sct.SQL.Text := 'DROP TABLE IF EXISTS tmp_VS1_Dashboard_Pnl_Period;' +
+                        'CREATE TABLE tmp_VS1_Dashboard_Pnl_Period ' + sct.SQL.Text + ';' +
                         'DELETE FROM tmp_VS1_Dashboard_Pnl_Period WHERE NOT(`accounttypedesc` LIKE "Total%" OR `accounttypedesc` LIKE "Net%");' ;
       sct.Execute;
     finally
@@ -8024,16 +8024,16 @@ begin
   fSharedConnection := nil;
   COGSCoststatus := ccsNone;
   CreateTransObj;
-  IsOwnerListing :=OwnerListing;
+  IsOwnerListing := OwnerListing;
   fOnLog := nil;
-
 end;
+
 function TTransactionTableObj.SumSeqno(const Value:Integer ):String;
 begin
-  result := 'if(Seqno>100 , Seqno , ' +inttostr(Value) +'+Seqno) as Seqno';
+  Result := 'IF(Seqno > 100, Seqno, ' + IntToStr(Value) + ' + Seqno) AS Seqno';
 end;
 
-Function TTransactionTableObj.CreatePermanentSummaryTable:Boolean;
+Function TTransactionTableObj.CreatePermanentSummaryTable: Boolean;
 var
   SummarisedTransDate: TDateTime;
   qryAccountIDTemp: TERPQuery;
