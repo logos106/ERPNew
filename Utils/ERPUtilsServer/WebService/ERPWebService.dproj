@@ -763,6 +763,7 @@
 			<DCCReference Include="..\..\..\Common\JsonObjectUtils.pas"/>
 			<DCCReference Include="..\Modules\ERPModUserUtils\ERPLicenseLib.pas"/>
 			<DCCReference Include="..\Modules\ModuleDbUtils.pas"/>
+			<DCCReference Include="..\..\..\Dev\Accounts\Objects\BusObjBankImportRule.pas"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

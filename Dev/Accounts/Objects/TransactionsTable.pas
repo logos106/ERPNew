@@ -262,7 +262,7 @@ uses
   {$IFNDEF CONSOLE}  {$IFDEF DevMode}  , LogLib  {$ENDIF}  {$ENDIF}
   ,ProfitAndLossPeriodCompareSQL, JSONObject, utCloudconst,
   APReportSQL, SalesListSQL   , ProfitAndLossSQL,
-  ProductStockReportLib, BalanceSheetSQL, CommonDbLib, LogLib;
+  ProductStockReportLib, BalanceSheetSQL, CommonDbLib;
 
 {$IFDEF DevMode}
 Const
@@ -7392,7 +7392,6 @@ var
         fReportSQLObj.AssignParams(aParams);
         sct.SQL.Clear;
         fReportSQLObj.PopulateReportSQL(sct.SQL, msg);
-        LogText(sct.SQL.Text);
         sct.SQL.text := ' DROP TABLE IF EXISTS tmp_VS1_Dashboard_PNL;' +
                         ' CREATE TABLE tmp_VS1_Dashboard_PNL ' + sct.SQL.text +
 //                        ' DELETE FROM tmp_VS1_Dashboard_PNL  WHERE NOT(`account type` LIKE "Total%" OR `account type` LIKE "Net%");' +
