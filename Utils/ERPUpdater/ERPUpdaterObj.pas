@@ -313,6 +313,7 @@ begin
         item := Config.O['updatelist'].Items[x].Value.AsObject;
         itemName := Config.O['updatelist'].Items[x].Name;
         if Assigned(item) then begin
+          // Get current version
           currentVersion := '';
           if Item.StringExists('version') then
             currentVersion := StripVersionText(item.S['version'])
@@ -326,6 +327,7 @@ begin
           end;
 
           TLogger.Inst.Log('Checking updates for: ' + itemName + '  (Ver ' + currentVersion + ')', ltDetail);
+
           { find update info }
           UpdateProcessed := False;
           try
@@ -342,8 +344,8 @@ begin
                   {get latest}
                   y := versionList.Count - 1;
                   latestVersion := StripVersionText(versionList.Items[y].Name);
-  //                if latestVersion > currentVersion then begin
-                  if VersionUtils.VersionComp(latestVersion, currentVersion) > 0 then begin
+//                  if (VersionUtils.VersionComp(latestVersion, currentVersion) > 0) or ((currentVersion = '2023.0.4.0') and (itemName = 'ERPUtilsService')) then begin
+                  if latestVersion > currentVersion then begin
                     TLogger.Inst.Log('   Updating to version: ' + latestVersion + ' ...', ltDetail);
                     if not ProcessUpdateVersion(versionList.Items[y].Value.AsObject) then
                       Exit
@@ -371,35 +373,12 @@ begin
           if (not UpdateProcessed) then begin
             if item.BooleanExists('ForceRestart') and item.B['ForceRestart'] and
               (Lowercase(ExtractFileExt(item.S['modulefilename'])) = '.exe') then begin
+
               TLogger.Inst.Log('   Forcing restart.',ltDetail);
-//              if SameText(ExtractFileName(item.S['modulefilename']),'ERPUtilsService.exe') then begin
-//                { send a message to utils service to shut it down }
-//                TLogger.Inst.Log('   Sending message to shut down ERPUtilsService.',ltDetail);
-//                Client := TJsonRpcTcpClient.Create;
-//                try
-//                  try
-//                    Client.Connected := true;
-//                    if Client.Connected then begin
-//                      Client.SendNotification('terminate',nil);
-//                      Client.Connected:= false;
-//                      Sleep(5000);
-//                      Continue;
-//                    end
-//                    else begin
-//                      TLogger.Inst.Log('   Could not connect to ERPUtilsService to send termination message.',ltError);
-//                    end;
-//                  except
-//                    on e: exception do begin
-//                      TLogger.Inst.Log('   Error sending termination message to ERPUtilsService: ' + e.Message,ltError);
-//                    end;
-//                  end;
-//                finally
-//                  Client.Free;
-//                end;
-//              end;
+
               if item.StringExists('ServiceName') then begin
                 if not RestartList.StopService(item.S['ServiceName']) then begin
-                  TLogger.Inst.Log('   Could not stop running service: "' + item.S['ServiceName'] + '"',ltWarning);
+                  TLogger.Inst.Log('   Could not stop running service: "' + item.S['ServiceName'] + '"', ltWarning);
                 end;
               end
               else begin

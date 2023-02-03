@@ -1270,7 +1270,7 @@ begin
         if modulefileName = 'ERPWebService' then Continue;        
         updateItemName := ChangeFileExt(ExtractFileName(modulefileName), '');
         Item := config.O['updatelist'].O[updateItemName];
-        Item.S['modulefilename']:= ERP_SERVER_ROOT_DIR + ERP_UTILITIES_DIR + '\modules\' + modulefileName;
+        Item.S['modulefilename']:= ERP_SERVER_ROOT_DIR + ERP_UTILITIES_DIR + 'modules\' + modulefileName + '.exe';
       end;
     finally
       UtilsServer.ServerModuleList.List.UnlockList;
