@@ -171,14 +171,13 @@ end;
 
 procedure TERPUpdater.DoUpdate{(aConfigFile: string = '')};
 var
-  x, y: integer;
+  x, y: Integer;
   currentVersion, latestVersion: String;
   item, updateInfo, versionList: TJsonObject;
   itemName: String;
   SoftwareReleaseType: String;
   RestartList: TAppRestartList;
   UpdateProcessed: Boolean;
-//  Client: TJsonRpcTcpClient;
 const
   ThreeMins = 1000 * 60 * 3;
 
