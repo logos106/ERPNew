@@ -760,6 +760,7 @@
 			<DCCReference Include="..\Modules\ERPModUserUtils\ERPLicenseLib.pas"/>
 			<DCCReference Include="..\Modules\UserUtils\ClientConfigObj.pas"/>
 			<DCCReference Include="..\Modules\ModuleDbUtils.pas"/>
+			<DCCReference Include="..\..\..\Dev\Accounts\Objects\BusObjBankImportRule.pas"/>
 			<None Include="..\..\..\Dev\ERP.inc"/>
 			<None Include="..\Service\ErpUtilsService.inc"/>
 			<BuildConfiguration Include="Release">

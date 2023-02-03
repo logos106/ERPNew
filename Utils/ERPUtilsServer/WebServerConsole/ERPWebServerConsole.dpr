@@ -713,7 +713,8 @@ uses
   JsonObjectUtils in '..\..\..\Common\JsonObjectUtils.pas',
   ERPLicenseLib in '..\Modules\ERPModUserUtils\ERPLicenseLib.pas',
   ClientConfigObj in '..\Modules\UserUtils\ClientConfigObj.pas',
-  ModuleDbUtils in '..\Modules\ModuleDbUtils.pas';
+  ModuleDbUtils in '..\Modules\ModuleDbUtils.pas',
+  BusObjBankImportRule in '..\..\..\Dev\Accounts\Objects\BusObjBankImportRule.pas';
 
 type
   TLogEventHandler = class

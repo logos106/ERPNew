@@ -4,7 +4,6 @@ uses
   SvcMgr,
   svcERPWeb in 'svcERPWeb.pas' {ERPWeb2: TService},
   Sparky in 'Sparky.pas',
-  
   ModWebAPI in '..\Modules\ERPModWebAPI\ModWebAPI.pas',
   ApiFunctionObj in '..\Modules\ERPModWebAPI\ApiFunctionObj.pas',
   ErpSchemaObj in '..\Modules\ERPModWebAPI\ErpSchemaObj.pas',
@@ -28,7 +27,6 @@ uses
   ApiFuncObj in '..\Modules\ERPModWebAPI\ApiFuncObj.pas',
   ApiFuncPrint in '..\Modules\ERPModWebAPI\ApiFuncPrint.pas',
   ERPServerInfoObj in '..\Modules\ERPModWebAPI\ERPServerInfoObj.pas',
-
   TripGroup in '..\Modules\ERPModWebAPI\Objects\TripGroup.pas',
   EmailHistory in '..\Modules\ERPModWebAPI\Objects\EmailHistory.pas',
   AccountantDetails in '..\Modules\ERPModWebAPI\Objects\AccountantDetails.pas',
@@ -65,7 +63,6 @@ uses
   PayrollTaxes in '..\Modules\ERPModWebAPI\Objects\PayrollTaxes.pas',
   TemplateSettings in '..\Modules\ERPModWebAPI\Objects\TemplateSettings.pas',
   EarningsBonusesCommissions in '..\Modules\ERPModWebAPI\Objects\EarningsBonusesCommissions.Pas',
-
   ServerModuleObj in '..\..\..\Common\ServerModules\ServerModuleObj.pas',
   ModuleComms3 in '..\..\..\Common\ModuleComms3.pas',
   SimplePipes in '..\..\..\Common\SimplePipes.pas',
@@ -714,7 +711,8 @@ uses
   InternetConnectivityUtils in '..\..\..\Dev\General\Objects\CommonObjects\InternetConnectivityUtils.pas',
   JsonObjectUtils in '..\..\..\Common\JsonObjectUtils.pas',
   ERPLicenseLib in '..\Modules\ERPModUserUtils\ERPLicenseLib.pas',
-  ModuleDbUtils in '..\Modules\ModuleDbUtils.pas';
+  ModuleDbUtils in '..\Modules\ModuleDbUtils.pas',
+  BusObjBankImportRule in '..\..\..\Dev\Accounts\Objects\BusObjBankImportRule.pas';
 
 {$R *.RES}
 

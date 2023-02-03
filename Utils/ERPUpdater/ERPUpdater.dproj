@@ -39,7 +39,7 @@
 			<DCC_DebugInformation>false</DCC_DebugInformation>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2)'!=''">
-			<DCC_ExeOutput>C:\ERP Software\Utilities</DCC_ExeOutput>
+			<DCC_ExeOutput>.</DCC_ExeOutput>
 			<DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
 			<DCC_UnitSearchPath>D:\Work\Delphi\Dene\Code\ERP\Dev\General\Objects\CommonObjects;D:\Work\Delphi\Dene\Code\ERP\Dev;D:\Work\Delphi\Dene\Code\ERP\Utils\ERPUtilsServer\JsonRPC;D:\Work\Delphi\Dene\Code\ERP\Utils\ERPUtilsServer\Modules;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
 			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
