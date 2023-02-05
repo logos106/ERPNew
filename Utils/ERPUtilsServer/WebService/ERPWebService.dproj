@@ -799,8 +799,8 @@
 						<VersionInfo Name="CodePage">1252</VersionInfo>
 					</VersionInfo>
 					<VersionInfoKeys>
-						<VersionInfoKeys Name="CompanyName"/>
-						<VersionInfoKeys Name="FileDescription">ERP Web API Server</VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">TrueERP</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">ERP WebAPI Server</VersionInfoKeys>
 						<VersionInfoKeys Name="FileVersion">2023.0.5.0</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName">ERP Web API Server</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalCopyright"/>

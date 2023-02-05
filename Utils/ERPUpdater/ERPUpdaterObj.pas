@@ -178,7 +178,6 @@ var
   SoftwareReleaseType: String;
   RestartList: TAppRestartList;
   UpdateProcessed: Boolean;
-  OldFile: Boolean;
 const
   ThreeMins = 1000 * 60 * 3;
 
