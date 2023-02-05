@@ -344,7 +344,6 @@ begin
                   {get latest}
                   y := versionList.Count - 1;
                   latestVersion := StripVersionText(versionList.Items[y].Name);
-//                  if (VersionUtils.VersionComp(latestVersion, currentVersion) > 0) or ((currentVersion = '2023.0.4.0') and (itemName = 'ERPUtilsService')) then begin
                   if latestVersion > currentVersion then begin
                     TLogger.Inst.Log('   Updating to version: ' + latestVersion + ' ...', ltDetail);
                     if not ProcessUpdateVersion(versionList.Items[y].Value.AsObject) then
