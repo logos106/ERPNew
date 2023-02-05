@@ -45,18 +45,19 @@ end;
 function ModuleInstalled(const aServer, aModuleName: string): boolean;
 var
   json: TJsonObject;
-  x: integer;
+  x: Integer;
 begin
-  result:= false;
-  json:= nil;
+  Result := False;
+  json := nil;
+
   try
-    json:= GetModuleList(aServer);
+    json := GetModuleList(aServer);
     if Assigned(json) and json.ArrayExists('Items') then begin
-      for x := 0 to json.A['Items'].Count -1 do begin
-        if SameText(aModuleName,json.A['Items'].Items[x].AsObject.O['Module'].S['ModuleName']) or
+      for x := 0 to json.A['Items'].Count - 1 do begin
+        if SameText(aModuleName, json.A['Items'].Items[x].AsObject.O['Module'].S['ModuleName']) or
            SameText('ERPMod' + aModuleName,json.A['Items'].Items[x].AsObject.O['Module'].S['ModuleName']) then begin
-          result:= true;
-          exit;
+          Result:= true;
+          Exit;
         end;
       end;
     end;

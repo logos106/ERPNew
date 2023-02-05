@@ -3,7 +3,6 @@ program ERPUpdater;
 {.$APPTYPE CONSOLE}
 //{$R 'Win7UAC.res'}
 
-
 uses
   SysUtils,
   ERPUpdaterObj in 'ERPUpdaterObj.pas',

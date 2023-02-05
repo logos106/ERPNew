@@ -5676,33 +5676,33 @@
 				<Form>FmWalmartBase</Form>
 			</DCCReference>
 			<DCCReference Include="TrueERPEDI\Objects\BusobjWalmartOrders.pas"/>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Walmart\OrderManagement\PurchaseOrderV33.pas"/>
+			<DCCReference Include="..\..\TrueERP\TrueERPEDI\Dev\Walmart\OrderManagement\PurchaseOrderV33.pas"/>
 			<DCCReference Include="TrueERPEDI\Modules\Walmart_PO_Lib.pas"/>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Chilkat\CK_DLLCommon_WalmartLib.pas"/>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Chilkat\CK_DLL_Const.pas"/>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Chilkat\CK_DLL_WalmartLib.pas"/>
+			<DCCReference Include="..\..\TrueERP\TrueERPEDI\Dev\Chilkat\CK_DLLCommon_WalmartLib.pas"/>
+			<DCCReference Include="..\..\TrueERP\TrueERPEDI\Dev\Chilkat\CK_DLL_Const.pas"/>
+			<DCCReference Include="..\..\TrueERP\TrueERPEDI\Dev\Chilkat\CK_DLL_WalmartLib.pas"/>
 			<DCCReference Include="TrueERPEDI\InputForms\FrmWalmartOrder.pas">
 				<Form>FmWalmartOrder</Form>
 			</DCCReference>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Walmart\OrderManagement\CancelRequestV33.pas"/>
+			<DCCReference Include="..\..\TrueERP\TrueERPEDI\Dev\Walmart\OrderManagement\CancelRequestV33.pas"/>
 			<DCCReference Include="TrueERPEDI\Modules\Walmart_Cancel_Lib.pas"/>
 			<DCCReference Include="General\Objects\BusObjHttpResponseCode.Pas"/>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Walmart\OrderManagement\ShipConfirmRequestV33.pas"/>
+			<DCCReference Include="..\..\TrueERP\TrueERPEDI\Dev\Walmart\OrderManagement\ShipConfirmRequestV33.pas"/>
 			<DCCReference Include="TrueERPEDI\Modules\Walmart_Shipment_Lib.pas"/>
 			<DCCReference Include="TrueERPEDI\Modules\Walmart_Lib.pas"/>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Walmart\V3-Spec-DSV-inventory-XSD\Inventory.pas"/>
+			<DCCReference Include="..\..\TrueERP\TrueERPEDI\Dev\Walmart\V3-Spec-DSV-inventory-XSD\Inventory.pas"/>
 			<DCCReference Include="TrueERPEDI\Modules\Walmart_Inventory_Lib.pas"/>
 			<DCCReference Include="TrueERPEDI\Objects\BusobjWalmartItems.pas"/>
 			<DCCReference Include="TrueERPEDI\ListForms\WalmartItems.pas">
 				<Form>WalmartItemsGUI</Form>
 			</DCCReference>
 			<DCCReference Include="TrueERPEDI\Modules\Walmart_Item_Lib.pas"/>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Walmart\V3-Spec-Supplier-3.2-XSD\ItemResponse.pas"/>
+			<DCCReference Include="..\..\TrueERP\TrueERPEDI\Dev\Walmart\V3-Spec-Supplier-3.2-XSD\ItemResponse.pas"/>
 			<DCCReference Include="TrueERPEDI\Objects\BusobjERPWalmartCommon.pas"/>
 			<DCCReference Include="TrueERPEDI\ListForms\WalmartOrderLines.pas">
 				<Form>WalmartOrderLinesGUI</Form>
 			</DCCReference>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Chilkat\CK_DLL_HTTPLogreaderObj.pas"/>
+			<DCCReference Include="..\..\TrueERP\TrueERPEDI\Dev\Chilkat\CK_DLL_HTTPLogreaderObj.pas"/>
 			<DCCReference Include="TrueERPEDI\Objects\BusobjWalmartCommon.Pas"/>
 			<DCCReference Include="TrueERPEDI\InputForms\frmwalmartshippingmethods.pas">
 				<Form>fmwalmartshippingmethods</Form>
@@ -5722,15 +5722,15 @@
 			<DCCReference Include="Help\Listforms\ERPUDHelpDocs.pas">
 				<Form>ERPUDHelpDocsGUI</Form>
 			</DCCReference>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Walmart\V3-Spec-DSV-inventory-XSD\InventoryFeed.pas"/>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Walmart\V3-Spec-DSV-inventory-XSD\InventoryHeader.pas"/>
+			<DCCReference Include="..\..\TrueERP\TrueERPEDI\Dev\Walmart\V3-Spec-DSV-inventory-XSD\InventoryFeed.pas"/>
+			<DCCReference Include="..\..\TrueERP\TrueERPEDI\Dev\Walmart\V3-Spec-DSV-inventory-XSD\InventoryHeader.pas"/>
 			<DCCReference Include="TrueERPEDI\Objects\BusObjWalmartFeeds.pas"/>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Walmart\V3-Spec-Supplier-3.2-XSD\FeedAcknowledgement.pas"/>
+			<DCCReference Include="..\..\TrueERP\TrueERPEDI\Dev\Walmart\V3-Spec-Supplier-3.2-XSD\FeedAcknowledgement.pas"/>
 			<DCCReference Include="TrueERPEDI\ListForms\WalmartFeeds.pas">
 				<Form>WalmartFeedsGUI</Form>
 			</DCCReference>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Walmart\V3-Spec-Supplier-3.2-XSD\PartnerFeedResponse.pas"/>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Walmart\V3-Spec-Supplier-3.2-XSD\FeedRecordResponse.pas"/>
+			<DCCReference Include="..\..\TrueERP\TrueERPEDI\Dev\Walmart\V3-Spec-Supplier-3.2-XSD\PartnerFeedResponse.pas"/>
+			<DCCReference Include="..\..\TrueERP\TrueERPEDI\Dev\Walmart\V3-Spec-Supplier-3.2-XSD\FeedRecordResponse.pas"/>
 			<DCCReference Include="Integration\Objects\SPSConfigObj.pas"/>
 			<DCCReference Include="Integration\Objects\AmazonConfigObj.pas"/>
 			<DCCReference Include="Integration\InputForms\IntegrationPrefsAmazon.pas">
@@ -5739,8 +5739,8 @@
 			<DCCReference Include="Integration\InputForms\IntegrationPrefsSPS.pas">
 				<Form>IntegrationPrefsSPSGUI</Form>
 			</DCCReference>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\ERP\utTrueERPModClientEDI.pas"/>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\ERP\utTrueERPModuleClient.pas"/>
+			<DCCReference Include="..\..\TrueERP\TrueERPEDI\Dev\ERP\utTrueERPModClientEDI.pas"/>
+			<DCCReference Include="..\..\TrueERP\TrueERPEDI\Dev\ERP\utTrueERPModuleClient.pas"/>
 			<DCCReference Include="..\Common\Pipes.pas"/>
 			<DCCReference Include="Integration\Objects\EdiGuiUtilsObj.pas"/>
 			<DCCReference Include="General\InputForms\LogDialog.pas">
@@ -6250,8 +6250,8 @@
 			<DCCReference Include="Manufacturing\ListForms\BOMSNBatchUsage.pas">
 				<Form>BOMSNBatchUsageUGI</Form>
 			</DCCReference>
-			<DCCReference Include="C:\TrueERP\CoreEDI\utFTPLib.pas"/>
-			<DCCReference Include="C:\TrueERP\CoreEDI\utEDIServiceConfigLib.pas"/>
+			<DCCReference Include="..\..\TrueERP\CoreEDI\utFTPLib.pas"/>
+			<DCCReference Include="..\..\TrueERP\CoreEDI\utEDIServiceConfigLib.pas"/>
 			<DCCReference Include="Manufacturing\InputForms\frmProcResourceBase.pas">
 				<Form>fmProcResourceBase</Form>
 			</DCCReference>

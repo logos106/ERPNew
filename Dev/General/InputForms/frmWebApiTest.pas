@@ -1352,12 +1352,14 @@ var
   end;
 
 begin
-  if FormClosing then exit;
+  if FormClosing then Exit;
+
   if IgnorecheckSettings then Exit;
+
   if (cboURL.Text = '') then begin
     try
       { no url specified so use currently connected server }
-      if not ModuleInstalled(AppEnv.AppDb.Server, 'WebAPI') then begin
+      if not ModuleInstalled(AppEnv.AppDb.Server, 'ERPWebService') then begin
         MessageDlgXP_Vista('The WebAPI Module is not installed on the ERP Server ' +
           'that you are connected to (' + AppEnv.AppDb.Server + ').', mtWarning,[mbOk],0);
         exit;
@@ -1441,7 +1443,7 @@ begin
       { check all other settings }
       try
         { no url specified so use currently connected server }
-        if not ModuleInstalled(AppEnv.AppDb.Server, 'WebAPI') then begin
+        if not ModuleInstalled(AppEnv.AppDb.Server, 'ERPWebService') then begin
           MessageDlgXP_Vista('The WebAPI Module is not installed on the ERP Server ' +
             'that you are connected to (' + AppEnv.AppDb.Server + ').', mtWarning,[mbOk],0);
           exit;
@@ -1457,7 +1459,7 @@ begin
 
       json:= JO;
       try
-        if GetWebAPIConfig(AppEnv.AppDb.Server,json,msg) then begin
+        if GetWebAPIConfig(AppEnv.AppDb.Server, json,msg) then begin
           if not CheckApiConfig(json) then exit;
 
           if not SameText(edtUser.Text, json.S['WebUserName']) then begin
@@ -1548,16 +1550,16 @@ function TfmWebAPITest.ConnectToUtilsModule(Client: TJsonRpcTcpClient; Server,
 //var
 //  o, resp: TJsonObject;
 begin
-  result:= true;
-  Client.ServerName:= Server;
-  Client.Port:= DEFAULT_TCP_PORT;   { use default }
+  Result := True;
+  Client.ServerName := Server;
+  Client.Port := DEFAULT_TCP_PORT;   { use default }
   try
-    Client.Connected:= true;
+    Client.Connected := True;
   except
     on e: exception do begin
-      result:= false;
-      msg:= e.Message;
-      exit;
+      Result := False;
+      msg := e.Message;
+      Exit;
     end;
   end;
 
@@ -2697,27 +2699,26 @@ var
 //  o,
   resp: TJsonObject;
 begin
-  result:= true;
+  Result := true;
   Client := TJsonRpcTcpClient.Create;
   try
     Client.RequestWaitSecs:= 30;
     if not ConnectToUtilsModule(Client, aServer, 'ERPModWebAPI', msg) then begin
-      result := false;
-      exit;
+      Result := False;
+      Exit;
     end;
 
 //    o:= JO('{"classname":"THTTPServerConfig"}');
-    resp:= Client.SendRequest('ERPModWebAPI.GetConfig',nil);
+    resp := Client.SendRequest('ERPWebService.GetConfig', nil);
     try
       if Assigned(resp) then begin
         if resp.Exists('result') then begin
           aConfig.Assign(resp.O['result']);
-
         end;
       end
       else begin
-        result:= false;
-        msg:= 'The server did not returned a result.';
+        Result := false;
+        msg := 'The server did not returned a result.';
       end;
     finally
       resp.Free;
