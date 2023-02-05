@@ -178,6 +178,7 @@ var
   SoftwareReleaseType: String;
   RestartList: TAppRestartList;
   UpdateProcessed: Boolean;
+  OldFile: Boolean;
 const
   ThreeMins = 1000 * 60 * 3;
 
@@ -344,7 +345,9 @@ begin
                   {get latest}
                   y := versionList.Count - 1;
                   latestVersion := StripVersionText(versionList.Items[y].Name);
-//                  if (VersionUtils.VersionComp(latestVersion, currentVersion) > 0) or ((currentVersion = '2023.0.4.0') and (itemName = 'ERPUtilsService')) then begin
+
+                  //OldFile := FileDateToDateTime(FileAge(item.S['modulefilename'])) < StrToDate('02/04/2023');
+                  //if (VersionUtils.VersionComp(latestVersion, currentVersion) > 0) or ((currentVersion = '2023.0.4.0') and OldFile) then begin
                   if latestVersion > currentVersion then begin
                     TLogger.Inst.Log('   Updating to version: ' + latestVersion + ' ...', ltDetail);
                     if not ProcessUpdateVersion(versionList.Items[y].Value.AsObject) then
