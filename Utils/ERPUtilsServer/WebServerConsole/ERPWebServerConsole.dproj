@@ -705,7 +705,6 @@
 				<Form>/  BusObjPQAList in &apos;..\..\..\Dev\Inventory\Objects\BusObjPQAList.pas&apos;;</Form>
 			</DCCReference>
 			<DCCReference Include="..\..\..\Dev\Returns\Objects\BASReturnDetailSQL.pas"/>
-			<DCCReference Include="..\..\..\Dev\Accounts\Objects\CardDataReportSQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\General\Objects\CommonObjects\BusObjCurfreqSettings.pas"/>
 			<DCCReference Include="..\..\..\Dev\Inventory\Objects\ProductBatchesSQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\Accounts\Objects\BusObjPnLLayout.pas"/>
@@ -761,6 +760,8 @@
 			<DCCReference Include="..\Modules\UserUtils\ClientConfigObj.pas"/>
 			<DCCReference Include="..\Modules\ModuleDbUtils.pas"/>
 			<DCCReference Include="..\..\..\Dev\Accounts\Objects\BusObjBankImportRule.pas"/>
+			<DCCReference Include="..\..\..\Dev\Vs1\Objects\DashboardAccountsData1SQL.pas"/>
+			<DCCReference Include="..\..\..\Dev\Vs1\Objects\DashboardSalesData1SQL.pas"/>
 			<None Include="..\..\..\Dev\ERP.inc"/>
 			<None Include="..\Service\ErpUtilsService.inc"/>
 			<BuildConfiguration Include="Release">

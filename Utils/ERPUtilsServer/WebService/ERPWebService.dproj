@@ -764,6 +764,8 @@
 			<DCCReference Include="..\Modules\ERPModUserUtils\ERPLicenseLib.pas"/>
 			<DCCReference Include="..\Modules\ModuleDbUtils.pas"/>
 			<DCCReference Include="..\..\..\Dev\Accounts\Objects\BusObjBankImportRule.pas"/>
+			<DCCReference Include="..\..\..\Dev\Vs1\Objects\DashboardAccountsData1SQL.pas"/>
+			<DCCReference Include="..\..\..\Dev\Vs1\Objects\DashboardSalesData1SQL.pas"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

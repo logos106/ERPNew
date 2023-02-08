@@ -1482,7 +1482,7 @@ End;
 
 Function TTransBase.CloneBusObj(Const Changefield: String; Const ChangeValue: Variant; Const SaveAfterCopy: Boolean = True; Const FilterFields: String = ''): TBusObj;
 Begin
-  REsult := Inherited CloneBusObj(ChangeField, ChangeValue, SaveAfterCopy, FilterFields);
+  Result := Inherited CloneBusObj(ChangeField, ChangeValue, SaveAfterCopy, FilterFields);
   If Result = Nil Then Exit;
   Result := ObjInstanceToClone;
   // TTransBase(ObjInstanceToClone).GlobalRef       := AppEnv.Branch.SiteCode + IntToStr(ObjInstanceToClone.Id);

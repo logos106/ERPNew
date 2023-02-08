@@ -135,10 +135,14 @@ inherited InvoiceListGUI: TInvoiceListGUI
       end
     end
     inherited dtFrom: TwwDBDateTimePicker
+      Height = 23
       HelpContext = 373043
+      ExplicitHeight = 23
     end
     inherited dtTo: TwwDBDateTimePicker
+      Height = 23
       HelpContext = 373044
+      ExplicitHeight = 23
     end
   end
   inherited Panel1: TPanel
@@ -482,7 +486,7 @@ inherited InvoiceListGUI: TInvoiceListGUI
   end
   inherited imgPopup: TImageList
     Bitmap = {
-      494C010108007C00C40010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010108007C00C80010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -1491,5 +1495,9 @@ inherited InvoiceListGUI: TInvoiceListGUI
       Visible = False
       Size = 50
     end
+  end
+  inherited dsMain: TDataSource
+    Left = 166
+    Top = 295
   end
 end

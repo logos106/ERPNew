@@ -192,21 +192,16 @@ uses
 
 procedure TQuoteGUI.btnCompletedClick(Sender: TObject);
 begin
-
   DisableForm;
 
   try
-
     if SaveSalesRecord then begin
       CommitAndNotify;
       Close;
     end;
-
   finally
     EnableForm;
   end;
-
-
 end;
 
 function TQuoteGUI.SaleLineIdfilter: String;
@@ -837,41 +832,41 @@ begin
 
     if Quote.Customer.StopCredit and AppEnv.CompanyPrefs.PreventInvoiceOnStopCredit then begin
         MessageDlgXP_Vista('This Customer is on Stop Credit so it is not possible to convert this Quote to an Invoice for this customer.', mtWarning, [mbOK], 0);
-      exit;
+      Exit;
     end;
 
-
-    if not (ValidateForDiscontinuedProducts) then exit;
+    if not (ValidateForDiscontinuedProducts) then Exit;
 
     if not ToBeApprovedNApproved('Invoice') then Exit;
 
-       if FormStillOpen('TfrmCustomer') then begin
-          TfrmCustomer(FindExistingComponent('TfrmCustomer')).CloseMe;
-          Application.ProcessMessages;
-       end;
+    if FormStillOpen('TfrmCustomer') then begin
+      TfrmCustomer(FindExistingComponent('TfrmCustomer')).CloseMe;
+      Application.ProcessMessages;
+    end;
 
     if Quote.Converted then strMsg := 'Invoice/Cash Sale/Sales Order is already created for this Quote. Do you wish to create another Invoice for it?'
     else strMsg := 'Do you wish to Convert this Quote to an Invoice?';
-    if CommonLib.MessageDlgXP_Vista(strMsg , mtconfirmation , [mbYes,mbNo], 0) = mrNo then  Exit;
+    if CommonLib.MessageDlgXP_Vista(strMsg, mtconfirmation, [mbYes,mbNo], 0) = mrNo then  Exit;
+
     Quote.Connection.BeginTransaction;
     iNewID := Quote.CopyQuoteToInvoice;
 
     if iNewID > 0 then begin
       NewAuditTrialentry('Invoice Created');
-          Quote.Save;
-          Quote.ResultStatus.Clear;
-          Quote.Connection.CommitTransaction;
-          DEtachAll;
-          Notify;
-          frm := TInvoiceGUI(GetComponentByClassName('TInvoiceGUI'));
+      Quote.Save;
+      Quote.ResultStatus.Clear;
+      Quote.Connection.CommitTransaction;
+      DetachAll;
+      Notify;
+      frm := TInvoiceGUI(GetComponentByClassName('TInvoiceGUI'));
 
-          if Assigned(frm) then begin
-            frm.KeyID := iNewID;
-            frm.FormStyle := fsMDIChild;
-            frm.BringToFront;
-          end;
+      if Assigned(frm) then begin
+        frm.KeyID := iNewID;
+        frm.FormStyle := fsMDIChild;
+        frm.BringToFront;
+      end;
 
-          Close;
+      Close;
     end;
   finally
     EnableForm;
@@ -1526,40 +1521,38 @@ begin
   end;*)
 end;
 
-
-function TQuoteGUI.SaveSalesRecord: boolean;
+function TQuoteGUI.SaveSalesRecord: Boolean;
 begin
   Result := true;
 
-    lblProcessMessage.Caption := 'Saving....';
-    lblProcessMessage.visible := true;
-    Try
-      SetControlFocus(btnCompleted);
+  lblProcessMessage.Caption := 'Saving....';
+  lblProcessMessage.visible := true;
+  Try
+    SetControlFocus(btnCompleted);
 
-      if AccessLevel >= 5 then
-      begin
-
-        Quote.CancelDB;
-        Quote.dirty := false;
-        Exit;
-      end;
-
-      Quote.PostDB;
-
-      if Quote.Dirty then begin
-        Quote.ResultStatus.Clear;
-          if Quote.Save then begin
-            Quote.Dirty := false;
-          end else begin
-            Result := false;
-            HandleQuoteErrors;
-          end;
-      end;
-    Finally
-      Quote.ResultStatus.Clear;
-        lblProcessMessage.Visible := false;
-        (*if result then TfmSalesEquipmentProduct.ShowProductswithnoEquipment(Quote);*)
+    if AccessLevel >= 5 then
+    begin
+      Quote.CancelDB;
+      Quote.Dirty := False;
+      Exit;
     end;
+
+    Quote.PostDB;
+
+    if Quote.Dirty then begin
+      Quote.ResultStatus.Clear;
+        if Quote.Save then begin
+          Quote.Dirty := false;
+        end else begin
+          Result := false;
+          HandleQuoteErrors;
+        end;
+    end;
+  Finally
+    Quote.ResultStatus.Clear;
+      lblProcessMessage.Visible := false;
+      (*if result then TfmSalesEquipmentProduct.ShowProductswithnoEquipment(Quote);*)
+  end;
 end;
 
 procedure TQuoteGUI.CommitAndNotify;

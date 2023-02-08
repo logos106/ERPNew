@@ -101,14 +101,14 @@ begin
     fConn.Connect;
     fConn.GetDatabaseNames(sl);
     if sl.IndexOf(SERVICES_DATABASE) < 0 then
-      fConn.ExecSQL('create database ' + SERVICES_DATABASE, []);
+      fConn.ExecSQL('CREATE DATABASE ' + SERVICES_DATABASE, []);
     fConn.Disconnect;
   finally
     sl.Free;
   end;
   fQry := TErpQuery.Create(nil);
   fQry.Connection := fConn;
-  fQry.SQL.Add('SELECT * FROM  tblconfig');
+  fQry.SQL.Add('SELECT * FROM tblconfig');
   fQry.SQL.Add('WHERE ConfigName = :ConfigNameParam');
 end;
 

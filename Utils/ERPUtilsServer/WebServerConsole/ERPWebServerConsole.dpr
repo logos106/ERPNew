@@ -659,7 +659,6 @@ uses
   BusObjBankRule in '..\..\..\Dev\Accounts\Objects\BusObjBankRule.pas',
   BusObjReportsAccountant in '..\..\..\Dev\Accounts\Objects\BusObjReportsAccountant.pas' {/  BusObjPQAList in '..\..\..\Dev\Inventory\Objects\BusObjPQAList.pas';},
   BASReturnDetailSQL in '..\..\..\Dev\Returns\Objects\BASReturnDetailSQL.pas',
-  CardDataReportSQL in '..\..\..\Dev\Accounts\Objects\CardDataReportSQL.pas',
   BusObjCurfreqSettings in '..\..\..\Dev\General\Objects\CommonObjects\BusObjCurfreqSettings.pas',
   ProductBatchesSQL in '..\..\..\Dev\Inventory\Objects\ProductBatchesSQL.pas',
   BusObjPnLLayout in '..\..\..\Dev\Accounts\Objects\BusObjPnLLayout.pas',
@@ -714,7 +713,9 @@ uses
   ERPLicenseLib in '..\Modules\ERPModUserUtils\ERPLicenseLib.pas',
   ClientConfigObj in '..\Modules\UserUtils\ClientConfigObj.pas',
   ModuleDbUtils in '..\Modules\ModuleDbUtils.pas',
-  BusObjBankImportRule in '..\..\..\Dev\Accounts\Objects\BusObjBankImportRule.pas';
+  BusObjBankImportRule in '..\..\..\Dev\Accounts\Objects\BusObjBankImportRule.pas',
+  DashboardAccountsData1SQL in '..\..\..\Dev\Vs1\Objects\DashboardAccountsData1SQL.pas',
+  DashboardSalesData1SQL in '..\..\..\Dev\Vs1\Objects\DashboardSalesData1SQL.pas';
 
 type
   TLogEventHandler = class

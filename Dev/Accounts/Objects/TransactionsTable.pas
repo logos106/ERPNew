@@ -262,7 +262,7 @@ uses
   {$IFNDEF CONSOLE}  {$IFDEF DevMode}  , LogLib  {$ENDIF}  {$ENDIF}
   ,ProfitAndLossPeriodCompareSQL, JSONObject, utCloudconst,
   APReportSQL, SalesListSQL   , ProfitAndLossSQL,
-  ProductStockReportLib, BalanceSheetSQL, CommonDbLib;
+  ProductStockReportLib, BalanceSheetSQL, CommonDbLib, InvoicesSQL;
 
 {$IFDEF DevMode}
 Const
@@ -787,9 +787,6 @@ begin
   if fieldname = '' then exit;
   result := 'Round('+fieldname + ',' +inttostr(fTotalsRoundPlaces)+')';
 end;
-
-
-
 
 procedure TTransactionTableObj.TrnsTable02(BulkSQL: TStringList;DonotMakeTransTable:Boolean =False);
 begin
@@ -6764,28 +6761,27 @@ var
     ForceSummary                  : Boolean;
 begin
   Result := False;
-  if not(Lock('Update Batch / Report')) then exit;
+  if not(Lock('Update Batch / Report')) then Exit;
   try
-    fDoingRefresh:= true;
-    TempFileCount:= 0;
-    MySQLTempDir:= StringReplace(AppEnvVirt.Str['CommonDbLib.GetMySQLTempDir'],'\','/',[rfReplaceAll]);
+    fDoingRefresh := True;
+    TempFileCount := 0;
+    MySQLTempDir := StringReplace(AppEnvVirt.Str['CommonDbLib.GetMySQLTempDir'], '\', '/', [rfReplaceAll]);
     try
       Application.ProcessMessages; {Gui Main Screen Paint}
       try
-         qry:= TERPQuery.Create(nil);
+         qry := TERPQuery.Create(nil);
          try
            qry.Connection:= TCustomMyConnection(AppEnvVirt.Obj['CommonDbLib.GetSharedMyDacConnection']);
-           qry.SQL.Text := 'select count(TransId) as TransCount from tbltransactionsummarydetails';
+           qry.SQL.Text := 'SELECT COUNT(TransId) AS TransCount from tbltransactionsummarydetails';
            qry.Open;
            ForceSummary := qry.FieldByName('TransCount').AsInteger = 0;
          finally
            qry.Free;
          end;
 
-        if IStochangeSummasedTransdateTocurent(SummaryDetailsTable,keepSummariseDt,forceSummary) then Begin
-
-          If (StartOfAMonth(YearOf(Now()),7) <= Now()) AND (Now() <= EndOfAMonth(YearOf(Now()),7)) Then
-                tmpDate := EndOfAMonth(YearOf(Now()),6)
+        if IStochangeSummasedTransdateTocurent(SummaryDetailsTable, keepSummariseDt, forceSummary) then begin
+          If (StartOfAMonth(YearOf(Now()), 7) <= Now()) AND (Now() <= EndOfAMonth(YearOf(Now()), 7)) then
+            tmpDate := EndOfAMonth(YearOf(Now()),6)
           else  tmpDate := Now;
 
           AppEnvVirt.Float['CompanyPrefs.SummarisedTransDate'] := GetLastFiscalYearEnd(tmpDate);
@@ -6793,272 +6789,272 @@ begin
           AppEnvVirt.Float['CompanyPrefs.closingDateAP'] := AppEnvVirt.Float['CompanyPrefs.SummarisedTransDate'] ;
           AppEnvVirt.Float['CompanyPrefs.closingDateAR'] := AppEnvVirt.Float['CompanyPrefs.SummarisedTransDate'] ;
 
-          CleanRefreshTrnsTable(true, true);
+          CleanRefreshTrnsTable(True, True);
           CreatePermanentSummaryTable;
           AppEnvVirt.PopulateCompanyPrefs;
         end;
-            SummarisedTransDate := AppEnvVirt.Float['CompanyPrefs.SummarisedTransDate'];
-            if SummaryDetailsTable then begin
-              TableName := 'tbltransactionsummarydetails';
-              BeforeOrAfterClosing := '<=';
-            end else begin
-              TableName := 'tbltransactions_inprogress';
-              BeforeOrAfterClosing := '>';
-            end;
+          SummarisedTransDate := AppEnvVirt.Float['CompanyPrefs.SummarisedTransDate'];
+          if SummaryDetailsTable then begin
+            TableName := 'tbltransactionsummarydetails';
+            BeforeOrAfterClosing := '<=';
+          end else begin
+            TableName := 'tbltransactions_inprogress';
+            BeforeOrAfterClosing := '>';
+          end;
 
-            LOAD_INTO_String := 'INTO TABLE ' + TableName +
-              '  CHARACTER SET  UTF8  ('+ TransSQLFields(0) +
+          LOAD_INTO_String := 'INTO TABLE ' + TableName +
+            '  CHARACTER SET  UTF8  ('+ TransSQLFields(0) +
 (*                'SeqNo, Date,Type,GlobalRef,ClassID,'+
-                'SaleID,PurchaseOrderID,PaymentID,PrepaymentID,FixedAssetID,'+
-                'SaleLineId, purchaselineID,PaymentLineId, prepaymentlineid, '+
-                'AccountName,AccountGroupLevels,Level1,Level2,Level3,Level4,' +
-              'AccountID,AccountType,ClientName, ClientID,' +
-              'ProductDesc,ProductName,ProductGroup,RepName,EmployeeID,Reconciled,Notes,' +
-              'TaxCode,TaxRate,TaxID,DebitsEx,CreditsEx,DebitsInc,CreditsInc,CASH_DebitsEx,' +
-              'CASH_CreditsEx,CASH_DebitsInc,CASH_CreditsInc,`Chq/Ref`'+*)
-                ') ';
+              'SaleID,PurchaseOrderID,PaymentID,PrepaymentID,FixedAssetID,'+
+              'SaleLineId, purchaselineID,PaymentLineId, prepaymentlineid, '+
+              'AccountName,AccountGroupLevels,Level1,Level2,Level3,Level4,' +
+            'AccountID,AccountType,ClientName, ClientID,' +
+            'ProductDesc,ProductName,ProductGroup,RepName,EmployeeID,Reconciled,Notes,' +
+            'TaxCode,TaxRate,TaxID,DebitsEx,CreditsEx,DebitsInc,CreditsInc,CASH_DebitsEx,' +
+            'CASH_CreditsEx,CASH_DebitsInc,CASH_CreditsInc,`Chq/Ref`'+*)
+              ') ';
 
-            LOAD_INTO_StringFixedAssets := 'INTO TABLE ' + TableName +
-              '  CHARACTER SET  UTF8  ('+ TransSQLFields(66)+') ';
+          LOAD_INTO_StringFixedAssets := 'INTO TABLE ' + TableName +
+            '  CHARACTER SET  UTF8  ('+ TransSQLFields(66)+') ';
 (*              '  CHARACTER SET  UTF8  (SeqNo, Date,Type,GlobalRef,ClassID,SaleID,PurchaseOrderID,PaymentID,PrepaymentID,FixedAssetID,AccountName,AccountGroupLevels,Level1,Level2,Level3,Level4,AccountID,AccountType,ClientName, ClientID,' +
-              'ProductDesc,ProductName,ProductGroup,RepName,EmployeeID,Reconciled,Notes,TaxCode,TaxRate,TaxID,DebitsEx,CreditsEx,DebitsInc,CreditsInc,CASH_DebitsEx,CASH_CreditsEx,CASH_DebitsInc,CASH_CreditsInc,`Chq/Ref`,Active) ';*)
+            'ProductDesc,ProductName,ProductGroup,RepName,EmployeeID,Reconciled,Notes,TaxCode,TaxRate,TaxID,DebitsEx,CreditsEx,DebitsInc,CreditsInc,CASH_DebitsEx,CASH_CreditsEx,CASH_DebitsInc,CASH_CreditsInc,`Chq/Ref`,Active) ';*)
 
 
-            if AppEnvVirt.Bool['CompanyPrefs.UseBatchTransactions'] and not RefreshBatch then begin
-              Exit;
-            end;
+          if AppEnvVirt.Bool['CompanyPrefs.UseBatchTransactions'] and not RefreshBatch then begin
+            Exit;
+          end;
 
-            Randomize; //See Ianos
-            Sleep(Random(16)*125);
+          Randomize; //See Ianos
+          Sleep(Random(16)*125);
 
-            if AppEnvVirt.Bool['CompanyPrefs.UseBatchTransactions'] and (AppEnvVirt.GetEmployeeAccessLevel('FnRunBatch') <> 1) then begin
-              if IsGUI then
-                Vista_MessageDlg.MessageDlgXP_Vista('You do not have Access to this Function', mtInformation, [mbOK], 0)
+          if AppEnvVirt.Bool['CompanyPrefs.UseBatchTransactions'] and (AppEnvVirt.GetEmployeeAccessLevel('FnRunBatch') <> 1) then begin
+            if IsGUI then
+              Vista_MessageDlg.MessageDlgXP_Vista('You do not have Access to this Function', mtInformation, [mbOK], 0)
+            else
+              Log('You do not have Access to run Batch Update function',ltError);
+            raise ENoAccess.Create('You do not have Access to this Function');
+            Exit;
+          end;
+
+
+          if not Assigned(qryMyScript) then begin
+            qryMyScript := NewScript;//TERPScript.Create(nil);
+            //qryMyScript.Connection := TCustomMyConnection(AppEnvVirt.Obj['CommonDbLib.GetSharedMyDacConnection']);
+          end;
+
+          if not Assigned(qryTemp) then begin
+            qryTemp := TERPQuery.Create(nil);
+            qryTemp.Options.FlatBuffers := True;
+            qryTemp.Connection := TCustomMyConnection(AppEnvVirt.Obj['CommonDbLib.GetSharedMyDacConnection']);
+          end;
+
+          if AppEnvVirt.Bool['CompanyPrefs.BatchUpdateInProgress'] then begin
+            if IsGUI then
+              Vista_MessageDlg.MessageDlgXP_Vista('Batch Update is Already in Progress by Another User !' + #13 + #10 + 'Please Try Again Later',
+                mtWarning, [mbOK], 0)
               else
-                Log('You do not have Access to run Batch Update function',ltError);
-              raise ENoAccess.Create('You do not have Access to this Function');
-              Exit;
-            end;
-
-
-            if not Assigned(qryMyScript) then begin
-              qryMyScript := NewScript;//TERPScript.Create(nil);
-              //qryMyScript.Connection := TCustomMyConnection(AppEnvVirt.Obj['CommonDbLib.GetSharedMyDacConnection']);
-            end;
-
-            if not Assigned(qryTemp) then begin
-              qryTemp := TERPQuery.Create(nil);
-              qryTemp.Options.FlatBuffers := True;
-              qryTemp.Connection := TCustomMyConnection(AppEnvVirt.Obj['CommonDbLib.GetSharedMyDacConnection']);
-            end;
-
-            if AppEnvVirt.Bool['CompanyPrefs.BatchUpdateInProgress'] then begin
-              if IsGUI then
-                Vista_MessageDlg.MessageDlgXP_Vista('Batch Update is Already in Progress by Another User !' + #13 + #10 + 'Please Try Again Later',
-                  mtWarning, [mbOK], 0)
-                else
-                  Log('Batch Update is Already in Progress, Please Try Again Later',ltWarning);
-              Exit;
-            end else begin
-              AppEnvVirt.Bool['CompanyPrefs.BatchUpdateInProgress'] := true;
-            end;
-            Save_Cursor   := Screen.Cursor;
-            Screen.Cursor := crHourGlass;
+                Log('Batch Update is Already in Progress, Please Try Again Later',ltWarning);
+            Exit;
+          end else begin
+            AppEnvVirt.Bool['CompanyPrefs.BatchUpdateInProgress'] := true;
+          end;
+          Save_Cursor   := Screen.Cursor;
+          Screen.Cursor := crHourGlass;
+          try
+            StockCostSystems := TStockCostSystemsObj.Create;
             try
-              StockCostSystems := TStockCostSystemsObj.Create;
+              if (AppEnvVirt.Int['CompanyPrefs.StockCostSystem'] = Ord(scsLast)) then
+                StockCostSystems.RefreshLastCostAdjTable(BeforeOrAfterClosing + ' "' + FormatDateTime(MysqlDateFormat, SummarisedTransDate) + '" ')
+              else
+                StockCostSystems.CleanTempTable;
+            finally
+              FreeAndNil(StockCostSystems);
+            end;
+
+            AppEnvVirt.Float['CompanyPrefs.TransactionTableLastUpdated'] := 0;
+            AppEnvVirt.DeleteServerFiles(StringReplace(MySQLTempDir,'/','\',[rfReplaceAll]) + AppEnvVirt.str['CompanyPrefs.DBName']+'_'+ TableName + '_*.tmp');
+
+            with BulkSQL do begin
+              Clear;
+              add('update tblpurchaselines set CustomerJobID =0 where ifnull(CustomerJobID,0)=0;'); // this is to avoid NULL issue for group by
+              if TableName = 'tbltransactions_inprogress' then begin
+                  add('drop table if exists tbltransactions_inprogress;');
+                  Add(StringReplace(GetCreate_tbltransactions_inprogress,'tmp_tbltransactions','tbltransactions_inprogress',[rfReplaceAll,rfIgnoreCase])+';')
+              end else
+                  Add('DELETE  FROM ' + TableName + ';');
+
+              Add('ALTER TABLE `' + TableName + '` CHANGE `TransID` `TransID` INT(11)  NOT NULL;');
+              Add('ALTER TABLE ' + TableName + ' ENGINE = InnoDB;');
+              Add('ALTER TABLE ' + TableName + ' ENGINE = MyISAM;');
+              Add('ALTER TABLE `' + TableName + '` CHANGE `TransID` `TransID` INT(11)    NOT NULL AUTO_INCREMENT;');
+
+              qry:= TERPQuery.Create(nil);
               try
-                if (AppEnvVirt.Int['CompanyPrefs.StockCostSystem'] = Ord(scsLast)) then
-                  StockCostSystems.RefreshLastCostAdjTable(BeforeOrAfterClosing + ' "' + FormatDateTime(MysqlDateFormat, SummarisedTransDate) + '" ')
-                else
-                  StockCostSystems.CleanTempTable;
+                qry.Connection:= TCustomMyConnection(AppEnvVirt.Obj['CommonDbLib.GetSharedMyDacConnection']);
+
+                qry.SQL.Text:=
+                  'SELECT tblsaleslines.SaleLineID ' +
+                  'FROM tblsaleslines ' +
+                  'where tblsaleslines.INCOMEACCNTID <> ' +
+                  '(select tblchartofaccounts.AccountID from tblchartofaccounts ' +
+                  'where tblchartofaccounts.AccountName = tblsaleslines.INCOMEACCNT)';
+                qry.Open;
+                IdList:= qry.GroupConcat('SaleLineId');
+                if IdList <> '' then begin
+                  Add('UPDATE tblsaleslines INNER JOIN tblchartofaccounts ON tblchartofaccounts.AccountName = tblsaleslines.INCOMEACCNT ');
+                  Add('SET INCOMEACCNTID = AccountID');
+                  Add('WHERE tblsaleslines.SaleLineId in (' + IdList + ');');
+                end;
+                qry.Close;
+
+                qry.SQL.Text:=
+                  'SELECT tblsaleslines.SaleLineID ' +
+                  'FROM tblsaleslines ' +
+                  'where tblsaleslines.ASSETACCNTID <> ' +
+                  '(select tblchartofaccounts.AccountID from tblchartofaccounts ' +
+                  'where tblchartofaccounts.AccountName = tblsaleslines.ASSETACCNT)';
+                qry.Open;
+                IdList:= qry.GroupConcat('SaleLineId');
+                if IdList <> '' then begin
+                  Add('UPDATE tblsaleslines INNER JOIN tblchartofaccounts ON tblchartofaccounts.AccountName = tblsaleslines.ASSETACCNT ');
+                  Add('SET ASSETACCNTID = AccountID');
+                  Add('WHERE tblsaleslines.SaleLineId in (' + IdList + ');');
+                end;
+                qry.Close;
+
+                qry.SQL.Text:=
+                  'SELECT tblsaleslines.SaleLineID ' +
+                  'FROM tblsaleslines ' +
+                  'where tblsaleslines.COGSACCNTID <> ' +
+                  '(select tblchartofaccounts.AccountID from tblchartofaccounts ' +
+                  'where tblchartofaccounts.AccountName = tblsaleslines.COGSACCNT)';
+                qry.Open;
+                IdList:= qry.GroupConcat('SaleLineId');
+                if IdList <> '' then begin
+                  Add('UPDATE tblsaleslines INNER JOIN tblchartofaccounts ON tblchartofaccounts.AccountName = tblsaleslines.COGSACCNT ');
+                  Add('SET COGSACCNTID = AccountID');
+                  Add('WHERE tblsaleslines.SaleLineId in (' + IdList + ');');
+                end;
+                qry.Close;
+
+                qry.SQL.Text:=
+                  'SELECT tblpurchaselines.PurchaseLineID ' +
+                  'FROM tblpurchaselines ' +
+                  'where tblpurchaselines.INCOMEACCNTID <> ' +
+                  '(select tblchartofaccounts.AccountID from tblchartofaccounts ' +
+                  'where tblchartofaccounts.AccountName = tblpurchaselines.INCOMEACCNT)';
+                qry.Open;
+                IdList:= qry.GroupConcat('PurchaseLineID');
+                if IdList <> '' then begin
+                  Add('UPDATE tblpurchaselines INNER JOIN tblchartofaccounts ON tblchartofaccounts.AccountName = tblpurchaselines.INCOMEACCNT ');
+                  Add('SET INCOMEACCNTID = AccountID');
+                  Add('WHERE tblpurchaselines.PurchaseLineID in (' + IdList + ');');
+                end;
+                qry.Close;
+
+                qry.SQL.Text:=
+                  'SELECT tblpurchaselines.PurchaseLineID ' +
+                  'FROM tblpurchaselines ' +
+                  'where tblpurchaselines.ASSETACCNTID <> ' +
+                  '(select tblchartofaccounts.AccountID from tblchartofaccounts ' +
+                  'where tblchartofaccounts.AccountName = tblpurchaselines.ASSETACCNT)';
+                qry.Open;
+                IdList:= qry.GroupConcat('PurchaseLineID');
+                if IdList <> '' then begin
+                  Add('UPDATE tblpurchaselines INNER JOIN tblchartofaccounts ON tblchartofaccounts.AccountName = tblpurchaselines.ASSETACCNT ');
+                  Add('SET ASSETACCNTID = AccountID');
+                  Add('WHERE tblpurchaselines.PurchaseLineID in (' + IdList + ');');
+                end;
+                qry.Close;
+
+                qry.SQL.Text:=
+                  'SELECT tblpurchaselines.PurchaseLineID ' +
+                  'FROM tblpurchaselines ' +
+                  'where tblpurchaselines.COGSACCNTID <> ' +
+                  '(select tblchartofaccounts.AccountID from tblchartofaccounts ' +
+                  'where tblchartofaccounts.AccountName = tblpurchaselines.COGSACCNT)';
+                qry.Open;
+                IdList:= qry.GroupConcat('PurchaseLineID');
+                if IdList <> '' then begin
+                  Add('UPDATE tblpurchaselines INNER JOIN tblchartofaccounts ON tblchartofaccounts.AccountName = tblpurchaselines.COGSACCNT ');
+                  Add('SET COGSACCNTID = AccountID');
+                  Add('WHERE tblpurchaselines.PurchaseLineID in (' + IdList + ');');
+                end;
+                qry.Close;
+
               finally
-                FreeAndNil(StockCostSystems);
+                qry.Free;
               end;
 
-              AppEnvVirt.Float['CompanyPrefs.TransactionTableLastUpdated'] := 0;
-              AppEnvVirt.DeleteServerFiles(StringReplace(MySQLTempDir,'/','\',[rfReplaceAll]) + AppEnvVirt.str['CompanyPrefs.DBName']+'_'+ TableName + '_*.tmp');
+              if not SummaryDetailsTable then begin
+                {1}Add('UNLOCK TABLES; INSERT HIGH_PRIORITY INTO ' + TableName +
+                                ' (SeqNo, Date,Type,GlobalRef,ClassID,' +
+                                ' SaleID,PurchaseOrderID,PaymentID,PrepaymentID,FixedAssetID,' +
+                                ' SaleLineId, PurchaseLineID, PaymentlineID, PrePaymentlineID,'+
+                                ' AccountName,AccountGroupLevels,Level1,Level2,Level3,Level4,' +
+                                ' AccountID,AccountType,ClientName, ClientID,CustomerJobId,' +
+                                ' ProductDesc,ProductName,ProductGroup,RepName,EmployeeID,Reconciled,Notes,' +
+                                ' TaxCode,TaxRate,TaxID,DebitsEx,CreditsEx,DebitsInc,CreditsInc,CASH_DebitsEx,' +
+                                ' CASH_CreditsEx,CASH_DebitsInc,CASH_CreditsInc,`Chq/Ref`) ');
+                Add('SELECT '+SumSeqno(800)+', Date,Type,GlobalRef,ClassID,SaleID,PurchaseOrderID,PaymentID,PrepaymentID,FixedAssetID,' +
+                                ' SaleLineId, PurchaseLineID, PaymentlineID, PrePaymentlineID,AccountName,AccountGroupLevels,' +
+                                ' Level1,Level2,Level3,Level4,AccountID,AccountType,ClientName, ClientID, CustomerJobId,' +
+                                ' ProductDesc,ProductName,ProductGroup,RepName,EmployeeID,Reconciled,Notes,TaxCode,' +
+                                ' TaxRate,TaxID,DebitsEx,CreditsEx,DebitsInc,CreditsInc,CASH_DebitsEx,CASH_CreditsEx,' +
+                                ' CASH_DebitsInc,CASH_CreditsInc,`Chq/Ref` ' +
+                                ' From tbltransactionsummary;');
+              end;
 
-              with BulkSQL do begin
-                Clear;
-                add('update tblpurchaselines set CustomerJobID =0 where ifnull(CustomerJobID,0)=0;'); // this is to avoid NULL issue for group by
-                if TableName = 'tbltransactions_inprogress' then begin
-                    add('drop table if exists tbltransactions_inprogress;');
-                    Add(StringReplace(GetCreate_tbltransactions_inprogress,'tmp_tbltransactions','tbltransactions_inprogress',[rfReplaceAll,rfIgnoreCase])+';')
-                end else
-                    Add('DELETE  FROM ' + TableName + ';');
-
-                Add('ALTER TABLE `' + TableName + '` CHANGE `TransID` `TransID` INT(11)  NOT NULL;');
-                Add('ALTER TABLE ' + TableName + ' ENGINE = InnoDB;');
-                Add('ALTER TABLE ' + TableName + ' ENGINE = MyISAM;');
-                Add('ALTER TABLE `' + TableName + '` CHANGE `TransID` `TransID` INT(11)    NOT NULL AUTO_INCREMENT;');
-
-                qry:= TERPQuery.Create(nil);
-                try
-                  qry.Connection:= TCustomMyConnection(AppEnvVirt.Obj['CommonDbLib.GetSharedMyDacConnection']);
-
-                  qry.SQL.Text:=
-                    'SELECT tblsaleslines.SaleLineID ' +
-                    'FROM tblsaleslines ' +
-                    'where tblsaleslines.INCOMEACCNTID <> ' +
-                    '(select tblchartofaccounts.AccountID from tblchartofaccounts ' +
-                    'where tblchartofaccounts.AccountName = tblsaleslines.INCOMEACCNT)';
-                  qry.Open;
-                  IdList:= qry.GroupConcat('SaleLineId');
-                  if IdList <> '' then begin
-                    Add('UPDATE tblsaleslines INNER JOIN tblchartofaccounts ON tblchartofaccounts.AccountName = tblsaleslines.INCOMEACCNT ');
-                    Add('SET INCOMEACCNTID = AccountID');
-                    Add('WHERE tblsaleslines.SaleLineId in (' + IdList + ');');
-                  end;
-                  qry.Close;
-
-                  qry.SQL.Text:=
-                    'SELECT tblsaleslines.SaleLineID ' +
-                    'FROM tblsaleslines ' +
-                    'where tblsaleslines.ASSETACCNTID <> ' +
-                    '(select tblchartofaccounts.AccountID from tblchartofaccounts ' +
-                    'where tblchartofaccounts.AccountName = tblsaleslines.ASSETACCNT)';
-                  qry.Open;
-                  IdList:= qry.GroupConcat('SaleLineId');
-                  if IdList <> '' then begin
-                    Add('UPDATE tblsaleslines INNER JOIN tblchartofaccounts ON tblchartofaccounts.AccountName = tblsaleslines.ASSETACCNT ');
-                    Add('SET ASSETACCNTID = AccountID');
-                    Add('WHERE tblsaleslines.SaleLineId in (' + IdList + ');');
-                  end;
-                  qry.Close;
-
-                  qry.SQL.Text:=
-                    'SELECT tblsaleslines.SaleLineID ' +
-                    'FROM tblsaleslines ' +
-                    'where tblsaleslines.COGSACCNTID <> ' +
-                    '(select tblchartofaccounts.AccountID from tblchartofaccounts ' +
-                    'where tblchartofaccounts.AccountName = tblsaleslines.COGSACCNT)';
-                  qry.Open;
-                  IdList:= qry.GroupConcat('SaleLineId');
-                  if IdList <> '' then begin
-                    Add('UPDATE tblsaleslines INNER JOIN tblchartofaccounts ON tblchartofaccounts.AccountName = tblsaleslines.COGSACCNT ');
-                    Add('SET COGSACCNTID = AccountID');
-                    Add('WHERE tblsaleslines.SaleLineId in (' + IdList + ');');
-                  end;
-                  qry.Close;
-
-                  qry.SQL.Text:=
-                    'SELECT tblpurchaselines.PurchaseLineID ' +
-                    'FROM tblpurchaselines ' +
-                    'where tblpurchaselines.INCOMEACCNTID <> ' +
-                    '(select tblchartofaccounts.AccountID from tblchartofaccounts ' +
-                    'where tblchartofaccounts.AccountName = tblpurchaselines.INCOMEACCNT)';
-                  qry.Open;
-                  IdList:= qry.GroupConcat('PurchaseLineID');
-                  if IdList <> '' then begin
-                    Add('UPDATE tblpurchaselines INNER JOIN tblchartofaccounts ON tblchartofaccounts.AccountName = tblpurchaselines.INCOMEACCNT ');
-                    Add('SET INCOMEACCNTID = AccountID');
-                    Add('WHERE tblpurchaselines.PurchaseLineID in (' + IdList + ');');
-                  end;
-                  qry.Close;
-
-                  qry.SQL.Text:=
-                    'SELECT tblpurchaselines.PurchaseLineID ' +
-                    'FROM tblpurchaselines ' +
-                    'where tblpurchaselines.ASSETACCNTID <> ' +
-                    '(select tblchartofaccounts.AccountID from tblchartofaccounts ' +
-                    'where tblchartofaccounts.AccountName = tblpurchaselines.ASSETACCNT)';
-                  qry.Open;
-                  IdList:= qry.GroupConcat('PurchaseLineID');
-                  if IdList <> '' then begin
-                    Add('UPDATE tblpurchaselines INNER JOIN tblchartofaccounts ON tblchartofaccounts.AccountName = tblpurchaselines.ASSETACCNT ');
-                    Add('SET ASSETACCNTID = AccountID');
-                    Add('WHERE tblpurchaselines.PurchaseLineID in (' + IdList + ');');
-                  end;
-                  qry.Close;
-
-                  qry.SQL.Text:=
-                    'SELECT tblpurchaselines.PurchaseLineID ' +
-                    'FROM tblpurchaselines ' +
-                    'where tblpurchaselines.COGSACCNTID <> ' +
-                    '(select tblchartofaccounts.AccountID from tblchartofaccounts ' +
-                    'where tblchartofaccounts.AccountName = tblpurchaselines.COGSACCNT)';
-                  qry.Open;
-                  IdList:= qry.GroupConcat('PurchaseLineID');
-                  if IdList <> '' then begin
-                    Add('UPDATE tblpurchaselines INNER JOIN tblchartofaccounts ON tblchartofaccounts.AccountName = tblpurchaselines.COGSACCNT ');
-                    Add('SET COGSACCNTID = AccountID');
-                    Add('WHERE tblpurchaselines.PurchaseLineID in (' + IdList + ');');
-                  end;
-                  qry.Close;
-
-                finally
-                  qry.Free;
-                end;
-
-                if not SummaryDetailsTable then begin
-                  {1}Add('UNLOCK TABLES; INSERT HIGH_PRIORITY INTO ' + TableName +
-                                  ' (SeqNo, Date,Type,GlobalRef,ClassID,' +
-                                  ' SaleID,PurchaseOrderID,PaymentID,PrepaymentID,FixedAssetID,' +
-                                  ' SaleLineId, PurchaseLineID, PaymentlineID, PrePaymentlineID,'+
-                                  ' AccountName,AccountGroupLevels,Level1,Level2,Level3,Level4,' +
-                                  ' AccountID,AccountType,ClientName, ClientID,CustomerJobId,' +
-                                  ' ProductDesc,ProductName,ProductGroup,RepName,EmployeeID,Reconciled,Notes,' +
-                                  ' TaxCode,TaxRate,TaxID,DebitsEx,CreditsEx,DebitsInc,CreditsInc,CASH_DebitsEx,' +
-                                  ' CASH_CreditsEx,CASH_DebitsInc,CASH_CreditsInc,`Chq/Ref`) ');
-                  Add('SELECT '+SumSeqno(800)+', Date,Type,GlobalRef,ClassID,SaleID,PurchaseOrderID,PaymentID,PrepaymentID,FixedAssetID,' +
-                                  ' SaleLineId, PurchaseLineID, PaymentlineID, PrePaymentlineID,AccountName,AccountGroupLevels,' +
-                                  ' Level1,Level2,Level3,Level4,AccountID,AccountType,ClientName, ClientID, CustomerJobId,' +
-                                  ' ProductDesc,ProductName,ProductGroup,RepName,EmployeeID,Reconciled,Notes,TaxCode,' +
-                                  ' TaxRate,TaxID,DebitsEx,CreditsEx,DebitsInc,CreditsInc,CASH_DebitsEx,CASH_CreditsEx,' +
-                                  ' CASH_DebitsInc,CASH_CreditsInc,`Chq/Ref` ' +
-                                  ' From tbltransactionsummary;');
-                end;
-
-                TrnsTable02(BulkSQL);
-                TrnsTable03(BulkSQL);
-                TrnsTable04(BulkSQL);
-                TrnsTable05(BulkSQL);
-                TrnsTable06(BulkSQL);
-                TrnsTable07(BulkSQL);
-                TrnsTable08(BulkSQL);
-                TrnsTable10(BulkSQL);
-                TrnsTable11(BulkSQL);
-                TrnsTable12(BulkSQL);
-                TrnsTable14(BulkSQL);
-                TrnsTable16(BulkSQL);
-                TrnsTable17(BulkSQL);
-                TrnsTable18(BulkSQL);
-                TrnsTable19(BulkSQL);
-                TrnsTable20(BulkSQL);
-                TrnsTable21(BulkSQL);
-                TrnsTable22(BulkSQL);
-                TrnsTable23(BulkSQL);
-                TrnsTable24(BulkSQL);
-                TrnsTable25(BulkSQL);
-                TrnsTable26(BulkSQL);
-                TrnsTable27(BulkSQL);
-                TrnsTable28(BulkSQL);
-                TrnsTable29(BulkSQL);
-                TrnsTable30(BulkSQL);
-                TrnsTable31(BulkSQL);
-                TrnsTable32(BulkSQL);
-                TrnsTable33(BulkSQL);
-                TrnsTable34(BulkSQL);
-                TrnsTable35(BulkSQL);
-                TrnsTable36(BulkSQL);
-                TrnsTable37(BulkSQL);
-                TrnsTable38(BulkSQL);
-                TrnsTable39(BulkSQL);
-                TrnsTable80(BulkSQL);
-                TrnsTable40(BulkSQL);
-                TrnsTable81(BulkSQL);
-                TrnsTable41(BulkSQL);
-                TrnsTable44(BulkSQL);
-                TrnsTable47(BulkSQL);
-                TrnsTable50(BulkSQL);
-                TrnsTable51(BulkSQL);
-                TrnsTable52(BulkSQL);
-                TrnsTable53(BulkSQL);
-                TrnsTable54(BulkSQL);
-                TrnsTable55(BulkSQL);
-                TrnsTable56(BulkSQL);
-                TrnsTable57(BulkSQL);
-                TrnsTable58(BulkSQL);
+              TrnsTable02(BulkSQL);
+              TrnsTable03(BulkSQL);
+              TrnsTable04(BulkSQL);
+              TrnsTable05(BulkSQL);
+              TrnsTable06(BulkSQL);
+              TrnsTable07(BulkSQL);
+              TrnsTable08(BulkSQL);
+              TrnsTable10(BulkSQL);
+              TrnsTable11(BulkSQL);
+              TrnsTable12(BulkSQL);
+              TrnsTable14(BulkSQL);
+              TrnsTable16(BulkSQL);
+              TrnsTable17(BulkSQL);
+              TrnsTable18(BulkSQL);
+              TrnsTable19(BulkSQL);
+              TrnsTable20(BulkSQL);
+              TrnsTable21(BulkSQL);
+              TrnsTable22(BulkSQL);
+              TrnsTable23(BulkSQL);
+              TrnsTable24(BulkSQL);
+              TrnsTable25(BulkSQL);
+              TrnsTable26(BulkSQL);
+              TrnsTable27(BulkSQL);
+              TrnsTable28(BulkSQL);
+              TrnsTable29(BulkSQL);
+              TrnsTable30(BulkSQL);
+              TrnsTable31(BulkSQL);
+              TrnsTable32(BulkSQL);
+              TrnsTable33(BulkSQL);
+              TrnsTable34(BulkSQL);
+              TrnsTable35(BulkSQL);
+              TrnsTable36(BulkSQL);
+              TrnsTable37(BulkSQL);
+              TrnsTable38(BulkSQL);
+              TrnsTable39(BulkSQL);
+              TrnsTable80(BulkSQL);
+              TrnsTable40(BulkSQL);
+              TrnsTable81(BulkSQL);
+              TrnsTable41(BulkSQL);
+              TrnsTable44(BulkSQL);
+              TrnsTable47(BulkSQL);
+              TrnsTable50(BulkSQL);
+              TrnsTable51(BulkSQL);
+              TrnsTable52(BulkSQL);
+              TrnsTable53(BulkSQL);
+              TrnsTable54(BulkSQL);
+              TrnsTable55(BulkSQL);
+              TrnsTable56(BulkSQL);
+              TrnsTable57(BulkSQL);
+              TrnsTable58(BulkSQL);
 
     //###########################################
     //############  PAYROLL #####################
@@ -7140,7 +7136,7 @@ begin
 
               {VS1 tables creation - they need to be done after update batch only}
               if not SummaryDetailsTable then begin
-                Log(' not SummaryDetailsTable : '+CurDBName, ltDetail);
+                Log(' not SummaryDetailsTable : ' + CurDBName, ltDetail);
                 DoAfterUpdate;
               end else begin
                 Log(' SummaryDetailsTable - not running afterupdate: ' + CurDBName,ltDetail);
@@ -7854,6 +7850,62 @@ var
     sct.Execute;
   end;
 
+  procedure Make_VS1_Sales_Set1;
+  begin
+    sct.SQL.Clear;
+
+    sct.SQL.Add('DROP TABLE IF EXISTS tmp_vs1_dashboard_sales_set1;');
+    sct.SQL.Add('CREATE TABLE tmp_vs1_dashboard_sales_set1 ( ' +
+                ' ID              INT(11)  NOT NULL AUTO_INCREMENT, ' +
+                ' NewLead         INT(11)  NOT NULL DEFAULT 0, ' +
+                ' NewDeal         INT(11)  NOT NULL DEFAULT 0, ' +
+                ' ClosedDeal      INT(11)  NOT NULL DEFAULT 0, ' +
+                ' ClosedTotal     DOUBLE   NOT NULL DEFAULT 0, ' +
+                ' WinRate         DOUBLE   NOT NULL DEFAULT 0, ' +
+                ' AvgCycle        INT(11)  NOT NULL DEFAULT 0, ' +
+                ' PRIMARY KEY (ID) ' +
+                ' ) ENGINE=MyISAM DEFAULT CHARSET=utf8;');
+
+    sct.SQL.Add('INSERT INTO tmp_vs1_dashboard_sales_set1 SET NewLead=0;');
+
+    // New Lead
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set1 T, ' +
+                ' (SELECT COUNT(*) AS cnt FROM tblclients	' +
+                ' WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" ' +
+                '	AND DATEDIFF(CURDATE(), CreationDate) < 31) T1 ' +
+                ' SET T.NewLead=T1.CNT;');
+
+    // New Deal
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set1 T, ' +
+                ' (SELECT COUNT(*) AS CNT FROM tblsales ' +
+                ' WHERE IsQuote = "T" AND Deleted="F" AND Cancelled="F" ' +
+                ' AND DATEDIFF(CURDATE(), SaleDate) < 31) T1 ' +
+                ' SET T.NewDeal=T1.CNT;');
+
+    // Closed Deals
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set1 T, ' +
+                ' (SELECT SUM(Balance) AS Amount FROM tblsales ' +
+                '	WHERE IsQuote="T" AND Deleted="F" AND Cancelled="F" AND Converted="T" ' +
+                ' AND DATEDIFF(CURDATE(), SaleDate) < 31) T1 ' +
+                ' SET T.ClosedTotal=T1.Amount;');
+
+    // Win Rate
+    sct.SQL.Add('SELECT COUNT(*) INTO @converted FROM tblsales WHERE IsQuote = "T" AND Converted = "T" AND DATEDIFF(CURDATE(), SaleDate) < 31; ' +
+                'SELECT COUNT(*) INTO @unconvert FROM tblsales WHERE IsQuote = "T" AND Converted = "F" AND DATEDIFF(CURDATE(), SaleDate) < 31; ' +
+                'UPDATE tmp_vs1_dashboard_sales_set1 T, ' +
+                ' (SELECT (@converted / (@converted + @unconverted)) * 100 AS Rate) T1 ' +
+                ' SET T.WinRate=T1.Rate;');
+
+    // Avg Sales Cycle
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set1 T, ' +
+                ' (SELECT AVG(DATEDIFF(ConvertedDate, SaleDate)) Cycle FROM tblsales ' +
+                '	WHERE IsQuote="T" AND Deleted="F" AND Cancelled="F" AND Converted="T" AND NOT ISNULL(ConvertedDate) ' +
+                ' AND DATEDIFF(CURDATE(), SaleDate) < 31) T1 ' +
+                ' SET T.ClosedTotal=T1.Cycle;');
+
+    sct.Execute;
+  end;
+
   function HasVS1data: Boolean;
   begin
     //result := TNewDbUtils.InitEmployee(TMyConnection(AppEnvVirt.Obj['CommonDbLib.GetSharedMyDacConnection']), '', nil, False, False);
@@ -7875,7 +7927,8 @@ begin
          if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_APReport']      then begin StepProgressDlg('Make VS1 APReport')         ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_APReport'         ,ltDetail); try Make_VS1_APReport;        Except on E:Exception do begin Log( 'Error in Make_VS1_APReport : '         + E.message, ltDetail); end;end;end;
          if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_SalesList']     then begin StepProgressDlg('Make VS1 SalesList')        ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_SalesList'        ,ltDetail); try Make_VS1_SalesList;       Except on E:Exception do begin Log( 'Error in Make_VS1_SalesList : '        + E.message, ltDetail); end;end;end;
          if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_PQASumList']    then begin StepProgressDlg('Make VS1 PQASumList')       ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_PQASumList'       ,ltDetail); try Make_VS1_PQASumList;      Except on E:Exception do begin Log( 'Error in Make_VS1_PQASumList: '        + E.message, ltDetail); end;end;end;
-         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 Sum2')             ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_PQASumList'       ,ltDetail); try Make_VS1_Sum2;            Except on E:Exception do begin Log( 'Error in Make_VS1_Sum2: '              + E.message, ltDetail); end;end;end;
+         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 Sum2')             ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_Sum2'             ,ltDetail); try Make_VS1_Sum2;            Except on E:Exception do begin Log( 'Error in Make_VS1_Sum2: '              + E.message, ltDetail); end;end;end;
+         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 Sales_Set1')       ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_Sales_Set1'       ,ltDetail); try Make_VS1_Sales_Set1;      Except on E:Exception do begin Log( 'Error in Make_VS1_Sales_Set1: '        + E.message, ltDetail); end;end;end;
       finally
         Freeandnil(Sct);
       end;

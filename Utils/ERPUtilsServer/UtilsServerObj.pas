@@ -890,7 +890,7 @@ begin
         cfg.AsString := DecryptString(ConfigDb.Value);
 //        Log('Server: ' + MySQLServer, ltDetail);
 //        Log(cfg.Asstring, ltDetail);
-        JsonToObj(cfg.O['ClientConfig'],ClientConfig);
+        JsonToObj(cfg.O['ClientConfig'], ClientConfig);
         result := ClientConfig.SoftwareReleaseType;
         Log('Software Release Type: ' + result,ltDetail);
       finally

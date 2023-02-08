@@ -36,7 +36,7 @@ begin
                                             'tblsaleslines',
                                             'SaleID',
                                             'SaleDate',
-                                            'IsInvoice' + iif(IncludeSO, ',IsSalesOrder', ''));
+                                            'IsInvoice' + IIF(IncludeSO, ',IsSalesOrder', ''));
 end;
 
 initialization

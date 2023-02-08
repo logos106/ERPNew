@@ -267,7 +267,7 @@ begin
        SQL.Add('TransHeader.' + IDfield);
 
        SQL.Add(' FROM ' + Header + ' TransHeader ');
-       SQL.Add(' INNER JOIN ' + Lines + ' TransLines on TransHeader.' + IDfield + ' = TransLines.' + IDfield + '');
+       SQL.Add(' INNER JOIN ' + Lines + ' TransLines ON TransHeader.' + IDfield + ' = TransLines.' + IDfield + '');
        SQL.Add(' WHERE TransHeader.' + st[ctr] + ' = "T" ');
        if not IsPOList then SQL.Add(' AND TransHeader.Converted="F" ');
        if IncludeBO and includeshipped then

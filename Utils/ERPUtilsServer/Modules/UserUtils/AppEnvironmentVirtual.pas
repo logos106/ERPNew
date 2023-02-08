@@ -699,10 +699,10 @@ end;
 
 function TCompanyPrefs.GetDbPrefRec(aName: string): TMyQuery;
 begin
-  result := TMyQuery.Create(nil);
-  result.Connection := DbConnection;
-  result.SQL.Add('select * from tblDbPreferences where Name = ' + QuotedStr(aName));
-  result.Open;
+  Result := TMyQuery.Create(nil);
+  Result.Connection := DbConnection;
+  Result.SQL.Add('SELECT * FROM tblDbPreferences WHERE Name = ' + QuotedStr(aName));
+  Result.Open;
 end;
 function TCompanyPrefs.getEnableScheduledreports: Boolean;
 begin

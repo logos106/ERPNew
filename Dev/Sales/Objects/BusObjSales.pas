@@ -683,6 +683,8 @@ Protected
     Function GetQuoteLines: TQuoteLine;
     Function GetReference: String;
     Procedure SetReference(Const Value: String);
+    Function GetConvertedDate: TDateTime;
+    Procedure SetConvertedDate(Const Value: TDateTime);
 
   Protected
     Procedure OnDataIdChange(Const ChangeType: TBusObjDataChangeType); Override;
@@ -718,7 +720,7 @@ Protected
   Published
     Property Lines            : TQuoteLine Read GetQuoteLines;
     Property FreezeQuoteAmount: Boolean Read GetFreezeQuoteAmount Write SetFreezeQuoteAmount;
-
+    Property ConvertedDate: TDateTime Read GetConvertedDate Write SetConvertedDate;
     Property Reference: String Read GetReference Write SetReference;
   End;
 
@@ -3838,11 +3840,11 @@ Begin
   NewId := ObjInstanceToClone.Id;
   UpdaterelatedIds(OldId, NewID, Tsalesline(TSales(ObjInstanceToClone).Lines));
   Result                                                                    := ObjInstanceToClone;
-  If TSales(REsult).SaleDate = Dateof(Now) Then TSales(REsult).Saledatetime := Now
-  Else TSales(REsult).Saledatetime                                          := TSales(REsult).SaleDate + TimeOf(AppEnv.CompanyPrefs.StartOfDay);
+  If TSales(Result).SaleDate = Dateof(Now) Then TSales(Result).Saledatetime := Now
+  Else TSales(Result).Saledatetime                                          := TSales(Result).SaleDate + TimeOf(AppEnv.CompanyPrefs.StartOfDay);
   /// /TSales(REsult).Saledatetime :=saleDateTime;
-  TSales(REsult).CalcOrderTotals;
-  TSales(REsult).PostDB;
+  TSales(Result).CalcOrderTotals;
+  TSales(Result).PostDB;
 End;
 
 Procedure TSales.CloneLines(Const Sender: TBusObj; Var Abort: Boolean);
@@ -5348,12 +5350,12 @@ Begin
   Result           := 0;
   ConvertingQuote  := True;
   CopyingToInvoice := True;
-  Try
+  try
     FieldsnotToclone := ExcludeFromclone + ',' + QuotedStr('IsPOS') + ',' + QuotedStr('IsRefund') + ',' + QuotedStr('IsCashSale') + ',' + QuotedStr('IsInvoice') + ',' + QuotedStr('IsQuote') + ',' +
       QuotedStr('IsSalesOrder') + ',' + QuotedStr('IsVoucher') + ',' + QuotedStr('IsLayby') + ',' + QuotedStr('IsLaybyTOS') + ',' + QuotedStr('IsLaybyPayment');
     Connection.BeginTransaction;
-    Try
-      If CloneBusObj('SaleDate', DateOf(Now), False, 'SaleID') <> Nil Then Begin
+    try
+      if CloneBusObj('SaleDate', DateOf(Now), False, 'SaleID') <> nil then begin
         InvoiceObj                := TInvoice(ObjInstanceToClone);
         InvoiceObj.Converted      := False;
         InvoiceObj.Deleted        := False;
@@ -5364,26 +5366,27 @@ Begin
         InvoiceObj.PostDB;
         InvoiceObj.SetPaymentTerms(InvoiceObj.SaleDate);
         InvoiceObj.TotalQuoteAmtInc := TotalAmountInc;
-        InvoiceObj.CustPONumber     := Reference;
+        InvoiceObj.CustPONumber     := Self.Reference;
         InvoiceObj.RecalculateAllLines; { For Auto BO If No Stock }
         InvoiceObj.CalcOrderTotals;
-        If AppEnv.CompanyPrefs.UseBarcodePicking And Not(AppEnv.CompanyPrefs.BarcodePickingInSOMode) Then Begin
+        if AppEnv.CompanyPrefs.UseBarcodePicking And Not(AppEnv.CompanyPrefs.BarcodePickingInSOMode) then begin
           InvoiceObj.IsBarcodePicking := True;
-        End;
+        end;
         InvoiceObj.Save;
         SendEvent(BusobjEvent_ToDo, BusobjProcessPQADetailClasses, InvoiceObj);
         Self.Converted := True;
+        Self.ConvertedDate := Now;
         Self.PostDB;
         Result := InvoiceObj.ID;
         UserLock.UnlockAllCurrentInstance;//UnlockAllCurrentUser //Binny -UnlockAllCurrentUser removes locking from other forms are well;
         InvoiceObj.UserLock.UnlockAllCurrentInstance;
-      End;
-    Finally
-      If Result > 0 Then Connection.CommitTransaction
-      Else Connection.RollbackTransaction;
+      end;
+    finally
+      if Result > 0 then Connection.CommitTransaction
+      else Connection.RollbackTransaction;
     End;
-  Finally CopyingToInvoice := False;
-  End;
+  finally CopyingToInvoice := False;
+  end;
 End;
 
 Function TQuoteBase.CopyQuoteToQuote: Integer;
@@ -5442,6 +5445,7 @@ Begin
         SalesOrderObj.Save;
         SendEvent(BusobjEvent_ToDo, BusobjProcessPQADetailClasses, SalesOrderObj);
         Converted := True;
+        ConvertedDate := Now;
         PostDB;
         Result := SalesOrderObj.ID;
         UserLock.UnlockAllCurrentInstance;//UnlockAllCurrentUser //Binny -UnlockAllCurrentUser removes locking from other forms are well;
@@ -5626,13 +5630,22 @@ End;
 
 Function TQuoteBase.GetFreezeQuoteAmount: Boolean;
 Begin
-
   Result := GetBooleanField('FreezeQuoteAmount');
 End;
 
 Procedure TQuoteBase.SetFreezeQuoteAmount(Const Value: Boolean);
 Begin
   SetBooleanField('FreezeQuoteAmount', Value);
+End;
+
+Function TQuoteBase.GetConvertedDate: TDateTime;
+Begin
+  Result := GetDateTimeField('ConvertedDate');
+End;
+
+Procedure TQuoteBase.SetConvertedDate(Const Value: TDateTime);
+Begin
+  SetDateTimeField('ConvertedDate', Value);
 End;
 
 Function TQuoteBase.GetLines: TTransLineBase;
