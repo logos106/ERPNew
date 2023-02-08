@@ -262,7 +262,7 @@ uses
   {$IFNDEF CONSOLE}  {$IFDEF DevMode}  , LogLib  {$ENDIF}  {$ENDIF}
   ,ProfitAndLossPeriodCompareSQL, JSONObject, utCloudconst,
   APReportSQL, SalesListSQL   , ProfitAndLossSQL,
-  ProductStockReportLib, BalanceSheetSQL, CommonDbLib, InvoicesSQL;
+  ProductStockReportLib, BalanceSheetSQL, CommonDbLib;
 
 {$IFDEF DevMode}
 Const
