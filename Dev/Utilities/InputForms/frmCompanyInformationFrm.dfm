@@ -11,10 +11,10 @@ inherited frmCompanyInformation: TfrmCompanyInformation
   Font.Charset = DEFAULT_CHARSET
   Font.Style = []
   OldCreateOrder = True
-  ExplicitLeft = 452
-  ExplicitTop = 288
-  ExplicitWidth = 777
-  ExplicitHeight = 651
+  ExplicitLeft = 8
+  ExplicitTop = 8
+  ExplicitWidth = 767
+  ExplicitHeight = 641
   DesignSize = (
     761
     612)
@@ -1712,7 +1712,7 @@ inherited frmCompanyInformation: TfrmCompanyInformation
     Left = 395
     Top = 208
     Bitmap = {
-      494C010102006400CC0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102006400D00010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

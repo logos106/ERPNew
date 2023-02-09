@@ -77,7 +77,7 @@ begin
           TNewDbUtils.InitCompInfo(aConn, params.S['ClientName'], aOnEvent);
         Except
           on E:Exception do begin
-            AddEventdata(aOnEvent,'Progress Error1', E.message);
+            AddEventdata(aOnEvent, 'Progress Error1', E.message);
           end;
         end;
       end;
@@ -221,55 +221,14 @@ begin
         dump.RestoreFromFile(aTempFileName);
         AddEventdata(aOnEvent, 'Progress', 'Database Created');
 
-        try CreateSPs(nil, conn);Except end;
-
-
-        (*AddEventdata(aOnEvent,'Progress', 'Setting company defaults');
-
-        if params.Exists(VS1_TAG_RegionName) then aERPRegionName:= params.S[VS1_TAG_RegionName]
-        else aERPRegionName:= '';
-        if aERPRegionName = '' then aERPRegionName := 'Australia';
-
-        TNewDbUtils.SetNewCompanyDefaultValues(fDatabase,aERPRegionName,False,true,conn, aOnEvent, IsVS1Database);
-        AddEventdata(aOnEvent,'Progress', 'Checking for Employees');
-        if params.Exists('ClientName') then begin
-          AddEventdata(aOnEvent,'Progress', 'Checking for Employees- Params Exists');
-          if not(params.exists('MakingExtraDB')) or (params.B['MakingExtraDB']=False) then begin
-            AddEventdata(aOnEvent,'Progress', 'update companyinfo');
-            try
-              TNewDbUtils.initcompInfo(conn, params.S['ClientName'],aOnEvent);
-            Except
-              on E:Exception do begin
-                AddEventdata(aOnEvent,'Progress Error1', E.message);
-              end;
-            end;
-          end;
-          AddEventdata(aOnEvent,'Progress', 'update employee');
-          try
-            TNewDbUtils.InitEmployee(conn, params.asString,aOnEvent);
-          Except
-            on E:Exception do begin
-              AddEventdata(aOnEvent,'Progress Error2', E.message);
-            end;
-          end;
-
-          AddEventdata(aOnEvent,'EmployeeId', inttostr(params.I['VS1EmployeeId']),true);
-
-        end else begin
-          AddEventdata(aOnEvent,'Progress' , 'Vs1_Reg doesnt exists');
-          AddEventdata(aOnEvent,'Progress' , Params.asString);
-        end;
-
-
-        if params.S['OrganisationName'] <> '' then begin
-          Conn.ExecSQL('update tblcompanyinformation set CompanyName = ' + QuotedStr(params.S['OrganisationName']), []);
-        end;
-        Conn.ExecSQL('update tbldbpreferences set FieldValue = "T" where Name = "CompanyDefaultsSelected";', []);*)
+        try CreateSPs(nil, conn);except end;
 
       finally
         DeleteFile(aTempFileName);
       end;
+
       OnNewDatabase(aOnEvent, params, fDatabase, fserver, conn, IsVS1Database);
+
     finally
       sl.Free;
       dump.Free;

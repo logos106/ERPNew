@@ -667,7 +667,6 @@ uses
   BusObjBankRule in '..\..\..\Dev\Accounts\Objects\BusObjBankRule.pas',
   BusObjReportsAccountant in '..\..\..\Dev\Accounts\Objects\BusObjReportsAccountant.pas' {/  BusObjPQAList in '..\..\..\Dev\Inventory\Objects\BusObjPQAList.pas';},
   BASReturnDetailSQL in '..\..\..\Dev\Returns\Objects\BASReturnDetailSQL.pas',
-  CardDataReportSQL in '..\..\..\Dev\Accounts\Objects\CardDataReportSQL.pas',
   BusObjCurfreqSettings in '..\..\..\Dev\General\Objects\CommonObjects\BusObjCurfreqSettings.pas',
   ProductBatchesSQL in '..\..\..\Dev\Inventory\Objects\ProductBatchesSQL.pas',
   BusObjPnLLayout in '..\..\..\Dev\Accounts\Objects\BusObjPnLLayout.pas',

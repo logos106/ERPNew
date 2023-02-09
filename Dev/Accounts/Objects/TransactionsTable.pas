@@ -7908,7 +7908,6 @@ var
 
   function HasVS1data: Boolean;
   begin
-    //result := TNewDbUtils.InitEmployee(TMyConnection(AppEnvVirt.Obj['CommonDbLib.GetSharedMyDacConnection']), '', nil, False, False);
     Result := UtilsLib.HasVS1data(TMyConnection(AppEnvVirt.Obj['CommonDbLib.GetSharedMyDacConnection']));
   end;
 

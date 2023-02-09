@@ -1027,20 +1027,15 @@ end;
 procedure TfrmCompanyInformation.DNMSpeedButton2Click(Sender: TObject);
 begin
   inherited;
-  ProcessingCursor(true);
 
+  ProcessingCursor(true);
   try
     TNewDbUtils.InitEmployee(MyConnection, '', nil, False);
-
     PublishonVS1;
-(*    if not AppEnv.AppDb.DatabaseExists(VS1ClientdbDBName) then begin
-      // VS1 db server needs this database for general
-    end;*)
   finally
     ProcessingCursor(False);
     MessageDlgXP_vista('Upgraded to VS1 Database', mtInformation, [mbOK], 0);
   end;
-
 end;
 
 

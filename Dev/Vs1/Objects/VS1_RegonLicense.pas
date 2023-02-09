@@ -418,10 +418,10 @@ end;
 
 function TVS1_Rego.MakeNewdatabseForRegion(VS1_Database: TVS1_databases; aOnEvent: TEventProc): Boolean;
 var
-  fiCreatedbTaskID:Integer;
-  OutJson :TJsonObject;
+  fiCreatedbTaskID: Integer;
+  OutJson: TJsonObject;
   TaskRec: TServerTaskRec;
-  JsResultStr:String;
+  JsResultStr: String;
 begin
   TaskRec := TServerTaskRec.New(TASK_VS1_NewRego, fConn.Server);
   TaskRec.TaskStatus := 'Unknown';
@@ -724,15 +724,15 @@ end;
 Function TVS1_Rego.VS1_InitNewDatabase(aOnEvent: TEventProc; aVS1_Db: TVS1_Databases; IsVS1Database: Boolean; Vs1_RegoJson: String; var fsResponse:String): Boolean;
 var
   params, js: TJsonObject;
-  fsURL :String;
-  JsResultStr:String;
+  fsURL: String;
+  JsResultStr: String;
 begin
   AddEventdata(aOnEvent, 'Progress', 'VS1_InitNewDatabase ' + aVS1_Db.Servername + '.' + aVS1_Db.DatabaseName);
-  params:= JO(Vs1_RegoJson);
+  params := JO(Vs1_RegoJson);
   try
-    js := jo;
+    js := JO;
     try
-      params.S['Name']:= TASK_VS1_InitNewDatabase;
+      params.S['Name']                := TASK_VS1_InitNewDatabase;
       params.S[VS1_TAG_DatabaseName]  := aVS1_Db.DatabaseName;
       params.S[VS1_TAG_ServerName]    := aVS1_Db.Servername;
       params.B[VS1_TAG_IsVS1Database] := IsVS1Database;
@@ -748,7 +748,7 @@ begin
                      Params,
                      JsResultStr) = VS1_HTTP_Success_Code then begin
         js.AsString := JsResultStr;
-        fsResponse :=js.asString;
+        fsResponse := js.asString;
         Result := True;
       end else begin
         js.AsString := JsResultStr;
@@ -1089,7 +1089,6 @@ var
 
 begin
   aDatefrom := Date;
-  //aDateTo :=LicenseMonthEnd(aDatefrom, VS1_Clients.LicenseMonths);
   try
     RegisterErr := '';
     try
@@ -1145,10 +1144,10 @@ begin
         conn.Connection := fconn;
         if not VerifyModulestoAdd(conn) then Exit;
 
-        VS1_Clients     := TVS1_Clients.Create(Self)    ; VS1_Clients.Connection    := conn;
-        VS1_ClientUsers := TVS1_ClientUsers.Create(Self); VS1_ClientUsers.Connection:= conn;
-        VS1_Database    := tVS1_databases.Create(Self)  ; VS1_Database.Connection         := conn;
-        VS1_Sampledb    := tVS1_databases.Create(Self)  ; VS1_Sampledb.Connection   := conn;
+        VS1_Clients     := TVS1_Clients.Create(Self)    ; VS1_Clients.Connection      := conn;
+        VS1_ClientUsers := TVS1_ClientUsers.Create(Self); VS1_ClientUsers.Connection  := conn;
+        VS1_Database    := tVS1_databases.Create(Self)  ; VS1_Database.Connection     := conn;
+        VS1_Sampledb    := tVS1_databases.Create(Self)  ; VS1_Sampledb.Connection     := conn;
 
         Customer        := TCustomer.Create(Self)       ;
         try
@@ -1207,7 +1206,7 @@ begin
                          ' AND DatabaseName LIKE "' + NewcloudDBName(False, True) + '%"'+
                          ' AND Servername = ' + QuotedStr(VS1_ClientDbServers.ServerName));
 
-            if (*(ERPDBServerName = '') and*) (CreateNewDB = 'T' ) or (VS1_Database.Count < 1) then begin
+            if (CreateNewDB = 'T' ) or (VS1_Database.Count < 1) then begin
               Log('Creating A New Database ');
               if not MakeNewdatabseForRegion(VS1_Database, aOnEvent) then begin
                 RegisterErr := 'Failed to Create a New Database';
@@ -1218,11 +1217,11 @@ begin
             end else begin
               fsServername := VS1_Database.ServerName;
 
-              //if ERPDBServerName = '' then // if existing database is used, do not initialise it
-              if not VS1_InitNewDatabase(aOnEvent, VS1_Database, True, Vs1_RegoJson, JsResultStr) then begin
-                RegisterErr := 'Failed to Assign Available Database ' + VS1_Database.Servername + ':' + VS1_Database.Databasename + NL + JsResultStr;
-                Exit;
-              end;
+//              //if ERPDBServerName = '' then // if existing database is used, do not initialise it
+//              if not VS1_InitNewDatabase(aOnEvent, VS1_Database, True, Vs1_RegoJson, JsResultStr) then begin
+//                RegisterErr := 'Failed to Assign Available Database ' + VS1_Database.Servername + ':' + VS1_Database.Databasename + NL + JsResultStr;
+//                Exit;
+//              end;
 
               Log('Using Existing Databse : ' + VS1_Database.DatabaseName);
 
@@ -1342,7 +1341,7 @@ begin
             end;
 
             if DoEnableStS(VS1_Clients.ClientUsers , fsEnableStSStatus) then begin
-              AddEventdata(aOnEvent ,TAG_ResponseStatus , 'Database is initialialised with Seed To Sale Defaults' , true);
+              AddEventdata(aOnEvent, TAG_ResponseStatus, 'Database is initialialised with Seed To Sale Defaults', True);
             end;
 
             VS1_Clients.ClientPayments.New;

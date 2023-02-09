@@ -162,7 +162,6 @@ var
   qry:TERPQuery;
   fiEmployeeId:Integer;
 begin
-    //result := TNewDbUtils.InitEmployee(TMyConnection(fconnection) , '', nil, False, False);
   Result := False;
 
   qry := TERPQuery.Create(nil);

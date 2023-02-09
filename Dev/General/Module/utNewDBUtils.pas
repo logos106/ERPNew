@@ -93,7 +93,7 @@ begin
     try
       qry.Connection := conn;
       if DisableAdmin then begin
-        qry.SQl.Text := 'SELECT * FROM tblemployees WHERE FirstName=' + quotedstr('Admin') + ' AND LastName=' + QuotedStr('.');
+        qry.SQl.Text := 'SELECT * FROM tblemployees WHERE FirstName=' + QuotedStr('Admin') + ' AND LastName=' + QuotedStr('.');
         qry.Open;
         if qry.Recordcount > 0 then begin
           qry.Edit;
@@ -124,9 +124,9 @@ begin
       {full access to cloud and Access levels in ERP}
       qry.Close;
       qry.SQL.clear;
-      qry.SQL.add('SELECT * FROM tblpassword WHERE EmployeeId = '+ inttostr(fiEmployeeId));
-      qry.open;
-      if (qry.recordcount = 0) and not(createuserifmissing) then Exit;
+      qry.SQL.add('SELECT * FROM tblpassword WHERE EmployeeId = ' + IntToStr(fiEmployeeId));
+      qry.Open;
+      if (qry.RecordCount = 0) and not(createuserifmissing) then Exit;
 
       if createuserifmissing then begin
         if (qry.recordcount =0)  then begin
@@ -157,34 +157,35 @@ begin
             (qry.FieldByname('Logon_password').AsString = EnCrypt(ERP_VS1CLOUD_DEFAULT_TOKEN, 'z'))
       end;
       if fsVs1_RegJs = '' then Exit;
-      if not(Vs1_RegJs.exists('MakingExtraDB')) or (Vs1_RegJs.B['MakingExtraDB']=False) then begin
-          if not(Vs1_RegJs.Exists(VS1_TAG_FirstName)) or (Vs1_RegJs.S[VS1_TAG_FirstName] ='') then exit;
+
+      if not(Vs1_RegJs.Exists('MakingExtraDB')) or (Vs1_RegJs.B['MakingExtraDB'] = False) then begin
+          if not(Vs1_RegJs.Exists(VS1_TAG_FirstName)) or (Vs1_RegJs.S[VS1_TAG_FirstName] = '') then Exit;
           qry.Close;
-          qry.SQl.text := 'SELECT * from tblemployees where FirstName='+quotedstr(Vs1_RegJs.S[VS1_TAG_FirstName])+' and LastName=' +quotedstr(Vs1_RegJs.S['LastName']) ;
+          qry.SQl.Text := 'SELECT * FROM tblemployees WHERE FirstName=' + quotedstr(Vs1_RegJs.S[VS1_TAG_FirstName]) + ' AND LastName=' + QuotedStr(Vs1_RegJs.S['LastName']);
           qry.open;
-          if qry.recordcount =0 then begin
+          if qry.RecordCount = 0 then begin
              qry.Append;
-             qry.fieldbyname('FirstName').asString    := Vs1_RegJs.S[VS1_TAG_FirstName];
-             qry.fieldbyname('LastName').asString     := Vs1_RegJs.S[VS1_TAG_LastName];
-             qry.fieldbyname('EmployeeName').asString := trim(qry.fieldbyname('FirstName').asString)+' '+trim(qry.fieldbyname('LastName').asString);
-             qry.fieldbyname('Phone').asString        := Vs1_RegJs.S[VS1_TAG_PhoneNumber];
+             qry.FieldByName('FirstName').AsString    := Vs1_RegJs.S[VS1_TAG_FirstName];
+             qry.FieldByName('LastName').AsString     := Vs1_RegJs.S[VS1_TAG_LastName];
+             qry.FieldByName('EmployeeName').AsString := trim(qry.fieldbyname('FirstName').asString)+' '+trim(qry.fieldbyname('LastName').asString);
+             qry.FieldByName('Phone').AsString        := Vs1_RegJs.S[VS1_TAG_PhoneNumber];
              if Vs1_RegJs.Exists('IsSampleDB') and Vs1_RegJs.B['IsSampleDB'] then begin
-                qry.fieldbyname('Email').asString        := Vs1_RegJs.S[VS1_TAG_CloudSampleDBUserName];
+                qry.FieldByName('Email').AsString        := Vs1_RegJs.S[VS1_TAG_CloudSampleDBUserName];
              end else begin
-                qry.fieldbyname('Email').asString        := Vs1_RegJs.S[VS1_TAG_CloudUserName];
+                qry.FieldByName('Email').AsString        := Vs1_RegJs.S[VS1_TAG_CloudUserName];
              end;
-             qry.fieldbyname('Sex').asString          := Vs1_RegJs.S[VS1_TAG_Sex];
-             qry.fieldbyname('DateStarted').asDatetime:= Vs1_RegJs.DT[VS1_TAG_DateStarted];
-             qry.fieldbyname('DOB').asDatetime        := Vs1_RegJs.DT[VS1_TAG_DOB];
+             qry.FieldByName('Sex').AsString          := Vs1_RegJs.S[VS1_TAG_Sex];
+             qry.FieldByName('DateStarted').AsDatetime:= Vs1_RegJs.DT[VS1_TAG_DateStarted];
+             qry.FieldByName('DOB').AsDatetime        := Vs1_RegJs.DT[VS1_TAG_DOB];
              qry.Post;
           end;
-          Vs1_RegJs.I['VS1EmployeeId'] := qry.fieldbyname('EmployeeID').asInteger;
+          Vs1_RegJs.I['VS1EmployeeId'] := qry.FieldByName('EmployeeID').asInteger;
 
           {full access to cloud and Access levels in ERP}
           qry.Close;
           qry.SQL.clear;
           qry.SQL.add('SELECT * FROM tblpassword where EmployeeId = '+ inttostr(Vs1_RegJs.I[VS1_TAG_VS1EmployeeId]));
-          qry.open;
+          qry.Open;
           if qry.recordcount =0 then begin
             qry.Append;
             qry.FieldByname('EmployeeId').AsInteger :=  Vs1_RegJs.I[VS1_TAG_VS1EmployeeId];

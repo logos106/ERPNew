@@ -718,7 +718,6 @@
 				<Form>/  BusObjPQAList in &apos;..\..\..\Dev\Inventory\Objects\BusObjPQAList.pas&apos;;</Form>
 			</DCCReference>
 			<DCCReference Include="..\..\..\Dev\Returns\Objects\BASReturnDetailSQL.pas"/>
-			<DCCReference Include="..\..\..\Dev\Accounts\Objects\CardDataReportSQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\General\Objects\CommonObjects\BusObjCurfreqSettings.pas"/>
 			<DCCReference Include="..\..\..\Dev\Inventory\Objects\ProductBatchesSQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\Accounts\Objects\BusObjPnLLayout.pas"/>

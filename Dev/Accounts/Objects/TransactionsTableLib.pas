@@ -9,7 +9,7 @@ type
   private
   Public
     constructor Create(OwnerListing:boolean);Override;
-    Function TransSQL(const Value:Integer;DonotMakeTransTable:Boolean =False; const aSaleID:Integer=0):String;
+    Function TransSQL(const Value:Integer;DonotMakeTransTable:Boolean =False; const aSaleID:Integer=0): String;
     function TransactionSummarySQL(const SQLNo: Integer): String;
     function TransactionSQLs: String;
     function InventoryAssetPostingSQLs: String;
