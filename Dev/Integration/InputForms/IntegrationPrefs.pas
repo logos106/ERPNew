@@ -21,7 +21,10 @@ uses
   IdIOHandler, IdIOHandlerSocket, IdHeaderList, IdIOHandlerStack, IdSSL, IdSSLOpenSSL,
   IdTCPClient, IdHTTP,
   sgcWebSocket_Client, sgcWebSocket, kbmMemTable, shellapi, IdBaseComponent,
-  IdComponent, IdIPMCastBase, IdIPMCastClient;
+  IdComponent, IdIPMCastBase, IdIPMCastClient, pngimage;
+
+const
+  WM_USER_SET_FOCUS = WM_USER + 201;
 
 type
 
@@ -274,6 +277,13 @@ type
     bnRefreshMagento: TDNMSpeedButton;
     bnRefreshWooCommerce: TDNMSpeedButton;
     lbWooCommerce: TLabel;
+    bnChangePassword: TDNMSpeedButton;
+    gbPassword: TDNMPanel;
+    imNewShow: TImage;
+    imNewHide: TImage;
+    bnSubmit: TDNMSpeedButton;
+    edNewPassword: TEdit;
+    Label26: TLabel;
     procedure qryProfilesBeforeOpen(DataSet: TDataSet);
     procedure qryGaAccountsAfterScroll(DataSet: TDataSet);
     procedure qryGaAccountsBeforeOpen(DataSet: TDataSet);
@@ -346,6 +356,11 @@ type
     procedure bnYodleeCheckClick(Sender: TObject);
     procedure bnRefreshMagentoClick(Sender: TObject);
     procedure bnRefreshWooCommerceClick(Sender: TObject);
+    procedure bnChangePasswordClick(Sender: TObject);
+    procedure bnSubmitClick(Sender: TObject);
+    procedure edNewPasswordChange(Sender: TObject);
+    procedure imNewShowClick(Sender: TObject);
+    procedure imNewHideClick(Sender: TObject);
   private
     SMSConfig: TSMSConfig;
     YodleeDirty : Boolean;
@@ -389,6 +404,7 @@ type
     function getYodleeCredentials: string;
     function AuthenticateCoreEDI(ADisplayError: Boolean = True): Boolean;
     function ShellExecuteAndWait(URL, AuthToken: string; AWaitTimeMs: Integer; var AResultJSON: string): DWORD;
+    procedure SetFocusToControl(var Message: TMessage); message WM_USER_SET_FOCUS;
   Protected
     procedure StartupProcess(var Msg: TMessage); Override;
     procedure FinishProcess(var Msg: TMessage); Override;
@@ -485,6 +501,19 @@ begin
     NewSite.Free;
 end;
 
+procedure TIntegrationPrefsGUI.bnChangePasswordClick(Sender: TObject);
+begin
+  inherited;
+  gbPassword.Visible         := True;
+  edNewPassword.Text         := '';
+  edNewPassword.PasswordChar := '*';
+  imNewShow.Left             := edNewPassword.Left + edNewPassword.Width + 1;
+  imNewShow.Top              := edNewPassword.Top;
+  imNewHide.Visible          := False;
+  PostMessage(self.Handle, WM_USER_SET_FOCUS, 0, 0);
+
+end;
+
 procedure TIntegrationPrefsGUI.bnLinkAccountsClick(Sender: TObject);
 var
   AuthToken   : string;
@@ -578,6 +607,28 @@ begin
     CommonLib.MessageDlgXP_Vista('WooCommerce not enabled. Please contact ERP.',mtInformation,[mbOk],0);
   end;
   lbWooCommerce.Visible := not chkEnableWooCommerce.Checked;
+end;
+
+procedure TIntegrationPrefsGUI.bnSubmitClick(Sender: TObject);
+var
+  sJSON             : string;
+  sResult           : string;
+  JObject           : TJSONObject;
+begin
+  if not AuthenticateCoreEDI(False) then exit;
+  if not wsClient.Active then exit;
+
+  sJSON   := BuildJSON('CHANGEMAGENTOPASSWORD');
+  sResult := wsClient.WriteAndWaitData(sJSON);
+
+  JObject := JO(sResult);
+  if JObject.B['Error'] then begin
+    showmessage(sJSON);
+    CommonLib.MessageDlgXP_Vista('Password change unsuccessful. Error was ',mtError,[mbOk],0);
+  end else begin
+    CommonLib.MessageDlgXP_Vista('Password change successful.',mtInformation,[mbOk],0);
+    gbPassword.Visible := False;
+  end;
 end;
 
 procedure TIntegrationPrefsGUI.bnYodleeCheckClick(Sender: TObject);
@@ -974,6 +1025,12 @@ begin
   end;
 end;
 
+procedure TIntegrationPrefsGUI.edNewPasswordChange(Sender: TObject);
+begin
+  inherited;
+  bnSubmit.Enabled := (edNewPassWord.Text <> '');
+end;
+
 procedure TIntegrationPrefsGUI.edtErpApiPortChange(Sender: TObject);
 begin
   inherited;
@@ -1223,6 +1280,24 @@ begin
   edtCoreEDIServiceUserName.Text := AppEnv.CompanyInfo.Email;
   wwYodleeEnabledClick(Nil);
   wwMagentoEnabledClick(Nil);
+end;
+
+procedure TIntegrationPrefsGUI.imNewHideClick(Sender: TObject);
+begin
+  inherited;
+  edNewPassword.PasswordChar := '*';
+  imNewHide.Visible := False;
+  imNewShow.Visible := True;
+end;
+
+procedure TIntegrationPrefsGUI.imNewShowClick(Sender: TObject);
+begin
+  inherited;
+  edNewPassword.PasswordChar := #0;
+  imNewShow.Visible := False;
+  imNewHide.Left := imNewShow.Left;
+  imNewHide.Top  := imNewShow.Top;
+  imNewHide.Visible := True;
 end;
 
 Procedure TIntegrationPrefsGUI.InitPanelOrder;
@@ -2103,50 +2178,11 @@ begin
     Result := ExecInfo.hProcess;
 end;
 
-//function TIntegrationPrefsGUI.CheckOutputfile(AuthToken: string; var AResultJSON: string): Boolean;
-//var
-//  thisIdHTTP : TIdHttp;
-//  thisIOSSH  : TIdSSLIOHandlerSocketOpenSSL;
-//  AURL       : string;
-//  ErrorMessage : string;
-//begin
-//  Result                                     := False;
-//  thisIdHttp                                 := TIdHttp.Create(Nil);
-//  thisIOSSH                                  := TIdSSLIOHandlerSocketOpenSSL.Create(Nil);
-//  try
-//    AURL                                       := 'https://yoodle.erpoz.com/' + AuthToken + '.txt';
-//    thisIdHttp.IOHandler                       := thisIOSSH;
-//    thisIOSSH.SSLOptions.SSLVersions           := [sslvSSLv2, sslvSSLv23, sslvSSLv3, sslvTLSv1];
-//    thisIdHttp.Request.ContentType             := 'application/json';
-//    thisIdHttp.Request.Accept                  := 'application/json' ;
-//    thisIdHttp.Request.CharSet                 := 'utf-8';
-//    thisIdHttp.Request.UserAgent               := 'PostmanRuntime/7.28.0';
-//    thisIdHttp.Request.CustomHeaders.FoldLines := False;
-//    thisIdHttp.HTTPOptions                     := [hoForceEncodeParams] ;
-//    thisIdHttp.Request.Connection              := 'close';
-//    try
-//      AResultJSON                              := thisIdHttp.Get(AURL);
-//      Result                                   := (thisIdHttp.ResponseCode = 200);
-//      if not Result then begin
-//        CommonLib.MessageDlgXP_Vista('Error when linking to Yodlee.  Error was :' + thisIdHttp.Response.ResponseText, mtInformation,[mbOk],0);
-//        exit;
-//      end;
-//    except
-//      on E: EIdHTTPProtocolException  do begin
-//         if  thisIdHttp.ResponseCode = 404 then exit; // swallow this exception
-//         ErrorMessage := ErrorMessage + #13#10 + 'Error when linking to Yodlee. Error was : ' + thisIdHttp.Response.ResponseText;
-//         CommonLib.MessageDlgXP_Vista('Error when linking to Yodlee.  Error was :' + ErrorMessage,mtInformation,[mbOk],0);
-//       end;
-//      on E:Exception do begin
-//        ErrorMessage := E.Message;
-//        CommonLib.MessageDlgXP_Vista('Error when linking to Yodlee.  Error was :' + ErrorMessage,mtInformation,[mbOk],0);
-//      end;
-//    end; {try..e}
-//
-//  finally
-//    thisIdHttp.Free;
-//  end;
-//end;
+
+procedure TIntegrationPrefsGUI.SetFocusToControl(var Message: TMessage);
+begin
+  edNewPassword.SetFocus;
+end;
 
 initialization
   RegisterClass(TIntegrationPrefsGUI);
