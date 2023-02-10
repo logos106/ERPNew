@@ -1,7 +1,5 @@
 unit InvoicesSQL;
 
-
-
 interface
 
 uses
@@ -15,7 +13,7 @@ Type
    Protected
    Public
       constructor Create; Override;
-      function PopulateReportSQL(SQL: TStrings; var msg: string): boolean; override;
+      function PopulateReportSQL(SQL: TStrings; var msg: String): Boolean; override;
    Published
     Property IncludeSO: boolean read fbIncludeSO write fbIncludeSO;
    end;

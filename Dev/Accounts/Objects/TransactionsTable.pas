@@ -7906,6 +7906,29 @@ var
     sct.Execute;
   end;
 
+  procedure Make_VS1_Sales_Set2;
+  begin
+    sct.SQL.Clear;
+
+    sct.SQL.Add('DROP TABLE IF EXISTS tmp_vs1_dashboard_sales_set2;');
+    sct.SQL.Add('CREATE TABLE tmp_vs1_dashboard_sales_set2 ( ' +
+                ' ID              INT(11)     NOT NULL AUTO_INCREMENT, ' +
+                ' EmployeeName    VARCHAR(50) NOT NULL, ' +
+                ' TotalSales      INT(11)     NOT NULL DEFAULT 0, ' +
+                ' PRIMARY KEY (ID) ' +
+                ' ) ENGINE=MyISAM DEFAULT CHARSET=utf8;');
+
+    sct.SQL.Add('INSERT INTO tmp_vs1_dashboard_sales_set2');
+    sct.SQL.Add('(SELECT @ROW:=@ROW + 1, S.EmployeeName, IF(e.Quota = 0, 0, SUM(s.Balance) * 100 / e.Quota) AS CA' +
+                '	FROM tblsales s INNER JOIN tblemployees e ON s.EmployeeID=e.EmployeeID, (SELECT @row:=0) Dummy' +
+                '	WHERE DATEDIFF(CURDATE(), s.SaleDate) < 31' +
+                '	GROUP BY s.EmployeeID' +
+                '	ORDER BY CA DESC' +
+                ' LIMIT 6);');
+
+    sct.Execute;
+  end;
+
   function HasVS1data: Boolean;
   begin
     Result := UtilsLib.HasVS1data(TMyConnection(AppEnvVirt.Obj['CommonDbLib.GetSharedMyDacConnection']));
@@ -7928,6 +7951,7 @@ begin
          if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_PQASumList']    then begin StepProgressDlg('Make VS1 PQASumList')       ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_PQASumList'       ,ltDetail); try Make_VS1_PQASumList;      Except on E:Exception do begin Log( 'Error in Make_VS1_PQASumList: '        + E.message, ltDetail); end;end;end;
          if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 Sum2')             ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_Sum2'             ,ltDetail); try Make_VS1_Sum2;            Except on E:Exception do begin Log( 'Error in Make_VS1_Sum2: '              + E.message, ltDetail); end;end;end;
          if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 Sales_Set1')       ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_Sales_Set1'       ,ltDetail); try Make_VS1_Sales_Set1;      Except on E:Exception do begin Log( 'Error in Make_VS1_Sales_Set1: '        + E.message, ltDetail); end;end;end;
+         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 Sales_Set2')       ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_Sales_Set2'       ,ltDetail); try Make_VS1_Sales_Set2;      Except on E:Exception do begin Log( 'Error in Make_VS1_Sales_Set2: '        + E.message, ltDetail); end;end;end;
       finally
         Freeandnil(Sct);
       end;

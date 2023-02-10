@@ -404,11 +404,13 @@ begin
   end;
   PopulateMe(EmpId,UserOnly);
 end;
+
 function TEmployeeObj.ValidateReminderdays(const value:Integer):Integer;
 begin
   result:= Value;
   if result <-500 then result := -500 else if result >500 then result := 500;
 end;
+
 procedure TEmployeeObj.PopulateMe(const iEmployeeID: integer; const UserOnly: boolean = true);
 var
     qryEmployee: TERPQuery;

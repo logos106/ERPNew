@@ -112,16 +112,16 @@ begin
         try
           jsInput.SaveToStream(stream);
           try
-            JsResultStr := client.Post(aURL, stream);
+            JsResultStr := Client.Post(aURL, stream);
           Except
             on E:Exception do begin
               js.O['ResPonse'] := JO;
               js.O['ResPonse'].S[TAG_Method] := 'DoHTTPPost';
-              js.O['ResPonse'].S['Status'] := 'Failed';
-              js.O['ResPonse'].O[TAG_ResponseError] := jo;
+              js.O['ResPonse'].S['Status'] := 'Failed ';
+              js.O['ResPonse'].O[TAG_ResponseError] := JO;
               js.O['ResPonse'].O[TAG_ResponseError].I['Code'] := Client.Response.ResponseCode;
               js.O['ResPonse'].O[TAG_ResponseError].S['Message'] := E.message;
-              JsResultStr := js.asString;
+              JsResultStr := js.AsString;
             end;
           end;
            Result := Client.Response.ResponseCode;
