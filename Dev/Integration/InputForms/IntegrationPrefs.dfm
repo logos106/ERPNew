@@ -5,7 +5,6 @@ inherited IntegrationPrefsGUI: TIntegrationPrefsGUI
   Caption = 'Credentials'
   ClientHeight = 741
   ClientWidth = 1062
-  ExplicitTop = -60
   ExplicitWidth = 1078
   ExplicitHeight = 780
   PixelsPerInch = 96

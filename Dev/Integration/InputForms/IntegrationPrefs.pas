@@ -614,17 +614,23 @@ var
   sJSON             : string;
   sResult           : string;
   JObject           : TJSONObject;
+  JArray            : TJSONArray;
+  JLine             : TJSONObject;
 begin
   if not AuthenticateCoreEDI(False) then exit;
   if not wsClient.Active then exit;
 
-  sJSON   := BuildJSON('CHANGEMAGENTOPASSWORD');
+  JArray  := TJSONArray.Create;
+  JLine                    := JO;
+  JLine.S['NewPassword']   := edNewPassword.Text;
+  JArray.Add(JLine);
+
+  sJSON   := BuildJSON('CHANGEMAGENTOPASSWORD', 0,0,0,JArray);
   sResult := wsClient.WriteAndWaitData(sJSON);
 
   JObject := JO(sResult);
   if JObject.B['Error'] then begin
-    showmessage(sJSON);
-    CommonLib.MessageDlgXP_Vista('Password change unsuccessful. Error was ',mtError,[mbOk],0);
+    CommonLib.MessageDlgXP_Vista('Password change unsuccessful.',mtError,[mbOk],0);
   end else begin
     CommonLib.MessageDlgXP_Vista('Password change successful.',mtInformation,[mbOk],0);
     gbPassword.Visible := False;
