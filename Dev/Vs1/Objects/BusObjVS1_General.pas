@@ -43,7 +43,7 @@ Type
 
   TProspectVS1 = class(TProspect)
   Protected
-    Function  DoAfterInsert(Sender :TDatasetBusObj ):Boolean; override;
+    Function  DoAfterInsert(Sender: TDatasetBusObj): Boolean; override;
   Public
     constructor Create(AOwner: TComponent); override;
   end;

@@ -1,4 +1,4 @@
-unit DashboardSalesData1SQL;
+unit DashboardMyData1SQL;
 
 interface
 
@@ -6,13 +6,17 @@ uses
   ReportBaseObj, Classes;
 
 Type
-  TDashboardSalesData1 = Class(TReportBase)
+  TDashboardMyData1 = Class(TReportBase)
   private
+    fiEmployeeID: Integer;
+
   protected
   public
     constructor Create; override;
     function PopulateReportSQL(SQL: TStrings; var msg: string): Boolean; override;
+
   published
+    property EmployeeID: Integer read   fiEmployeeID  write fiEmployeeID;
 
   End;
 
@@ -22,20 +26,22 @@ uses CommonLib, SysUtils, DateUtils, ERPDbComponents, JSONObject, CommonDbLib, M
       ProfitAndLossSQL, LogLib;
 { TPartClass }
 
-constructor TDashboardSalesData1.Create;
+constructor TDashboardMyData1.Create;
 begin
   inherited;
- end;
 
-function TDashboardSalesData1.PopulateReportSQL(SQL: TStrings; var msg: string): boolean;
+  fiEmployeeID := 0;
+end;
+
+function TDashboardMyData1.PopulateReportSQL(SQL: TStrings; var msg: string): boolean;
 begin
   Result := inherited;
 
   SQL.Clear;
-  SQL.Add('SELECT * FROM tmp_vs1_dashboard_sales_set1');
+  SQL.Add('SELECT * FROM tmp_vs1_dashboard_my_set1 WHERE EmployeeID=' + IntToStr(fiEmployeeID));
 end;
 
 initialization
-  RegisterClass(TDashboardSalesData1);
+  RegisterClass(TDashboardMyData1);
 
 end.

@@ -262,7 +262,7 @@ uses
   {$IFNDEF CONSOLE}  {$IFDEF DevMode}  , LogLib  {$ENDIF}  {$ENDIF}
   ,ProfitAndLossPeriodCompareSQL, JSONObject, utCloudconst,
   APReportSQL, SalesListSQL   , ProfitAndLossSQL,
-  ProductStockReportLib, BalanceSheetSQL, CommonDbLib;
+  ProductStockReportLib, BalanceSheetSQL, CommonDbLib, LogLib;
 
 {$IFDEF DevMode}
 Const
@@ -7870,7 +7870,7 @@ var
 
     // New Lead
     sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set1 T, ' +
-                ' (SELECT COUNT(*) AS cnt FROM tblclients	' +
+                ' (SELECT COUNT(*) AS CNT FROM tblclients	' +
                 ' WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" ' +
                 '	AND DATEDIFF(CURDATE(), CreationDate) < 31) T1 ' +
                 ' SET T.NewLead=T1.CNT;');
@@ -7891,17 +7891,17 @@ var
 
     // Win Rate
     sct.SQL.Add('SELECT COUNT(*) INTO @converted FROM tblsales WHERE IsQuote = "T" AND Converted = "T" AND DATEDIFF(CURDATE(), SaleDate) < 31; ' +
-                'SELECT COUNT(*) INTO @unconvert FROM tblsales WHERE IsQuote = "T" AND Converted = "F" AND DATEDIFF(CURDATE(), SaleDate) < 31; ' +
+                'SELECT COUNT(*) INTO @all FROM tblsales WHERE IsQuote = "T" AND DATEDIFF(CURDATE(), SaleDate) < 31; ' +
                 'UPDATE tmp_vs1_dashboard_sales_set1 T, ' +
-                ' (SELECT (@converted / (@converted + @unconverted)) * 100 AS Rate) T1 ' +
+                ' (SELECT ROUND(@converted / (@all) * 100, 2) AS Rate) T1 ' +
                 ' SET T.WinRate=T1.Rate;');
 
     // Avg Sales Cycle
     sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set1 T, ' +
-                ' (SELECT AVG(DATEDIFF(ConvertedDate, SaleDate)) Cycle FROM tblsales ' +
+                ' (SELECT ROUND(AVG(DATEDIFF(ConvertedDate, SaleDate)), 2) Cycle FROM tblsales ' +
                 '	WHERE IsQuote="T" AND Deleted="F" AND Cancelled="F" AND Converted="T" AND NOT ISNULL(ConvertedDate) ' +
                 ' AND DATEDIFF(CURDATE(), SaleDate) < 31) T1 ' +
-                ' SET T.ClosedTotal=T1.Cycle;');
+                ' SET T.ClosedTotal=IFNULL(T1.Cycle, 0);');
 
     sct.Execute;
   end;
@@ -7914,12 +7914,12 @@ var
     sct.SQL.Add('CREATE TABLE tmp_vs1_dashboard_sales_set2 ( ' +
                 ' ID              INT(11)     NOT NULL AUTO_INCREMENT, ' +
                 ' EmployeeName    VARCHAR(50) NOT NULL, ' +
-                ' TotalSales      INT(11)     NOT NULL DEFAULT 0, ' +
+                ' TotalSales      DOUBLE      NOT NULL DEFAULT 0, ' +
                 ' PRIMARY KEY (ID) ' +
                 ' ) ENGINE=MyISAM DEFAULT CHARSET=utf8;');
 
     sct.SQL.Add('INSERT INTO tmp_vs1_dashboard_sales_set2');
-    sct.SQL.Add('(SELECT @ROW:=@ROW + 1, S.EmployeeName, IF(e.Quota = 0, 0, SUM(s.Balance) * 100 / e.Quota) AS CA' +
+    sct.SQL.Add('(SELECT @ROW:=@ROW + 1, s.EmployeeName, IF(e.Quota = 0, 0, ROUND(SUM(s.Balance) * 100 / e.Quota, 2)) AS CA' +
                 '	FROM tblsales s INNER JOIN tblemployees e ON s.EmployeeID=e.EmployeeID, (SELECT @row:=0) Dummy' +
                 '	WHERE DATEDIFF(CURDATE(), s.SaleDate) < 31' +
                 '	GROUP BY s.EmployeeID' +
@@ -7927,6 +7927,164 @@ var
                 ' LIMIT 6);');
 
     sct.Execute;
+  end;
+
+  procedure Make_VS1_My_Set1;
+  begin
+    sct.SQL.Clear;
+
+    // My Metric
+    sct.SQL.Add('DROP TABLE IF EXISTS tmp_vs1_dashboard_my_set1;');
+    sct.SQL.Add('CREATE TABLE tmp_vs1_dashboard_my_set1 ( ' +
+                ' ID              INT(11)     NOT NULL AUTO_INCREMENT, ' +
+                ' EmployeeID      INT(11)     NOT NULL DEFAULT 0, ' +
+                ' NewLead         INT(11)     NOT NULL DEFAULT 0, ' +
+                ' NewOppt         INT(11)     NOT NULL DEFAULT 0, ' +
+                ' Quoted          INT(11)     NOT NULL DEFAULT 0, ' +
+                ' Won             INT(11)     NOT NULL DEFAULT 0, ' +
+                ' Gap             DOUBLE      NOT NULL DEFAULT 0.0, ' +
+                ' WinRate         DOUBLE      NOT NULL DEFAULT 0.0, ' +
+                ' AvgTime         DOUBLE      NOT NULL DEFAULT 0.0, ' +
+                ' PipeLine        DOUBLE     NOT NULL DEFAULT 0.0, ' +
+                ' PRIMARY KEY (ID) ' +
+                ' ) ENGINE=MyISAM DEFAULT CHARSET=utf8;');
+
+    sct.SQL.Add('INSERT INTO tmp_vs1_dashboard_my_set1');
+    sct.SQL.Add('(');     // Opening
+    sct.SQL.Add('SELECT @ROW:=@ROW + 1, EmployeeID, SUM(NewLead) AS NewLead, SUM(NewOppt) AS NewOppt, SUM(Quoted) AS Quoted, SUM(Won) AS Won, SUM(Gap) AS Gap, SUM(WinRate) AS WinRate, SUM(AvgTime) AS AvgTime, SUM(PipeLine) AS PipeLIne');
+    sct.SQL.Add('FROM (');
+    sct.SQL.Add('SELECT RepID AS EmployeeID, COUNT(*) AS NewLead, 0 AS NewOppt, 0 AS Quoted, 0 AS Won, 0.0 AS Gap, 0.0 AS WinRate, 0.0 AS AvgTime, 0.0 AS PipeLine FROM tblclients ' +
+                ' WHERE OtherContact="T" AND IsJob <> "T" AND PublishOnVS1="T" ' +
+                '   AND `Status`="Unqualified" AND DATEDIFF(CURDATE(), CreationDate) < 91' +
+                ' GROUP BY RepID');
+
+    sct.SQL.Add('UNION');
+
+    sct.SQL.Add('SELECT RepID AS EmployeeID, 0 AS NewLead, COUNT(*) AS NewOppt, 0 AS Quoted, 0 AS Won, 0.0 AS Gap, 0.0 AS WinRate, 0.0 AS AvgTime, 0.0 AS PipeLine FROM tblclients ' +
+                ' WHERE OtherContact="T" AND IsJob <> "T" AND PublishOnVS1="T" ' +
+                '   AND `Status`="Opportunity"	AND DATEDIFF(CURDATE(), CreationDate) < 91 ' +
+                ' GROUP BY RepID');
+
+    sct.SQL.Add('UNION');
+
+    sct.SQL.Add('SELECT RepID AS EmployeeID, 0 AS NewLead, 0 AS NewOppt, COUNT(*) AS Quoted, 0 AS Won, 0.0 AS Gap, 0.0 AS WinRate, 0.0 AS AvgTime, 0.0 AS PipeLine FROM tblclients ' +
+                ' WHERE OtherContact="T" AND IsJob <> "T" AND PublishOnVS1="T" ' +
+                '   AND `Status`="Qutoed" AND DATEDIFF(CURDATE(), CreationDate) < 91 ' +
+                ' GROUP BY RepID');
+
+    sct.SQL.Add('UNION');
+
+    sct.SQL.Add('SELECT RepID AS EmployeeID, 0 AS NewLead, 0 AS NewOppt, 0 AS Quoted, COUNT(*) AS Won, 0.0 AS Gap, 0.0 AS WinRate, 0.0 AS AvgTime, 0.0 AS PipeLine FROM tblclients ' +
+                ' WHERE OtherContact="T" AND IsJob <> "T" AND PublishOnVS1="T" ' +
+                '   AND `Status`="Invoiced" AND DATEDIFF(CURDATE(), CreationDate) < 91 ' +
+                ' GROUP BY RepID');
+
+    sct.SQL.Add('UNION');
+
+    sct.SQL.Add('SELECT s.EmployeeID, 0 AS NewLead, 0 AS NewOppt, 0 AS Quoted, COUNT(*) AS Won, (SUM(s.TotalAmountInc) - e.Quota) AS Gap, 0.0 AS WinRate, 0.0 AS AvgTime, 0.0 AS PipeLine ' +
+                ' FROM tblsales s LEFT JOIN tblemployees e ON s.EmployeeID=e.EmployeeID' +
+                ' WHERE s.IsInvoice="T" AND s.Deleted="F" AND s.Cancelled="F" AND DATEDIFF(CURDATE(), s.SaleDate) < 91' +
+                ' GROUP BY s.EmployeeID');
+
+    sct.SQL.Add('UNION');
+
+    sct.SQL.Add('SELECT EmployeeID, 0 AS NewLead, COUNT(*) AS NewOppt, 0 AS Quoted, 0 AS Won, 0.0 AS SalesAmount, ROUND(SUM(Con) / SUM(Evr) * 100, 2) AS WinRate, 0.0 AS AvgTime, 0.0 AS PipeLine FROM ' +
+                ' (SELECT EmployeeID, COUNT(*) AS Con, 0 AS Evr FROM tblsales ' +
+                '   WHERE IsQuote = "T" AND Converted = "T" AND DATEDIFF(CURDATE(), SaleDate) < 91 ' +
+                '   GROUP BY EmployeeID ' +
+                '  UNION ' +
+                '  SELECT EmployeeID, 0 AS Con, COUNT(*) AS Evr FROM tblSales ' +
+                '   WHERE IsQuote = "T" AND DATEDIFF(CURDATE(), SaleDate) < 91 ' +
+                '   GROUP BY EmployeeID ' +
+                ' ) T1 GROUP BY EmployeeID ');
+
+    sct.SQL.Add('UNION');
+
+    sct.SQL.Add('SELECT IFNULL(RepID, 0) AS EmployeeID, 0 AS NewLead, COUNT(*) AS NewOppt, 0 AS Quoted, 0 AS Won, 0.0 AS SalesAmount, 0.0 AS WinRate, ' +
+                '   ROUND(AVG(DATEDIFF(DATE_FORMAT(msTimeStamp, "%Y-%m-%d"), IFNULL(CreationDate, DATE_SUB(CURDATE(), INTERVAL 90 DAY)))), 2) AS AvgTime, 0.0 AS PipeLine FROM tblClients ' +
+                ' WHERE OtherContact="T" AND IsJob <> "T" AND PublishOnVS1="T" ' +
+                '   AND `Status`="Invoiced" AND DATEDIFF(CURDATE(), CreationDate) < 91 ' +
+                ' GROUP BY RepID');
+
+    sct.SQL.Add('UNION');
+
+    sct.SQL.Add('SELECT EmployeeID, 0 AS NewLead, 0 AS NewOppt, 0 AS Quoted, 0 AS Won, 0.0 AS SalesAmount, 0.0 AS WinRate, 0.0 AS AvgTime, SUM(TotalAmountInc) AS PipeLine FROM tblsales ' +
+                ' WHERE IsQuote = "T" AND Converted = "F" AND DATEDIFF(CURDATE(), SaleDate) < 91 ' +
+                ' GROUP BY EmployeeID');
+
+    sct.SQL.Add(') T2, (SELECT @row:=0) Dummy');
+    sct.SQL.Add(')');     // Closing
+
+    sct.Execute;
+
+    // For Team Average
+    sct.SQL.Clear;
+
+    sct.SQL.Add('DROP TABLE IF EXISTS tmp_vs1_dashboard_my_set2;');
+    sct.SQL.Add('CREATE TABLE tmp_vs1_dashboard_my_set2 ( ' +
+                ' ID              INT(11)     NOT NULL AUTO_INCREMENT, ' +
+                ' NewLead         INT(11)     NOT NULL DEFAULT 0, ' +
+                ' NewOppt         INT(11)     NOT NULL DEFAULT 0, ' +
+                ' Quoted          INT(11)     NOT NULL DEFAULT 0, ' +
+                ' Won             INT(11)     NOT NULL DEFAULT 0, ' +
+                ' WinRate         DOUBLE      NOT NULL DEFAULT 0.0, ' +
+                ' AvgTime         DOUBLE      NOT NULL DEFAULT 0.0, ' +
+                ' PipeLine        DOUBLE      NOT NULL DEFAULT 0.0, ' +
+                ' PRIMARY KEY (ID) ' +
+                ' ) ENGINE=MyISAM DEFAULT CHARSET=utf8;');
+
+    sct.SQL.Add('INSERT INTO tmp_vs1_dashboard_my_set2 SET NewLead=0;');
+
+    // New Lead
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_my_set2 T, ' +
+                ' (SELECT COUNT(*) AS CNT FROM tblclients	' +
+                ' WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" AND `Status`="Unqualified" ' +
+                '	AND DATEDIFF(CURDATE(), CreationDate) < 91) T1 ' +
+                ' SET T.NewLead=T1.CNT;');
+
+    // New Oppt
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_my_set2 T, ' +
+                ' (SELECT COUNT(*) AS CNT FROM tblclients	' +
+                ' WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" AND `Status`="Opportunity" ' +
+                '	AND DATEDIFF(CURDATE(), CreationDate) < 91) T1 ' +
+                ' SET T.NewLead=T1.CNT;');
+
+    // Quoted
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_my_set2 T, ' +
+                ' (SELECT COUNT(*) AS CNT FROM tblclients	' +
+                ' WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" AND `Status`="Invoiced" ' +
+                '	AND DATEDIFF(CURDATE(), CreationDate) < 91) T1 ' +
+                ' SET T.NewLead=T1.CNT;');
+
+    // Won
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_my_set2 T, ' +
+                ' (SELECT COUNT(*) AS CNT FROM tblclients	' +
+                ' WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" AND `Status`="Quoted" ' +
+                '	AND DATEDIFF(CURDATE(), CreationDate) < 91) T1 ' +
+                ' SET T.NewLead=T1.CNT;');
+
+    // WinRate
+    sct.SQL.Add('SELECT COUNT(*) INTO @converted FROM tblsales WHERE IsQuote = "T" AND Converted = "T" AND DATEDIFF(CURDATE(), SaleDate) < 31; ' +
+                'SELECT COUNT(*) INTO @all FROM tblsales WHERE IsQuote = "T" AND DATEDIFF(CURDATE(), SaleDate) < 91; ' +
+                'UPDATE tmp_vs1_dashboard_my_set2 T, ' +
+                ' (SELECT ROUND(@converted / (@all) * 100, 2) AS WinRate) T1 ' +
+                ' SET T.WinRate=T1.WinRate;');
+
+    // Avg Time
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_my_set2 T, ' +
+                ' (SELECT ROUND(AVG(DATEDIFF(DATE_FORMAT(msTimeStamp, "%Y-%m-%d"), IFNULL(CreationDate, DATE_SUB(CURDATE(), INTERVAL 90 DAY)))), 2) AS AvgTime FROM tblClients ' +
+                ' WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" AND `Status`="Invoiced" ' +
+                '	AND DATEDIFF(CURDATE(), CreationDate) < 91) T1 ' +
+                ' SET T.AvgTime=T1.AvgTime;');
+
+    // PipeLine
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_my_set2 T, ' +
+                ' (SELECT SUM(TotalAmountInc) AS PipeLine FROM tblsales ' +
+                ' WHERE IsQuote = "T" AND Converted = "F" AND DATEDIFF(CURDATE(), SaleDate) < 91) T1 ' +
+                ' SET T.PipeLine=T1.PipeLine;');
+
+    sct.Execute;
+
   end;
 
   function HasVS1data: Boolean;
@@ -7952,6 +8110,7 @@ begin
          if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 Sum2')             ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_Sum2'             ,ltDetail); try Make_VS1_Sum2;            Except on E:Exception do begin Log( 'Error in Make_VS1_Sum2: '              + E.message, ltDetail); end;end;end;
          if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 Sales_Set1')       ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_Sales_Set1'       ,ltDetail); try Make_VS1_Sales_Set1;      Except on E:Exception do begin Log( 'Error in Make_VS1_Sales_Set1: '        + E.message, ltDetail); end;end;end;
          if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 Sales_Set2')       ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_Sales_Set2'       ,ltDetail); try Make_VS1_Sales_Set2;      Except on E:Exception do begin Log( 'Error in Make_VS1_Sales_Set2: '        + E.message, ltDetail); end;end;end;
+         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 My_Set1')          ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_My_Set1'          ,ltDetail); try Make_VS1_My_Set1;         Except on E:Exception do begin Log( 'Error in Make_VS1_My_Set1: '           + E.message, ltDetail); end;end;end;
       finally
         Freeandnil(Sct);
       end;
