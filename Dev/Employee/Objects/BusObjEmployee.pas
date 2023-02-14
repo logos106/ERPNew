@@ -132,15 +132,17 @@ type
     function GetonPMRoster: boolean;
     procedure SetGoogleEmail(const Value: string);
     procedure SetGooglePassword(const Value: string);
-    procedure SetSynchWithGoogle(const Value: boolean);
+    procedure SetSynchWithGoogle(const Value: Boolean);
     procedure SetonPMRoster(const Value: boolean);
-    function GetTrackSales: boolean;
+    function  GetTrackSales: boolean;
     procedure SetTrackSales(const Value: boolean);
-    function getUser: TUser;
-    function GetDashboardOption: String;
+    function  GetUser: TUser;
+    function  GetDashboardOption: String;
     procedure SetDashboardOption(const Value: String);
-    function GetLoginDefault: String;
+    function  GetLoginDefault: String;
     procedure SetLoginDefault(const Value: String);
+    function  GetSalesQuota: Double;
+    procedure SetSalesQuota(const Value: Double);
 
   protected
     procedure OnDataIdChange(const ChangeType: TBusObjDataChangeType); override;
@@ -236,8 +238,9 @@ type
     property SynchWithGoogle: boolean read GetSynchWithGoogle write SetSynchWithGoogle;
     property onPMRoster: boolean read GetonPMRoster write SetonPMRoster;
     Property User :TUser read getUser;
-    Property DashboardOption:  String  read GetDashboardOption  write SetDashboardOption;
-    Property LoginDefault:      String  read GetLoginDefault      write SetLoginDefault;
+    Property DashboardOption: String  read GetDashboardOption   write SetDashboardOption;
+    Property LoginDefault:    String  read GetLoginDefault      write SetLoginDefault;
+    Property SalesQuoata:     Double  read GetSalesQuota        write SetSalesQuota;
 
     { the following does not seem to be used anywhere }
     // property EmployeeTypeID: integer read GetEmployeeTypeID write SetEmployeeTypeID;
@@ -534,8 +537,9 @@ function TEmployee.GetTFN: string;begin  result := GetStringField('Tfn');end;
 function TEmployee.GetTitle: string;begin  result := GetStringField('Title');end;
 function TEmployee.GetTrackSales: boolean;begin  Result := GetBooleanField('TrackSales');end;
 function TEmployee.GetWorkPhone: string;begin  result := GetStringField('WorkPhone');end;
-function TEmployee.GetDashboardOption: string;   begin Result := GetStringField('DashboardOption');   end;
-function TEmployee.GetLoginDefault:     string;   begin Result := GetStringField('LoginDefault');       end;
+function TEmployee.GetDashboardOption:  string;   begin Result := GetStringField('DashboardOption');  end;
+function TEmployee.GetLoginDefault:     string;   begin Result := GetStringField('LoginDefault');     end;
+function TEmployee.GetSalesQuota:       Double;   begin Result := GetFloatField('SalesQuota');        end;
 
 procedure TEmployee.SetAbn(const Value: string);begin  SetStringField('Abn', Value);end;
 procedure  TEmployee.SetArea(const Value: String); begin SetStringField('Area' , Value);end;
@@ -599,8 +603,9 @@ procedure TEmployee.SetTFN(const Value: string);begin  SetStringField('Tfn', Val
 procedure TEmployee.SetTitle(const Value: string);begin  SetStringField('Title', Value);end;
 procedure TEmployee.SetTrackSales(const Value: boolean);begin  SetBooleanField('TrackSales', Value);end;
 procedure TEmployee.SetWorkPhone(const Value: string);begin  SetStringField('WorkPhone', Value);end;
-procedure TEmployee.SetDashboardOption(const Value: string); begin SetStringField('DashboardOption', Value);   end;
-procedure TEmployee.SetLoginDefault(const Value: string);     begin SetStringField('LoginDefault', Value);   end;
+procedure TEmployee.SetDashboardOption(const Value: string);  begin SetStringField('DashboardOption', Value);   end;
+procedure TEmployee.SetLoginDefault(const Value: string);     begin SetStringField('LoginDefault',    Value);   end;
+procedure TEmployee.SetSalesQuota(const Value: Double);       begin SetFloatField('SalesQuota',      Value);   end;
 
 procedure TEmployee.LoadFromXMLNode(const node: IXMLNode);
 begin
