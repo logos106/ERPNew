@@ -47,38 +47,38 @@ begin
               //fdTransactionTableLastUpdated:= Qry.fieldbyname('fieldvalue').asDatetime;
               fdTransactionTableLastUpdated:= Qry.fieldbyname('fieldvalue').asVariant;
               Qry.close;
-              Qry.SQl.text := 'select distinct table_name , '+
-                            ' CREATE_TIME ,table_rows  '+
-                            ' from information_schema.`TABLES`  '+
-                            ' where ( (table_name  like "tmp_%" and  LOCATE("_" , SUBSTRING(table_name,5) )>0 ) )  '+
-                            ' and table_name not in (Select table_name from information_schema.`TABLES` where Table_schema = "erpnewdb" )  '+
-                            ' and TABLE_SCHEMA =  '+ quotedstr(dbList.connection.Database) +
-                            ' and CREATE_TIME  <  '+ quotedstr(formatDatetime(mysqldatetimeformat , fdTransactionTableLastUpdated))+
-                            ' order by CREATE_TIME desc  ';
-              Qry.open;
-              Log('Checking for  Temporary  Tables in database ' + Quotedstr(dbList.connection.database) +' Created Before the Last Update Batch ' + FormatDateTime('dd-mm-yyyy hh:nn:ss am/pm' ,fdTransactionTableLastUpdated) ,ltDetail);
-              if Qry.recordcount >0 then begin
-                    Log('Deleting ' +  inttostr(Qry.recordcount) +' Temporary  Tables from database ' + Quotedstr(dbList.connection.database) ,ltDetail);
-                    SQLList:= TStringlist.Create;
-                    try
-                      Qry.first;
-                      while Qry.eof = False do begin
-                        SQLList.add('Drop table if exists ' + Qry.fieldbyname('table_name').AsString +';');
-                        Log('    ' +Qry.fieldbyname('table_name').AsString );
-                        Qry.Next;
-                      end;
-                      if SQLList.Count >0 then begin
-                        if Qry.active then Qry.Close;
-                        Qry.SQL.Text := SQLList.TExt;
-                        Qry.Execute;
-                      end;
-                    finally
-                      Freeandnil(SQLList);
-                    end;
+              Qry.SQl.text := 'SELECT DISTINCT table_name, ' +
+                            ' CREATE_TIME, table_rows ' +
+                            ' FROM information_schema.`TABLES` ' +
+                            ' WHERE table_name LIKE "tmp_%" AND LOCATE("_", SUBSTRING(table_name, 5)) > 0 AND SUBSTRING(table_name, 1, 18) <> "tmp_vs1_dashboard_" ' +
+                            ' AND table_name not IN (SELECT table_name from information_schema.`TABLES` WHERE Table_schema = "erpnewdb" ) ' +
+                            ' AND TABLE_SCHEMA =  ' + QuotedStr(dbList.connection.Database) +
+                            ' AND CREATE_TIME < ' + QuotedStr(FormatDateTime(mysqldatetimeformat, fdTransactionTableLastUpdated)) +
+                            ' ORDER BY CREATE_TIME DESC  ';
+              Qry.Open;
+              Log('Checking for temporary tables in database ' + Quotedstr(dbList.connection.database) + ' Created Before the Last Update Batch ' + FormatDateTime('dd-mm-yyyy hh:nn:ss am/pm' ,fdTransactionTableLastUpdated) ,ltDetail);
+              if Qry.RecordCount > 0 then begin
+                Log('Deleting ' + IntToStr(Qry.RecordCount) +' temporary tables from database ' + Quotedstr(dbList.connection.database), ltDetail);
+                SQLList := TStringlist.Create;
+                try
+                  Qry.First;
+                  while Qry.EOF = False do begin
+                    SQLList.Add('DROP TABLE IF EXISTS ' + Qry.fieldbyname('table_name').AsString + ';');
+                    Log('    ' + Qry.fieldbyname('table_name').AsString );
+                    Qry.Next;
+                  end;
+                  if SQLList.Count > 0 then begin
+                    if Qry.active then Qry.Close;
+                    Qry.SQL.Text := SQLList.TExt;
+                    Qry.Execute;
+                  end;
+                finally
+                  FreeAndNil(SQLList);
+                end;
               end;
            finally
-             if qry.active then qry.close;
-             FreeandNil(Qry);
+             if qry.Active then qry.Close;
+             FreeAndNil(Qry);
            end;
         until not dbList.Next;
      end;

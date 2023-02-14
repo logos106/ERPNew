@@ -1,4 +1,4 @@
-unit DashboardSalesData2SQL;
+unit DashboardSalesData3SQL;
 
 interface
 
@@ -6,7 +6,7 @@ uses
   ReportBaseObj, Classes;
 
 Type
-  TDashboardSalesData2 = Class(TReportBase)
+  TDashboardSalesData3 = Class(TReportBase)
   private
   protected
   public
@@ -22,20 +22,20 @@ uses CommonLib, SysUtils, DateUtils, ERPDbComponents, JSONObject, CommonDbLib, M
       ProfitAndLossSQL, LogLib;
 { TPartClass }
 
-constructor TDashboardSalesData2.Create;
+constructor TDashboardSalesData3.Create;
 begin
   inherited;
  end;
 
-function TDashboardSalesData2.PopulateReportSQL(SQL: TStrings; var msg: string): boolean;
+function TDashboardSalesData3.PopulateReportSQL(SQL: TStrings; var msg: string): boolean;
 begin
   Result := inherited;
 
   SQL.Clear;
-  SQL.Add('SELECT * FROM tmp_vs1_dashboard_sales_set2');
+  SQL.Add('SELECT * FROM tmp_vs1_dashboard_sales_set3');
 end;
 
 initialization
-  RegisterClass(TDashboardSalesData2);
+  RegisterClass(TDashboardSalesData3);
 
 end.

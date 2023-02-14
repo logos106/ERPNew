@@ -262,7 +262,7 @@ uses
   {$IFNDEF CONSOLE}  {$IFDEF DevMode}  , LogLib  {$ENDIF}  {$ENDIF}
   ,ProfitAndLossPeriodCompareSQL, JSONObject, utCloudconst,
   APReportSQL, SalesListSQL   , ProfitAndLossSQL,
-  ProductStockReportLib, BalanceSheetSQL, CommonDbLib, LogLib;
+  ProductStockReportLib, BalanceSheetSQL, CommonDbLib;
 
 {$IFDEF DevMode}
 Const
@@ -7630,6 +7630,8 @@ var
     DateFrom1, DateTo1: String;
     DateFrom2, DateTo2: String;
   begin
+    fSelDate := Date;
+
     fDTFrom1 := StartOfTheMonth(IncMonth(fSelDate, -2));
     fDTTo1 := EndOfTheMonth(IncMonth(fSelDate, -2));
     fDTFrom2 := StartOfTheMonth(IncMonth(fSelDate, -1));
@@ -7646,8 +7648,8 @@ var
 
     sct.SQL.Clear;
 
-    sct.SQL.Add('DROP TABLE IF EXISTS tmp_vs1_card_data;');
-    sct.SQL.Add('CREATE TABLE tmp_vs1_card_data ( ' +
+    sct.SQL.Add('DROP TABLE IF EXISTS tmp_vs1_dashboard_exec_set1;');
+    sct.SQL.Add('CREATE TABLE tmp_vs1_dashboard_exec_set1 ( ' +
                 ' ID                     INT(11)  NOT NULL AUTO_INCREMENT, ' +
                 ' DateFrom1               DATETIME NULL DEFAULT NULL, ' +
                 ' DateTo1                 DATETIME NULL DEFAULT NULL, ' +
@@ -7708,140 +7710,140 @@ var
                 ' PRIMARY KEY (ID) ' +
                 ' ) ENGINE=MyISAM DEFAULT CHARSET=utf8;');
 
-    sct.SQL.Add('INSERT INTO tmp_vs1_card_data SET DateFrom1=' + QuotedStr(DateFrom1) + ';');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET DateTo1=' + QuotedStr(DateTo1) + ';');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET DateFrom2=' + QuotedStr(DateFrom2) + ';');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET DateTo2=' + QuotedStr(DateTo2) + ';');
+    sct.SQL.Add('INSERT INTO tmp_vs1_dashboard_exec_set1 SET DateFrom1=' + QuotedStr(DateFrom1) + ';');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET DateTo1=' + QuotedStr(DateTo1) + ';');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET DateFrom2=' + QuotedStr(DateFrom2) + ';');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET DateTo2=' + QuotedStr(DateTo2) + ';');
 
      // Cash
-    sct.SQL.Add('UPDATE tmp_vs1_card_data T, (SELECT TRUNCATE(SUM(DebitsInc), 4) AS Received FROM tbltransactions WHERE AccountType="BANK" AND `Date` BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ') T1 SET T.Cash_Received1=T1.Received;');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data T, (SELECT TRUNCATE(SUM(DebitsInc), 4) AS Received FROM tbltransactions WHERE AccountType="BANK" AND `Date` BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ') T1 SET T.Cash_Received2=T1.Received;');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 T, (SELECT TRUNCATE(SUM(DebitsInc), 4) AS Received FROM tbltransactions WHERE AccountType="BANK" AND `Date` BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ') T1 SET T.Cash_Received1=T1.Received;');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 T, (SELECT TRUNCATE(SUM(DebitsInc), 4) AS Received FROM tbltransactions WHERE AccountType="BANK" AND `Date` BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ') T1 SET T.Cash_Received2=T1.Received;');
 
-    sct.SQL.Add('UPDATE tmp_vs1_card_data T, (SELECT TRUNCATE(SUM(CreditsEx), 4) AS Spent 	 FROM tbltransactions	WHERE (AccountType="BANK" OR AccountType="CCARD") AND `Date` BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ') T1 SET T.Cash_Spent1=T1.Spent;');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data T, (SELECT TRUNCATE(SUM(CreditsEx), 4) AS Spent 	 FROM tbltransactions	WHERE (AccountType="BANK" OR AccountType="CCARD") AND `Date` BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ') T1 SET T.Cash_Spent2=T1.Spent;');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 T, (SELECT TRUNCATE(SUM(CreditsEx), 4) AS Spent 	 FROM tbltransactions	WHERE (AccountType="BANK" OR AccountType="CCARD") AND `Date` BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ') T1 SET T.Cash_Spent1=T1.Spent;');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 T, (SELECT TRUNCATE(SUM(CreditsEx), 4) AS Spent 	 FROM tbltransactions	WHERE (AccountType="BANK" OR AccountType="CCARD") AND `Date` BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ') T1 SET T.Cash_Spent2=T1.Spent;');
 
-    sct.SQL.Add('UPDATE tmp_vs1_card_data T, (SELECT TRUNCATE(SUM(DebitsInc) - SUM(CreditsEx), 4) AS Surplus FROM tbltransactions WHERE AccountType="BANK" AND `Date` BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ') T1 SET T.Cash_Surplus1=T1.Surplus;');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data T, (SELECT TRUNCATE(SUM(DebitsInc) - SUM(CreditsEx), 4) AS Surplus FROM tbltransactions WHERE AccountType="BANK" AND `Date` BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ') T1 SET T.Cash_Surplus2=T1.Surplus;');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 T, (SELECT TRUNCATE(SUM(DebitsInc) - SUM(CreditsEx), 4) AS Surplus FROM tbltransactions WHERE AccountType="BANK" AND `Date` BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ') T1 SET T.Cash_Surplus1=T1.Surplus;');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 T, (SELECT TRUNCATE(SUM(DebitsInc) - SUM(CreditsEx), 4) AS Surplus FROM tbltransactions WHERE AccountType="BANK" AND `Date` BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ') T1 SET T.Cash_Surplus2=T1.Surplus;');
 
-    sct.SQL.Add('UPDATE tmp_vs1_card_data T, (SELECT TRUNCATE(SUM(DebitsInc), 4) AS Balance FROM tbltransactions WHERE AccountType="BANK" AND `Date` BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ') T1 SET T.Cash_Balance1=T1.Balance;');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data T, (SELECT TRUNCATE(SUM(DebitsInc), 4) AS Balance FROM tbltransactions WHERE AccountType="BANK" AND `Date` BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ') T1 SET T.Cash_Balance2=T1.Balance;');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 T, (SELECT TRUNCATE(SUM(DebitsInc), 4) AS Balance FROM tbltransactions WHERE AccountType="BANK" AND `Date` BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ') T1 SET T.Cash_Balance1=T1.Balance;');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 T, (SELECT TRUNCATE(SUM(DebitsInc), 4) AS Balance FROM tbltransactions WHERE AccountType="BANK" AND `Date` BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ') T1 SET T.Cash_Balance2=T1.Balance;');
 
     // Profitability
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Prof_Income1=(SELECT totalAmountEx FROM tmp_PNL_Data1 WHERE UCASE(`account type`)=UCASE("Total Income"));');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Prof_Income2=(SELECT totalAmountEx FROM tmp_PNL_Data2 WHERE UCASE(`account type`)=UCASE("Total Income"));');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Prof_Income1=(SELECT totalAmountEx FROM tmp_PNL_Data1 WHERE UCASE(`account type`)=UCASE("Total Income"));');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Prof_Income2=(SELECT totalAmountEx FROM tmp_PNL_Data2 WHERE UCASE(`account type`)=UCASE("Total Income"));');
 
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Prof_Gross1=(SELECT totalAmountEx FROM tmp_PNL_Data1 WHERE UCASE(`account type`)=UCASE("Gross Profit"));');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Prof_Gross2=(SELECT totalAmountEx FROM tmp_PNL_Data2 WHERE UCASE(`account type`)=UCASE("Gross Profit"));');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Prof_Gross1=(SELECT totalAmountEx FROM tmp_PNL_Data1 WHERE UCASE(`account type`)=UCASE("Gross Profit"));');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Prof_Gross2=(SELECT totalAmountEx FROM tmp_PNL_Data2 WHERE UCASE(`account type`)=UCASE("Gross Profit"));');
 
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Prof_Expenses1=(SELECT totalAmountEx FROM tmp_PNL_Data1 WHERE UCASE(`account type`)=UCASE("Total Expenses"));');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Prof_Expenses2=(SELECT totalAmountEx FROM tmp_PNL_Data2 WHERE UCASE(`account type`)=UCASE("Total Expenses"));');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Prof_Expenses1=(SELECT totalAmountEx FROM tmp_PNL_Data1 WHERE UCASE(`account type`)=UCASE("Total Expenses"));');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Prof_Expenses2=(SELECT totalAmountEx FROM tmp_PNL_Data2 WHERE UCASE(`account type`)=UCASE("Total Expenses"));');
 
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Prof_Net1=(SELECT totalAmountEx FROM tmp_PNL_Data1 WHERE UCASE(`account type`)=UCASE("Net Income"));');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Prof_Net2=(SELECT totalAmountEx FROM tmp_PNL_Data2 WHERE UCASE(`account type`)=UCASE("Net Income"));');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Prof_Net1=(SELECT totalAmountEx FROM tmp_PNL_Data1 WHERE UCASE(`account type`)=UCASE("Net Income"));');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Prof_Net2=(SELECT totalAmountEx FROM tmp_PNL_Data2 WHERE UCASE(`account type`)=UCASE("Net Income"));');
 
     // Income
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Income_Invoices1=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Income_Invoices1=' +
                   '(SELECT COUNT(*) FROM tblsales WHERE IsInvoice="T" AND Deleted="F"  AND Saledate BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ');');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Income_Invoices2=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Income_Invoices2=' +
                   '(SELECT COUNT(*) FROM tblsales WHERE IsInvoice="T" AND Deleted="F"  AND Saledate BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ');');
 
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Income_Average1=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Income_Average1=' +
                   '(SELECT AVG(TotalAmountInc) FROM tblsales WHERE IsInvoice="T" AND Deleted="F"  AND Saledate BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ');');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Income_Average2=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Income_Average2=' +
                   '(SELECT AVG(TotalAmountInc) FROM tblsales WHERE IsInvoice="T" AND Deleted="F"  AND Saledate BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ');');
 
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Income_Total1=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Income_Total1=' +
                   '(SELECT SUM(TotalAmountInc) FROM tblsales WHERE IsInvoice="T" AND Deleted="F" AND Saledate BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ');');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Income_Total2=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Income_Total2=' +
                   '(SELECT SUM(TotalAmountInc) FROM tblsales WHERE IsInvoice="T" AND Deleted="F" AND Saledate BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ');');
 
     // Performance
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Perf_GrossMargin1=TRUNCATE((Prof_Income1 - (SELECT totalAmountEx FROM tmp_PNL_Data1 WHERE UCASE(`account type`) = UCASE("Total COGS"))) * 100 / Prof_Income1, 2);');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Perf_GrossMargin2=TRUNCATE((Prof_Income2 - (SELECT totalAmountEx FROM tmp_PNL_Data2 WHERE UCASE(`account type`) = UCASE("Total COGS"))) * 100 / Prof_Income2, 2);');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Perf_GrossMargin1=TRUNCATE((Prof_Income1 - (SELECT totalAmountEx FROM tmp_PNL_Data1 WHERE UCASE(`account type`) = UCASE("Total COGS"))) * 100 / Prof_Income1, 2);');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Perf_GrossMargin2=TRUNCATE((Prof_Income2 - (SELECT totalAmountEx FROM tmp_PNL_Data2 WHERE UCASE(`account type`) = UCASE("Total COGS"))) * 100 / Prof_Income2, 2);');
 
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Perf_NetMargin1=TRUNCATE((Prof_Income1 - Prof_Expenses1) * 100 / Prof_Income1, 2);');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Perf_NetMargin2=TRUNCATE((Prof_Income2 - Prof_Expenses2) * 100 / Prof_Income2, 2);');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Perf_NetMargin1=TRUNCATE((Prof_Income1 - Prof_Expenses1) * 100 / Prof_Income1, 2);');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Perf_NetMargin2=TRUNCATE((Prof_Income2 - Prof_Expenses2) * 100 / Prof_Income2, 2);');
 
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Perf_ROI1=TRUNCATE((Prof_Net1) * 100 / (SELECT SUM(DebitsInc) FROM tbltransactions WHERE AccountType="EQUITY"), 2);');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Perf_ROI2=TRUNCATE((Prof_Net2) * 100 / (SELECT SUM(DebitsInc) FROM tbltransactions WHERE AccountType="EQUITY"), 2);');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Perf_ROI1=TRUNCATE((Prof_Net1) * 100 / (SELECT SUM(DebitsInc) FROM tbltransactions WHERE AccountType="EQUITY"), 2);');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Perf_ROI2=TRUNCATE((Prof_Net2) * 100 / (SELECT SUM(DebitsInc) FROM tbltransactions WHERE AccountType="EQUITY"), 2);');
 
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Perf_NetMargin1=TRUNCATE((Prof_Income1 - Prof_Expenses1) * 100 / Prof_Income1, 2);');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Perf_NetMargin2=TRUNCATE((Prof_Income2 - Prof_Expenses2) * 100 / Prof_Income2, 2);');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Perf_NetMargin1=TRUNCATE((Prof_Income1 - Prof_Expenses1) * 100 / Prof_Income1, 2);');
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Perf_NetMargin2=TRUNCATE((Prof_Income2 - Prof_Expenses2) * 100 / Prof_Income2, 2);');
 
     // Balance Sheet
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Bal_Debtors1=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Bal_Debtors1=' +
                   '(SELECT TRUNCATE(SUM(t.DebitsEx) - SUM(t.CreditsEx), 4) ' +
                   'FROM tbltransactions t LEFT JOIN tblsales s ON t.SaleID=s.SaleID LEFT JOIN tblpurchaseorders p ON t.PurchaseOrderID = p.PurchaseOrderID ' +
                   'WHERE t.AccountType = "AR" AND IF(s.SaleID IS NULL, IF(p.PurchaseOrderID IS NULL, 0, TermToDays(p.Terms, t.Date)), TermToDays(s.Terms, t.Date)) > 0 ' +
                   'AND `Date` BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ');');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Bal_Debtors2=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Bal_Debtors2=' +
                   '(SELECT TRUNCATE(SUM(t.DebitsEx) - SUM(t.CreditsEx), 4) ' +
                   'FROM tbltransactions t LEFT JOIN tblsales s ON t.SaleID=s.SaleID LEFT JOIN tblpurchaseorders p ON t.PurchaseOrderID = p.PurchaseOrderID ' +
                   'WHERE t.AccountType = "AR" AND IF(s.SaleID IS NULL, IF(p.PurchaseOrderID IS NULL, 0, TermToDays(p.Terms, t.Date)), TermToDays(s.Terms, t.Date)) > 0 ' +
                   'AND `Date` BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ');');
 
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Bal_Creditors1=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Bal_Creditors1=' +
                   '(SELECT TRUNCATE(SUM(t.CreditsEx) - SUM(t.DebitsEx), 4) ' +
                   'FROM tbltransactions t LEFT JOIN tblsales s ON t.SaleID=s.SaleID LEFT JOIN tblpurchaseorders p ON t.PurchaseOrderID = p.PurchaseOrderID ' +
                   'WHERE t.AccountType = "AP" AND IF(s.SaleID IS NULL, IF(p.PurchaseOrderID IS NULL, 0, TermToDays(p.Terms, t.Date)), TermToDays(s.Terms, t.Date)) > 0 ' +
                   'AND `Date` BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ');');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Bal_Creditors2=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Bal_Creditors2=' +
                   '(SELECT TRUNCATE(SUM(t.CreditsEx) - SUM(t.DebitsEx), 4) ' +
                   'FROM tbltransactions t LEFT JOIN tblsales s ON t.SaleID=s.SaleID LEFT JOIN tblpurchaseorders p ON t.PurchaseOrderID = p.PurchaseOrderID ' +
                   'WHERE t.AccountType = "AP" AND IF(s.SaleID IS NULL, IF(p.PurchaseOrderID IS NULL, 0, TermToDays(p.Terms, t.Date)), TermToDays(s.Terms, t.Date)) > 0 ' +
                   'AND `Date` BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ');');
 
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Bal_NetAsset1=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Bal_NetAsset1=' +
                   '(SELECT TRUNCATE(SUM(DebitsEx) - SUM(CreditsEx), 4) FROM tbltransactions WHERE (AccountType = "AR" OR AccountType = "BANK" OR AccountType = "OCASSET" OR AccountType = "OASSET") ' +
                   'AND `Date` BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ');');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Bal_NetAsset2=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Bal_NetAsset2=' +
                   '(SELECT TRUNCATE(SUM(DebitsEx) - SUM(CreditsEx), 4) FROM tbltransactions WHERE (AccountType = "AR" OR AccountType = "BANK" OR AccountType = "OCASSET" OR AccountType = "OASSET") ' +
                   'AND `Date` BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ');');
 
     // Position
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Pos_AvgDebtDays1=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Pos_AvgDebtDays1=' +
                   '(SELECT SUM(IF(s.SaleID IS NULL, IF(p.PurchaseOrderID IS NULL, 0, TermToDays(p.Terms, t.Date)), TermToDays(s.Terms, t.Date))) ' +
                   'FROM tbltransactions t LEFT JOIN tblsales s ON t.SaleID=s.SaleID LEFT JOIN tblpurchaseorders p ON t.PurchaseOrderID=p.PurchaseOrderID ' +
                   'WHERE t.AccountType = "AR" AND IF(s.SaleID IS NULL, IF(p.PurchaseOrderID IS NULL, 0, TermToDays(p.Terms, t.Date)), TermToDays(s.Terms, t.Date)) > 0 ' +
                   'AND `Date` BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ');');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Pos_AvgDebtDays2=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Pos_AvgDebtDays2=' +
                   '(SELECT SUM(IF(s.SaleID IS NULL, IF(p.PurchaseOrderID IS NULL, 0, TermToDays(p.Terms, t.Date)), TermToDays(s.Terms, t.Date))) ' +
                   'FROM tbltransactions t LEFT JOIN tblsales s ON t.SaleID=s.SaleID LEFT JOIN tblpurchaseorders p ON t.PurchaseOrderID=p.PurchaseOrderID ' +
                   'WHERE t.AccountType = "AR" AND IF(s.SaleID IS NULL, IF(p.PurchaseOrderID IS NULL, 0, TermToDays(p.Terms, t.Date)), TermToDays(s.Terms, t.Date)) > 0 ' +
                   'AND `Date` BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ');');
 
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Pos_AvgCredDays1=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Pos_AvgCredDays1=' +
                   '(SELECT SUM(IF(s.SaleID IS NULL, IF(p.PurchaseOrderID IS NULL, 0, TermToDays(p.Terms, t.Date)), TermToDays(s.Terms, t.Date))) ' +
                   'FROM tbltransactions t LEFT JOIN tblsales s ON t.SaleID=s.SaleID LEFT JOIN tblpurchaseorders p ON t.PurchaseOrderID=p.PurchaseOrderID ' +
                   'WHERE t.AccountType = "AP" AND IF(s.SaleID IS NULL, IF(p.PurchaseOrderID IS NULL, 0, TermToDays(p.Terms, t.Date)), TermToDays(s.Terms, t.Date)) > 0 ' +
                   'AND `Date` BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ');');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Pos_AvgCredDays2=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Pos_AvgCredDays2=' +
                   '(SELECT SUM(IF(s.SaleID IS NULL, IF(p.PurchaseOrderID IS NULL, 0, TermToDays(p.Terms, t.Date)), TermToDays(s.Terms, t.Date))) ' +
                   'FROM tbltransactions t LEFT JOIN tblsales s ON t.SaleID=s.SaleID LEFT JOIN tblpurchaseorders p ON t.PurchaseOrderID=p.PurchaseOrderID ' +
                   'WHERE t.AccountType = "AP" AND IF(s.SaleID IS NULL, IF(p.PurchaseOrderID IS NULL, 0, TermToDays(p.Terms, t.Date)), TermToDays(s.Terms, t.Date)) > 0 ' +
                   'AND `Date` BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ');');
 
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Pos_CashForecast1=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Pos_CashForecast1=' +
                   'Bal_Debtors1 - Bal_Creditors1;');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Pos_CashForecast2=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Pos_CashForecast2=' +
                   'Bal_Debtors2 - Bal_Creditors2;');
 
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Pos_AssetToLiab1=Bal_NetAsset1 - ' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Pos_AssetToLiab1=Bal_NetAsset1 - ' +
                   '(SELECT IF(AccountType = "CCARD", TRUNCATE(SUM(DebitsEx) - SUM(CreditsEx), 4), TRUNCATE(SUM(CreditsEx) - SUM(DebitsEx), 4)) ' +
                   'FROM tbltransactions WHERE (AccountType="AP" OR AccountType="OCLIAB" OR AccountType="CCARD") ' +
                   'AND `Date` BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ');');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Pos_AssetToLiab2=Bal_NetAsset2 - ' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Pos_AssetToLiab2=Bal_NetAsset2 - ' +
                   '(SELECT IF(AccountType = "CCARD", TRUNCATE(SUM(DebitsEx) - SUM(CreditsEx), 4), TRUNCATE(SUM(CreditsEx) - SUM(DebitsEx), 4)) ' +
                   'FROM tbltransactions WHERE (AccountType="AP" OR AccountType="OCLIAB" OR AccountType="CCARD") ' +
                   'AND `Date` BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ');');
 
     // Sheet
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Sheet_AssetToLiab1=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Sheet_AssetToLiab1=' +
                   '(SELECT TRUNCATE(SUM(DebitsEx) - SUM(CreditsEx), 4) ' +
                   '  FROM tbltransactions WHERE AccountType="OCASSET" AND `Date` BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ') - ' +
                   '(SELECT TRUNCATE(SUM(DebitsEx) - SUM(CreditsEx), 4) ' +
                   '  FROM tbltransactions WHERE AccountType="OCLIAB" AND `Date` BETWEEN ' + QuotedStr(DateFrom1) + ' AND ' + QuotedStr(DateTo1) + ');');
-    sct.SQL.Add('UPDATE tmp_vs1_card_data SET Sheet_AssetToLiab2=' +
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_exec_set1 SET Sheet_AssetToLiab2=' +
                   '(SELECT TRUNCATE(SUM(DebitsEx) - SUM(CreditsEx), 4) ' +
                   '  FROM tbltransactions WHERE AccountType="OCASSET" AND `Date` BETWEEN ' + QuotedStr(DateFrom2) + ' AND ' + QuotedStr(DateTo2) + ') - ' +
                   '(SELECT TRUNCATE(SUM(DebitsEx) - SUM(CreditsEx), 4) ' +
@@ -7850,8 +7852,9 @@ var
     sct.Execute;
   end;
 
-  procedure Make_VS1_Sales_Set1;
+  procedure Make_VS1_Sales_Set;
   begin
+    //    Set 1
     sct.SQL.Clear;
 
     sct.SQL.Add('DROP TABLE IF EXISTS tmp_vs1_dashboard_sales_set1;');
@@ -7904,10 +7907,8 @@ var
                 ' SET T.ClosedTotal=IFNULL(T1.Cycle, 0);');
 
     sct.Execute;
-  end;
 
-  procedure Make_VS1_Sales_Set2;
-  begin
+    //    Set 2
     sct.SQL.Clear;
 
     sct.SQL.Add('DROP TABLE IF EXISTS tmp_vs1_dashboard_sales_set2;');
@@ -7927,9 +7928,117 @@ var
                 ' LIMIT 6);');
 
     sct.Execute;
+
+    //    Set 3
+    sct.SQL.Clear;
+
+    sct.SQL.Add('DROP TABLE IF EXISTS tmp_vs1_dashboard_sales_set3;');
+    sct.SQL.Add('CREATE TABLE tmp_vs1_dashboard_sales_set3 ( ' +
+                ' Oppts6    INT(11)   NOT NULL DEFAULT 0, ' +
+                ' Status6   INT(11)   NOT NULL DEFAULT 0, ' +
+                ' Oppts5    INT(11)   NOT NULL DEFAULT 0, ' +
+                ' Status5   INT(11)   NOT NULL DEFAULT 0, ' +
+                ' Oppts4    INT(11)   NOT NULL DEFAULT 0, ' +
+                ' Status4   INT(11)   NOT NULL DEFAULT 0, ' +
+                ' Oppts3    INT(11)   NOT NULL DEFAULT 0, ' +
+                ' Status3   INT(11)   NOT NULL DEFAULT 0, ' +
+                ' Oppts2    INT(11)   NOT NULL DEFAULT 0, ' +
+                ' Status2   INT(11)   NOT NULL DEFAULT 0, ' +
+                ' Oppts1    INT(11)   NOT NULL DEFAULT 0, ' +
+                ' Status1   INT(11)   NOT NULL DEFAULT 0 ' +
+                ' ) ENGINE=MyISAM DEFAULT CHARSET=utf8;');
+
+    sct.SQL.Add('INSERT INTO tmp_vs1_dashboard_sales_set3 SET Oppts6=0;');
+
+    // Opportunities 6 months before
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set3 T, ' +
+                ' (SELECT COUNT(*) AS Oppts FROM tblclients	' +
+                '   WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" AND `Status` = "Quoted" ' +
+                '	    AND CreationDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 6 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 6 MONTH), "%Y-%m-%d") ' +
+                ' ) T1 SET T.Oppts6=T1.Oppts;');
+
+    // All status 6 months before
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set3 T, ' +
+                ' (SELECT COUNT(*) AS Status FROM tblclients	' +
+                '   WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" ' +
+                '	    AND CreationDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 6 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 6 MONTH), "%Y-%m-%d") ' +
+                ' ) T1 SET T.Status6=T1.Status;');
+
+    // Opportunities 6 months before
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set3 T, ' +
+                ' (SELECT COUNT(*) AS Oppts FROM tblclients	' +
+                '   WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" AND `Status` = "Quoted" ' +
+                '	    AND CreationDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 5 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 5 MONTH), "%Y-%m-%d") ' +
+                ' ) T1 SET T.Oppts5=T1.Oppts;');
+
+    // All status 5 months before
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set3 T, ' +
+                ' (SELECT COUNT(*) AS Status FROM tblclients	' +
+                '   WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" ' +
+                '	    AND CreationDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 5 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 5 MONTH), "%Y-%m-%d") ' +
+                ' ) T1 SET T.Status5=T1.Status;');
+
+    // Opportunities 4 months before
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set3 T, ' +
+                ' (SELECT COUNT(*) AS Oppts FROM tblclients	' +
+                '   WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" AND `Status` = "Quoted" ' +
+                '	    AND CreationDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 4 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 4 MONTH), "%Y-%m-%d") ' +
+                ' ) T1 SET T.Oppts4=T1.Oppts;');
+
+    // All status 4 months before
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set3 T, ' +
+                ' (SELECT COUNT(*) AS Status FROM tblclients	' +
+                '   WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" ' +
+                '	    AND CreationDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 4 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 4 MONTH), "%Y-%m-%d") ' +
+                ' ) T1 SET T.Status4=T1.Status;');
+
+    // Opportunities 3 months before
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set3 T, ' +
+                ' (SELECT COUNT(*) AS Oppts FROM tblclients	' +
+                '   WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" AND `Status` = "Quoted" ' +
+                '	    AND CreationDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 3 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 3 MONTH), "%Y-%m-%d") ' +
+                ' ) T1 SET T.Oppts3=T1.Oppts;');
+
+    // All status 3 months before
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set3 T, ' +
+                ' (SELECT COUNT(*) AS Status FROM tblclients	' +
+                '   WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" ' +
+                '	    AND CreationDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 3 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 3 MONTH), "%Y-%m-%d") ' +
+                ' ) T1 SET T.Status3=T1.Status;');
+
+    // Opportunities 2 months before
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set3 T, ' +
+                ' (SELECT COUNT(*) AS Oppts FROM tblclients	' +
+                '   WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" AND `Status` = "Quoted" ' +
+                '	    AND CreationDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 2 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 2 MONTH), "%Y-%m-%d") ' +
+                ' ) T1 SET T.Oppts2=T1.Oppts;');
+
+    // All status 2 months before
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set3 T, ' +
+                ' (SELECT COUNT(*) AS Status FROM tblclients	' +
+                '   WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" ' +
+                '	    AND CreationDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 2 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 2 MONTH), "%Y-%m-%d") ' +
+                ' ) T1 SET T.Status2=T1.Status;');
+
+    // Opportunities 1 months before
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set3 T, ' +
+                ' (SELECT COUNT(*) AS Oppts FROM tblclients	' +
+                '   WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" AND `Status` = "Quoted" ' +
+                '	    AND CreationDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 1 MONTH), "%Y-%m-%d") ' +
+                ' ) T1 SET T.Oppts1=T1.Oppts;');
+
+    // All status 1 months before
+    sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set3 T, ' +
+                ' (SELECT COUNT(*) AS Status FROM tblclients	' +
+                '   WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" ' +
+                '	    AND CreationDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 1 MONTH), "%Y-%m-%d") ' +
+                ' ) T1 SET T.Status1=T1.Status;');
+
+    sct.Execute;
+
   end;
 
-  procedure Make_VS1_My_Set1;
+  procedure Make_VS1_My_Set;
   begin
     sct.SQL.Clear;
 
@@ -8108,9 +8217,8 @@ begin
          if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_SalesList']     then begin StepProgressDlg('Make VS1 SalesList')        ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_SalesList'        ,ltDetail); try Make_VS1_SalesList;       Except on E:Exception do begin Log( 'Error in Make_VS1_SalesList : '        + E.message, ltDetail); end;end;end;
          if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_PQASumList']    then begin StepProgressDlg('Make VS1 PQASumList')       ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_PQASumList'       ,ltDetail); try Make_VS1_PQASumList;      Except on E:Exception do begin Log( 'Error in Make_VS1_PQASumList: '        + E.message, ltDetail); end;end;end;
          if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 Sum2')             ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_Sum2'             ,ltDetail); try Make_VS1_Sum2;            Except on E:Exception do begin Log( 'Error in Make_VS1_Sum2: '              + E.message, ltDetail); end;end;end;
-         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 Sales_Set1')       ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_Sales_Set1'       ,ltDetail); try Make_VS1_Sales_Set1;      Except on E:Exception do begin Log( 'Error in Make_VS1_Sales_Set1: '        + E.message, ltDetail); end;end;end;
-         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 Sales_Set2')       ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_Sales_Set2'       ,ltDetail); try Make_VS1_Sales_Set2;      Except on E:Exception do begin Log( 'Error in Make_VS1_Sales_Set2: '        + E.message, ltDetail); end;end;end;
-         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 My_Set1')          ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_My_Set1'          ,ltDetail); try Make_VS1_My_Set1;         Except on E:Exception do begin Log( 'Error in Make_VS1_My_Set1: '           + E.message, ltDetail); end;end;end;
+         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 Sales_Set')        ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_Sales_Set'        ,ltDetail);  try Make_VS1_Sales_Set;      Except on E:Exception do begin Log( 'Error in Make_VS1_Sales_Set: '         + E.message, ltDetail); end;end;end;
+         if AppEnvVirt.Bool['CompanyPrefs.UpdatebatchRunVS1_Sum2']          then begin StepProgressDlg('Make VS1 My_Set')           ;Log( 'UpdateVS1DashBoardTables -> Make_VS1_My_Set'           ,ltDetail);  try Make_VS1_My_Set;         Except on E:Exception do begin Log( 'Error in Make_VS1_My_Set: '            + E.message, ltDetail); end;end;end;
       finally
         Freeandnil(Sct);
       end;

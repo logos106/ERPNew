@@ -760,11 +760,12 @@
 			<DCCReference Include="..\Modules\UserUtils\ClientConfigObj.pas"/>
 			<DCCReference Include="..\Modules\ModuleDbUtils.pas"/>
 			<DCCReference Include="..\..\..\Dev\Accounts\Objects\BusObjBankImportRule.pas"/>
-			<DCCReference Include="..\..\..\Dev\Vs1\Objects\DashboardAccountsData1SQL.pas"/>
+			<DCCReference Include="..\..\..\Dev\Vs1\Objects\DashboardExecData1SQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\Vs1\Objects\DashboardSalesData1SQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\Vs1\Objects\DashboardSalesData2SQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\Vs1\Objects\DashboardMyData1SQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\Vs1\Objects\DashboardMyData2SQL.pas"/>
+			<DCCReference Include="..\..\..\Dev\Vs1\Objects\DashboardSalesData3SQL.pas"/>
 			<None Include="..\..\..\Dev\ERP.inc"/>
 			<None Include="..\Service\ErpUtilsService.inc"/>
 			<BuildConfiguration Include="Release">

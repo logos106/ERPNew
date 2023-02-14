@@ -274,6 +274,8 @@ var
   DsBusObj : TDatasetBusObj;
   SWhere, TableName: string;
   TempQuery : TERPQuery;
+
+  iObjID: Integer;
 begin
   Result := False;
 
@@ -290,25 +292,11 @@ begin
     DsBusObj := TDatasetBusObj(Obj);
     TableName := DsBusObj.GetBusObjectTablename;
 
-    // Compose where clause for delete statement
-    Count := GetPropList(Obj.ClassInfo, tkProperties, nil);
-    GetMem(PropList, Count * SizeOf(PPropInfo));
-    try
-      GetPropList(Obj.ClassInfo, tkProperties, PropList);
+    iObjID := 0;
+    if jsonIn.O['fields'].IntegerExists('ID') then
+      iObjID := jsonIn.O['fields'].I['ID'];
 
-      SWhere := '';
-      for K := 0 to Count - 1 do begin
-          FieldName := string(PropList[K].Name);
-          FieldValue := GetPropValue(Obj, FieldName);
-          if FieldName = 'EmployeeID' then begin
-            SWhere := SWhere + FieldName + '="' + FieldValue + '" AND ';
-          end;
-      end;
-
-      SWhere := Copy(SWhere, 0, Length(SWhere) - 5)
-    finally
-      FreeMem(PropList, Count * SizeOf(PPropInfo));
-    end;
+    SWhere := DsBusObj.GetIDField +  ' = ' + IntToStr(iObjID);
 
     // Execute the delete statement
     TempQuery := TERPQuery.Create(nil);

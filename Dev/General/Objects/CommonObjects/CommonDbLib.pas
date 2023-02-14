@@ -1190,9 +1190,9 @@ end;
 function GetTemporaryTableNameSuffix: string;
 begin
   if Assigned(AppEnv.Employee) then
-    result := TempTableUtils.GetTemporaryTableNameSuffix(AppEnv.Employee.LogonName)
+    Result := TempTableUtils.GetTemporaryTableNameSuffix(AppEnv.Employee.LogonName)
   else
-    result := TempTableUtils.GetTemporaryTableNameSuffix('');
+    Result := TempTableUtils.GetTemporaryTableNameSuffix('');
 
 //  if Assigned(AppEnv.Employee) then Result := '_' + RemoveInvalidAlphaNumericCharacters(Trim(AppEnv.Employee.LogonName))
 //      + '_' + MachineSignature.GetMachineIdentification(true, true, true, true)

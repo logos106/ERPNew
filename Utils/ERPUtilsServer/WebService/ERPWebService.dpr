@@ -712,7 +712,7 @@ uses
   ERPLicenseLib in '..\Modules\ERPModUserUtils\ERPLicenseLib.pas',
   ModuleDbUtils in '..\Modules\ModuleDbUtils.pas',
   BusObjBankImportRule in '..\..\..\Dev\Accounts\Objects\BusObjBankImportRule.pas',
-  DashboardAccountsData1SQL in '..\..\..\Dev\Vs1\Objects\DashboardAccountsData1SQL.pas',
+  DashboardExecData1SQL in '..\..\..\Dev\Vs1\Objects\DashboardExecData1SQL.pas',
   DashboardSalesData1SQL in '..\..\..\Dev\Vs1\Objects\DashboardSalesData1SQL.pas',
   DashboardSalesData2SQL in '..\..\..\Dev\Vs1\Objects\DashboardSalesData2SQL.pas',
   DashboardMyData1SQL in '..\..\..\Dev\Vs1\Objects\DashboardMyData1SQL.pas',
