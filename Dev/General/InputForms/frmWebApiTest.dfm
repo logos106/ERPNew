@@ -5,7 +5,9 @@ inherited fmWebAPITest: TfmWebAPITest
   Caption = 'Web API Test'
   ClientWidth = 1027
   OnMouseDown = FormMouseDown
+  ExplicitTop = 8
   ExplicitWidth = 1033
+  ExplicitHeight = 561
   PixelsPerInch = 96
   TextHeight = 15
   inherited lblSkingroupMsg: TLabel
@@ -364,7 +366,7 @@ inherited fmWebAPITest: TfmWebAPITest
         Left = 16
         Top = 44
         Width = 427
-        Height = 22
+        Height = 23
         HelpContext = 837009
         Anchors = [akLeft, akTop, akRight]
         DropDownCount = 20
@@ -1167,7 +1169,7 @@ inherited fmWebAPITest: TfmWebAPITest
     Left = 307
     Top = 65528
     Bitmap = {
-      494C010102003400E80110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102003400EC0110001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

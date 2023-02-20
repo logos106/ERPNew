@@ -378,11 +378,13 @@ Published
     function GetFrequencyValues : String;
     function GetCopyStartDate   : TDateTime;
     function GetCopyFinishDate  : TDateTime;
+    function GetQuota           : Double;
 
     procedure SetTypeOfBasedOn(Const Value: String);
     procedure SetFrequencyValues(Const Value: String);
     procedure SetCopyStartDate(Const Value: TDateTime);
     procedure SetCopyFinishDate(Const Value: TDateTime);
+    procedure SetQuota(Const Value: Double);
 
 Protected
     FbAnyLineShipped: Boolean;
@@ -517,6 +519,7 @@ Protected
     Property FrequenctyValues   : String    read GetFrequencyValues   write SetFrequencyValues;
     Property CopyStartDate      : TDateTime read GetCopyStartDate     write SetCopyStartDate;
     Property CopyFinishDate     : TDateTime read GetCopyFinishDate    write SetCopyFinishDate;
+    Property Quota              : Double    read GetQuota             write SetQuota;
   End;
 
   TInvoiceLine = Class(TSalesLine)
@@ -3801,7 +3804,11 @@ Begin
   Result := AllLinesValid;
   If Not Result Then Exit;
   If Not Self.IsQuote Then Self.Deleted := Lines.Count = 0;
+
+  if Self.IsInvoice then Quota := GetEmployeeQuota(EmployeeID);  // Wang 2/17/2023  
+
   Result := Inherited Save;
+
   If Not((Self Is TInvoice) Or (Self Is TSalesOrder)) Then Exit;
 End;
 
@@ -5730,6 +5737,7 @@ Function TSales.GetTypeOfBasedOn    : String;     Begin Result := GetStringField
 Function TSales.GetFrequencyValues  : String;     Begin Result := GetStringField('FrequencyValues'); End;
 Function TSales.GetCopyStartDate    : TDateTime;  Begin Result := GetDateTimeField('CopyStartDate'); End;
 Function TSales.GetCopyFinishDate   : TDateTime;  Begin Result := GetDateTimeField('CopyFinishDate'); End;
+Function TSales.GetQuota            : Double;     Begin Result := GetFloatField('Quota'); End;
 
 Procedure TSales.SetProgressPaymentSeqno(Const Value: Integer);Begin  SetIntegerField('ProgressPaymentSeqno', Value)End;
 Procedure TSales.SetReferenceNo(Const Value: String);Begin  SetStringField('ReferenceNo', Value)End;
@@ -5740,6 +5748,7 @@ Procedure TSales.SetTypeOfBasedOn(Const Value: String);       Begin  SetStringFi
 Procedure TSales.SetFrequencyValues(Const Value: String);     Begin  SetStringField('FrequencyValues', Value);  End;
 Procedure TSales.SetCopyStartDate(Const Value: TDateTime);    Begin  SetDateTimeField('CopyStartDate', Value);  End;
 Procedure TSales.SetCopyFinishDate(Const Value: TDateTime);   Begin  SetDateTimeField('CopyFinishDate', Value);  End;
+Procedure TSales.SetQuota(Const Value: Double);               Begin  SetFloatField('Quota', Value);  End;
 
 Function TQuoteBase.GetReference: String;Begin  Result := GetStringField('Reference');End;
 Procedure TQuoteBase.SetReference(Const Value: String);Begin  SetStringField('Reference', Value);End;

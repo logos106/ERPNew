@@ -1147,20 +1147,20 @@ end;
 
 procedure TfmWebAPITest.btnGetClick(Sender: TObject);
 var
-  dt:TDateTime;
+  dt: TDateTime;
 begin
   inherited;
   lblProcess.caption := '';
-  dt:= now;
+  dt := Now;
   try
     Processingcursor(True);
     try
-        self.memResponce.Lines.clear;
-        self.memResult.Lines.Text := 'Result Code:';
-        Application.ProcessMessages;
-        DoRequest('GET');
+      Self.memResponce.Lines.clear;
+      Self.memResult.Lines.Text := 'Result Code:';
+      Application.ProcessMessages;
+      DoRequest('GET');
     finally
-        Processingcursor(False);
+      Processingcursor(False);
     end;
   finally
     lblProcess.caption := FormatSeconds(secondsBetween(now,dt))
@@ -2187,27 +2187,26 @@ begin
       'or to get customer details for customer with id 1:' + #13#10 +
       'HTTPS://' + AppEnv.AppDb.Server + '/erpapi/TCustomer/1', mtInformation, [mbOk],0);
     SetControlFocus(cboURL);
-    exit;
+    Exit;
   end;
   if (RequestType = 'POST') and (memRequest.Lines.Count = 0) then begin
     MessageDlgXP_Vista('Please enter the Json formatted data to send with the request.', mtInformation, [mbOk],0);
     SetControlFocus(memRequest);
-    exit;
+    Exit;
   end;
-
 
   memResponce.Clear;
   UpdateResult('');
 
-  Client:= TIdHTTP.Create(nil);
+  Client := TIdHTTP.Create(nil);
 //  InStream:= TMemoryStream.Create;
 //  InStream:= TStringStream.Create(s, TEncoding.UTF8);
-  TempFileName := SystemLib.GetTempFileName('','.json',true);
+  TempFileName := SystemLib.GetTempFileName('', '.json', True);
   InStream := TFileStream.Create(TempFileName, fmOpenReadWrite);
   try
     Client.Request.UserAgent := HTTPConst.TrueERPUserAgent;
     if Pos('HTTPS', Uppercase(cboURL.Text)) = 1 then begin
-      SSLHandler:= TIdSSLIOHandlerSocketOpenSSL.Create(client);
+      SSLHandler := TIdSSLIOHandlerSocketOpenSSL.Create(client);
       client.IOHandler:= SSLHandler;
       client.Request.BasicAuthentication:= true;
       Client.Request.Username:= edtUser.Text;
@@ -2226,17 +2225,17 @@ begin
     Client.Request.CustomHeaders.AddValue('database', edtDatabase.Text);
     res:= '';
     if RequestType = 'GET' then begin
-      TimeStart:= now;
+      TimeStart := now;
       try
 //        res:= client.Get(cboURL.Text);
       try
-        Client.Get(cboURL.Text,InStream);
+        Client.Get(cboURL.Text, InStream);
       Except
          on E:Exception do begin
           MessageDlgXP_Vista(e.message, mtWarning, [mbOK], 0);
          end;
       end;
-        UpdateResult(IntToStr(Client.Response.ResponseCode) + ' (Time: ' + FormatDateTime('nn:ss-zzz',now-TimeStart) + ')');
+        UpdateResult(IntToStr(Client.Response.ResponseCode) + ' (Time: ' + FormatDateTime('nn:ss-zzz', now-TimeStart) + ')');
 //        memResponce.Lines.Add(res);
 //        InStream.Position := 0;
 //        json:= TJsonObject.Create;
@@ -2271,15 +2270,15 @@ begin
         end;
       except
         on e: exception do begin
-          if FirstHttpError and (Pos('Software caused connection abort',e.Message) > 0) then begin
+          if FirstHttpError and (Pos('Software caused connection abort', e.Message) > 0) then begin
             FirstHttpError := false;
             DoRequest(RequestType);
           end
           else begin
             if Client.Response.RawHeaders.Values['errormessage'] <> '' then
-              UpdateResult(IntToStr(Client.Response.ResponseCode) + ' (Time: ' + FormatDateTime('nn:ss-zzz',now-TimeStart) + ')', Client.Response.RawHeaders.Values['errormessage'])
+              UpdateResult(IntToStr(Client.Response.ResponseCode) + ' (Time: ' + FormatDateTime('nn:ss-zzz', now-TimeStart) + ')', Client.Response.RawHeaders.Values['errormessage'])
             else
-              UpdateResult(IntToStr(Client.Response.ResponseCode) + ' (Time: ' + FormatDateTime('nn:ss-zzz',now-TimeStart) + ')', e.Message);
+              UpdateResult(IntToStr(Client.Response.ResponseCode) + ' (Time: ' + FormatDateTime('nn:ss-zzz', now-TimeStart) + ')', e.Message);
           end;
         end;
       end;
@@ -2287,10 +2286,10 @@ begin
     else if RequestType = 'POST' then begin
       TimeStart:= now;
       try
-        stream:= TMemoryStream.Create;
+        stream := TMemoryStream.Create;
         try
           memRequest.Lines.SaveToStream(stream);
-          res:= client.Post(cboURL.Text, stream);
+          res := client.Post(cboURL.Text, stream);
           UpdateResult(IntToStr(Client.Response.ResponseCode) + ' (Time: ' + FormatDateTime('nn:ss-zzz',now-TimeStart) + ')');
           memResponce.Lines.Add(res);
           OpenReport;
@@ -2317,7 +2316,7 @@ begin
         if chkFormatJSON.Checked then begin
           sl:= TStringList.Create;
           try
-            sl.Text:= res;
+            sl.Text := res;
             FormatJson(sl);
             memResponce.Lines.Assign(sl);
           finally
@@ -2325,12 +2324,12 @@ begin
           end;
         end
         else begin
-          memResponce.Lines.Text:= res;
+          memResponce.Lines.Text := res;
         end;
       except
         on e: exception do begin
           memResponce.Clear;
-          memResponce.Lines.Text:= res;
+          memResponce.Lines.Text := res;
         end;
       end;
     end;

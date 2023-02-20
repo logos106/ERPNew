@@ -21,11 +21,13 @@ type
     procedure SetStatementDesc       (const Value: string    );
     procedure SetActive              (const Value: Boolean   );
     procedure SetPayee               (const Value: string    );
+
   protected
     procedure OnDataIdChange(const ChangeType: TBusObjDataChangeType);  override;
     procedure DoFieldOnChange(Sender: TField);                          override;
     function  GetSQL                             : string;              override;
     function  DoAfterPost(Sender:TDatasetBusObj) : Boolean;             override;
+
   public
     class function  GetIDField                   : string;              override;
     class function  GetBusObjectTablename        : string;              override;
@@ -35,6 +37,7 @@ type
     procedure    SaveToXMLNode(const node: IXMLNode);                   override;
     function     ValidateData: Boolean ;                                override;
     function     Save: Boolean ;                                        override;
+
   published
     property StatementDesc        :string      read GetStatementDesc      write SetStatementDesc   ;
     property Active               :Boolean     read GetActive             write SetActive          ;

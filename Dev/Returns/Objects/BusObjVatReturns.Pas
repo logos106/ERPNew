@@ -39,6 +39,7 @@ TVATReturns = class(TReturns)
     Function GetVAT4            : Double    ;
     Function GetVAT4Selected    : string    ;
     Function GetVAT5            : Double    ;
+    Function GetVAT5Per         : Double    ;
     Function GetVAT5Selected    : string    ;
     Function GetVAT6            : Double    ;
     Function GetVAT6Selected    : string    ;
@@ -127,6 +128,7 @@ TVATReturns = class(TReturns)
     Procedure SetVAT4            (const Value: Double    );
     Procedure SetVAT4Selected    (const Value: string    );
     Procedure SetVAT5            (const Value: Double    );
+    Procedure SetVAT5Per         (const Value: Double    );
     Procedure SetVAT5Selected    (const Value: string    );
     Procedure SetVAT6            (const Value: Double    );
     Procedure SetVAT6Selected    (const Value: string    );
@@ -259,6 +261,7 @@ TVATReturns = class(TReturns)
     property VAT4             :Double      read GetVAT4           write SetVAT4        ;
     property VAT4Selected     :string      read GetVAT4Selected   write SetVAT4Selected;
     property VAT5             :Double      read GetVAT5           write SetVAT5        ;
+    property VAT5Per          :Double      read GetVAT5Per        write SetVAT5Per     ;
     property VAT5Selected     :string      read GetVAT5Selected   write SetVAT5Selected;
     property VAT6             :Double      read GetVAT6           write SetVAT6        ;
     property VAT6Selected     :string      read GetVAT6Selected   write SetVAT6Selected;
@@ -705,6 +708,7 @@ Function  TVATReturns.GetVAT3Selected: string    ; begin Result := GetStringFiel
 Function  TVATReturns.GetVAT4        : Double    ; begin Result := GetFloatField('VAT4');end;
 Function  TVATReturns.GetVAT4Selected: string    ; begin Result := GetStringField('VAT4Selected');end;
 Function  TVATReturns.GetVAT5        : Double    ; begin Result := GetFloatField('VAT5');end;
+Function  TVATReturns.GetVAT5Per     : Double    ; begin Result := GetFloatField('VAT5Per');end;
 Function  TVATReturns.GetVAT5Selected: string    ; begin Result := GetStringField('VAT5Selected');end;
 Function  TVATReturns.GetVAT6        : Double    ; begin Result := GetFloatField('VAT6');end;
 Function  TVATReturns.GetVAT6Selected: string    ; begin Result := GetStringField('VAT6Selected');end;
@@ -745,7 +749,7 @@ function  TVATReturns.GetVAT14:           Double; begin Result := GetFloatField(
 function  TVATReturns.GetVAT14Selected:   String; begin Result := GetStringField('VAT14Selected');end;
 function  TVATReturns.GetVAT14A:          Double; begin Result := GetFloatField('VAT14A');end;
 function  TVATReturns.GetVAT14ASelected:  String; begin Result := GetStringField('VAT14ASelected');end;
-function  TVATReturns.GetVAT15  :         Double; begin Result := GetFloatField('VAT15');end;
+function  TVATReturns.GetVAT15:           Double; begin Result := GetFloatField('VAT15');end;
 function  TVATReturns.GetVAT15Selected:   String; begin Result := GetStringField('VAT15Selected');end;
 function  TVATReturns.GetVAT15A:          Double; begin Result := GetFloatField('VAT15A');end;
 function  TVATReturns.GetVAT15ASelected:  String; begin Result := GetStringField('VAT15ASelected');end;
@@ -801,28 +805,29 @@ begin
   SetBooleanField('Submitted',Value);
 end;
 
-Procedure TVATReturns.SetYear        (const Value: Integer   ); begin SetIntegerField('Year'         , Value);end;
-Procedure TVATReturns.SetAccMethod   (const Value: string    ); begin SetStringField('AccMethod'    , Value);end;
-Procedure TVATReturns.SetAllClass    (const Value: Boolean   ); begin SetBooleanField('AllClass'     , Value);end;
-Procedure TVATReturns.setClassID     (const Value: Integer   ); begin SetIntegerField('ClassID'      , Value);end;
+Procedure TVATReturns.SetYear        (const Value: Integer   ); begin SetIntegerField('Year'       , Value);end;
+Procedure TVATReturns.SetAccMethod   (const Value: string    ); begin SetStringField('AccMethod'   , Value);end;
+Procedure TVATReturns.SetAllClass    (const Value: Boolean   ); begin SetBooleanField('AllClass'   , Value);end;
+Procedure TVATReturns.setClassID     (const Value: Integer   ); begin SetIntegerField('ClassID'    , Value);end;
 Procedure TVATReturns.SetVAT1        (const Value: Double    ); begin SetFloatField('VAT1'         , Value);end;
-Procedure TVATReturns.SetVAT1Selected(const Value: string    ); begin SetStringField('VAT1Selected'         , Value);end;
+Procedure TVATReturns.SetVAT1Selected(const Value: string    ); begin SetStringField('VAT1Selected', Value);end;
 Procedure TVATReturns.SetVAT2        (const Value: Double    ); begin SetFloatField('VAT2'         , Value);end;
-Procedure TVATReturns.SetVAT2Selected(const Value: string    ); begin SetStringField('VAT2Selected'         , Value);end;
+Procedure TVATReturns.SetVAT2Selected(const Value: string    ); begin SetStringField('VAT2Selected', Value);end;
 Procedure TVATReturns.SetVAT3        (const Value: Double    ); begin SetFloatField('VAT3'         , Value);end;
-Procedure TVATReturns.SetVAT3Selected(const Value: string    ); begin SetStringField('VAT3Selected'         , Value);end;
+Procedure TVATReturns.SetVAT3Selected(const Value: string    ); begin SetStringField('VAT3Selected', Value);end;
 Procedure TVATReturns.SetVAT4        (const Value: Double    ); begin SetFloatField('VAT4'         , Value);end;
-Procedure TVATReturns.SetVAT4Selected(const Value: string    ); begin SetStringField('VAT4Selected'         , Value);end;
+Procedure TVATReturns.SetVAT4Selected(const Value: string    ); begin SetStringField('VAT4Selected', Value);end;
 Procedure TVATReturns.SetVAT5        (const Value: Double    ); begin SetFloatField('VAT5'         , Value);end;
-Procedure TVATReturns.SetVAT5Selected(const Value: string    ); begin SetStringField('VAT5Selected'         , Value);end;
+Procedure TVATReturns.SetVAT5Per     (const Value: Double    ); begin SetFloatField('VAT5Per'      , Value);end;
+Procedure TVATReturns.SetVAT5Selected(const Value: string    ); begin SetStringField('VAT5Selected', Value);end;
 Procedure TVATReturns.SetVAT6        (const Value: Double    ); begin SetFloatField('VAT6'         , Value);end;
-Procedure TVATReturns.SetVAT6Selected(const Value: string    ); begin SetStringField('VAT6Selected'         , Value);end;
+Procedure TVATReturns.SetVAT6Selected(const Value: string    ); begin SetStringField('VAT6Selected', Value);end;
 Procedure TVATReturns.SetVAT7        (const Value: Double    ); begin SetFloatField('VAT7'         , Value);end;
-Procedure TVATReturns.SetVAT7Selected(const Value: string    ); begin SetStringField('VAT7Selected'         , Value);end;
+Procedure TVATReturns.SetVAT7Selected(const Value: string    ); begin SetStringField('VAT7Selected', Value);end;
 Procedure TVATReturns.SetVAT8        (const Value: Double    ); begin SetFloatField('VAT8'         , Value);end;
-Procedure TVATReturns.SetVAT8Selected(const Value: string    ); begin SetStringField('VAT8Selected'         , Value);end;
+Procedure TVATReturns.SetVAT8Selected(const Value: string    ); begin SetStringField('VAT8Selected', Value);end;
 Procedure TVATReturns.SetVAT9        (const Value: Double    ); begin SetFloatField('VAT9'         , Value);end;
-Procedure TVATReturns.SetVAT9Selected(const Value: string    ); begin SetStringField('VAT9Selected'         , Value);end;
+Procedure TVATReturns.SetVAT9Selected(const Value: string    ); begin SetStringField('VAT9Selected', Value);end;
 // Added for Roverto
 procedure TVATReturns.SetHasTab1(const Value: Boolean);       begin SetBooleanField('HasTab1', Value);      end;
 procedure TVATReturns.SetTab1Month(const Value: String);      begin SetStringField('Tab1Month', Value);     end;

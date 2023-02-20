@@ -1665,7 +1665,7 @@ end;
 procedure TfrmEmployee.ShowSubForm(const TabName:String);
 begin
   if Assigned(fSourceForm) then
-    If  SameText(TabClassByTabName(TabName), fSourceForm.classname) then Exit;
+    If SameText(TabClassByTabName(TabName), fSourceForm.Classname) then Exit;
 
   ClearScrollBox;
   SetControlFocus(FindMainButton(TabName));

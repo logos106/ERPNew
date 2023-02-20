@@ -88,8 +88,8 @@ type
     function getIsDBconnected: Boolean;
     function Logger: TLogger;
     procedure LogConnectionCount(const EventMsg:String);
-  public
 
+  public
     constructor Create(aAPIMode: boolean); overload;
     constructor Create(Const aServer, aDatabase: string; aAPIMode: boolean); overload;
     destructor Destroy; override;

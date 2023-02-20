@@ -240,27 +240,25 @@ end;
 
 procedure TfrmLogon.GetDataBases;
 var
-  x, idx, addIdx: integer;
+  x, idx, addIdx: Integer;
   DbRec: TDatabaseRec;
-
 begin
-
   cboDatabases.Items.Clear;
-  idx:= -1;
-  for x:= 0 to AppEnv.AppDb.DatabaseList.Count -1 do begin
-    DbRec:= TDatabaseRec(AppEnv.AppDb.DatabaseList.Objects[x]);
+  idx := -1;
+  for x := 0 to AppEnv.AppDb.DatabaseList.Count - 1 do begin
+    DbRec := TDatabaseRec(AppEnv.AppDb.DatabaseList.Objects[x]);
     if DbRec.Name <> 'erpnewdb' then begin
       if DbRec.Name <> 'sample_company' then
-        CompaniesAlreadyCreated:= true;
-      addIdx:= cboDatabases.Items.AddObject(DbRec.VersionDesc, DbRec);
+        CompaniesAlreadyCreated := True;
+      addIdx := cboDatabases.Items.AddObject(DbRec.VersionDesc, DbRec);
       if DbRec.Name = AppEnv.AppDb.Database then
-        idx:= addIdx;
+        idx := addIdx;
     end;
   end;
 (*  if not CompaniesAlreadyCreated then begin
     cboDatabases.Items.AddObject(NewCompanyString, nil);
   end;*)
-  cboDatabases.ItemIndex:= idx;
+  cboDatabases.ItemIndex := idx;
 end;
 
 procedure TfrmLogon.cmdLogonClick(Sender: TObject);

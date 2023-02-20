@@ -172,6 +172,7 @@ Function GetClientBankCode(const clientID: Integer): String;
 function getemployeeID(const EmployeeName: String): Integer;
 function getemployeeName(const EmployeeID: Integer): String;
 function getemployeeFirstName(const EmployeeID: Integer): String;
+function getemployeeQuota(const EmployeeID: Integer): Double;
 function GetEmployeeApprovalValueH(const EmployeeID: Integer;
   AType: String): Double;
 function GetEmployeeApprovalValueL(const EmployeeID: Integer;
@@ -1987,12 +1988,20 @@ begin
     IntToStr(EmployeeID);
   Result := FieldBynameValue(strSQL, 'EmployeeName');
 End;
+
 function getemployeeFirstName(const EmployeeID: Integer): String;
 begin
   strSQL := 'select FirstName from tblEmployees where EmployeeID = ' +
     IntToStr(EmployeeID);
   Result := FieldBynameValue(strSQL, 'FirstName');
 End;
+
+function GetEmployeeQuota(const EmployeeID: Integer): Double;
+begin
+  strSQL := 'SELECT SalesTarget FROM tblEmployees WHERE EmployeeID = ' + IntToStr(EmployeeID);
+  Result := FieldBynameValue(strSQL, 'SalesTarget');
+End;
+
 function GetEmployeeApprovalValueH(const EmployeeID: Integer;
   AType: String): Double;
 begin

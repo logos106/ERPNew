@@ -719,7 +719,8 @@ uses
   DashboardSalesData2SQL in '..\..\..\Dev\Vs1\Objects\DashboardSalesData2SQL.pas',
   DashboardMyData1SQL in '..\..\..\Dev\Vs1\Objects\DashboardMyData1SQL.pas',
   DashboardMyData2SQL in '..\..\..\Dev\Vs1\Objects\DashboardMyData2SQL.pas',
-  DashboardSalesData3SQL in '..\..\..\Dev\Vs1\Objects\DashboardSalesData3SQL.pas';
+  DashboardSalesData3SQL in '..\..\..\Dev\Vs1\Objects\DashboardSalesData3SQL.pas',
+  DashboardMyData3SQL in '..\..\..\Dev\Vs1\Objects\DashboardMyData3SQL.pas';
 
 type
   TLogEventHandler = class

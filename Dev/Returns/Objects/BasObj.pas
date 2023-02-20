@@ -513,7 +513,7 @@ begin
           end;
       end;
 
-      qryTemp.Sql.Add('WHERE (' + FilterStr + ') ');
+      qryTemp.SQL.Add('WHERE (' + FilterStr + ') ');
       if not All then begin
         qryTemp.Sql.Add('AND ClassID = ' + IntToStr(GetDeptID(Department)) + ' ');
       end;
@@ -530,13 +530,13 @@ begin
         Cash_Basis:
           qryTemp.SQL.Add('GROUP BY Globalref, `TransType`, SeqNo ');
       end;
-      qryTemp.SQL.add('HAVING IFNULLL(amountinc, 0) <> 0');
+      qryTemp.SQL.Add('HAVING IFNULL(amountinc, 0) <> 0');
 
       if (fromDate> 0) or (toDate > 0) then begin
         qryTemp.SQL.Add('UNION ALL');
         qryTemp.SQL.Add('SELECT RL.transGlobalref , RL.transtype , RL.transseqno , RL.transDate,0-sum(RL.amount) Amountinc'+
                           ' FROM  ' + ReturnsObj.Lines.GetBusObjectTablename +' RL'+
-                          ' INNERT JOIN ' + ReturnsObj.GetBusObjectTablename+ ' R ' +
+                          ' INNER JOIN ' + ReturnsObj.GetBusObjectTablename+ ' R ' +
                           ' ON RL.' + ReturnsObj.HeaderIDFieldName + ' = R.ID AND R.Active = "T" ' +
                           ' AND R.Id <> ' + inttostr(REturnsObj.ID)+
                           ' AND RL.' + ReturnsObj.CodefieldName+' = ' + quotedstr(FromName) +
@@ -637,7 +637,7 @@ begin
       (* qryTemp.Sql.Add('AND Date Between "' + FormatDateTime(MysqlDateFormat, FromDate) + '" AND "' + FormatDateTime(MysqlDateFormat, ToDate) + '" '); *)
       qryTemp.SQL.Add('AND Date <= ' +Quotedstr(FormatDateTime(MysqlDateFormat, ToDate)) + ' ');
       //QryTemp.SQL.text := SyncReportObj.ChangeQuery(QryTemp.Sql.text, usingReportTables);
-      qryTemp.SQL.Add('AND IFNULLL(T.Globalref, "") <> ""');
+      qryTemp.SQL.Add('AND IFNULL(T.Globalref, "") <> ""');
       qryTemp.SQL.Add('GROUP BY Globalref, `Type` , SeqNo ');
       qryTemp.SQL.Add('HAVING IFNULL(amountinc,0)<>0');
       qryTemp.SQL.Add('UNION ALL ');

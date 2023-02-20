@@ -766,6 +766,7 @@
 			<DCCReference Include="..\..\..\Dev\Vs1\Objects\DashboardMyData1SQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\Vs1\Objects\DashboardMyData2SQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\Vs1\Objects\DashboardSalesData3SQL.pas"/>
+			<DCCReference Include="..\..\..\Dev\Vs1\Objects\DashboardMyData3SQL.pas"/>
 			<None Include="..\..\..\Dev\ERP.inc"/>
 			<None Include="..\Service\ErpUtilsService.inc"/>
 			<BuildConfiguration Include="Release">

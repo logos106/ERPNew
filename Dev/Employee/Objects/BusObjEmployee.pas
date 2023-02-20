@@ -539,7 +539,7 @@ function TEmployee.GetTrackSales: boolean;begin  Result := GetBooleanField('Trac
 function TEmployee.GetWorkPhone: string;begin  result := GetStringField('WorkPhone');end;
 function TEmployee.GetDashboardOption:  string;   begin Result := GetStringField('DashboardOption');  end;
 function TEmployee.GetLoginDefault:     string;   begin Result := GetStringField('LoginDefault');     end;
-function TEmployee.GetSalesQuota:       Double;   begin Result := GetFloatField('SalesQuota');        end;
+function TEmployee.GetSalesQuota:       Double;   begin Result := GetFloatField('SalesTarget');        end;
 
 procedure TEmployee.SetAbn(const Value: string);begin  SetStringField('Abn', Value);end;
 procedure  TEmployee.SetArea(const Value: String); begin SetStringField('Area' , Value);end;
@@ -605,7 +605,7 @@ procedure TEmployee.SetTrackSales(const Value: boolean);begin  SetBooleanField('
 procedure TEmployee.SetWorkPhone(const Value: string);begin  SetStringField('WorkPhone', Value);end;
 procedure TEmployee.SetDashboardOption(const Value: string);  begin SetStringField('DashboardOption', Value);   end;
 procedure TEmployee.SetLoginDefault(const Value: string);     begin SetStringField('LoginDefault',    Value);   end;
-procedure TEmployee.SetSalesQuota(const Value: Double);       begin SetFloatField('SalesQuota',      Value);   end;
+procedure TEmployee.SetSalesQuota(const Value: Double);       begin SetFloatField('SalesTarget',      Value);   end;
 
 procedure TEmployee.LoadFromXMLNode(const node: IXMLNode);
 begin

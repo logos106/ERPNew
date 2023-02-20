@@ -29,7 +29,7 @@ Type
 
 implementation
 
-uses sysutils, ProductQtyLib, StringUtils;
+uses sysutils, ProductQtyLib, StringUtils, LogLib;
 
 constructor TBASReturnDetail.Create;
 begin
@@ -55,7 +55,7 @@ function TBASReturnDetail.PopulateReportSQL(SQL: TStrings; var msg: string): boo
   end;
 begin
   SQL.Clear;
-  result := inherited;
+  Result := inherited;
 
   SQL.Add('SELECT DISTINCT');
   SQL.Add('R.Id, RL.TransDate DATE, R.Tab1_Type Period,');

@@ -2108,10 +2108,6 @@ inherited fmBASReturn: TfmBASReturn
       Font.Name = 'Arial'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label31: TLabel
         Tag = 90
         Left = 262
@@ -3746,10 +3742,6 @@ inherited fmBASReturn: TfmBASReturn
       HelpContext = 895285
       Caption = 'Wine And Luxury'
       ImageIndex = 3
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label163: TLabel
         Left = 0
         Top = 0
@@ -4530,10 +4522,6 @@ inherited fmBASReturn: TfmBASReturn
       Font.Name = 'Arial'
       Font.Style = [fsBold, fsItalic, fsUnderline]
       ParentFont = False
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label123: TLabel
         Left = 0
         Top = 0
@@ -6377,7 +6365,7 @@ inherited fmBASReturn: TfmBASReturn
     Left = 352
     Top = 352
     Bitmap = {
-      494C01010200C000E40010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010200C000EC0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

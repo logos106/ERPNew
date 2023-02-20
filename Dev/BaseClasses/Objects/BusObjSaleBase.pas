@@ -853,6 +853,7 @@ type
     Procedure GetClientDetails; Override;
     function getTransLinetotals: TTransLinetotals;override;
     procedure SetShipDate(const Value: TDatetime); virtual;
+
   public
     InternalQuantityChange: Boolean;
     property TotalQtyOrdered: Double read fTotalOrdered;
@@ -946,7 +947,6 @@ type
 
     property InvoiceToDesc: string read GetInvoiceToDesc write SetInvoiceToDesc;
     property ShipToDesc: string read GetShipToDesc write SetShipToDesc;
-
 
     property InvoiceStreet1: string read GetInvoiceStreet1;
     property InvoiceStreet2: string read GetInvoiceStreet2;

@@ -1,4 +1,4 @@
-  unit TransactionsTable;
+unit TransactionsTable;
 
 {
 
@@ -7920,7 +7920,7 @@ var
                 ' ) ENGINE=MyISAM DEFAULT CHARSET=utf8;');
 
     sct.SQL.Add('INSERT INTO tmp_vs1_dashboard_sales_set2');
-    sct.SQL.Add('(SELECT @ROW:=@ROW + 1, s.EmployeeName, IF(e.Quota = 0, 0, ROUND(SUM(s.Balance) * 100 / e.Quota, 2)) AS CA' +
+    sct.SQL.Add('(SELECT @ROW:=@ROW + 1, s.EmployeeName, IF(e.SalesTarget = 0, 0, ROUND(SUM(s.Balance) * 100 / e.SalesTarget, 2)) AS CA' +
                 '	FROM tblsales s INNER JOIN tblemployees e ON s.EmployeeID=e.EmployeeID, (SELECT @row:=0) Dummy' +
                 '	WHERE DATEDIFF(CURDATE(), s.SaleDate) < 31' +
                 '	GROUP BY s.EmployeeID' +
@@ -7964,7 +7964,7 @@ var
                 '	    AND CreationDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 6 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 6 MONTH), "%Y-%m-%d") ' +
                 ' ) T1 SET T.Status6=T1.Status;');
 
-    // Opportunities 6 months before
+    // Opportunities 5 months before
     sct.SQL.Add('UPDATE tmp_vs1_dashboard_sales_set3 T, ' +
                 ' (SELECT COUNT(*) AS Oppts FROM tblclients	' +
                 '   WHERE OtherContact = "T" AND IsJob <> "T" AND PublishOnVS1 = "T" AND `Status` = "Quoted" ' +
@@ -8060,6 +8060,7 @@ var
 
     sct.SQL.Add('INSERT INTO tmp_vs1_dashboard_my_set1');
     sct.SQL.Add('(');     // Opening
+
     sct.SQL.Add('SELECT @ROW:=@ROW + 1, EmployeeID, SUM(NewLead) AS NewLead, SUM(NewOppt) AS NewOppt, SUM(Quoted) AS Quoted, SUM(Won) AS Won, SUM(Gap) AS Gap, SUM(WinRate) AS WinRate, SUM(AvgTime) AS AvgTime, SUM(PipeLine) AS PipeLIne');
     sct.SQL.Add('FROM (');
     sct.SQL.Add('SELECT RepID AS EmployeeID, COUNT(*) AS NewLead, 0 AS NewOppt, 0 AS Quoted, 0 AS Won, 0.0 AS Gap, 0.0 AS WinRate, 0.0 AS AvgTime, 0.0 AS PipeLine FROM tblclients ' +
@@ -8090,7 +8091,7 @@ var
 
     sct.SQL.Add('UNION');
 
-    sct.SQL.Add('SELECT s.EmployeeID, 0 AS NewLead, 0 AS NewOppt, 0 AS Quoted, COUNT(*) AS Won, (SUM(s.TotalAmountInc) - e.Quota) AS Gap, 0.0 AS WinRate, 0.0 AS AvgTime, 0.0 AS PipeLine ' +
+    sct.SQL.Add('SELECT s.EmployeeID, 0 AS NewLead, 0 AS NewOppt, 0 AS Quoted, COUNT(*) AS Won, (SUM(s.TotalAmountInc) - e.SalesTarget) AS Gap, 0.0 AS WinRate, 0.0 AS AvgTime, 0.0 AS PipeLine ' +
                 ' FROM tblsales s LEFT JOIN tblemployees e ON s.EmployeeID=e.EmployeeID' +
                 ' WHERE s.IsInvoice="T" AND s.Deleted="F" AND s.Cancelled="F" AND DATEDIFF(CURDATE(), s.SaleDate) < 91' +
                 ' GROUP BY s.EmployeeID');
@@ -8121,7 +8122,7 @@ var
                 ' WHERE IsQuote = "T" AND Converted = "F" AND DATEDIFF(CURDATE(), SaleDate) < 91 ' +
                 ' GROUP BY EmployeeID');
 
-    sct.SQL.Add(') T2, (SELECT @row:=0) Dummy');
+    sct.SQL.Add(') T2, (SELECT @row:=0) Dummy GROUP BY EmployeeID');
     sct.SQL.Add(')');     // Closing
 
     sct.Execute;
@@ -8191,6 +8192,152 @@ var
                 ' (SELECT SUM(TotalAmountInc) AS PipeLine FROM tblsales ' +
                 ' WHERE IsQuote = "T" AND Converted = "F" AND DATEDIFF(CURDATE(), SaleDate) < 91) T1 ' +
                 ' SET T.PipeLine=T1.PipeLine;');
+
+    sct.Execute;
+
+    // Sales Performance vs Quota
+    sct.SQL.Add('DROP TABLE IF EXISTS tmp_vs1_dashboard_my_set3;');
+    sct.SQL.Add('CREATE TABLE tmp_vs1_dashboard_my_set3 ( ' +
+                ' EmployeeID  INT(11)   NOT NULL DEFAULT 0, ' +
+                ' Month       INT(11)   NOT NULL DEFAULT 0, ' +
+                ' Quota       Double    NOT NULL DEFAULT 0, ' +
+                ' Quote       Double    NOT NULL DEFAULT 0, ' +
+                ' Invoice     Double    NOT NULL DEFAULT 0 ' +
+                ' ) ENGINE=MyISAM DEFAULT CHARSET=utf8;');
+
+    // Before 6 months
+    sct.SQL.Add('INSERT INTO tmp_vs1_dashboard_my_set3');
+    sct.SQL.Add('(');     // Opening
+    sct.SQL.Add('SELECT EmployeeID, 6, SUM(Quota) AS Quota, SUM(Quote) AS Quote, SUM(Invoice) AS Invoice');
+    sct.SQL.Add('FROM (');
+    sct.SQL.Add('SELECT EmployeeID, AVG(Quota) AS Quota, 0 AS Quote, 0 AS Invoice FROM tblSales ' +
+                ' WHERE IsInvoice = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '   AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 6 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 6 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add('UNION');
+    sct.SQL.Add('SELECT EmployeeID, 0 AS Quota, SUM(TotalAmountInc) AS Quote, 0 AS Invoice FROM tblSales ' +
+                ' WHERE IsQuote = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '	  AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 6 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 6 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add('UNION');
+    sct.SQL.Add('SELECT EmployeeID, 0 AS Quota, 0 AS Quote, SUM(TotalAmountInc) AS Invoice FROM tblSales ' +
+                ' WHERE IsInvoice = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '   AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 6 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 6 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add(') T2 GROUP BY EmployeeID');
+    sct.SQL.Add(');');     // Closing
+
+    // Before 5 months
+    sct.SQL.Add('INSERT INTO tmp_vs1_dashboard_my_set3');
+    sct.SQL.Add('(');     // Opening
+    sct.SQL.Add('SELECT EmployeeID, 5, SUM(Quota) AS Quota, SUM(Quote) AS Quote, SUM(Invoice) AS Invoice');
+    sct.SQL.Add('FROM (');
+    sct.SQL.Add('SELECT EmployeeID, AVG(Quota) AS Quota, 0 AS Quote, 0 AS Invoice FROM tblSales ' +
+                ' WHERE IsInvoice = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '   AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 5 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 5 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add('UNION');
+    sct.SQL.Add('SELECT EmployeeID, 0 AS Quota, SUM(TotalAmountInc) AS Quote, 0 AS Invoice FROM tblSales ' +
+                ' WHERE IsQuote = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '	  AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 5 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 5 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add('UNION');
+    sct.SQL.Add('SELECT EmployeeID, 0 AS Quota, 0 AS Quote, SUM(TotalAmountInc) AS Invoice FROM tblSales ' +
+                ' WHERE IsInvoice = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '   AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 5 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 5 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add(') T2 GROUP BY EmployeeID');
+    sct.SQL.Add(');');     // Closing
+
+    // Before 4 months
+    sct.SQL.Add('INSERT INTO tmp_vs1_dashboard_my_set3');
+    sct.SQL.Add('(');     // Opening
+    sct.SQL.Add('SELECT EmployeeID, 4, SUM(Quota) AS Quota, SUM(Quote) AS Quote, SUM(Invoice) AS Invoice');
+    sct.SQL.Add('FROM (');
+    sct.SQL.Add('SELECT EmployeeID, AVG(Quota) AS Quota, 0 AS Quote, 0 AS Invoice FROM tblSales ' +
+                ' WHERE IsInvoice = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '   AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 4 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 4 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add('UNION');
+    sct.SQL.Add('SELECT EmployeeID, 0 AS Quota, SUM(TotalAmountInc) AS Quote, 0 AS Invoice FROM tblSales ' +
+                ' WHERE IsQuote = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '	  AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 4 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 4 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add('UNION');
+    sct.SQL.Add('SELECT EmployeeID, 0 AS Quota, 0 AS Quote, SUM(TotalAmountInc) AS Invoice FROM tblSales ' +
+                ' WHERE IsInvoice = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '   AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 4 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 4 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add(') T2 GROUP BY EmployeeID');
+    sct.SQL.Add(');');     // Closing
+
+    // Before 3 months
+    sct.SQL.Add('INSERT INTO tmp_vs1_dashboard_my_set3');
+    sct.SQL.Add('(');     // Opening
+    sct.SQL.Add('SELECT EmployeeID, 3, SUM(Quota) AS Quota, SUM(Quote) AS Quote, SUM(Invoice) AS Invoice');
+    sct.SQL.Add('FROM (');
+    sct.SQL.Add('SELECT EmployeeID, AVG(Quota) AS Quota, 0 AS Quote, 0 AS Invoice FROM tblSales ' +
+                ' WHERE IsInvoice = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '   AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 3 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 3 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add('UNION');
+    sct.SQL.Add('SELECT EmployeeID, 0 AS Quota, SUM(TotalAmountInc) AS Quote, 0 AS Invoice FROM tblSales ' +
+                ' WHERE IsQuote = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '	  AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 3 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 3 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add('UNION');
+    sct.SQL.Add('SELECT EmployeeID, 0 AS Quota, 0 AS Quote, SUM(TotalAmountInc) AS Invoice FROM tblSales ' +
+                ' WHERE IsInvoice = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '   AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 3 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 3 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add(') T2, (SELECT @row:=0) Dummy GROUP BY EmployeeID');
+    sct.SQL.Add(');');     // Closing
+
+    // Before 2 months
+    sct.SQL.Add('INSERT INTO tmp_vs1_dashboard_my_set3');
+    sct.SQL.Add('(');     // Opening
+    sct.SQL.Add('SELECT EmployeeID, 2, SUM(Quota) AS Quota, SUM(Quote) AS Quote, SUM(Invoice) AS Invoice');
+    sct.SQL.Add('FROM (');
+    sct.SQL.Add('SELECT EmployeeID, AVG(Quota) AS Quota, 0 AS Quote, 0 AS Invoice FROM tblSales ' +
+                ' WHERE IsInvoice = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '   AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 2 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 2 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add('UNION');
+    sct.SQL.Add('SELECT EmployeeID, 0 AS Quota, SUM(TotalAmountInc) AS Quote, 0 AS Invoice FROM tblSales ' +
+                ' WHERE IsQuote = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '	  AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 2 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 2 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add('UNION');
+    sct.SQL.Add('SELECT EmployeeID, 0 AS Quota, 0 AS Quote, SUM(TotalAmountInc) AS Invoice FROM tblSales ' +
+                ' WHERE IsInvoice = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '   AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 2 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 2 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add(') T2 GROUP BY EmployeeID');
+    sct.SQL.Add(');');     // Closing
+
+    // Before 1 months
+    sct.SQL.Add('INSERT INTO tmp_vs1_dashboard_my_set3');
+    sct.SQL.Add('(');     // Opening
+    sct.SQL.Add('SELECT EmployeeID, 1, SUM(Quota) AS Quota, SUM(Quote) AS Quote, SUM(Invoice) AS Invoice');
+    sct.SQL.Add('FROM (');
+    sct.SQL.Add('SELECT EmployeeID, AVG(Quota) AS Quota, 0 AS Quote, 0 AS Invoice FROM tblSales ' +
+                ' WHERE IsInvoice = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '   AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 1 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add('UNION');
+    sct.SQL.Add('SELECT EmployeeID, 0 AS Quota, SUM(TotalAmountInc) AS Quote, 0 AS Invoice FROM tblSales ' +
+                ' WHERE IsQuote = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '	  AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 1 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add('UNION');
+    sct.SQL.Add('SELECT EmployeeID, 0 AS Quota, 0 AS Quote, SUM(TotalAmountInc) AS Invoice FROM tblSales ' +
+                ' WHERE IsInvoice = "T" AND Deleted = "F" AND Cancelled = "F" ' +
+                '   AND SaleDate BETWEEN DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, "%Y-%m-01") AND DATE_FORMAT(LAST_DAY(NOW() - INTERVAL 1 MONTH), "%Y-%m-%d") ' +
+                ' GROUP BY EmployeeId ');
+    sct.SQL.Add(') T2 GROUP BY EmployeeID');
+    sct.SQL.Add(');');     // Closing
+
+    LogText(sct.SQL.Text);
 
     sct.Execute;
 

@@ -1,0 +1,343 @@
+Additional info:
+Windows Version: WorkStation 6.2 (9200)
+MySQL Version: 5.1.52-community
+ERP Version: 2023.0.6.0
+Company: Sample Company
+Address : 
+Unit 6
+183 Currumburra Road
+QLD 4214
+Australia
+Email : simon@erpoz.com
+Phone : 0758745874
+FaxNumber : 07 5539 2701
+ABN 62079888896
+Licenced Users : 2
+
+User: Admin
+PC Name: DESKTOP-JCUTVG7(Wang)
+Send Details: 
+Database : aus_sample_company
+  Host  - 
+  Email - 
+
+Error Type: Non-Fatal
+Active Forms:
+fmBASReturn
+MainSwitch2
+MainForm
+frmActiveWindows
+Focused Form: None
+Focused Control: None
+
+---------------------------20/02/2023 14:49:22---------------------------
+
+
+Active Tables 
+=================================
+Class: TfmBASReturn, User: Admin, Table: tblbasreports, ID: 0, Group: BAS Return - (Full Access), Since: 2023-02-20 14:48:55
+
+Active Forms 
+=================================
+Class: TMainSwitch2, User: Admin, ID: 0, Since: 2023-02-20 14:48:03
+Class: TfmBASReturn, User: Admin, ID: 0, Since: 2023-02-20 14:48:55
+
+
+
+
+Exception 'EMyError' in module ERP.exe at 004B1685
+
+#42000You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INNERT JOIN tblbasreports R  ON RL.BASID = R.ID AND R.Active = "T"  AND R.Id <> ' at line 11
+
+Module: MyClasses, Source: UNKNOWN, Line UNKNOWN
+Procedure: Myclasses::TMySQLConnection::MySQLError
+
+Call stack:
+:008B2685 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:75ECE292 [KERNELBASE.dll]
+:008B2685 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:00854E8E [ERP.exe] Craccess::TCRConnection::DoError
+:00854EA3 [ERP.exe] Craccess::TCRConnection::DoError
+Recursive call (2 times):
+:008B2685 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:008B417F [ERP.exe] Myclasses::TMySQLCommand::Check
+:008B7EA9 [ERP.exe] DoExecute
+:008B84BA [ERP.exe] Myclasses::TMySQLCommand::Execute
+:00857D1F [ERP.exe] Craccess::TCRRecordSet::ExecCommand
+:008B93E8 [ERP.exe] Myclasses::TMySQLRecordset::ExecCommand
+:00857D3C [ERP.exe] Craccess::TCRRecordSet::ExecFetch
+:00857BC5 [ERP.exe] Craccess::TCRRecordSet::InternalOpen
+:008BA1B4 [ERP.exe] Myclasses::TMySQLRecordset::InternalOpen
+:0082725A [ERP.exe] Memdata::TData::Open
+:0082F6A1 [ERP.exe] Memdata::TMemData::Open
+:00857D01 [ERP.exe] Craccess::TCRRecordSet::Open
+:00837AAF [ERP.exe] Memds::TMemDataSet::InternalOpen
+:00879E42 [ERP.exe] Dbaccess::TCustomDADataSet::InternalOpen
+:00885607 [ERP.exe] Dbaccess::TCustomDASQL::GetPrepared
+:008DDBA4 [ERP.exe] Myaccess::TCustomMyDataSet::InternalOpen
+:005AF04B [ERP.exe] Db::TDataSet::DoInternalOpen
+:005AF103 [ERP.exe] Db::TDataSet::OpenCursor
+:00837E7B [ERP.exe] Memds::TMemDataSet::OpenCursor
+:00874627 [ERP.exe] Dbaccess::TCustomDADataSet::OpenCursor
+:005AEFBF [ERP.exe] Db::TDataSet::SetActive
+:00874452 [ERP.exe] Dbaccess::TCustomDADataSet::SetActive
+:008E61BB [ERP.exe] Erpdbcomponents::TERPQuery::SetActive (ERPdbComponents.pas, line 528)
+:005AEE06 [ERP.exe] Db::TDataSet::Open
+:02C4364C [ERP.exe] Basobj::TBASObj::TaxAmounts (BasObj.pas, line 554)
+:02C40DCA [ERP.exe] Basobj::TBASObj::Calc (BasObj.pas, line 155)
+:02C3DDC7 [ERP.exe] Frmbasreturn::TfmBASReturn::Silent_OpenTaxSelect (frmBASReturn.pas, line 1183)
+:02C3D28B [ERP.exe] Frmbasreturn::TfmBASReturn::RefreshAll (frmBASReturn.pas, line 1009)
+:02C48C9F [ERP.exe] Returnsbase::TReturnsBaseGUI::BtnRefreshClick (ReturnsBase.pas, line 364)
+:004B92F1 [ERP.exe] Controls::TControl::Click
+:00713008 [ERP.exe] Dnmspeedbutton::TDNMSpeedButton::Click (DNMSpeedButton.pas, line 714)
+:00712F58 [ERP.exe] Dnmspeedbutton::TDNMSpeedButton::DoDialogChar (DNMSpeedButton.pas, line 688)
+:004B9796 [ERP.exe] Controls::TControl::WMLButtonUp
+:004B8D83 [ERP.exe] Controls::TControl::WndProc
+:004BD649 [ERP.exe] Controls::TWinControl::WndProc
+:0040CD70 [ERP.exe] System::LocaleCharsFromUnicode
+:004B89A7 [ERP.exe] Controls::TControl::Perform
+:004B89C1 [ERP.exe] Controls::TControl::Perform
+:004B73F3 [ERP.exe] Controls::TControl::GetTextBuf
+:004B749A [ERP.exe] Controls::TControl::GetText
+:007122CF [ERP.exe] Dnmspeedbutton::TDNMSpeedButton::GetCaption (DNMSpeedButton.pas, line 308)
+:00443E9A [ERP.exe] Typinfo::GetUnicodeStrProp
+:00443ECD [ERP.exe] Typinfo::GetUnicodeStrProp
+:00404ADE [ERP.exe] System::__linkproc__ GetMem
+:004084B3 [ERP.exe] System::__linkproc__ NewUnicodeString
+:00404AFA [ERP.exe] System::__linkproc__ FreeMem
+:004085D2 [ERP.exe] System::__linkproc__ UStrArrayClr
+:02721E86 [ERP.exe] Emhelper::TUserActionBase::ReadActiveControlValue (EMHelper.pas, line 805)
+:772E100C [win32u.dll]
+:75FFF636 [user32.dll]
+:004BCEDC [ERP.exe] Controls::TWinControl::IsControlMouseMsg
+:004589D4 [ERP.exe] Classes::TStringList::InsertItem
+:00458539 [ERP.exe] Classes::TStringList::AddObject
+:004BD649 [ERP.exe] Controls::TWinControl::WndProc
+:752DC0CE [KERNEL32.DLL]
+:02722983 [ERP.exe] Emhelper::TUserActions::Add (EMHelper.pas, line 1110)
+:772E10EC [win32u.dll]
+:004BCCE7 [ERP.exe] Controls::TWinControl::MainWndProc
+:00466076 [ERP.exe] Classes::StdWndProc
+:7600148B [user32.dll]
+:75FF844A [user32.dll]
+:77382B2C [ntdll.dll]
+:75FFB946 [user32.dll]
+:75FF825E [user32.dll]
+:75FFBEAA [user32.dll]
+:75FF61BA [user32.dll]
+:008E79E8 [ERP.exe] Appevnts::TMultiCaster::GetAppEvents
+:75FF5F80 [user32.dll]
+:0057A7D8 [ERP.exe] Forms::TApplication::ProcessMessage
+Recursive call (2 times):
+:03986634 [ERP.exe]
+:0057A81B [ERP.exe] Forms::TApplication::HandleMessage
+:0057AB46 [ERP.exe] Forms::TApplication::Run
+:0057AB89 [ERP.exe] Forms::TApplication::Run
+Recursive call (2 times):
+:03986634 [ERP.exe]
+:0398669A [ERP.exe]
+:752E00F9 [KERNEL32.DLL]
+:77377BBE [ntdll.dll]
+:77377B8E [ntdll.dll]
+:03986634 [ERP.exe]
+
+Modules:
+$00400000 (00400000,00001000,03584E00) D:\Work\Delphi\Dene\Code\ERPNew\Dev\ERP.exe
+$75DA0000 (75DA0000,00001000,001DD400) C:\Windows\System32\KERNELBASE.dll
+$772E0000 (772E0000,00001000,00005400) C:\Windows\System32\win32u.dll
+$75FC0000 (75FC0000,00001000,000A4800) C:\Windows\System32\user32.dll
+$752C0000 (752C0000,00010000,00066000) C:\Windows\System32\KERNEL32.DLL
+$77310000 (77310000,00001000,00120400) C:\Windows\SYSTEM32\ntdll.dll
+
+
+User Actions:
+14:47:15:612 - Focused Control: frmLogon.Panel1.pnlmain.pnldb.cboDatabases
+14:47:15:612 - Left mouse button down : frmLogon.Panel1.pnlmain.pnldb.cboDatabases
+14:47:15:784 - Left mouse button up : frmLogon.Panel1.pnlmain.pnldb.cboDatabases
+14:47:17:053 - Left mouse button down : frmLogon.Panel1.pnlmain.pnldb.cboDatabases
+14:47:17:160 - Left mouse button up : frmLogon.Panel1.pnlmain.pnldb.cboDatabases
+14:47:19:068 - Left mouse button down : frmLogon.Panel1.pnlmain.pnldb.cboDatabases
+14:47:19:192 - Left mouse button up : frmLogon.Panel1.pnlmain.pnldb.cboDatabases
+14:47:21:173 - Focused Control: frmLogon.Panel1.pnlmain.pnlLogon.cboUser
+14:47:21:173 - Left mouse button down : frmLogon.Panel1.pnlmain.pnlLogon.cboUser
+14:47:21:276 - Left mouse button up : frmLogon.Panel1.pnlmain.pnlLogon.cboUser
+14:47:41:734 - Left mouse button down : frmLogon.Panel1.pnlmain.pnlLogon.cboUser
+14:47:41:850 - Focused Control: frmLogon.Panel1.pnlmain.DNMPanel2.cmdLogon
+14:47:41:850 - Left mouse button up : frmLogon.Panel1.pnlmain.DNMPanel2.cmdLogon.Caption = '&Logon'
+14:48:52:696 - Focused Control: MainSwitch2.pnlbotton.edtSearch
+14:48:52:696 - Left mouse button down : MainSwitch2.pnlbotton.edtSearch
+14:48:52:788 - Left mouse button up : MainSwitch2.pnlbotton.edtSearch
+14:48:55:184 - Left mouse button down : MainSwitch2.pnlbotton.edtSearch
+14:48:55:276 - Focused Control: MainSwitch2.sbButtons.pnlButtons2.MainmenuActionbtn_Accounts_actReportsBAS
+14:48:55:276 - Left mouse button up : MainSwitch2.sbButtons.pnlButtons2.MainmenuActionbtn_Accounts_actReportsBAS.Caption = 'BAS Return'
+14:48:57:676 - Focused Control: fmBASReturnOptions.pnlBottom.btnCompleted
+14:48:57:676 - Left mouse button down : fmBASReturnOptions.pnlBottom.btnCompleted.Caption = 'Ok'
+14:48:57:764 - Focused Control: fmBASReturnOptions.pnlMain.chkPaygw
+14:48:57:764 - Left mouse button up : fmBASReturnOptions.pnlMain.chkPaygw.Caption = 'Enable Pay As You Go withholding for the period'
+14:48:58:710 - Focused Control: fmBASReturnOptions.pnlMain.chkPaygw
+14:48:58:710 - Left mouse button down : fmBASReturnOptions.pnlMain.chkPaygw.Caption = 'Enable Pay As You Go withholding for the period'
+14:48:58:794 - Focused Control: fmBASReturnOptions.pnlBottom.btnCompleted
+14:48:58:794 - Left mouse button up : fmBASReturnOptions.pnlBottom.btnCompleted.Caption = 'Ok'
+14:48:59:234 - MyConnectionAfterCommit
+14:49:02:078 - Focused Control: .OK
+14:49:02:078 - Left mouse button down : .OK.Caption = 'OK'
+14:49:02:934 - Focused Control: .OK
+14:49:02:934 - Left mouse button up : .OK.Caption = 'OK'
+14:49:08:460 - Focused Control: fmBASReturn.Tabmain
+14:49:08:460 - Left mouse button down : fmBASReturn.Tabmain
+14:49:08:585 - Focused Control: fmBASReturn.Panel1.BtnRefresh
+14:49:08:585 - Left mouse button up : fmBASReturn.Panel1.BtnRefresh.Caption = 'Re&fresh'
+
+WorkFlow Status:
+None
+---------------------------20/02/2023 2:49:22 PM---------------------------
+Exception 'EMyError' in module ERP.exe at 004B1685
+
+#42000You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INNERT JOIN tblbasreports R  ON RL.BASID = R.ID AND R.Active = "T"  AND R.Id <> ' at line 11
+
+Module: MyClasses, Source: UNKNOWN, Line UNKNOWN
+Procedure: Myclasses::TMySQLConnection::MySQLError
+
+Call stack:
+:008B2685 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:75ECE292 [KERNELBASE.dll]
+:008B2685 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:00854E8E [ERP.exe] Craccess::TCRConnection::DoError
+:00854EA3 [ERP.exe] Craccess::TCRConnection::DoError
+Recursive call (2 times):
+:008B2685 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:008B417F [ERP.exe] Myclasses::TMySQLCommand::Check
+:008B7EA9 [ERP.exe] DoExecute
+:008B84BA [ERP.exe] Myclasses::TMySQLCommand::Execute
+:00857D1F [ERP.exe] Craccess::TCRRecordSet::ExecCommand
+:008B93E8 [ERP.exe] Myclasses::TMySQLRecordset::ExecCommand
+:00857D3C [ERP.exe] Craccess::TCRRecordSet::ExecFetch
+:00857BC5 [ERP.exe] Craccess::TCRRecordSet::InternalOpen
+:008BA1B4 [ERP.exe] Myclasses::TMySQLRecordset::InternalOpen
+:0082725A [ERP.exe] Memdata::TData::Open
+:0082F6A1 [ERP.exe] Memdata::TMemData::Open
+:00857D01 [ERP.exe] Craccess::TCRRecordSet::Open
+:00837AAF [ERP.exe] Memds::TMemDataSet::InternalOpen
+:00879E42 [ERP.exe] Dbaccess::TCustomDADataSet::InternalOpen
+:00885607 [ERP.exe] Dbaccess::TCustomDASQL::GetPrepared
+:008DDBA4 [ERP.exe] Myaccess::TCustomMyDataSet::InternalOpen
+:005AF04B [ERP.exe] Db::TDataSet::DoInternalOpen
+:005AF103 [ERP.exe] Db::TDataSet::OpenCursor
+:00837E7B [ERP.exe] Memds::TMemDataSet::OpenCursor
+:00874627 [ERP.exe] Dbaccess::TCustomDADataSet::OpenCursor
+:005AEFBF [ERP.exe] Db::TDataSet::SetActive
+:00874452 [ERP.exe] Dbaccess::TCustomDADataSet::SetActive
+:008E61BB [ERP.exe] Erpdbcomponents::TERPQuery::SetActive (ERPdbComponents.pas, line 528)
+:005AEE06 [ERP.exe] Db::TDataSet::Open
+:02C4364C [ERP.exe] Basobj::TBASObj::TaxAmounts (BasObj.pas, line 554)
+:02C40DCA [ERP.exe] Basobj::TBASObj::Calc (BasObj.pas, line 155)
+:02C3DDC7 [ERP.exe] Frmbasreturn::TfmBASReturn::Silent_OpenTaxSelect (frmBASReturn.pas, line 1183)
+:02C3D28B [ERP.exe] Frmbasreturn::TfmBASReturn::RefreshAll (frmBASReturn.pas, line 1009)
+:02C48C9F [ERP.exe] Returnsbase::TReturnsBaseGUI::BtnRefreshClick (ReturnsBase.pas, line 364)
+:004B92F1 [ERP.exe] Controls::TControl::Click
+:00713008 [ERP.exe] Dnmspeedbutton::TDNMSpeedButton::Click (DNMSpeedButton.pas, line 714)
+:00712F58 [ERP.exe] Dnmspeedbutton::TDNMSpeedButton::DoDialogChar (DNMSpeedButton.pas, line 688)
+:004B9796 [ERP.exe] Controls::TControl::WMLButtonUp
+:004B8D83 [ERP.exe] Controls::TControl::WndProc
+:004BD649 [ERP.exe] Controls::TWinControl::WndProc
+:0040CD70 [ERP.exe] System::LocaleCharsFromUnicode
+:004B89A7 [ERP.exe] Controls::TControl::Perform
+:004B89C1 [ERP.exe] Controls::TControl::Perform
+:004B73F3 [ERP.exe] Controls::TControl::GetTextBuf
+:004B749A [ERP.exe] Controls::TControl::GetText
+:007122CF [ERP.exe] Dnmspeedbutton::TDNMSpeedButton::GetCaption (DNMSpeedButton.pas, line 308)
+:00443E9A [ERP.exe] Typinfo::GetUnicodeStrProp
+:00443ECD [ERP.exe] Typinfo::GetUnicodeStrProp
+:00404ADE [ERP.exe] System::__linkproc__ GetMem
+:004084B3 [ERP.exe] System::__linkproc__ NewUnicodeString
+:00404AFA [ERP.exe] System::__linkproc__ FreeMem
+:004085D2 [ERP.exe] System::__linkproc__ UStrArrayClr
+:02721E86 [ERP.exe] Emhelper::TUserActionBase::ReadActiveControlValue (EMHelper.pas, line 805)
+:772E100C [win32u.dll]
+:75FFF636 [user32.dll]
+:004BCEDC [ERP.exe] Controls::TWinControl::IsControlMouseMsg
+:004589D4 [ERP.exe] Classes::TStringList::InsertItem
+:00458539 [ERP.exe] Classes::TStringList::AddObject
+:004BD649 [ERP.exe] Controls::TWinControl::WndProc
+:752DC0CE [KERNEL32.DLL]
+:02722983 [ERP.exe] Emhelper::TUserActions::Add (EMHelper.pas, line 1110)
+:772E10EC [win32u.dll]
+:004BCCE7 [ERP.exe] Controls::TWinControl::MainWndProc
+:00466076 [ERP.exe] Classes::StdWndProc
+:7600148B [user32.dll]
+:75FF844A [user32.dll]
+:77382B2C [ntdll.dll]
+:75FFB946 [user32.dll]
+:75FF825E [user32.dll]
+:75FFBEAA [user32.dll]
+:75FF61BA [user32.dll]
+:008E79E8 [ERP.exe] Appevnts::TMultiCaster::GetAppEvents
+:75FF5F80 [user32.dll]
+:0057A7D8 [ERP.exe] Forms::TApplication::ProcessMessage
+Recursive call (2 times):
+:03986634 [ERP.exe]
+:0057A81B [ERP.exe] Forms::TApplication::HandleMessage
+:0057AB46 [ERP.exe] Forms::TApplication::Run
+:0057AB89 [ERP.exe] Forms::TApplication::Run
+Recursive call (2 times):
+:03986634 [ERP.exe]
+:0398669A [ERP.exe]
+:752E00F9 [KERNEL32.DLL]
+:77377BBE [ntdll.dll]
+:77377B8E [ntdll.dll]
+:03986634 [ERP.exe]
+
+Modules:
+$00400000 (00400000,00001000,03584E00) D:\Work\Delphi\Dene\Code\ERPNew\Dev\ERP.exe
+$75DA0000 (75DA0000,00001000,001DD400) C:\Windows\System32\KERNELBASE.dll
+$772E0000 (772E0000,00001000,00005400) C:\Windows\System32\win32u.dll
+$75FC0000 (75FC0000,00001000,000A4800) C:\Windows\System32\user32.dll
+$752C0000 (752C0000,00010000,00066000) C:\Windows\System32\KERNEL32.DLL
+$77310000 (77310000,00001000,00120400) C:\Windows\SYSTEM32\ntdll.dll
+
+Main Thread ID = 00004618, Current Thread ID = 00004618
+Registers:
+EAX = 0019F6A0  CS = 0023  EIP = 75ECE292  Flags = 00000216
+EBX = 008AE1B0  SS = 002B  ESP = 0019F6A0    EBP = 0019F6FC
+ECX = 00000007  DS = 002B  ESI = 00000428    FS  = 0053
+EDX = 00000000  ES = 002B  EDI = 008A8230    GS  = 002B
+Code at CS:EIP
+8B 4C 24 54 33 CC E8 23 4F 00 00 8B E5 5D C2 10 
+Stack:
+0EEDFADE 00000001 00000000 75ECE292 00000007 
+00000000 03986634 00406905 22A543BC 00472011 
+00000002 12968200 00000000 129EA810 03986634 
+FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF 00000001 
+
+Additional info:
+Windows Version: WorkStation 6.2 (9200)
+MySQL Version: 5.1.52-community
+ERP Version: 2023.0.6.0
+Company: Sample Company
+Address : 
+Unit 6
+183 Currumburra Road
+QLD 4214
+Australia
+Email : simon@erpoz.com
+Phone : 0758745874
+FaxNumber : 07 5539 2701
+ABN 62079888896
+Licenced Users : 2
+
+User: Admin
+PC Name: DESKTOP-JCUTVG7(Wang)
+Send Details: 
+Database : aus_sample_company
+  Host  - 
+  Email - 
+
+Error Type: Non-Fatal
+Active Forms:
+fmBASReturn
+MainSwitch2
+MainForm
+frmActiveWindows
+Focused Form: None
+Focused Control: None
+

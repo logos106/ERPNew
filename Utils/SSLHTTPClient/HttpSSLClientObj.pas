@@ -102,7 +102,7 @@ var
   libFile, msg: string;
 begin
   libFile := GetCurrentModulePath + dll_sub_dir + '\ssl_http_client.dll';
-  Handle:= LoadLibrary(PChar(libFile));
+  Handle := LoadLibrary(PChar(libFile));
   if Handle = 0 then begin
     msg:= 'Could not load dll file: ' + libFile;
     raise Exception.Create(msg);
