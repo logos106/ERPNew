@@ -8337,8 +8337,6 @@ var
     sct.SQL.Add(') T2 GROUP BY EmployeeID');
     sct.SQL.Add(');');     // Closing
 
-    LogText(sct.SQL.Text);
-
     sct.Execute;
 
   end;

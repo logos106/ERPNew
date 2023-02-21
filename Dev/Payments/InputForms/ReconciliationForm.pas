@@ -907,11 +907,11 @@ begin
     bRefMatched := True; // (thisGrid.Floats[COL_NOTES,i] = AStatementRec.StatementDescription);
     bCustMatched := (Settings.State[1] = cbUnchecked); // OR (thisGrid.Cells[COL_PAYEE,i] = AStatementRec.StatementDescription));
     if Settings.State[1] = cbchecked then begin
-      sSQL := 'SELECT payee FROM tblbankreconciliationrules WHERE MATCH (payee, StatementDesc)  AGAINST (' +
+      sSQL := 'SELECT payee FROM tblbankreconciliationrules WHERE MATCH (payee, StatementDesc) AGAINST (' +
                QuotedStr(AStatementRec.StatementDescription) + ' IN NATURAL LANGUAGE MODE) LIMIT 1';
-      qry:= TERPQuery.Create(nil);
+      qry := TERPQuery.Create(nil);
       try
-        qry.Connection:= CommonDbLib.GetSharedMyDacConnection;
+        qry.Connection := CommonDbLib.GetSharedMyDacConnection;
         qry.SQL.Text := sSQL;
         qry.Open;
         bCustMatched := (qry.RecordCount = 1);
@@ -922,7 +922,7 @@ begin
     end;
     if ((bAmountMatched) and (bDateMatched) and (bRefMatched) and (bCustMatched)) then begin
        Result := i;
-       break;
+       Break;
     end;
 
 //    if AStrict then begin
@@ -2435,16 +2435,16 @@ begin
   end;
 end;
 
-procedure TReconciliationGUI.InsertRule(AStatementDesc: string; APayee: string);
+procedure TReconciliationGUI.InsertRule(AStatementDesc: String; APayee: String);
 var
   newRule: TBankReconciliationRules;
 begin
-  if Trim(APayee)         = '' then exit;
-  if Trim(AStatementDesc) = '' then exit;
-  newRule := TBankReconciliationRules.CreateWithNewConn(Nil);
+  if Trim(APayee)         = '' then Exit;
+  if Trim(AStatementDesc) = '' then Exit;
+  newRule := TBankReconciliationRules.CreateWithNewConn(nil);
   try
-    newRule.LoadSelect('Payee=' + QuotedStr(APayee) +' and StatementDesc =' + QuotedStr(AStatementDesc));
-    if newRule.count=0 then begin
+    newRule.LoadSelect('Payee = ' + QuotedStr(APayee) + ' AND StatementDesc = ' + QuotedStr(AStatementDesc));
+    if newRule.Count = 0 then begin
       newRule.New;
       newRule.StatementDesc := AStatementDesc;
       newRule.Payee         := APayee;
@@ -2838,11 +2838,13 @@ end;
 
 procedure TReconciliationGUI.btnRelaxedMatchClick(Sender: TObject);
 var
-  i : integer;
+  i : Integer;
 begin
   inherited;
-  if not UseStatements then exit;
+  if not UseStatements then Exit;
+
   FComputeTotals := False;
+
   ProgressDialog.DoShowProgressbar(grdDeposits.RowCount, 'Matching Deposits' );
   try
     for i := 1 to grdDeposits.RowCount do begin
@@ -2852,6 +2854,7 @@ begin
   finally
     ProgressDialog.doHideProgressbar;
   end;
+
   ProgressDialog.DoShowProgressbar(grdWithDrawals.RowCount, 'Matching Withdrawals' );
   try
     for i := 1 to grdWithDrawals.RowCount do begin
@@ -2861,10 +2864,14 @@ begin
   finally
     ProgressDialog.doHideProgressbar;
   end;
+
   FComputeTotals := True;
+
   ComputeTotals;
+
   grdDeposits.InValidate;
   grdWithDrawals.InValidate;
+
   DisplayBalances(True);
 end;
 

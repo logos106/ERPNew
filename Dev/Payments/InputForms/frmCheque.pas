@@ -187,10 +187,10 @@ begin
       SupplierName := ChequeObj.SupplierName;
       inherited;
       if wwCreateRule.Checked then begin
-        newRule := TBankReconciliationRules.CreateWithNewConn(Nil);
+        newRule := TBankReconciliationRules.CreateWithNewConn(nil);
         try
-          newRule.LoadSelect('Payee=' + QuotedStr(ChequeObj.SupplierName) +' and StatementDesc =' + QuotedStr(ChequeObj.Lines.ProductDescription));
-          if newRule.count=0 then begin
+          newRule.LoadSelect('Payee= ' + QuotedStr(ChequeObj.SupplierName) + ' AND StatementDesc = ' + QuotedStr(ChequeObj.Lines.ProductDescription));
+          if newRule.count = 0 then begin
             newRule.New;
             newRule.StatementDesc := ChequeObj.Lines.ProductDescription;
             newRule.Payee         := ChequeObj.SupplierName;
@@ -204,7 +204,7 @@ begin
       CommitAndNotify;
 
       if fsModal in FormState then
-        ModalResult:= mrOK
+        ModalResult := mrOK
       else
         CloseWait;
     end;
