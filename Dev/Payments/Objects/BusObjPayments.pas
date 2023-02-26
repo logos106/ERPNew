@@ -16,6 +16,7 @@ Uses TypesLib, BusObjBase, DB, Classes, BusObjClient,
      BusobjGeneral,IntegerListObj, BusObjTenderAccountPrefs, BusObjOrderBase;
 
 Type
+
   TGUIPaymentLines = class(TMSBusObj)
   private
     Function GetType                    : String    ;
@@ -62,6 +63,7 @@ Type
     function GetDiscount: Double;
     procedure SetDiscount(const Value: Double);
     Function  GetCleanRefunding         : Double;
+
   Protected
     Procedure OnDataIdChange(Const ChangeType: TBusObjDataChangeType);  Override;
     Procedure DoFieldOnChange(Sender: TField);              Override;
@@ -77,6 +79,7 @@ Type
     Procedure SetTransNumber    (Const Value: String    );  Virtual;abstract;
     Procedure SetTransID        (Const Value: Integer   );  Virtual;abstract;
     Procedure changePayment;
+
   Public
     Class Function  GetIDField               : String;      Override;
     Class Function  GetBusObjectTablename    : String;      Override;
@@ -94,8 +97,9 @@ Type
     Property        HeaderForeignApplied     : Double       Read getHeaderForeignapplied;
     Property        HeaderBalance            : Double       Read getHeaderBalance;
     Property        IsFCSelected             : Boolean      Read getIsFCSelected;
-    Property    CleanDiscount               : Double        Read getCleanDiscount;
-    Property    CleanRefunding              : Double        Read getcleanRefunding;
+    Property        CleanDiscount               : Double        Read getCleanDiscount;
+    Property        CleanRefunding              : Double        Read getcleanRefunding;
+
   Published
     property TransType                :String      Read GetType                     Write SetType                ;
     Property Applied                  :Boolean     Read getApplied                  Write SetApplied;
@@ -239,6 +243,7 @@ Type
     Procedure SetForeignPayment             (Const Value: Double    );
     Procedure SetForeignOutStanding         (Const Value: Double    );
     Procedure SetEnteredBy                  (Const Value: String    );
+
   Protected
     Procedure OnDataIdChange(Const ChangeType: TBusObjDataChangeType);  Override;
     Procedure DoFieldOnChange(Sender: TField);              Override;
@@ -249,6 +254,7 @@ Type
     Function    GetTransNo      :String;                    Virtual; abstract;
     Procedure   SetTransDate    (Const Value:TDateTime);    Virtual; abstract;
     Procedure   SetTransNo      (Const Value:String);       Virtual; abstract;
+
   Public
     Class Function  GetIDField                   : String ; Override;
     Destructor  Destroy;                                    Override;
@@ -256,7 +262,8 @@ Type
     Procedure   SaveToXMLNode   (Const node: IXMLNode);     Override;
     Function    ValidateData    :Boolean ;                  Override;
     Function    Save            :Boolean ;                  Override;
-    property PaymentID          :Integer    Read GetPaymentID          Write SetPaymentID               ;
+    property    PaymentID       :Integer    Read GetPaymentID          Write SetPaymentID               ;
+
   Published
     property PrePaymentID       :Integer    Read GetPrePaymentID       Write SetPrePaymentID            ;
     property OriginalAmount     :Double     Read GetOriginalAmount     Write SetOriginalAmount          ;
@@ -468,6 +475,7 @@ Type
     procedure SetForeignVariationAccountName(const Value: string);
     function GetPayMethodName: string;
     procedure SetPayMethodName(const Value: string);
+
   Protected
     AllLinesValid                           : Boolean   ;
     AllGuiLinesValid: boolean;
@@ -500,6 +508,7 @@ Type
     function ValidateGuiLines: boolean;
     Function  getTotalRefunding             : Double;
     Procedure CallbacktotalRefunding        (Const Sender: TBusObj; var Abort: Boolean);
+
   Public
     Qrybulkpay          : TERPQuery;
     ValidationStage: integer;
@@ -549,6 +558,7 @@ Type
     Property IsBulkPayment :boolean read fbBulkPayment write fbBulkPayment;
     Property DisableCalcOrderTotals :Boolean read fbDisableCalcOrderTotals write fbDisableCalcOrderTotals;
     procedure DoCalcOrderTotals;
+
   Published
     property PaymentNo                  : Integer   Read GetPaymentNo                   Write SetPaymentNo                ;
     property EmployeeID                 : Integer   Read GetEmployeeID                  Write SetEmployeeID               ;
@@ -594,8 +604,8 @@ Type
     property ForeignVariationAmount     : Double    Read GetForeignVariationAmount      Write SetForeignVariationAmount   ;
     property ForeignUnApplied           : Double    Read GetForeignUnApplied            Write SetForeignUnApplied         ;
     property ForeignApplied             : Double    Read GetForeignApplied              Write SetForeignApplied           ;
-    Property EnteredAt          : TDateTime Read getEnteredAt           Write setEnteredAt;
-    Property GUILines            : TGUIPaymentLines  Read getGUIPaymentLines;
+    Property EnteredAt                  : TDateTime Read getEnteredAt           Write setEnteredAt;
+    Property GUILines                   : TGUIPaymentLines  Read GetGUIPaymentLines;
   end;
 
   TSuppPayments = class(TPayments)
@@ -739,6 +749,7 @@ Type
     function GetCleanDeposited: boolean;
     procedure SalesOutStandingTrans(var QrySource: TERPQuery; aSaleType:String= '' ; aTransId :Integer=0);
     procedure SalesPaymentLines(var QrySource: TERPQuery);
+
   Protected
     Procedure OnDataIdChange(Const ChangeType: TBusObjDataChangeType);      Override;
     Function  DoAfterInsert(Sender: TDatasetBusObj): Boolean;               Override;
@@ -753,6 +764,7 @@ Type
     function getUseFC                    : Boolean; override;
     procedure CallbackValidateLines(const Sender: TBusObj; var Abort: Boolean);
     function ValidateLines: boolean;
+
   Public
     Class function  GetTranstype          : String;     Override;
     Class Function  GetBusObjectTablename :String;      Override;
@@ -777,6 +789,7 @@ Type
     Property OpenForSalesId :Integer read fiOpenForSalesId write fiOpenForSalesId;
     property CleanDeposited: boolean read GetCleanDeposited;
     Procedure updateBankdeposit(forceDeletion:Boolean =False);
+
   Published
     Property Lines              : TcustPaymentLines Read getPaymentLines;
     property SplitPaymentID     : Integer   Read GetSplitPaymentID      Write SetSplitPaymentID           ;
@@ -1358,22 +1371,24 @@ end;
 
 Procedure TPayments.CallbackselectedLines(Const Sender: TBusobj; Var abort: Boolean);
 begin
-    StepProgressbar;
-    if not (Sender is TGUIPaymentLines) then exit;
-    if TGuiPaymentLines(Sender).applied then
-        fiselectedLines := fiselectedLines + 1;
+  StepProgressbar;
+  if not (Sender is TGUIPaymentLines) then Exit;
+  if TGuiPaymentLines(Sender).applied then
+    fiselectedLines := fiselectedLines + 1;
 end;
+
 Function TPayments.GetselectedLines :Integer;
 begin
-    fiselectedLines := 0;
-    ShowProgressbar(GUILines.count, 'Check for Selected Items');
-    try
-      GuiLines.IterateRecords(callbackselectedLines);
-    finally
-      HideProgressbar
-    end;
-    Result := fiselectedLines;
+  fiselectedLines := 0;
+  ShowProgressbar(GUILines.count, 'Check for Selected Items');
+  try
+    GuiLines.IterateRecords(callbackselectedLines);
+  finally
+    HideProgressbar
+  end;
+  Result := fiselectedLines;
 end;
+
 Function TPayments.getpayMethod: TPaymentMethod;
 begin
     Result := TPaymentMethod(Getcontainercomponent(TPaymentMethod , 'PayMethodID = ' + IntToStr(PaymethodID), SilentMode, False ));
@@ -1832,8 +1847,9 @@ begin
 
 Function TCustPayments.getPaymentLines :TcustPaymentLines;
 begin
-    Result := TCustPaymentLines(GetContainerComponent(TCustPaymentLines , 'PaymentID = ' + IntToStr(ID)));
+  Result := TCustPaymentLines(GetContainerComponent(TCustPaymentLines, 'PaymentID = ' + IntToStr(ID)));
 end;
+
 Constructor TCustPayments.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
@@ -2216,7 +2232,7 @@ var
 begin
   if SilentMode then
     if CleanID = 0 then
-      CalcTotals(true);
+      CalcTotals(True);
 
   ValidationStage := 1;
   PostDB;
@@ -2230,7 +2246,7 @@ begin
     if (TotalDiscount <> 0) or (TotalWithholding <> 0) or (TotalRefunding <> 0)then begin
       if (SilentMode) and (AutoApplyDiscount) then begin
         Result := AddDiscounttoSale(msg);
-        if Result  then
+        if Result then
           AddResult(True, rssInfo , 0 , 'Invoices are updated for the Discount/Withholding/Refunding')
         else begin
           AddResult(false, rssWarning, 0, msg);
@@ -2266,77 +2282,83 @@ begin
   Self.Connection.CommitNestedTransaction;
   ValidationStage := 2;
   if not Self.ValidateLines then begin
-    Result:= False;
+    Result := False;
     Exit;
   end;
   Dirty := False;
 end;
 
-Function TCustPayments.ValidateData:Boolean;
+Function TCustPayments.ValidateData: Boolean;
 var
-    str:String;
+  str: String;
 begin
-    if self.Deleted then begin
-
-      if TCardPayment.PaymentMade(self.ClassName,ID,Connection.Connection.Database,Connection.Connection.Server) then begin
-        AddResult(False, rssWarning, 0 ,'Can not delete a payment with a Processed Card Payment.');
-        Result := False;
-        Exit;
-      end
-      else begin
-        result:= true;
-        exit;
-      end;
+  if Self.Deleted then begin
+    if TCardPayment.PaymentMade(self.ClassName,ID,Connection.Connection.Database,Connection.Connection.Server) then begin
+      AddResult(False, rssWarning, 0 ,'Can not delete a payment with a Processed Card Payment.');
+      Result := False;
+      Exit;
+    end
+    else begin
+      result:= true;
+      exit;
     end;
-    if ClientId = 0 then begin
-      AddResult(False, rssWarning, 0, 'Customer balnk or not found.');
+  end;
+
+  if ClientId = 0 then begin
+    AddResult(False, rssWarning, 0, 'Customer blank or not found.');
+    Result := False;
+    Exit;
+  end;
+
+  if Client.ClientName = '' then begin
+    AddResult(False, rssWarning, 0, 'Customer not found for ID: ' + IntToStr(self.ClientID));
+    Result := False;
+    Exit;
+  end;
+
+  if (not Deleted) and Self.CleanDeposited then begin
+    AddResult(False, rssWarning, 0, 'Can not Save, Payment has been deposited.');
+    Result := False;
+    Exit;
+  end;
+
+  if (PaymentDate <= AppEnv.CompanyPrefs.ClosingDate) or (PaymentDate <= AppEnv.CompanyPrefs.ClosingDateAR) then begin
+    str := 'You have set this date before the closing date !' +
+            'the date will automatically be set to today''s date OR '+
+            'reset the Closing Date In Preferences.';
+    AddResult(True, rssinfo, 0, str);
+    PaymentDate := Now;
+    ForeignExchangeRate := getExchageSellRate;
+    DoFieldOnChange(Dataset.findfield('ForeignExchangeRate'));
+  end;
+
+  Result := inherited ValidateData;
+  if not Result then Exit;
+
+  if PayMethodID = 0 then begin
+    AddResult(False, rssWarning, 0, 'Payment method should not be blank.');
+    Result := False;
+    Exit;
+  end;
+
+  if AccountID = 0 then begin
+    AddResult(False, rssWarning, 0, 'Account should not be blank.');
+    Result := False;
+    Exit;
+  end;
+
+  if not IsZero(ForeignVariationAmount, 0.00001) then
+    if ForeignVariationAccountID = 0 then begin
+      AddResult(False, rssWarning, 0, 'Variation account should not be blank.');
       Result := False;
       Exit;
     end;
-    if Client.ClientName = '' then begin
-      AddResult(False, rssWarning, 0, 'Customer not found for ID: ' + IntToStr(self.ClientID));
+
+  if not IsZero(Unapplied, 0.00001) then begin
+      AddResult(False, rssWarning, 0, 'Payment cannot be saved with an unapplied amount');
       Result := False;
       Exit;
-    end;
-    if (not Deleted) and self.CleanDeposited then begin
-      AddResult(False, rssWarning, 0, 'Can not Save, Payment has been deposited.');
-      Result := False;
-      Exit;
-    end;
-    if (PaymentDate <= AppEnv.CompanyPrefs.ClosingDate) or (PaymentDate <= AppEnv.CompanyPrefs.ClosingDateAR) then begin
-        str := 'You have set this date before the closing date !' +
-                'the date will automatically be set to today''s date OR '+
-                'reset the Closing Date In Preferences.';
-        AddResult(True, rssinfo, 0 , str);
-        PaymentDate := now ;
-        ForeignExchangeRate := getExchageSellRate;
-        DoFieldOnChange(Dataset.findfield('ForeignExchangeRate'));
-    end;
-
-    Result := inherited ValidateData;
-    if not Result then exit;
-
-    if PayMethodID = 0 then begin
-        AddResult(False, rssWarning, 0, 'Payment method should not be blank.');
-        Result := False;
-        Exit;
-    end;
-    if AccountID = 0 then begin
-        AddResult(False, rssWarning, 0, 'Account should not be blank.');
-        Result := False;
-        Exit;
-    end;
-    if not IsZero(ForeignVariationAmount,0.00001) then
-        if ForeignVariationAccountID= 0 then begin
-            AddResult(False, rssWarning, 0, 'Variation account should not be blank.');
-            Result := False;
-            Exit;
-        end;
-    if not IsZero(Unapplied, 0.00001) then begin
-        AddResult(False, rssWarning, 0, 'Payment cannot be saved with an unapplied amount');
-        Result := False;
-        Exit;
-    end;
+  end;
 end;
 
 Procedure TCustPayments.RefreshguiLines;
@@ -2639,24 +2661,27 @@ begin
         end;
     end;
 end;
+
 Class Function  TCustPayments.GetBusObjectTablename :String;
 begin
     Result:= 'tbldeposits';
 end;
+
 Procedure TCustPayments.OnDataIdChange(Const ChangeType: TBusObjDataChangeType);
 begin
-    fbDiscountApplied := False;
-    fbSurchargeApplied := false;
-    fiOpenForSalesId := 0;
+  fbDiscountApplied := False;
+  fbSurchargeApplied := false;
+  fiOpenForSalesId := 0;
 end;
+
 Procedure TCustPayments.CallbackCalcTotals(Const Sender: TBusObj; var Abort: Boolean);
 begin
-    StepProgressbar;
-    inherited  CallbackCalcTotals(sender , abort);
-    if Abort then Exit;
-    fdTotalDiscount    := fdTotalDiscount    + TGuiCustPaymentLines(Sender).Discount;
-    fdTotalwithholding := fdTotalwithholding + TGuiCustPaymentLines(Sender).Withholding;
-    fdTotalRefunding := fdTotalRefunding + TGuiCustPaymentLines(Sender).Refunding;
+  StepProgressbar;
+  inherited  CallbackCalcTotals(sender , abort);
+  if Abort then Exit;
+  fdTotalDiscount    := fdTotalDiscount    + TGuiCustPaymentLines(Sender).Discount;
+  fdTotalwithholding := fdTotalwithholding + TGuiCustPaymentLines(Sender).Withholding;
+  fdTotalRefunding := fdTotalRefunding + TGuiCustPaymentLines(Sender).Refunding;
 end;
 Function  TCustPayments.DoAfterInsert(Sender: TDatasetBusObj): Boolean;
 begin
@@ -2939,7 +2964,8 @@ end;
 
 Procedure TSuppPayments.DoFieldOnChange(Sender: TField);
 var
-    str:String;
+  str: String;
+
     Function Isamountfield:Boolean;
     begin
          Result :=  (Sysutils.SameText(Sender.FieldName , 'Amount'               )) or
@@ -2949,6 +2975,7 @@ var
                     (Sysutils.SameText(Sender.FieldName , 'Foreignapplied'       )) or
                     (Sysutils.SameText(Sender.FieldName , 'Foreignunapplied'     ));
     END;
+
     Procedure UpdateAmounts;
     begin
         if Sysutils.SameText(Sender.FieldName , 'Amount')                then begin
@@ -3116,7 +3143,7 @@ Constructor TSuppPayments.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
   fbDiscountApplied         := False;
-  fBusObjectTypeDescription:= 'SuppPayments';
+  fBusObjectTypeDescription := 'SuppPayments';
   fSQL := 'SELECT * FROM tblwithdrawal';
   AddToEFT := False;
   fUpdatedPOList := TIntegerList.Create;
@@ -3350,58 +3377,61 @@ begin
             end;
 end;
 
-Function TSuppPayments.Save                   : boolean ;
+Function TSuppPayments.Save: Boolean;
 begin
-    if silentMode then
-          if (CleanID = 0) or (deleted) then
-              CalcTotals(true);
+  if SilentMode then
+    if (CleanID = 0) or (Deleted) then
+      CalcTotals(True);
 
-    ValidationStage:= 1;
+  ValidationStage := 1;
+  PostDB;
+  Result := ValidateData;
+  if not Result then Exit;
+
+  Result := Inherited Save;
+  if not Result then Exit;
+
+  Self.Connection.BeginNestedTransaction;
+  try
+    PostList.Clear;
+    IsNew := Lines.Count = 0;
     PostDB;
-    result:= validateData;
-    if not result then Exit;
-    result := Inherited Save;
-    if not result then Exit;
-    self.Connection.BeginNestedTransaction;
-    try
-      PostList.Clear;
-      IsNew := Lines.count = 0;
-      postDB;
-      if isnew then Createlines;
-      UpdateLines;
-      udpateBalance;
-      updateBankdeposit;
-      CorrectOtherPayments;
-      CreateABARecord;
-      UpdatelastChequeNo;
-      if not PostList.Execute then begin
-          Result := False;
-          Exit;
-      end;
-      Dirty := False;
-    finally
-      if not result then begin
-        self.Connection.RollbackNestedTransaction;
-        Lines.Closedb;
-        Lines;
-      end;
+    if IsNew then Createlines;
+    UpdateLines;
+    UdpateBalance;
+    UpdateBankdeposit;
+    CorrectOtherPayments;
+    CreateABARecord;
+    UpdatelastChequeNo;
+    if not PostList.Execute then begin
+      Result := False;
+      Exit;
     end;
-    self.Connection.CommitNestedTransaction;
-    ValidationStage:= 2;
-    if not self.ValidateLines then begin
-      result:= false;
-      exit;
+    Dirty := False;
+  finally
+    if not result then begin
+      Self.Connection.RollbackNestedTransaction;
+      Lines.Closedb;
+      Lines;
     end;
+  end;
+  Self.Connection.CommitNestedTransaction;
+  ValidationStage := 2;
+  if not Self.ValidateLines then begin
+    result := False;
+    Exit;
+  end;
 end;
 
 Procedure TSuppPayments.udpateBalance;
 var
-    PrepaymentAmount : Double;
-    APPaymentAmount  : Double;
-    Function GetPrepaymentAccountID : Integer;
-    begin
-        Result := tcDatautils.GetAccountID(GLACCOUNT_SUPPPREPAYMENT);
-    end;
+  PrepaymentAmount : Double;
+  APPaymentAmount  : Double;
+
+  Function GetPrepaymentAccountID : Integer;
+  begin
+    Result := tcDatautils.GetAccountID(GLACCOUNT_SUPPPREPAYMENT);
+  end;
 begin
     if (not ISNew) and (cleanDeleted = Deleted) then Exit;
 
@@ -3417,6 +3447,7 @@ begin
         if (AppEnv.CompanyPrefs.UseForeignCurrencyonPO) and (ISFCSelected) then
             PostList.AddAmount('TAccount', TAccount.GetBusObjectTablename, ForeignVariationAccountID,       ForeignVariationAmount,btnormal, False);
     end;
+
     if (not ISNew) and (Deleted) then begin
         PostList.AddAmount('TAccount', TAccount.GetBusObjectTablename, tcDatautils.GetAccountPayableID, APPaymentAmount,btnormal, False);
         PostList.AddAmount('TAccount', TAccount.GetBusObjectTablename, AccountID,                       Amount,btnormal, False);
@@ -3424,6 +3455,7 @@ begin
        if (AppEnv.CompanyPrefs.UseForeignCurrencyonPO) and (ISFCSelected) then
         PostList.AddAmount('TAccount', TAccount.GetBusObjectTablename, ForeignVariationAccountID,       -ForeignVariationAmount,btnormal, False);
     end;
+
     ShowProgressbar(GUILines.Count, 'Update Transactions');
     try
       GuiLines.IterateREcords(UpdateclientBalance);
@@ -3431,17 +3463,19 @@ begin
       HideProgressbar;
     end;
 end;
+
 Procedure TSuppPayments.UpdateclientBalance(Const Sender: TBusObj; var Abort: Boolean);
 begin
-    StepProgressbar;
-    if not (Sender is TGuiSuppPaymentLines) then Exit;
-    if not TGuiSuppPaymentLines(Sender).Applied then Exit;
+  StepProgressbar;
+  if not (Sender is TGuiSuppPaymentLines) then Exit;
+  if not TGuiSuppPaymentLines(Sender).Applied then Exit;
 
-    if Deleted then
-        PostList.AddAmount(client.ClassName, client.GetBusObjectTablename,ClientID, TGuiSuppPaymentLines(Sender).Payment,btAP)
-    else
-        PostList.AddAmount(client.ClassName, client.GetBusObjectTablename,ClientID, -TGuiSuppPaymentLines(Sender).Payment,btAP);
+  if Deleted then
+    PostList.AddAmount(client.ClassName, client.GetBusObjectTablename,ClientID, TGuiSuppPaymentLines(Sender).Payment,btAP)
+  else
+    PostList.AddAmount(client.ClassName, client.GetBusObjectTablename,ClientID, -TGuiSuppPaymentLines(Sender).Payment,btAP);
 end;
+
 Procedure TSuppPayments.correctOtherPayments;
 var
     strSQL:String;
@@ -3488,40 +3522,41 @@ begin
         Free;
     end;
 end;
-Procedure TSuppPayments.updateBankdeposit(forceDeletion:Boolean =False);
+Procedure TSuppPayments.updateBankdeposit(forceDeletion: Boolean = False);
 var
   cmd: TERPCommand;
 begin
-    if not IsNew then begin
-      cmd := DbSharedObj.GetCommand(self.Connection.Connection);
-      try
-        cmd.SQL.Add('update tblbankdepositlines');
-        cmd.SQL.Add('set ReferenceNo = ' + QuotedStr(self.ReferenceNo));
-        cmd.SQL.Add('where TrnsType = "Supplier Payment"');
-        cmd.SQL.Add('and PaymentID = ' + IntToStr(self.ID));
-        cmd.Execute;
-      finally
-        DbSharedObj.ReleaseObj(cmd);
-      end;
+  if not IsNew then begin
+    cmd := DbSharedObj.GetCommand(self.Connection.Connection);
+    try
+      cmd.SQL.Add('UPDATE tblbankdepositlines');
+      cmd.SQL.Add('SET ReferenceNo = ' + QuotedStr(self.ReferenceNo));
+      cmd.SQL.Add('WHERE TrnsType = "Supplier Payment"');
+      cmd.SQL.Add('AND PaymentID = ' + IntToStr(self.ID));
+      cmd.Execute;
+    finally
+      DbSharedObj.ReleaseObj(cmd);
     end;
-    if (not isnew) and (cleanDeleted = Deleted ) then if forceDeletion =False then Exit;
+  end;
+  if (not isnew) and (cleanDeleted = Deleted ) then if forceDeletion =False then Exit;
 
-    if Deleted then begin
-        PostList.AddQuery('Delete  tblbankdeposit.*   ' +
-             ' FROM tblbankdeposit ' +
-             ' INNER JOIN tblbankdepositlines  ' +
-             ' ON  tblbankdepositlines.DepositID = tblbankdeposit.DepositID ' +
-             ' WHERE tblbankdepositlines.PaymentID =' + IntToStr(ID) +
-             ' AND tblbankdepositlines.TrnsType =' + quotedStr(TransType));
-        PostList.AddQuery('Delete  tblbankdepositlines.*   ' +
-             ' FROM tblbankdepositlines ' +
-             ' WHERE tblbankdepositlines.PaymentID =' + IntToStr(ID) +
-             ' AND tblbankdepositlines.TrnsType =' + quotedStr(TransType));
-    end else if (Sysutils.SameText(tcDatautils.GetAccountName(AccountID),UNDEPOSITED_FUNDS)) then
-    else begin
-        CreateDeposits;
-    end;
-    PostDB;
+  if Deleted then begin
+    PostList.AddQuery('DELETE tblbankdeposit.* ' +
+         ' FROM tblbankdeposit ' +
+         ' INNER JOIN tblbankdepositlines  ' +
+         ' ON tblbankdepositlines.DepositID = tblbankdeposit.DepositID ' +
+         ' WHERE tblbankdepositlines.PaymentID =' + IntToStr(ID) +
+         ' AND tblbankdepositlines.TrnsType =' + quotedStr(TransType));
+
+    PostList.AddQuery('DELETE tblbankdepositlines.*   ' +
+         ' FROM tblbankdepositlines ' +
+         ' WHERE tblbankdepositlines.PaymentID =' + IntToStr(ID) +
+         ' AND tblbankdepositlines.TrnsType =' + quotedStr(TransType));
+  end else if (Sysutils.SameText(tcDatautils.GetAccountName(AccountID),UNDEPOSITED_FUNDS)) then
+  else begin
+    CreateDeposits;
+  end;
+  PostDB;
 end;
 
 Procedure TSuppPayments.CreateABARecord;
@@ -3555,132 +3590,136 @@ end;
 
 Procedure TSuppPayments.CreateDeposits;
 begin
-    {header}
-    if Deleted then Exit;
-    BankDeposit.New;
-    BankDeposit.Depositdate          := PaymentDate;
-    BankDeposit.PostDB;
-    BankDeposit.EmployeeId           := EmployeeID;
-    BankDeposit.classId              := ClassID;
-    BankDeposit.AccountId            := AccountId;
-    BankDeposit.Notes                := Notes;
-    BankDeposit.Deposit              := -amount;
-    BankDeposit.Deleted              := False;
-    BankDeposit.PostDB;
-    {details}
-    BankDeposit.Lines.New;
-    BankDeposit.Lines.PaymentID      := Self.ID;
-    BankDeposit.Lines.TrnsType       := Transtype;
-    BankDeposit.Lines.CusID          := ClientID;
-    BankDeposit.Lines.PayMethodID    := PayMethodID;
-    BankDeposit.Lines.PaymentMethod  := tcDatautils.GetPaymentMethod(PayMethodID);
-    BankDeposit.Lines.PaymentDate    := PaymentDate;
-    BankDeposit.Lines.Companyname    := companyName;
-    BankDeposit.Lines.Referenceno    := ReferenceNo;
-    BankDeposit.Lines.ClassId        := ClassId;
-    BankDeposit.Lines.AccountID      := AccountId;
-    BankDeposit.Lines.Amount         := -amount;
-    BankDeposit.Lines.Name           := '';
-    BankDeposit.Lines.Notes          := Notes;
-    BankDeposit.Lines.Customer       := False;
-    BankDeposit.Lines.Supplier       := True;
-    BankDeposit.Lines.Employee       := False;
-    BankDeposit.Lines.contact        := false;
-    BankDeposit.Lines.Deposited      := True;
-    BankDeposit.Lines.Statementno    := 0;
-    BankDeposit.Lines.FromDeposited  := False;
-    BankDeposit.Lines.PostDB;
+  {header}
+  if Deleted then Exit;
+
+  BankDeposit.New;
+  BankDeposit.Depositdate          := PaymentDate;
+  BankDeposit.PostDB;
+  BankDeposit.EmployeeId           := EmployeeID;
+  BankDeposit.classId              := ClassID;
+  BankDeposit.AccountId            := AccountId;
+  BankDeposit.Notes                := Notes;
+  BankDeposit.Deposit              := -amount;
+  BankDeposit.Deleted              := False;
+  BankDeposit.PostDB;
+  {details}
+  BankDeposit.Lines.New;
+  BankDeposit.Lines.PaymentID      := Self.ID;
+  BankDeposit.Lines.TrnsType       := Transtype;
+  BankDeposit.Lines.CusID          := ClientID;
+  BankDeposit.Lines.PayMethodID    := PayMethodID;
+  BankDeposit.Lines.PaymentMethod  := tcDatautils.GetPaymentMethod(PayMethodID);
+  BankDeposit.Lines.PaymentDate    := PaymentDate;
+  BankDeposit.Lines.Companyname    := companyName;
+  BankDeposit.Lines.Referenceno    := ReferenceNo;
+  BankDeposit.Lines.ClassId        := ClassId;
+  BankDeposit.Lines.AccountID      := AccountId;
+  BankDeposit.Lines.Amount         := -amount;
+  BankDeposit.Lines.Name           := '';
+  BankDeposit.Lines.Notes          := Notes;
+  BankDeposit.Lines.Customer       := False;
+  BankDeposit.Lines.Supplier       := True;
+  BankDeposit.Lines.Employee       := False;
+  BankDeposit.Lines.contact        := false;
+  BankDeposit.Lines.Deposited      := True;
+  BankDeposit.Lines.Statementno    := 0;
+  BankDeposit.Lines.FromDeposited  := False;
+  BankDeposit.Lines.PostDB;
 end;
+
 Procedure TSuppPayments.UpdateLines;
 begin
-    if (not(Isnew)) and (Deleted = Cleandeleted) then Exit;
-    ShowProgressbar(GUILines.Count, 'Update Transactions');
-    try
-      GuiLines.IterateRecords(CallbackUpdateLines);
-    finally
-      Hideprogressbar;
-    end;
+  if (not(Isnew)) and (Deleted = Cleandeleted) then Exit;
+  ShowProgressbar(GUILines.Count, 'Update Transactions');
+  try
+    GuiLines.IterateRecords(CallbackUpdateLines);
+  finally
+    Hideprogressbar;
+  end;
 end;
-Procedure TSuppPayments.CallbackUpdateLines           (Const Sender: TBusObj; var Abort: Boolean);
+
+Procedure TSuppPayments.CallbackUpdateLines(Const Sender: TBusObj; var Abort: Boolean);
 var
-    strSQL:String;
+  strSQL:String;
 begin
-    StepProgressbar;
-    {here I assume that the payment amount cannot be changed once if the record is saved
-    only can delete or undelete
+  StepProgressbar;
+  {here I assume that the payment amount cannot be changed once if the record is saved
+  only can delete or undelete
 
-    note: Otherwise should take the cleanPayment-payment}
+  note: Otherwise should take the cleanPayment-payment}
 
-    if (TGuiSuppPaymentLines(Sender).payment = 0) and
-        (TGuiSuppPaymentLines(Sender).ForeignPayment =0) then exit;
+  if (TGuiSuppPaymentLines(Sender).payment = 0) and
+      (TGuiSuppPaymentLines(Sender).ForeignPayment =0) then Exit;
 
-    if TGuiSuppPaymentLines(Sender).TransType = PrePaytype then begin
-        if not (Deleted) then begin
-            strSQL := ' update tblPrePayments  ' +
-                        ' Set Payment           = round(Payment           - ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        ' Balance               = round(Balance           + ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        ' ForeignPaid           = round(ForeignPaid  - ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        ' ForeignBalance        = round(ForeignBalance    + ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) +','+inttostr(CurrencyRoundPlaces)+')' +
-                        ' where PrePaymentID    = ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID)  ;
-        end else begin
-            strSQL := ' update tblPrePayments  ' +
-                        ' Set Payment           =round(Payment           + ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        ' Balance               =round(Balance           - ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        ' ForeignPaid           =round(ForeignPaid  + ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        ' ForeignBalance        =round(ForeignBalance    - ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) + ','+inttostr(CurrencyRoundPlaces)+')'+
-                        ' where PrePaymentID    = ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID)  ;
-        end;
-        PostList.AddQuery(strSQL, TGuiSuppPaymentLines(Sender).TransID , 'tblPrePayments', False);
-        strSQL :='update tblPrePayments Set Paid = "T" where PrePaymentID = ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID)  +
-                        ' and Balance = 0;' +
-                 'update tblPrePayments Set Paid = "F" where PrePaymentID = ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID)  +
-                        ' and Balance <> 0;';
-        PostList.AddQuery(strSQL, TGuiSuppPaymentLines(Sender).TransID , 'tblPrePayments', False);
+  if TGuiSuppPaymentLines(Sender).TransType = PrePaytype then begin
+    if not (Deleted) then begin
+      strSQL := 'UPDATE tblPrePayments SET ' +
+                    ' Payment               = ROUND(Payment           - ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) +','+inttostr(CurrencyRoundPlaces)+'),' +
+                    ' Balance               = ROUND(Balance           + ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) +','+inttostr(CurrencyRoundPlaces)+'),' +
+                    ' ForeignPaid           = ROUND(ForeignPaid  - ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) +','+inttostr(CurrencyRoundPlaces)+'),' +
+                    ' ForeignBalance        = ROUND(ForeignBalance    + ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) +','+inttostr(CurrencyRoundPlaces)+')' +
+                    ' WHERE PrePaymentID    = ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID)  ;
     end else begin
-        if not (Deleted) then begin
-            strSQL := ' update tblPurchaseOrders ' +
-                        ' Set Payment            =round(Payment                + ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        'Balance                 =round(Balance                - ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        'ForeignPaidAmount       =round(ForeignPaidAmount      + ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        'foreignBalanceAmount    =round(foreignBalanceAmount   - ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) + ','+inttostr(CurrencyRoundPlaces)+')' +
-                        ' where IsCredit         = "F" and PurchaseOrderID= ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID) +';' +
-                      ' update tblPurchaseOrders ' +
-                        ' Set Payment            =round(Payment                - ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        'Balance                 =round(Balance                + ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        'ForeignPaidAmount       =round(ForeignPaidAmount      - ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        'foreignBalanceAmount    =round(foreignBalanceAmount   + ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) + ','+inttostr(CurrencyRoundPlaces)+')' +
-                        ' where IsCredit         = "T" and PurchaseOrderID= ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID) +';' ;
-        end else begin
-            strSQL := ' update tblPurchaseOrders ' +
-                        ' Set Payment            =round(Payment                + ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        ' Balance                =round(Balance                - ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        ' ForeignPaidAmount      =round(ForeignPaidAmount      + ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        ' foreignBalanceAmount   =round(foreignBalanceAmount   - ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) + ','+inttostr(CurrencyRoundPlaces)+')' +
-                        ' where IsCredit         = "T" and PurchaseOrderID= ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID) +';' +
-                      ' update tblPurchaseOrders ' +
-                        ' Set Payment            =round(Payment                - ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        ' Balance                =round(Balance                + ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        ' ForeignPaidAmount      =round(ForeignPaidAmount      - ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) +','+inttostr(CurrencyRoundPlaces)+'),' +
-                        ' foreignBalanceAmount   =round(foreignBalanceAmount   + ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) + ','+inttostr(CurrencyRoundPlaces)+')'+
-                        ' where IsCredit         = "F" and PurchaseOrderID= ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID) +';' ;
-        end;
-        PostList.AddQuery(strSQL, TGuiSuppPaymentLines(Sender).TransID , 'tblPurchaseOrders', False);
-        strSQL :='update tblPurchaseOrders Set Paid = "T" where PurchaseOrderID = ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID)  +
-                        ' and Balance = 0;' +
-                 'update tblPurchaseOrders Set Paid = "F" where PurchaseOrderID = ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID)  +
-                        ' and Balance <> 0;';
-        PostList.AddQuery(strSQL, TGuiSuppPaymentLines(Sender).TransID , 'tblPurchaseOrders', False);
+      strSQL := 'UPDATE tblPrePayments SET ' +
+                    ' Payment               = ROUND(Payment           + ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) +','+inttostr(CurrencyRoundPlaces)+'),' +
+                    ' Balance               = ROUND(Balance           - ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) +','+inttostr(CurrencyRoundPlaces)+'),' +
+                    ' ForeignPaid           = ROUND(ForeignPaid  + ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) +','+inttostr(CurrencyRoundPlaces)+'),' +
+                    ' ForeignBalance        = ROUND(ForeignBalance    - ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) + ','+inttostr(CurrencyRoundPlaces)+')'+
+                    ' WHERE PrePaymentID    = ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID)  ;
     end;
 
+    PostList.AddQuery(strSQL, TGuiSuppPaymentLines(Sender).TransID , 'tblPrePayments', False);
+    strSQL :='UPDATE tblPrePayments SET Paid = "T" WHERE PrePaymentID = ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID)  +
+                    ' and Balance = 0;' +
+             'UPDATE tblPrePayments SET Paid = "F" WHERE PrePaymentID = ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID)  +
+                    ' and Balance <> 0;';
+    PostList.AddQuery(strSQL, TGuiSuppPaymentLines(Sender).TransID , 'tblPrePayments', False);
+  end else begin
+    if not (Deleted) then begin
+      strSQL := ' UPDATE tblPurchaseOrders SET ' +
+                    ' Payment                 = ROUND(Payment                + ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) + ', ' + IntToStr(CurrencyRoundPlaces)+ '), ' +
+                    ' Balance                 = ROUND(Balance                - ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) + ', ' + IntToStr(CurrencyRoundPlaces) + '), ' +
+                    ' ForeignPaidAmount       = ROUND(ForeignPaidAmount      + ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) + ', ' + IntToStr(CurrencyRoundPlaces) + '), ' +
+                    ' foreignBalanceAmount    = ROUND(foreignBalanceAmount   - ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) + ', ' + IntToStr(CurrencyRoundPlaces) + ') ' +
+                    ' WHERE IsCredit         = "F" and PurchaseOrderID= ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID) +';' +
+                  ' UPDATE tblPurchaseOrders SET ' +
+                    ' Payment                 = ROUND(Payment                - ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) + ', ' + IntToStr(CurrencyRoundPlaces) + '), ' +
+                    ' Balance                 = ROUND(Balance                + ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) + ', ' + IntToStr(CurrencyRoundPlaces) + '), ' +
+                    ' ForeignPaidAmount       = ROUND(ForeignPaidAmount      - ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) + ', ' + IntToStr(CurrencyRoundPlaces) + '), ' +
+                    ' foreignBalanceAmount    = ROUND(foreignBalanceAmount   + ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) + ', ' + IntToStr(CurrencyRoundPlaces) + ')' +
+                    ' WHERE IsCredit          = "T" and PurchaseOrderID= ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID) +';' ;
+    end else begin
+      strSQL := ' UPDATE tblPurchaseOrders SET ' +
+                    ' Payment                = ROUND(Payment                + ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) + ', ' + IntToStr(CurrencyRoundPlaces)+'), ' +
+                    ' Balance                = ROUND(Balance                - ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) + ', ' + IntToStr(CurrencyRoundPlaces)+'), ' +
+                    ' ForeignPaidAmount      = ROUND(ForeignPaidAmount      + ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) + ', ' + IntToStr(CurrencyRoundPlaces) + '), ' +
+                    ' foreignBalanceAmount   = ROUND(foreignBalanceAmount   - ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) + ', ' + IntToStr(CurrencyRoundPlaces) + ') ' +
+                    ' WHERE IsCredit         = "T" and PurchaseOrderID= ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID) +';' +
+                  ' UPDATE tblPurchaseOrders SET ' +
+                    ' Payment                = ROUND(Payment                - ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) + ', ' + IntToStr(CurrencyRoundPlaces) + '), ' +
+                    ' Balance                = ROUND(Balance                + ' + FloatToStr( TGuiSuppPaymentLines(Sender).Payment) + ', ' + IntToStr(CurrencyRoundPlaces) + '), ' +
+                    ' ForeignPaidAmount      = ROUND(ForeignPaidAmount      - ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) + ', ' + IntToStr(CurrencyRoundPlaces) + '), ' +
+                    ' foreignBalanceAmount   = ROUND(foreignBalanceAmount   + ' + FloatToStr( TGuiSuppPaymentLines(Sender).ForeignPayment) + ', ' + IntToStr(CurrencyRoundPlaces) + ') ' +
+                    ' WHERE IsCredit         = "F" and PurchaseOrderID= ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID) +';' ;
+    end;
+    PostList.AddQuery(strSQL, TGuiSuppPaymentLines(Sender).TransID , 'tblPurchaseOrders', False);
+    strSQL :='UPDATE tblPurchaseOrders Set Paid = "T" WHERE PurchaseOrderID = ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID)  +
+                    ' and Balance = 0;' +
+             'UPDATE tblPurchaseOrders Set Paid = "F" WHERE PurchaseOrderID = ' + IntToStr(TGuiSuppPaymentLines(Sender).TransID)  +
+                    ' and Balance <> 0;';
+    PostList.AddQuery(strSQL, TGuiSuppPaymentLines(Sender).TransID , 'tblPurchaseOrders', False);
+  end;
 end;
+
 Procedure TSuppPayments.Createlines;
 begin
-    ShowProgressbar(GUILines.Count, 'Check for Transactions');
-    try
-      GuiLines.IterateRecords(CallbackCreateLines);
-    finally
-      HideProgressbar;
-    end;
+  ShowProgressbar(GUILines.Count, 'Check for Transactions');
+  try
+    GuiLines.IterateRecords(CallbackCreateLines);
+  finally
+    HideProgressbar;
+  end;
 end;
 
 function TSuppPayments.AddDiscountToOrder(var msg: string): Boolean;
@@ -3842,35 +3881,39 @@ end;
 
 Procedure TSuppPayments.CallbackCreateLines(Const Sender: TBusObj; var Abort: Boolean);
 begin
-    StepProgressbar;
-    if not (Sender is TGuiSuppPaymentLines) then Exit;
-    if not(TGuiSuppPaymentLines(Sender).Applied)    then Exit;
-    Lines.New;
-    Lines.TrnType           := TGuiSuppPaymentLines(Sender).TransType;
-    if Sysutils.SameText(Lines.TrnType,Prepaytype) then
-        Lines.PrePaymentID  := TGuiSuppPaymentLines(Sender).TransID
-    else Lines.POID         := TGuiSuppPaymentLines(Sender).TransID;
-    Lines.TransDate         := TGuiSuppPaymentLines(Sender).TransDate;
-    Lines.TransNo           := TGuiSuppPaymentLines(Sender).TransNumber;
-    Lines.InvoiceNo         := TGuiSuppPaymentLines(Sender).InvoiceNumber;
-    Lines.InvoiceDate       := TGuiSuppPaymentLines(Sender).InvoiceDate;
-    Lines.OriginalAmount    := TGuiSuppPaymentLines(Sender).OriginalAmount;
-    Lines.ForeignOriginalAmt:= TGuiSuppPaymentLines(Sender).ForeignOriginalAmt;
-    Lines.AmountDue         := TGuiSuppPaymentLines(Sender).AmountDue;
-    Lines.ForeignAmountDue  := TGuiSuppPaymentLines(Sender).ForeignAmountDue;
-    Lines.Payment           := TGuiSuppPaymentLines(Sender).Payment;
-    Lines.ForeignPayment    := TGuiSuppPaymentLines(Sender).ForeignPayment;
-    Lines.AmountOutstanding := TGuiSuppPaymentLines(Sender).AmountOutStanding;
-    Lines.ForeignOutStanding:= TGuiSuppPaymentLines(Sender).ForeignOutStanding;
-    if TGuiSuppPaymentLines(Sender).amountOutstanding = 0 then
-         Lines.PaidInfull   := 'Yes'
-    else Lines.PaidInfull   := 'No';
-    Lines.ClassId           := Self.ClassId;
-    Lines.PostDB;
+  StepProgressbar;
+  if not (Sender is TGuiSuppPaymentLines) then Exit;
+  if not(TGuiSuppPaymentLines(Sender).Applied) then Exit;
+
+  Lines.New;
+  Lines.TrnType           := TGuiSuppPaymentLines(Sender).TransType;
+  if Sysutils.SameText(Lines.TrnType,Prepaytype) then
+    Lines.PrePaymentID  := TGuiSuppPaymentLines(Sender).TransID
+  else
+    Lines.POID         := TGuiSuppPaymentLines(Sender).TransID;
+  Lines.TransDate           := TGuiSuppPaymentLines(Sender).TransDate;
+  Lines.TransNo             := TGuiSuppPaymentLines(Sender).TransNumber;
+  Lines.InvoiceNo           := TGuiSuppPaymentLines(Sender).InvoiceNumber;
+  Lines.InvoiceDate         := TGuiSuppPaymentLines(Sender).InvoiceDate;
+  Lines.OriginalAmount      := TGuiSuppPaymentLines(Sender).OriginalAmount;
+  Lines.ForeignOriginalAmt  := TGuiSuppPaymentLines(Sender).ForeignOriginalAmt;
+  Lines.AmountDue           := TGuiSuppPaymentLines(Sender).AmountDue;
+  Lines.ForeignAmountDue    := TGuiSuppPaymentLines(Sender).ForeignAmountDue;
+  Lines.Payment             := TGuiSuppPaymentLines(Sender).Payment;
+  Lines.ForeignPayment      := TGuiSuppPaymentLines(Sender).ForeignPayment;
+  Lines.AmountOutstanding   := TGuiSuppPaymentLines(Sender).AmountOutStanding;
+  Lines.ForeignOutStanding  := TGuiSuppPaymentLines(Sender).ForeignOutStanding;
+  if TGuiSuppPaymentLines(Sender).amountOutstanding = 0 then
+    Lines.PaidInfull   := 'Yes'
+  else
+    Lines.PaidInfull   := 'No';
+  Lines.ClassId           := Self.ClassId;
+  Lines.PostDB;
 end;
+
 Function TSuppPayments.getABAObj: TABADetailRecord;
 begin
-   Result := TABADetailRecord(getContainerComponent(TABADetailRecord , 'TransID = ' + IntToStr(ID) + ' and TransType = ' + QuotedStr('Supp Pay')));
+  Result := TABADetailRecord(getContainerComponent(TABADetailRecord , 'TransID = ' + IntToStr(ID) + ' and TransType = ' + QuotedStr('Supp Pay')));
 end;
 
 Function TSuppPayments.Valid4Email : Boolean;
@@ -3931,6 +3974,7 @@ Class Function  TSuppPayments.GetBusObjectTablename: String;
 begin
     Result:= 'tblwithdrawal';
 end;
+
 Class function  TSuppPayments.GetTranstype: String;
 begin
     Result := 'Supplier Payment';
@@ -3978,102 +4022,104 @@ begin
         Free;
     end;
 end;
+
 Procedure TSuppPayments.POPaymentLines(Var QrySource:TERPQuery);
 begin
-                  qrySource.SQL.Clear;
-                  qrySource.SQL.Add('SELECT TrnType,tblwithdrawallines.OrderDate,tblwithdrawallines.InvoiceDate,InvoiceNo,');
-                  qrySource.SQL.Add('PONo,tblpurchaseorders.Comments ,OriginalAmount,tblwithdrawallines.AmountDue,tblwithdrawallines.Payment,AmountOutstanding,');
-                  qrySource.SQL.Add('"T" ,If(IsNull(POID),PrepaymentID,POID),tblwithdrawal.ForeignExchangeCode,');
-                  qrySource.SQL.Add('tblwithdrawal.ForeignExchangeRate,ForeignOriginalAmount,');
-                  qrySource.SQL.Add('ForeignAmountDue,ForeignPayment,ForeignAmountOutstanding,');
-                  qrySource.SQL.Add('PaidInFull,E.EmployeeName from tblwithdrawal');
-                  qrySource.SQL.Add('INNER JOIN tblemployees E ON tblwithdrawal.EmployeeID = E.EmployeeID');
-                  qrySource.SQL.Add('Inner Join (tblwithdrawallines ');
-                  qrySource.SQL.Add('LEFT join tblpurchaseOrders ON tblwithdrawallines.POID = tblpurchaseorders.purchaseorderid)');
-                  qrySource.SQL.Add('ON tblwithdrawal.PaymentID = tblwithdrawallines.PaymentID');
-                  qrySource.SQL.Add('Where tblwithdrawal.PaymentID =' + IntToStr(ID));
+  qrySource.SQL.Clear;
+  qrySource.SQL.Add('SELECT TrnType,tblwithdrawallines.OrderDate,tblwithdrawallines.InvoiceDate,InvoiceNo,');
+  qrySource.SQL.Add('PONo,tblpurchaseorders.Comments ,OriginalAmount,tblwithdrawallines.AmountDue,tblwithdrawallines.Payment,AmountOutstanding,');
+  qrySource.SQL.Add('"T" ,If(IsNull(POID),PrepaymentID,POID),tblwithdrawal.ForeignExchangeCode,');
+  qrySource.SQL.Add('tblwithdrawal.ForeignExchangeRate,ForeignOriginalAmount,');
+  qrySource.SQL.Add('ForeignAmountDue,ForeignPayment,ForeignAmountOutstanding,');
+  qrySource.SQL.Add('PaidInFull,E.EmployeeName from tblwithdrawal');
+  qrySource.SQL.Add('INNER JOIN tblemployees E ON tblwithdrawal.EmployeeID = E.EmployeeID');
+  qrySource.SQL.Add('Inner Join (tblwithdrawallines ');
+  qrySource.SQL.Add('LEFT join tblpurchaseOrders ON tblwithdrawallines.POID = tblpurchaseorders.purchaseorderid)');
+  qrySource.SQL.Add('ON tblwithdrawal.PaymentID = tblwithdrawallines.PaymentID');
+  qrySource.SQL.Add('Where tblwithdrawal.PaymentID =' + IntToStr(ID));
 end;
+
 Procedure TSuppPayments.POOutStandingTrans(Var QrySource:TERPQuery; aPOtype:String = ''; aPOID:Integer = 0);
 begin
-                  qrySource.SQL.Clear;
-                  if (aPOtype = '') or not sametext(aPOtype , PrePayType) then begin
-                      qrySource.SQL.Add('SELECT If(tblpurchaseorders.IsBill="T",' + QuotedStr(Billtype) +' ,If(tblpurchaseorders.IsPO="T",' + QuotedStr(POType)  +' ,If(tblpurchaseorders.IsCredit="T",' + QuotedStr(Credittype) + ',If(tblpurchaseorders.Ischeque="T" ,' + QuotedStr(ChequeType) +',' +  QuotedStr(RAType)+')))) as Type,');
-                      qrySource.SQL.Add('SupplierName                           as SupplierName, ');
-                      qrySource.SQL.Add('OrderDate                              as OrderDate,');
-                      qrySource.SQL.Add('InvoiceDate                            as InvoiceDate,');
-                      qrySource.SQL.Add('InvoiceNumber                          as InvoiceNumber, ');
-                      qrySource.SQL.Add('tblpurchaseorders.GlobalRef            as GlobalRef, ');
-                      qrySource.SQL.Add('tblpurchaseorders.Comments             as Comments, ');
-                      qrySource.SQL.Add('PurchaseOrderNumber                    as PurchaseOrderNumber, ');
-                      qrySource.SQL.Add('If(IsCredit="T",-tblpurchaseorders.TotalAmountInc,tblpurchaseorders.TotalAmountInc) as TotalAmountInc, ');
-                      qrySource.SQL.Add('If(IsCredit="T",-tblpurchaseorders.Balance,tblpurchaseorders.Balance) as Balance,');
-                      qrySource.SQL.Add('0, ');
-                      qrySource.SQL.Add('If(IsCredit="T",-tblpurchaseorders.Balance,tblpurchaseorders.Balance) , ');
-                      qrySource.SQL.Add('Paid                                   as Paid, ');
-                      qrySource.SQL.Add('tblpurchaseorders.PurchaseOrderID      as PurchaseOrderID, ');
-                      qrySource.SQL.Add('tblpurchaseorders.ForeignExchangeCode  as ForeignExchangeCode, ');
-                      qrySource.SQL.Add('tblpurchaseorders.ForeignExchangeRate  as ForeignExchangeRate, ');
-                      qrySource.SQL.Add('If(IsCredit="T",-tblpurchaseorders.ForeignTotalAmount, tblpurchaseorders.ForeignTotalAmount) as ForeignTotalAmount, ');
-                      qrySource.SQL.Add('0, ');
-                      qrySource.SQL.Add('If(IsCredit="T",-tblpurchaseorders.ForeignBalanceAmount, tblpurchaseorders.ForeignBalanceAmount) as ForeignBalanceAmount ,');
-                      qrySource.SQL.Add('If(IsCredit="T",-tblpurchaseorders.ForeignBalanceAmount, tblpurchaseorders.ForeignBalanceAmount), ');
-                      qrySource.SQL.Add('tblpurchaseorders.RefNo                as RefNo,');
-                      qrySource.SQL.Add('tblpurchaseorders.EnteredBy            as EnteredBy');
-                      qrySource.SQL.Add('FROM tblpurchaseorders');
-                      qrySource.SQL.Add('INNER JOIN tblpurchaselines ON tblpurchaselines.PurchaseOrderID = tblpurchaseorders.PurchaseOrderID  ');
-                      qrySource.SQL.Add('INNER JOIN tblClients  ON  tblpurchaseorders.ClientID = tblClients.ClientID  ');
-                      qrySource.SQL.Add('WHERE tblpurchaseorders.ClientID =' + IntToStr(clientID) );
-                      qrySource.SQL.Add('AND (IsBill ="T" OR IsPO ="T" OR IsCredit ="T") AND IsRA ="F" ');
-                      qrySource.SQL.Add('AND tblpurchaseorders.Deleted<>"T" And TotalAmountInc <> 0 AND Paid="F" ');
-                      {For VS1, PO doesn't need invoice number to pay}
-                      qrySource.SQL.Add('AND If((IsCredit="T" OR IsBill="T" or ' + Quotedstr(BooleanToStr(appenv.appdb.apimode))+ '="T" ),1,char_length(tblpurchaseorders.InvoiceNumber))>0  ');
-                      qrySource.SQL.Add('AND tblpurchaseorders.Balance <> 0');
-                      if SalePOIDs <> '' then qrySource.SQL.Add('AND tblpurchaseorders.PurchaseOrderId In (' + SalePOIDs +')');
-                      if aPOtype   <> '' then qrySource.SQL.Add('AND If(tblpurchaseorders.IsBill="T",' + QuotedStr(Billtype) +' ,If(tblpurchaseorders.IsPO="T",' + QuotedStr(POType)  +' ,If(tblpurchaseorders.IsCredit="T",' + QuotedStr(Credittype) + ',If(tblpurchaseorders.Ischeque="T" ,' + QuotedStr(ChequeType) +',' +  QuotedStr(RAType)+')))) =' + quotedstr(aPOtype));
-                      if aPOID     <> 0  then qrySource.SQL.Add('AND tblpurchaseorders.PurchaseOrderId In (' + inttostr(aPOID) +')');
-                      if AppEnv.CompanyPrefs.POOnlyApprovedTransInSuppPayment then begin
-                        qrySource.SQL.Add('AND Approved = "T" ');
-                      end;
-                      qrySource.SQL.Add('GROUP BY tblpurchaseorders.PurchaseOrderID ');
-                  end;
+  qrySource.SQL.Clear;
+  if (aPOtype = '') or not sametext(aPOtype , PrePayType) then begin
+      qrySource.SQL.Add('SELECT If(tblpurchaseorders.IsBill="T",' + QuotedStr(Billtype) +' ,If(tblpurchaseorders.IsPO="T",' + QuotedStr(POType)  +' ,If(tblpurchaseorders.IsCredit="T",' + QuotedStr(Credittype) + ',If(tblpurchaseorders.Ischeque="T" ,' + QuotedStr(ChequeType) +',' +  QuotedStr(RAType)+')))) as Type,');
+      qrySource.SQL.Add('SupplierName                           as SupplierName, ');
+      qrySource.SQL.Add('OrderDate                              as OrderDate,');
+      qrySource.SQL.Add('InvoiceDate                            as InvoiceDate,');
+      qrySource.SQL.Add('InvoiceNumber                          as InvoiceNumber, ');
+      qrySource.SQL.Add('tblpurchaseorders.GlobalRef            as GlobalRef, ');
+      qrySource.SQL.Add('tblpurchaseorders.Comments             as Comments, ');
+      qrySource.SQL.Add('PurchaseOrderNumber                    as PurchaseOrderNumber, ');
+      qrySource.SQL.Add('If(IsCredit="T",-tblpurchaseorders.TotalAmountInc,tblpurchaseorders.TotalAmountInc) as TotalAmountInc, ');
+      qrySource.SQL.Add('If(IsCredit="T",-tblpurchaseorders.Balance,tblpurchaseorders.Balance) as Balance,');
+      qrySource.SQL.Add('0, ');
+      qrySource.SQL.Add('If(IsCredit="T",-tblpurchaseorders.Balance,tblpurchaseorders.Balance) , ');
+      qrySource.SQL.Add('Paid                                   as Paid, ');
+      qrySource.SQL.Add('tblpurchaseorders.PurchaseOrderID      as PurchaseOrderID, ');
+      qrySource.SQL.Add('tblpurchaseorders.ForeignExchangeCode  as ForeignExchangeCode, ');
+      qrySource.SQL.Add('tblpurchaseorders.ForeignExchangeRate  as ForeignExchangeRate, ');
+      qrySource.SQL.Add('If(IsCredit="T",-tblpurchaseorders.ForeignTotalAmount, tblpurchaseorders.ForeignTotalAmount) as ForeignTotalAmount, ');
+      qrySource.SQL.Add('0, ');
+      qrySource.SQL.Add('If(IsCredit="T",-tblpurchaseorders.ForeignBalanceAmount, tblpurchaseorders.ForeignBalanceAmount) as ForeignBalanceAmount ,');
+      qrySource.SQL.Add('If(IsCredit="T",-tblpurchaseorders.ForeignBalanceAmount, tblpurchaseorders.ForeignBalanceAmount), ');
+      qrySource.SQL.Add('tblpurchaseorders.RefNo                as RefNo,');
+      qrySource.SQL.Add('tblpurchaseorders.EnteredBy            as EnteredBy');
+      qrySource.SQL.Add('FROM tblpurchaseorders');
+      qrySource.SQL.Add('INNER JOIN tblpurchaselines ON tblpurchaselines.PurchaseOrderID = tblpurchaseorders.PurchaseOrderID  ');
+      qrySource.SQL.Add('INNER JOIN tblClients  ON  tblpurchaseorders.ClientID = tblClients.ClientID  ');
+      qrySource.SQL.Add('WHERE tblpurchaseorders.ClientID =' + IntToStr(clientID) );
+      qrySource.SQL.Add('AND (IsBill ="T" OR IsPO ="T" OR IsCredit ="T") AND IsRA ="F" ');
+      qrySource.SQL.Add('AND tblpurchaseorders.Deleted<>"T" And TotalAmountInc <> 0 AND Paid="F" ');
+      {For VS1, PO doesn't need invoice number to pay}
+      qrySource.SQL.Add('AND If((IsCredit="T" OR IsBill="T" or ' + Quotedstr(BooleanToStr(appenv.appdb.apimode))+ '="T" ),1,char_length(tblpurchaseorders.InvoiceNumber))>0  ');
+      qrySource.SQL.Add('AND tblpurchaseorders.Balance <> 0');
+      if SalePOIDs <> '' then qrySource.SQL.Add('AND tblpurchaseorders.PurchaseOrderId In (' + SalePOIDs +')');
+      if aPOtype   <> '' then qrySource.SQL.Add('AND If(tblpurchaseorders.IsBill="T",' + QuotedStr(Billtype) +' ,If(tblpurchaseorders.IsPO="T",' + QuotedStr(POType)  +' ,If(tblpurchaseorders.IsCredit="T",' + QuotedStr(Credittype) + ',If(tblpurchaseorders.Ischeque="T" ,' + QuotedStr(ChequeType) +',' +  QuotedStr(RAType)+')))) =' + quotedstr(aPOtype));
+      if aPOID     <> 0  then qrySource.SQL.Add('AND tblpurchaseorders.PurchaseOrderId In (' + inttostr(aPOID) +')');
+      if AppEnv.CompanyPrefs.POOnlyApprovedTransInSuppPayment then begin
+        qrySource.SQL.Add('AND Approved = "T" ');
+      end;
+      qrySource.SQL.Add('GROUP BY tblpurchaseorders.PurchaseOrderID ');
+  end;
 
-
-                  if (aPOtype = '') or  sametext(aPOtype , PrePayType) then begin
-                    if qrySource.SQL.count >0 then qrySource.SQL.Add('UNION ALL ');
-                    qrySource.SQL.Add('SELECT');
-                    qrySource.SQL.Add(QuotedStr(PrePayType) + '                 as Type, ');
-                    qrySource.SQL.Add('CompanyName                              as SupplierName, ');
-                    qrySource.SQL.Add('tblprepayments.PrePaymentDate            as OrderDate,');
-                    qrySource.SQL.Add('tblprepayments.PrePaymentDate            as InvoiceDate, ');
-                    qrySource.SQL.Add('""                                       as InvoiceNumber, ');
-                    qrySource.SQL.Add('tblprepayments.GlobalRef                 as GlobalRef, ');
-                    qrySource.SQL.Add('tblprepayments.Notes                     as "Comments", ');
-                    qrySource.SQL.Add('tblprepayments.PrePaymentID              as PurchaseOrderNumber, ');
-                    qrySource.SQL.Add('-tblprepayments.PayAmount                as TotalAmountInc, ');
-                    qrySource.SQL.Add('-tblprepayments.Balance                  as Balance,');
-                    qrySource.SQL.Add('0,');
-                    qrySource.SQL.Add('-tblprepayments.Balance, ');
-                    qrySource.SQL.Add('tblprepayments.Paid                      as Paid, ');
-                    qrySource.SQL.Add('tblprepayments.PrePaymentID              as PurchaseOrderID,');
-                    qrySource.SQL.Add('tblprepayments.ForeignExchangeCode       as ForeignExchangeCode, ');
-                    qrySource.SQL.Add('tblprepayments.ForeignExchangeRate       as ForeignExchangeRate, ');
-                    qrySource.SQL.Add('-tblprepayments.ForeignPayAmount         as ForeignTotalAmount, ');
-                    qrySource.SQL.Add('0, ');
-                    qrySource.SQL.Add('-tblprepayments.ForeignBalance           as ForeignBalanceAmount, ');
-                    qrySource.SQL.Add('-tblprepayments.ForeignBalance           as ForeignBalance,');
-                    qrySource.SQL.Add('tblprepayments.ReferenceNo               as RefNo,');
-                    qrySource.SQL.Add('E.EmployeeName                           as EnteredBy');
-                    qrySource.SQL.Add('FROM tblprepayments');
-                    qrySource.SQL.Add('INNER JOIN tblemployees E ON tblprepayments.EmployeeId=E.EmployeeId');
-                    qrySource.SQL.Add('WHERE Supplier="T" AND tblprepayments.Paid="F" AND tblprepayments.Deleted="F" ');
-                    qrySource.SQL.Add('AND tblprepayments.Balance <> 0');
-                    qrySource.SQL.Add('AND tblprepayments.ClientID = ' + IntToStr(clientID) );
-                    if PrepayIDS <> '' then qrySource.SQL.Add('AND tblprepayments.PrePaymentID In (' + PrepayIDS +')');
-                    if aPOID     <> 0  then qrySource.SQL.Add('AND tblprepayments.PrePaymentID In (' + inttostr(aPOID) +')');
-                    qrySource.SQL.Add('GROUP By tblprepayments.PrePaymentID ');
-                  end;
-                  qrySource.SQL.Add('ORDER BY PurchaseOrderID;');
+  if (aPOtype = '') or  sametext(aPOtype , PrePayType) then begin
+    if qrySource.SQL.count >0 then qrySource.SQL.Add('UNION ALL ');
+    qrySource.SQL.Add('SELECT');
+    qrySource.SQL.Add(QuotedStr(PrePayType) + '                 as Type, ');
+    qrySource.SQL.Add('CompanyName                              as SupplierName, ');
+    qrySource.SQL.Add('tblprepayments.PrePaymentDate            as OrderDate,');
+    qrySource.SQL.Add('tblprepayments.PrePaymentDate            as InvoiceDate, ');
+    qrySource.SQL.Add('""                                       as InvoiceNumber, ');
+    qrySource.SQL.Add('tblprepayments.GlobalRef                 as GlobalRef, ');
+    qrySource.SQL.Add('tblprepayments.Notes                     as "Comments", ');
+    qrySource.SQL.Add('tblprepayments.PrePaymentID              as PurchaseOrderNumber, ');
+    qrySource.SQL.Add('-tblprepayments.PayAmount                as TotalAmountInc, ');
+    qrySource.SQL.Add('-tblprepayments.Balance                  as Balance,');
+    qrySource.SQL.Add('0,');
+    qrySource.SQL.Add('-tblprepayments.Balance, ');
+    qrySource.SQL.Add('tblprepayments.Paid                      as Paid, ');
+    qrySource.SQL.Add('tblprepayments.PrePaymentID              as PurchaseOrderID,');
+    qrySource.SQL.Add('tblprepayments.ForeignExchangeCode       as ForeignExchangeCode, ');
+    qrySource.SQL.Add('tblprepayments.ForeignExchangeRate       as ForeignExchangeRate, ');
+    qrySource.SQL.Add('-tblprepayments.ForeignPayAmount         as ForeignTotalAmount, ');
+    qrySource.SQL.Add('0, ');
+    qrySource.SQL.Add('-tblprepayments.ForeignBalance           as ForeignBalanceAmount, ');
+    qrySource.SQL.Add('-tblprepayments.ForeignBalance           as ForeignBalance,');
+    qrySource.SQL.Add('tblprepayments.ReferenceNo               as RefNo,');
+    qrySource.SQL.Add('E.EmployeeName                           as EnteredBy');
+    qrySource.SQL.Add('FROM tblprepayments');
+    qrySource.SQL.Add('INNER JOIN tblemployees E ON tblprepayments.EmployeeId=E.EmployeeId');
+    qrySource.SQL.Add('WHERE Supplier="T" AND tblprepayments.Paid="F" AND tblprepayments.Deleted="F" ');
+    qrySource.SQL.Add('AND tblprepayments.Balance <> 0');
+    qrySource.SQL.Add('AND tblprepayments.ClientID = ' + IntToStr(clientID) );
+    if PrepayIDS <> '' then qrySource.SQL.Add('AND tblprepayments.PrePaymentID In (' + PrepayIDS +')');
+    if aPOID     <> 0  then qrySource.SQL.Add('AND tblprepayments.PrePaymentID In (' + inttostr(aPOID) +')');
+    qrySource.SQL.Add('GROUP By tblprepayments.PrePaymentID ');
+  end;
+  qrySource.SQL.Add('ORDER BY PurchaseOrderID;');
 end;
+
 Function TSuppPayments.getGUIPaymentLines :TGUIPaymentLines;
 var
     SQLList:TStringList;
@@ -4152,7 +4198,7 @@ begin
               qryDest.Open;
               while not qrySource.Eof do begin
                 qryDest.Insert;
-                for x:= 0 to qrySource.FieldCount -1 do
+                for x:= 0 to qrySource.FieldCount - 1 do
                   qryDest.Fields[x].Value:= qrySource.Fields[x].Value;
                 qryDest.Post;
                 qrySource.Next;
@@ -4180,14 +4226,14 @@ end;
 
 Procedure TSuppPayments.RefreshguiLines;
 begin
-    SendEvent(BusobjEvent_Event, BusObjEventVal_BeforeRefreshGuiLines);
-    try
-      Container.clear(TGuiSuppPaymentLines);
-      GUILines;
-      if assigned(ChangeDisplayLabel) then ChangeDisplayLabel;
-    finally
-      SendEvent(BusobjEvent_Event, BusObjEventVal_AfterRefreshGuiLines);
-    end;
+  SendEvent(BusobjEvent_Event, BusObjEventVal_BeforeRefreshGuiLines);
+  try
+    Container.clear(TGuiSuppPaymentLines);
+    GUILines;
+    if assigned(ChangeDisplayLabel) then ChangeDisplayLabel;
+  finally
+    SendEvent(BusobjEvent_Event, BusObjEventVal_AfterRefreshGuiLines);
+  end;
 end;
 
 destructor TSuppPayments.Destroy;

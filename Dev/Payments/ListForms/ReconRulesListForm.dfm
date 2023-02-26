@@ -5,10 +5,7 @@ inherited ReconRulesListFormGUI: TReconRulesListFormGUI
   Caption = 'Rules  List'
   ClientWidth = 1119
   OldCreateOrder = True
-  ExplicitLeft = 8
-  ExplicitTop = 8
   ExplicitWidth = 1125
-  ExplicitHeight = 592
   PixelsPerInch = 96
   TextHeight = 13
   inherited lblSkingroupMsg: TLabel
@@ -28,7 +25,6 @@ inherited ReconRulesListFormGUI: TReconRulesListFormGUI
     Width = 1119
     HelpContext = 463020
     Color = 15527129
-    ExplicitTop = 0
     ExplicitWidth = 1119
     inherited lblFrom: TLabel
       Left = 893
@@ -221,7 +217,6 @@ inherited ReconRulesListFormGUI: TReconRulesListFormGUI
       TitleColor = 15527129
       KeyOptions = [dgAllowDelete, dgAllowInsert]
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgWordWrap, dgPerfectRowFit, dgRowResize]
-      ExplicitTop = 169
       ExplicitWidth = 856
       inherited btnGrid: TwwIButton
         Width = 21
@@ -469,7 +464,7 @@ inherited ReconRulesListFormGUI: TReconRulesListFormGUI
   end
   inherited imgPopup: TImageList
     Bitmap = {
-      494C01010800A003280810001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010800A0032C0810001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -940,8 +935,8 @@ inherited ReconRulesListFormGUI: TReconRulesListFormGUI
       'FROM tblclients'
       'WHERE Active = '#39'T'#39' And (Supplier = '#39'T'#39' or Customer = '#39'T'#39') '
       'Order By Company;')
-    Left = 354
-    Top = 254
+    Left = 506
+    Top = 318
   end
   object DSClientLookup: TDataSource
     AutoEdit = False

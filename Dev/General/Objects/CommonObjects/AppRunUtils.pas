@@ -69,26 +69,24 @@ implementation
 
 uses WinSvc, ShellApi, Tlhelp32, sysutils, DateUtils, Psapi;
 
-function ServiceStart(aMachine, aServiceName : string ) : boolean;
+function ServiceStart(aMachine, aServiceName: string ): Boolean;
 // aMachine is UNC path or local machine if left empty
 var
-  h_manager,h_svc: SC_Handle;
+  h_manager, h_svc: SC_Handle;
   svc_status: TServiceStatus;
   Temp: PChar;
   dwCheckPoint: DWord;
 begin
   svc_status.dwCurrentState := 1;
-  h_manager := OpenSCManager(PChar(aMachine), Nil,
-                             SC_MANAGER_CONNECT);
+  h_manager := OpenSCManager(PChar(aMachine), Nil, SC_MANAGER_CONNECT);
   if h_manager > 0 then
   begin
-    h_svc := OpenService(h_manager, PChar(aServiceName),
-                         SERVICE_START or SERVICE_QUERY_STATUS);
+    h_svc := OpenService(h_manager, PChar(aServiceName), SERVICE_START or SERVICE_QUERY_STATUS);
     if h_svc > 0 then
     begin
       temp := nil;
-      if (StartService(h_svc,0,temp)) then
-        if (QueryServiceStatus(h_svc,svc_status)) then
+      if (StartService(h_svc, 0, temp)) then
+        if (QueryServiceStatus(h_svc, svc_status)) then
         begin
           while (SERVICE_RUNNING <> svc_status.dwCurrentState) do
           begin
@@ -96,8 +94,8 @@ begin
 
             Sleep(svc_status.dwWaitHint);
 
-            if (not QueryServiceStatus(h_svc,svc_status)) then
-              break;
+            if (not QueryServiceStatus(h_svc, svc_status)) then
+              Break;
 
             if (svc_status.dwCheckPoint < dwCheckPoint) then
             begin

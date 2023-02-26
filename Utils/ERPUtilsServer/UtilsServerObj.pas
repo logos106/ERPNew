@@ -1213,7 +1213,7 @@ begin
     s := SoftwareReleaseType;
     if s = '' then begin
       Log('Unable to retreive Software Release Type, aborting update check.', ltError);
-      exit;
+      Exit;
     end;
 
     config := TJsonObject.Create;
@@ -1234,7 +1234,7 @@ begin
 
     if ForceRestart then begin
       Item.B['ForceRestart'] := True;
-      config.B['DoBatchUpdate'] := true;
+      config.B['DoBatchUpdate'] := True;
     end
     else begin
       config.B['DoBatchUpdate'] := False;

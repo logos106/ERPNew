@@ -36,7 +36,7 @@ type
     destructor Destroy; override;
     property ServerName: string read GetServerName write SetServerName;
     property Port: integer read GetPort write SetPort;
-    function SendRequest(aMethodName: string; obj: TJsonObject; id: integer = 0): TJsonObject;  override;
+    function SendRequest(aMethodName: string; obj: TJsonObject; id: Integer = 0): TJsonObject;  override;
     function SendRequestRetry(aMethodName: string; obj: TJsonObject; id: integer = 0; RetryCount: integer = 3): TJsonObject;
   end;
 

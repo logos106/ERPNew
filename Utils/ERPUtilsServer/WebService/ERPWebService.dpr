@@ -718,7 +718,8 @@ uses
   DashboardMyData1SQL in '..\..\..\Dev\Vs1\Objects\DashboardMyData1SQL.pas',
   DashboardMyData2SQL in '..\..\..\Dev\Vs1\Objects\DashboardMyData2SQL.pas',
   DashboardMyData3SQL in '..\..\..\Dev\Vs1\Objects\DashboardMyData3SQL.pas',
-  DashboardSalesData3SQL in '..\..\..\Dev\Vs1\Objects\DashboardSalesData3SQL.pas';
+  DashboardSalesData3SQL in '..\..\..\Dev\Vs1\Objects\DashboardSalesData3SQL.pas',
+  BusobjReconciliationRule in '..\..\..\Dev\Accounts\Objects\BusobjReconciliationRule.pas';
 
 {$R *.RES}
 

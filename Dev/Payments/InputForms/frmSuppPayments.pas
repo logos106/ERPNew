@@ -398,7 +398,7 @@ type
     Procedure InitGuiPrefsReadonlyFields;Override;
     Procedure InitERPLookupCombonFields; Override;
   public
-    SuppPayment :TSuppPayments;
+    SuppPayment: TSuppPayments;
     property ExtSupplierId   : Integer read fExtSupplierId  write fExtSupplierId;
 
   end;
@@ -556,9 +556,6 @@ begin
     end  else if (Eventtype = BusobjEvent_ToDo ) and (Value =  BusobjEvent_CalculationsDisabled) then begin
         lblDisableCalc.visible := SuppPayment.GUILines.count > appenv.CompanyPrefs.suppPayLinesToDisableCalcs;
     end;
-
-
-
 end;
 
 procedure TfmSuppPayments.DoEarlyPayment;
@@ -583,20 +580,20 @@ begin
     inherited;
     BeginTransaction;
     ClassLabel.Caption := AppEnv.DefaultClass.ClassHeading;
-    s:= grdPayments.Selected.Text;
+    s := grdPayments.Selected.Text;
     SuppPayment.Load(KeyID);
     if KeyID = 0 then
       SuppPayment.New;
     grdPayments.Selected.Text := s;
-    Setlength(QueryNamesNotToOpen , 3);
+    Setlength(QueryNamesNotToOpen, 3);
     QueryNamesNotToOpen[0]  := 'tblMaster';
-    QueryNamesNotToOpen[1]  := 'TblDetails';
+    QueryNamesNotToOpen[1]  := 'tblDetails';
     QueryNamesNotToOpen[2]  := 'tblGuiDetails';
     OpenQueries(QueryNamesNotToOpen);
 
     chkEFT.Checked := AppEnv.CompanyPrefs.PaymentsAddToEFT and (KeyID = 0);
-    if  Supppayment.LockMsg <> '' then begin
-        Self.Caption := self.Caption + '     {' + Supppayment.LockMsg +'}';
+    if Supppayment.LockMsg <> '' then begin
+        Self.Caption := Self.Caption + '     {' + Supppayment.LockMsg + '}';
         Accesslevel  := 5;
     end;
 
@@ -604,12 +601,12 @@ begin
     SetControlFocus(cboClient);
     ManipulateRequiredControls;
     InAccountNoMode := False;
-    SuppPayment.Dirty:= false;
-    UserChangedPaymentAmount:= false;
+    SuppPayment.Dirty := False;
+    UserChangedPaymentAmount := False;
     tblMasterEnteredAt.DisplayFormat := FormatSettings.ShortDateformat;
     if fExtSupplierId > 0 then begin
       tblMaster.FieldByName('SupplierId').AsInteger := fExtSupplierId;
-      SuppPayment.Dirty:= true;
+      SuppPayment.Dirty := True;
     end;
   finally
     EnableForm;
@@ -1344,6 +1341,7 @@ begin
     EnableForm;
   end;
 end;
+
 procedure TfmSuppPayments.cboAccountQryBeforeOpen(DataSet: TDataSet);
 begin
   inherited;
@@ -1631,32 +1629,32 @@ function TfmSuppPayments.SaveData: boolean;
 var
   msg: string;
 begin
-    result:= false;
-    if lblDisableCalc.visible then lblDisableCalcClick(lblDisableCalc);
-    if (SuppPayment.Amount < 0)  then begin
-      if MessageDlgXP_Vista('The payment amount is a negative value, ' +
-        'do you wish to Save this payment anyway?',mtConfirmation,[mbYes,mbNo],0) = mrNo then
-        exit;
-    end;
+  Result := False;
+  if lblDisableCalc.visible then lblDisableCalcClick(lblDisableCalc);
+  if (SuppPayment.Amount < 0)  then begin
+    if MessageDlgXP_Vista('The payment amount is a negative value, ' +
+      'do you wish to Save this payment anyway?', mtConfirmation, [mbYes, mbNo], 0) = mrNo then
+      Exit;
+  end;
 
-    if (SuppPayment.TotalDiscount <> 0)  or (SuppPayment.TotalRefunding <> 0) then begin
-        if commonlib.MessageDlgXP_Vista('Do you wish to apply the Discounts/Refund? ' , mtConfirmation , [mbYes, mbNo], 0) = mrYes then begin
-          if not SuppPayment.AddDiscountToOrder(msg) then
-            CommonLib.MessageDlgXP_Vista(msg, mtInformation, [mbOk], 0);
-        end;
-        Exit;
+  if (SuppPayment.TotalDiscount <> 0) or (SuppPayment.TotalRefunding <> 0) then begin
+    if commonlib.MessageDlgXP_Vista('Do you wish to apply the Discounts/Refund? ', mtConfirmation, [mbYes, mbNo], 0) = mrYes then begin
+      if not SuppPayment.AddDiscountToOrder(msg) then
+        CommonLib.MessageDlgXP_Vista(msg, mtInformation, [mbOk], 0);
     end;
+    Exit;
+  end;
 
-    If (KeyID<>0) and SuppPayment.AddToEFT and not SuppPayment.Deleted then Begin
-      SuppPayment.CreateABARecord;
-      result:= true;
-    end else Begin
-      SuppPayment.UpdateFCHistory;
-      if SuppPayment.Save then begin
-          SuppPayment.connection.CommitTransaction;
-          result:= true;
-      end;
+  If (KeyID <> 0) and SuppPayment.AddToEFT and not SuppPayment.Deleted then Begin
+    SuppPayment.CreateABARecord;
+    Result := True;
+  end else Begin
+    SuppPayment.UpdateFCHistory;
+    if SuppPayment.Save then begin
+      SuppPayment.Connection.CommitTransaction;
+      Result := True;
     end;
+  end;
 end;
 
 procedure TfmSuppPayments.btnSelectallClick(Sender: TObject);

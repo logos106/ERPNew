@@ -684,13 +684,13 @@ end;
 
 function TReconciliationGUI.ProcessDelete: boolean;
 begin
-  str:='ProcessDelete';
+  str := 'ProcessDelete';
   Result := False;
-  if Reconciliationobj.processdelete then begin
+  if Reconciliationobj.ProcessDelete then begin
     CommitTransaction;
-    if CommitFailed then exit;
+    if CommitFailed then Exit;
     Notify;
-    REsult := True;
+    Result := True;
     Close;
   end;
 end;
@@ -796,15 +796,14 @@ end;
 
 
 procedure TReconciliationGUI.btnSaveCloseClick(Sender: TObject);
-
-  function HasTransLines: boolean;
+  function HasTransLines: Boolean;
   begin
-    Result:= (Reconciliationobj.DepositLines.Count>0) or
-             (Reconciliationobj.WithdrawalLines.Count>0)
+    Result := (Reconciliationobj.DepositLines.Count > 0) or
+             (Reconciliationobj.WithdrawalLines.Count > 0)
   end;
 begin
-  if not SaveRecons(true) then Exit;
-  Self.close;
+  if not SaveRecons(True) then Exit;
+  Self.Close;
 end;
 
 procedure TReconciliationGUI.btnSaveCloseEnter(Sender: TObject);
@@ -946,13 +945,12 @@ var
   TempEndingBalance: currency;
   msg: string;
 begin
-  Result := false;
+  Result := False;
 
-  btnSaveClose.Enabled := true;
+  btnSaveClose.Enabled := True;
   //if not LockselectedTrans then exit;
   // Delete
   if ProcessDelete() then Exit;
-
 
   TempEndingBalance := 0.00;
   if not bFinished then begin
@@ -964,26 +962,25 @@ begin
   ReconciliationObj.CalcTotals;
   //ReconciliationObj.CloseBalance          := FloatToCurr(StrValue(edtOpenBal.Text)) + ReconciliationObj.SumClearedDeposits - ReconciliationObj.SumClearedWithDrawals;
   //ReconciliationObj.Balance               := ReconciliationObj.OpenBalance + ReconciliationObj.SumClearedDeposits - ReconciliationObj.SumClearedWithDrawals;
-  if not OkToSave(bFinished) then  Exit;
+  if not OkToSave(bFinished) then Exit;
 
   if not PostRecToDB(bFinished, TempEndingBalance, msg) then Exit;
 
-  if not Reconciliationobj.Save then exit;
+  if not Reconciliationobj.Save then Exit;
 
-    str := 'SaveRecons';
-    CommitTransaction;
-    if CommitFailed then exit;
-    Result := true;
-    if bFinished then begin
-      // print report if required
-      if CommonLib.MessageDlgXP_Vista('Would you like to Print Reconciliation Reports', mtConfirmation, [mbYes, mbNo], 0) = mrYes then begin
-        btnPrint.Click;
-        btnPrintReport.Click;
-      end;
+  str := 'SaveRecons';
+  CommitTransaction;
+  if CommitFailed then Exit;
+  Result := True;
+  if bFinished then begin
+    // print report if required
+    if CommonLib.MessageDlgXP_Vista('Would you like to Print Reconciliation Reports', mtConfirmation, [mbYes, mbNo], 0) = mrYes then begin
+      btnPrint.Click;
+      btnPrintReport.Click;
     end;
-    Notify;
+  end;
+  Notify;
 end;
-
 
 procedure TReconciliationGUI.btnChequeClick(Sender: TObject);
 var
@@ -1052,25 +1049,25 @@ begin
   end;
 end;
 
-function  TReconciliationGUI.FindInvoice(AAmount: Extended; AStatementDesc : string; ATxnDate: TDateTime) : Integer;
+function TReconciliationGUI.FindInvoice(AAmount: Extended; AStatementDesc: String; ATxnDate: TDateTime): Integer;
 var
   qry: TERPQuery;
   sSQL: string;
   ExactClientId: Integer;
 begin
   Result := -1;
-  sSQL := 'SELECT ClientId as ExactClientId FROM  tempclient  WHERE  Customer = "T" AND MATCH (Company, PrintName)  AGAINST('
-  +  QuotedStr(AStatementDesc) +' IN NATURAL LANGUAGE MODE) LIMIT 1';
-  qry:= TERPQuery.Create(nil);
+  sSQL := 'SELECT ClientId as ExactClientId FROM tempclient WHERE Customer = "T" AND MATCH (Company, PrintName) AGAINST(' +
+            QuotedStr(AStatementDesc) + ' IN NATURAL LANGUAGE MODE) LIMIT 1';
+  qry := TERPQuery.Create(nil);
   try
     ExactClientid := -1;
     qry.Connection:= CommonDbLib.GetSharedMyDacConnection;
-    qry.SQL.Text  := sSQL;
+    qry.SQL.Text := sSQL;
     qry.Open;
     if qry.RecordCount > 0 then ExactClientId := qry.FieldByName('ExactClientId').AsInteger;
     qry.Close;
-    qry.sql.clear;
-    if ExactClientid = -1 then exit;
+    qry.SQL.Clear;
+    if ExactClientid = -1 then Exit;
     SalesOutStandingTrans(qry, 0, 'INVOICE', 0, '', '', ExactClientId, ATxnDate, AAmount);
     LogText('INVOICE qry = ' + qry.SQL.Text);
     //qry.SQL.Text  := sSQL;
@@ -1128,14 +1125,14 @@ var
 begin
   inherited;
   FirstStmtDep := 1;
-  for i := FirstStmtDep to grdDeposits.RowCount -1 do begin
+  for i := FirstStmtDep to grdDeposits.RowCount - 1 do begin
     if grdDeposits.Cells[COL_RECON_ID, i] <> '' then Continue;
     if grdDeposits.Cells[COL_STATEMENT_AMOUNT_FMT, i] = '' then Continue;
     grdDeposits.getCheckBoxState(COL_SELECT, i, ThisState);
     if not ThisState then Continue;
     FirstStmtDep := i;
     //check if a customer payment is possible
-    paymentId := findInvoice(StrToFloatDef(grdDeposits.Cells[COL_STATEMENT_AMOUNT, i],0), grdDeposits.Cells[COL_STATEMENT_DESC, i],
+    paymentId := findInvoice(StrToFloatDef(grdDeposits.Cells[COL_STATEMENT_AMOUNT, i], 0), grdDeposits.Cells[COL_STATEMENT_DESC, i],
              StrToDate(grdDeposits.Cells[COL_STATEMENT_DATE, i]));
     if PaymentId > 0 then begin
       CustPayForm:= TfmCustPayments.Create(self);
@@ -1172,6 +1169,7 @@ begin
        break;
     end;
   end;
+
   FirstStmtDep := 1;
   for i := FirstStmtDep to grdWithdrawals.RowCount -1 do begin
     if grdWithdrawals.Cells[COL_RECON_ID, i] <> '' then Continue;
@@ -1216,6 +1214,7 @@ begin
     end;
   end;
   btnRelaxedMatchClick(Nil);
+
   grdDeposits.SetCheckBoxState(COL_SELECT, 0, False);
   btnRelaxedMatchClick(Nil);
   grdWithdrawals.SetCheckBoxState(COL_SELECT, 0, False);
@@ -1794,45 +1793,42 @@ begin
   end;
 end;
 
-
 procedure TReconciliationGUI.CalcDeposittotal;
 begin
-  CalcGridSelectedTotal(grdDeposits ,grdDepositsSum);
+  CalcGridSelectedTotal(grdDeposits, grdDepositsSum);
 end;
-
 
 procedure TReconciliationGUI.CalcWithDrawaltotal;
 begin
   CalcGridSelectedTotal(grdWithdrawals ,grdWithdrawalsSum);
 end;
 
-
 procedure TReconciliationGUI.CalcGridSelectedTotal(grd, grdSum :TAdvStringGrid );
 var
-  ctr:Integer;
-  s:String;
+  ctr: Integer;
+  s: String;
 begin
-  s:= '';
+  s := '';
   for ctr := grd.FixedRows to grd.RowCount-1 do begin
     if grd.Cells[COL_OK, ctr] = grd.CheckTrue then begin
-      if s <> '' then s := s +' union all ';
-      s:= s + 'Select ' + quotedstr(grd.Cells[COL_NOTES, ctr]) +' as Notes , ' + FloatToStr(AmountFromGrig(grd, ctr)) +' as Amount';
+      if s <> '' then s := s +' UNION ALL ';
+      s:= s + 'SELECT ' + quotedstr(grd.Cells[COL_NOTES, ctr]) +' AS Notes , ' + FloatToStr(AmountFromGrig(grd, ctr)) + ' AS Amount';
     end;
   end;
   grdSum.RemoveRows(grdSum.FixedRows, grdSum.RowCount - 1);
   grdSum.ClearRows(1, 1);
-  if s<> '' then begin
+  if s <> '' then begin
     With TempMyQuery do try
-      SQL.Add('Select Notes, sum(Amount) as Amount from ( ' + s+ ' ) details group by notes');
-      open;
-      while Eof = False do begin
+      SQL.Add('SELECT Notes, SUM(Amount) AS Amount FROM ( ' + s + ' ) details GROUP BY notes');
+      Open;
+      while EOf = False do begin
         grdSum.AddRow;
-        grdSum.cells[0,grdSum.rowcount-1] := FieldByname('notes').AsString;
-        grdSum.cells[1,grdSum.rowcount-1] := floatToStrF( FieldByname('Amount').asFloat , ffCurrency, 15,2);
+        grdSum.Cells[0, grdSum.RowCount - 1] := FieldByname('notes').AsString;
+        grdSum.Cells[1, grdSum.RowCount - 1] := floatToStrF( FieldByname('Amount').AsFloat, ffCurrency, 15, 2);
         Next;
       end;
     finally
-      closenFree;
+      ClosenFree;
     end;
   end;
 end;
@@ -1842,23 +1838,23 @@ var
   i          : Integer;
   reconId    : string;
 begin
-  if not FComputeTotals then exit;
+  if not FComputeTotals then Exit;
   TotalSumBankDep   := 0;
   TotalCountBankDep := 0;
-  for i := 1 to grdDeposits.RowCount -1 do begin
+  for i := 1 to grdDeposits.RowCount - 1 do begin
     if  grdDeposits.Cells[COL_OK,i] <> grdDeposits.CheckTrue then Continue;
     if ((UseStatements) and (grdDeposits.Cells[COL_RECON_ID,i] = '')) then Continue;
     Inc(TotalCountBankDep);
-    TotalSumBankDep := TotalSumBankDep + grdDeposits.Floats[COL_AMOUNT,i];
+    TotalSumBankDep := TotalSumBankDep + grdDeposits.Floats[COL_AMOUNT, i];
   end;
 
   TotalSumBankWrt   := 0;
   TotalCountBankWrt := 0;
-  for i := 1 to grdWithdrawals.RowCount -1 do begin
+  for i := 1 to grdWithdrawals.RowCount - 1 do begin
     if  grdWithdrawals.Cells[COL_OK,i] <> grdWithdrawals.CheckTrue then Continue;
     if ((UseStatements) and (grdWithdrawals.Cells[COL_RECON_ID,i] = '')) then Continue;
     Inc(TotalCountBankWrt);
-    TotalSumBankWrt := TotalSumBankWrt + grdWithdrawals.Floats[COL_AMOUNT,i];
+    TotalSumBankWrt := TotalSumBankWrt + grdWithdrawals.Floats[COL_AMOUNT, i];
   end;
   CalcDeposittotal;
   CalcWithDrawaltotal;
@@ -2430,7 +2426,7 @@ end;
 
 procedure TReconciliationGUI.btnHoldClick(Sender: TObject);
 begin
-  if SaveRecons(false) then begin
+  if SaveRecons(False) then begin
     Close;
   end;
 end;
@@ -3669,23 +3665,24 @@ begin
 
 end;
 
-procedure TReconciliationGUI.SearchText(Colno:Integer; Searchvalue:String; SearchGrid: TAdvStringGrid);
+procedure TReconciliationGUI.SearchText(Colno:Integer; Searchvalue: String; SearchGrid: TAdvStringGrid);
 var
-  Row: integer;
+  Row: Integer;
 begin
-  if SearchValue = '' then exit;
+  if SearchValue = '' then Exit;
 
-  SearchGrid.ShowSelection := true;
-  SearchGrid.SelectionRectangle := true;
+  SearchGrid.ShowSelection := True;
+  SearchGrid.SelectionRectangle := True;
 
-  Row := SearchGrid.Fixedrows-1;
-  for row := SearchGrid.Fixedrows-1 to SearchGrid.Rowcount-1 do begin
-    if sametext(SearchGrid.Cells[Colno, Row], Searchvalue) then begin
+  Row := SearchGrid.FixedRows - 1;
+  for Row := SearchGrid.Fixedrows - 1 to SearchGrid.Rowcount - 1 do begin
+    if SameText(SearchGrid.Cells[Colno, Row], Searchvalue) then begin
       SearchGrid.Row := Row;
       Exit;
     end;
   end;
 end;
+
 procedure TReconciliationGUI.SearchAmount(Sender: TObject; SearchGrid: TAdvStringGrid;
   SearchEdit: TwwDbEdit; SearchForward: boolean = true);
 var
@@ -4013,9 +4010,9 @@ end;
 procedure TReconciliationGUI.edtStatementExit(Sender: TObject);
 begin
   inherited;
-  logtext( grdWithdrawals.cells[col_ok , grdWithdrawals.RowCount - 1]);
+  logtext(grdWithdrawals.Cells[col_ok, grdWithdrawals.RowCount - 1]);
   ReconciliationObj.StatementNo := edtStatement.Text;
-  Application.processmessages;
+  Application.ProcessMessages;
 end;
 
 procedure TReconciliationGUI.edtWithdrawalSearchChange(Sender: TObject);
@@ -4619,6 +4616,7 @@ procedure TReconciliationGUI.DNMSpeedButton10Click(Sender: TObject);begin  Searc
 procedure TReconciliationGUI.DNMSpeedButton11Click(Sender: TObject);begin  SearchText(COL_REF, '1449181_Xfer to Anz Bus', grdDeposits);end;
 procedure TReconciliationGUI.DNMSpeedButton12Click(Sender: TObject);begin  SearchText(COL_REF, '2798515 / 1798514', grdDeposits);end;
 procedure TReconciliationGUI.DNMSpeedButton13Click(Sender: TObject);begin  SearchText(COL_REF, '1136851', grdDeposits);end;
+
 function TReconciliationGUI.AmountFromGrig(grd :TAdvStringGrid ;arow:Integer):Double;
 begin
   result := StrCurrToDouble(grd.Cells[COL_AMOUNT, aRow]);

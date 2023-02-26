@@ -76,12 +76,13 @@ end;
 
 function TPNLLayout.GetSQL: string;
 begin
+  Log('Hi');
   Result := inherited GetSQL;
 end;
 
 class function  TPNLLayout.GetIDField :String;
 begin
-    Result := 'LayoutID';
+  Result := 'LayoutID';
 end;
 
 procedure TPNLLayout.DoFieldOnChange(Sender: TField);
@@ -130,7 +131,7 @@ begin
   Result := True;
 end;
 
-function TPNLLayout.Save :Boolean;
+function TPNLLayout.Save: Boolean;
 var
   TempQuery: TERPQuery;
   TempScript: TERPScript;

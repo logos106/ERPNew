@@ -103,7 +103,7 @@ var
 begin
   inherited;
   form := TfmWebApiTestSteps.Create(Application);
-  form.ERPServer := self.UtilsClient.Client.ServerName; //   TModuleWebAPIGui(Module).ServerConfig.S['Server'];
+  form.ERPServer := Self.UtilsClient.Client.ServerName; //   TModuleWebAPIGui(Module).ServerConfig.S['Server'];
   //form.ShowPublicIP:= false;
   form.PublicIP := '';
   form.Show;

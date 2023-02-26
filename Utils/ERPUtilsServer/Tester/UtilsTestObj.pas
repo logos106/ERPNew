@@ -196,7 +196,7 @@ begin
     exit;
   end;
 
-  if Pos('webapi',Lowercase(Context.S['ModuleList'])) = 0 then begin
+  if Pos('webservice', Lowercase(Context.S['ModuleList'])) = 0 then begin
     fStatus := tssFail;
     AddDetail('The Web API Module is not installed on your server.');
     exit;
@@ -427,25 +427,25 @@ begin
   AddDetail('It is also used for communication between different ERP servers (Site Integration).');
   AddDetail('');
 
-  if Pos('webapi',Lowercase(Context.S['ModuleList'])) = 0 then begin
+  if Pos('webservice', Lowercase(Context.S['ModuleList'])) = 0 then begin
     fStatus := tssFail;
     AddDetail('The Web API Module is not installed or can not be accessed on your server (' + context.S['ERPServer'] + ').');
-    exit;
+    Exit;
   end;
 
   Client := TJsonRpcTcpClient.Create;
   try
 
-    if Pos('erpmodwebapi',Lowercase(Context.S['ModuleList'])) > 0 then begin
+    if Pos('webservice',Lowercase(Context.S['ModuleList'])) > 0 then begin
       { new web api module }
 
-      Client.RequestWaitSecs:= 30;
+      Client.RequestWaitSecs := 30;
       if context.S['ERPServer'] = '' then begin
         AddDetail('Could not run test, the IP Address/ Computer Name of your ERP Server was blank.');
         exit;
       end;
-      Client.ServerName:= context.S['ERPServer'];
-      Client.Port:= DEFAULT_TCP_PORT;   { use default }
+      Client.ServerName := context.S['ERPServer'];
+      Client.Port := DEFAULT_TCP_PORT;   { use default }
       try
         Client.Connected:= true;
       except
@@ -457,7 +457,7 @@ begin
         end;
       end;
 
-      resp:= Client.SendRequest('ERPModWebApi.GetConfig',nil);
+      resp:= Client.SendRequest('ERPWebService.GetConfig',nil);
       if Assigned(resp) then begin
         try
           if resp.ObjectExists('result') then begin

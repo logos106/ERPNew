@@ -51,7 +51,7 @@ var
   context: TJsonObject;
 begin
   context := JO;
-  fTestingInProgress := true;
+  fTestingInProgress := True;
   try
     context.S['ERPServer'] := ERPServer;
     context.S['PublicIP'] := PublicIP;
@@ -60,7 +60,7 @@ begin
     Tester.Test(context);
   finally
     context.Free;
-    fTestingInProgress := false;
+    fTestingInProgress := False;
   end;
 end;
 
@@ -94,11 +94,11 @@ end;
 procedure TfmWebApiTestSteps.FormCreate(Sender: TObject);
 begin
   inherited;
-  fTestingInProgress := false;
-  fShowPublicIP:= true;
+  fTestingInProgress := False;
+  fShowPublicIP := True;
   Tester := TWebApiTestList.Create;
-  Tester.OnTestStepStart := self.DoOnTestStart;
-  Tester.OnTestStepFinish := self.DoOnTestEnd;
+  Tester.OnTestStepStart := Self.DoOnTestStart;
+  Tester.OnTestStepFinish := Self.DoOnTestEnd;
 end;
 
 procedure TfmWebApiTestSteps.FormDestroy(Sender: TObject);

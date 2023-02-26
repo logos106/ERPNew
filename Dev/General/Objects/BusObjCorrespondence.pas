@@ -8,7 +8,6 @@ uses
 
 type
 
-
   TCorrespondence = class(TMSBusObj)
   private
     fIdMessage: TIdMessage;
@@ -51,11 +50,15 @@ type
     function GetSMS: TSMSMessage;
     function GetStatus: string;
     procedure SetStatus(const Value: string);
+    function GetUsedOn: string;
+    procedure SetUsedOn(const Value: string);
+
   protected
     procedure OnDataIdChange(Const ChangeType: TBusObjDataChangeType); Override;
     Function GetSQL: STring; Override;
     Function DoAfterPost(Sender: TDatasetBusObj): Boolean; Override;
     Function DoAfterInsert(Sender: TDatasetBusObj): Boolean; Override;
+
   public
     class function GetIDField: string; override;
     class function GetBusObjectTablename: string; Override;
@@ -71,6 +74,7 @@ type
       PurgeTypeList. Will purge all types if PurgeTypeList is empty }
     class procedure Purge(PurgePriorDate: TDate; PurgeTypeList: string);
     property SMS: TSMSMessage read GetSMS;
+
   published
     Property ContactId: Integer Read GetContactid Write SetContactid;
     Property CusId: Integer Read GetCusid Write SetCusid;
@@ -90,6 +94,8 @@ type
     property MessageTo: string read GetMessageTo write SetMessageTo;
     property Active: boolean read GetActive write SetActive;
     property Status: string read GetStatus write SetStatus;
+    property UseOn: string read GetUsedOn write SetUsedOn;
+
   end;
 
 implementation
@@ -301,6 +307,11 @@ begin
   result := GetStringField('Status');
 end;
 
+function TCorrespondence.GetUsedOn: string;
+begin
+  result := GetStringField('UseOn');
+end;
+
 class function TCorrespondence.GetIDField: String;
 begin
   Result := 'Refid'
@@ -471,6 +482,11 @@ End;
 procedure TCorrespondence.SetStatus(const Value: string);
 begin
   SetStringField('Status', Value);
+end;
+
+procedure TCorrespondence.SetUsedOn(const Value: string);
+begin
+  SetStringField('UsdeOn', Value);
 end;
 
 Procedure TCorrespondence.SetSupid(Const Value: Integer);

@@ -504,8 +504,6 @@ begin
 
     //NextUpdateCheckTime:= now + (OneMinute * 10);
 
-
-
     CustomProcessList := TCustomProcessList.Create;
     CustomProcessList.Logger := self.Logger;
 

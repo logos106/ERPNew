@@ -329,7 +329,7 @@ end;
 
 class function TProductBin.GetBusObjectTablename: string;
 begin
-  Result := 'Tblproductbin';
+  Result := 'tblproductbin';
 end;
 
 constructor TProductBin.Create(AOwner: TComponent);

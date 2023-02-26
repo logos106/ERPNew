@@ -22,7 +22,7 @@ type
     function GetUpdateData: TJsonObject;
     function UninstallApp(const aDir, aAppName: string): boolean; overload;
     function UninstallApp(const aFileName: string): boolean; overload;
-    procedure MakeSureUserUtilsServiceRunning;
+    procedure MakeSureServiceRunning(AServiceName: String);
 
   public
     constructor Create;
@@ -373,7 +373,7 @@ begin
             if item.BooleanExists('ForceRestart') and item.B['ForceRestart'] and
               (Lowercase(ExtractFileExt(item.S['modulefilename'])) = '.exe') then begin
 
-              TLogger.Inst.Log('   Forcing restart.',ltDetail);
+              TLogger.Inst.Log('   Forcing restart.', ltDetail);
 
               if item.StringExists('ServiceName') then begin
                 if not RestartList.StopService(item.S['ServiceName']) then begin
@@ -382,7 +382,7 @@ begin
               end
               else begin
                 if not RestartList.CloseApp(item.S['modulefilename']) then begin
-                  TLogger.Inst.Log('   Could not stop running application: "' + item.S['modulefilename'] + '"',ltWarning);
+                  TLogger.Inst.Log('   Could not stop running application: "' + item.S['modulefilename'] + '"', ltWarning);
                 end;
               end;
             end;
@@ -562,7 +562,9 @@ begin
 //      TLogger.Inst.Log('Unable to remove old application: "ERP Ebay Module"',ltError);
 //  end;
 
-  MakeSureUserUtilsServiceRunning;
+  MakeSureServiceRunning('ERPUtils');
+  Sleep(5000);
+  MakeSureServiceRunning('ERPWeb');
 end;
 
 function TERPUpdater.GetUpdateData: TJsonObject;
@@ -589,7 +591,7 @@ begin
   Result := fUpdateData;
 end;
 
-procedure TERPUpdater.MakeSureUserUtilsServiceRunning;
+procedure TERPUpdater.MakeSureServiceRunning(AServiceName: String);
 var
   status: DWord;
 
@@ -602,58 +604,58 @@ var
     dt := now;
     while status in [SERVICE_STOP_PENDING, SERVICE_PAUSE_PENDING] do begin
       if now > (dt + (OneSec * 60)) then begin
-        TLogger.Inst.Log('Timed out waiting for ERPUtils Service.',ltError);
-        exit;
+        TLogger.Inst.Log('Timed out waiting for ' + AServiceName + ' Service.', ltError);
+        Exit;
       end;
-      sleep(1000);
-      status := ServiceGetStatus('','ERPUtils');
+      Sleep(1000);
+      status := ServiceGetStatus('', AServiceName);
     end;
 
-    status := ServiceGetStatus('','ERPUtils');
+    status := ServiceGetStatus('', AServiceName);
     if status in [SERVICE_STOPPED, SERVICE_PAUSED] then begin
-      if not ServiceStart('','ERPUtils') then
-        TLogger.Inst.Log('Could not start the ERPUtils Service.',ltError)
+      if not ServiceStart('', AServiceName) then
+        TLogger.Inst.Log('Could not start the ' + AServiceName + ' Service.', ltError)
       else
-        TLogger.Inst.Log('ERPUtils Service started.',ltInfo);
+        TLogger.Inst.Log(AServiceName + ' Service started.', ltInfo);
     end;
   end;
 
 begin
-  status := ServiceGetStatus('', 'ERPUtils');
+  status := ServiceGetStatus('', AServiceName);
   case status of
     SERVICE_RUNNING:
       begin
-        TLogger.Inst.Log('ERPUtils Service - Running.', ltInfo);
-        exit;
+        TLogger.Inst.Log(AServiceName + ' Service - Running.', ltInfo);
+        Exit;
       end;
     SERVICE_START_PENDING:
       begin
-        TLogger.Inst.Log('ERPUtils Service - Start Pending.', ltInfo);
-        exit;
+        TLogger.Inst.Log(AServiceName + ' Service - Start Pending.', ltInfo);
+        Exit;
       end;
     SERVICE_CONTINUE_PENDING:
       begin
-        TLogger.Inst.Log('ERPUtils Service - Continue Pending.', ltInfo);
-        exit;
+        TLogger.Inst.Log(AServiceName + ' Service - Continue Pending.', ltInfo);
+        Exit;
       end;
     SERVICE_STOPPED:
       begin
-        TLogger.Inst.Log('ERPUtils Service - Stopped, attempting start ..', ltInfo);
+        TLogger.Inst.Log(AServiceName + ' Service - Stopped, attempting start ..', ltInfo);
         RestartService;
       end;
     SERVICE_PAUSED:
       begin
-        TLogger.Inst.Log('ERPUtils Service - Paused, attempting start ..', ltInfo);
+        TLogger.Inst.Log(AServiceName + ' Service - Paused, attempting start ..', ltInfo);
         RestartService;
       end;
     SERVICE_STOP_PENDING:
       begin
-        TLogger.Inst.Log('ERPUtils Service - Stop Pending, attempting start ..', ltInfo);
+        TLogger.Inst.Log(AServiceName + ' Service - Stop Pending, attempting start ..', ltInfo);
         RestartService;
       end;
     SERVICE_PAUSE_PENDING:
       begin
-        TLogger.Inst.Log('ERPUtils Service - Pause Pending, attempting start ..', ltInfo);
+        TLogger.Inst.Log(AServiceName + ' Service - Pause Pending, attempting start ..', ltInfo);
         RestartService;
       end;
   end;
@@ -755,7 +757,7 @@ end;
 
 constructor TAppRestartList.Create;
 begin
-  fList:= TObjectList.Create(true);
+  fList := TObjectList.Create(true);
 end;
 
 destructor TAppRestartList.Destroy;
@@ -769,12 +771,12 @@ function TAppRestartList.Exists(aProcessName: string;
 var
   x: integer;
 begin
-  result:= false;
+  Result := False;
   for x:= 0 to fList.Count-1 do begin
     if (TAppRestartItem(fList[x]).ProcessName = aProcessName) and
        (TAppRestartItem(fList[x]).ProcessType = aProcessType) then begin
-      result:= true;
-      break;
+      Result := true;
+      Break;
     end;
   end;
 end;
@@ -783,11 +785,11 @@ procedure TAppRestartList.RestartAll;
 var
   x: integer;
 begin
-  for x:= 0 to fList.Count-1 do
+  for x := 0 to fList.Count - 1 do
     StartItem(TAppRestartItem(fList[x]));
 end;
 
-function TAppRestartList.CloseApp(fileName: string; AddToRestartList: boolean = true): boolean;
+function TAppRestartList.CloseApp(fileName: string; AddToRestartList: Boolean = True): boolean;
 var
   item: TAppRestartItem;
   name: string;
@@ -810,7 +812,7 @@ begin
         TLogger.Inst.Log('Process ('+Name+') stopped ok.',ltInfo);
       end
       else begin
-        TLogger.Inst.Log('Could not stop process ('+Name+') with "KillTask", trying "Taskkill" ..',ltWarning);
+        TLogger.Inst.Log('Could not stop process (' + Name + ') with "KillTask", trying "Taskkill" ..', ltWarning);
         count := 30;
         ShellExecute(0,nil,'Taskkill',PWideChar('/F /IM '+ name),nil,SW_HIDE);
 
@@ -848,13 +850,13 @@ begin
   if not Exists(serviceName,ritService) then begin
     if ServiceStop('',ServiceName, 1000 * 30) then begin
       { closed ok }
-      item:= TAppRestartItem.Create;
-      item.ProcessName:= serviceName;
-      item.ProcessType:= ritService;
+      item := TAppRestartItem.Create;
+      item.ProcessName := serviceName;
+      item.ProcessType := ritService;
       fList.Add(item);
     end
     else begin
-      TLogger.Inst.Log('Could not stop service ('+serviceName+') with "ServiceStop", trying "Taskkill" ..',ltWArning);
+      TLogger.Inst.Log('Could not stop service (' + serviceName + ') with "ServiceStop", trying "Taskkill" ..', ltWArning);
       count := 30;
       ShellExecute(0,nil,'Taskkill',PWideChar('/F /IM '+ serviceName),nil,SW_HIDE);
 
@@ -863,13 +865,14 @@ begin
         Dec(count);
       end;
 
-      if ServiceGetStatus('',ServiceName) in [SERVICE_STOPPED] then begin
+      if ServiceGetStatus('', ServiceName) in [SERVICE_STOPPED] then begin
         { closed ok }
-        item:= TAppRestartItem.Create;
-        item.ProcessName:= serviceName;
-        item.ProcessType:= ritService;
-        TLogger.Inst.Log('Service ('+serviceName+') stopped ok.',ltWArning);
+        item := TAppRestartItem.Create;
+        item.ProcessName := serviceName;
+        item.ProcessType := ritService;
+        TLogger.Inst.Log('Service (' + serviceName+') stopped ok.', ltWArning);
         fList.Add(item);
+        TLogger.Inst.Log('Service: ' + ServiceName, ltWArning);
       end
       else begin
         result := false;
@@ -881,12 +884,13 @@ end;
 
 procedure TAppRestartList.StartItem(Item: TAppRestartItem);
 begin
+  TLogger.Inst.Log('Item: ' + Item.ProcessName, ltWArning);
   try
     case Item.ProcessType of
       ritExe:
         ExecNewProcess(Item.ProcessName);
       ritService:
-        ServiceStart('',Item.ProcessName);
+        ServiceStart('', Item.ProcessName);
     end;
   except
     on e: exception do begin

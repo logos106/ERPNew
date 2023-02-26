@@ -468,14 +468,14 @@ begin
     AddEventdata(aOnEvent ,TAG_ResponseTask     , '========', true);
 end;
 
-Function TVS1_Rego.MakeinvnApplyPayment(  VS1_Clients :TVS1_Clients;aOnEvent:TEventProc; (*fdTotalPrice,fdDiscountedPrice:double ;*)aPaymentamount :Double; aDateFrom, aDateto:TDateTime; conn : TMyDAcDataconnection; jsModules:TJsonObject; istoUpdateDate :boolean = TRue; aLogger : TLoggerBase=nil):Boolean;
+Function TVS1_Rego.MakeinvnApplyPayment(VS1_Clients: TVS1_Clients; aOnEvent: TEventProc; (*fdTotalPrice,fdDiscountedPrice:double ;*)aPaymentamount: Double; aDateFrom, aDateto: TDateTime; conn: TMyDAcDataconnection; jsModules: TJsonObject; istoUpdateDate: Boolean = True; aLogger: TLoggerBase = nil): Boolean;
   function MakeInvoice: Integer;
   begin
     LogConn(aOnEvent, conn);
     Result := VS1Lib.Makeinvoice(conn, Paymentamount, VS1_Clients,
-                                 'License from ' + quotedstr(formatdatetime(shortdateformat, aDatefrom))+' to ' + quotedstr(formatdatetime(shortdateformat, aDateto)) +NL+
-                                 'For ' + inttostr(LicenseRenewDuration)+' '+ LicenseRenewDurationTypeDesc+'(s)',0,0,
-                                 Date, fsRegisterErr , aOnEvent , jsModules , AdjustmentExtension,LicenseExtensionDesc);
+                                 'License from ' + quotedstr(formatdatetime(shortdateformat, aDatefrom)) + ' to ' + quotedstr(formatdatetime(shortdateformat, aDateto)) + NL +
+                                 'For ' + inttostr(LicenseRenewDuration) + ' ' + LicenseRenewDurationTypeDesc + '(s)', 0, 0,
+                                 Date, fsRegisterErr, aOnEvent, jsModules, AdjustmentExtension, LicenseExtensionDesc);
   end;
 
   function MakePayment: Integer;
@@ -484,7 +484,7 @@ Function TVS1_Rego.MakeinvnApplyPayment(  VS1_Clients :TVS1_Clients;aOnEvent:TEv
     if Result <> 0 then begin
       try
         VS1_Clients.ClientPayments.Payment := Paymentamount;
-        VS1_Clients.ClientPayments.Paidon := date;
+        VS1_Clients.ClientPayments.Paidon := Date;
         VS1_Clients.ClientPayments.PayMethod := PayMethod;
         VS1_Clients.ClientPayments.PostDB;
       except
@@ -541,7 +541,7 @@ begin
   end;
 
   if VS1_Clients.Save then begin
-    Result := TRue;
+    Result := True;
   end;
 end;
 (*Procedure TVS1_Rego.ClientModulesUsageCallback(Const Sender: TBusObj; var Abort: Boolean);
@@ -1337,7 +1337,6 @@ begin
               VS1_Clients.LicenseUntil              := aDateFrom; //aDateTo;
               VS1_Clients.LicenseLevel              := LicenseLevel;
               VS1_Clients.ClientUsers.PostDB;
-
             end;
 
             if DoEnableStS(VS1_Clients.ClientUsers , fsEnableStSStatus) then begin
@@ -1420,8 +1419,8 @@ begin
     end;
   finally
     if Trim(RegisterErr) <> '' then begin
-      AddEventdata(aOnEvent,TAG_ResponseNo,VS1_HTTP_Failed_STRCode, true);
-      AddEventdata(aOnEvent,TAG_ResponseError,RegisterErr, true);
+      AddEventdata(aOnEvent, TAG_ResponseNo, VS1_HTTP_Failed_STRCode, True);
+      AddEventdata(aOnEvent, TAG_ResponseError, RegisterErr, True);
     end;
   end;
 end;

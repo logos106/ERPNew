@@ -192,7 +192,8 @@ begin
     ctx:= context
   else
     ctx:= JO;
-  for x:= 0 to Count -1 do begin
+
+  for x:= 0 to Count - 1 do begin
     t := Item[x];
     if assigned(fOnTestStepStart) then
       fOnTestStepStart(t);

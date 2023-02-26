@@ -879,22 +879,24 @@ begin
   fdBalance:= OpenBalance;
   WithdrawalLines.IterateRecords(CalcTotalsCallback);
   DepositLines.IterateRecords(CalcTotalsCallback);
-  if Silentmode  then Closebalance := Balance;
+  if Silentmode then Closebalance := Balance;
 end;
-procedure TReconciliation.CalcTotalsCallback(Const Sender: TBusObj; var Abort: boolean);
+
+procedure TReconciliation.CalcTotalsCallback(Const Sender: TBusObj; var Abort: Boolean);
 begin
-    if sender is TReconciliationWithdrawalLines then begin
-      //if not TReconciliationLineBase(Sender).Deleted then begin
-        fdBalance := fdBalance - TReconciliationLineBase(Sender).Amount;
-        fdWithdrawalAmount := fdWithdrawalAmount + TReconciliationLineBase(Sender).Amount;
-      //end;
-    end else if sender is  TReconciliationDepositLines then begin
-      //if not TReconciliationLineBase(Sender).Deleted then begin
-        fdBalance := fdBalance + TReconciliationLineBase(Sender).Amount;
-        fdDepositAmount    := fdDepositAmount    + TReconciliationLineBase(Sender).Amount;
-      //end;
-    end;
+  if Sender is TReconciliationWithdrawalLines then begin
+    //if not TReconciliationLineBase(Sender).Deleted then begin
+    fdBalance := fdBalance - TReconciliationLineBase(Sender).Amount;
+    fdWithdrawalAmount := fdWithdrawalAmount + TReconciliationLineBase(Sender).Amount;
+    //end;
+  end else if Sender is TReconciliationDepositLines then begin
+    //if not TReconciliationLineBase(Sender).Deleted then begin
+    fdBalance := fdBalance + TReconciliationLineBase(Sender).Amount;
+    fdDepositAmount := fdDepositAmount + TReconciliationLineBase(Sender).Amount;
+    //end;
+  end;
 end;
+
 constructor TReconciliation.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
@@ -1248,14 +1250,14 @@ var
   iReconsID, i: integer;
   ReconciliationRecord: TReconciliationInfo;
 begin
-  EmployeeId:= AppEnv.Employee.EmployeeID;
-  ClassId:= AppEnv.DefaultClass.ClassID;
-  if (aDepositLineID=0 ) and (aWithdrawalLineID =0) then Finished:= true;
+  EmployeeId := AppEnv.Employee.EmployeeID;
+  ClassId := AppEnv.DefaultClass.ClassID;
+  if (aDepositLineID = 0) and (aWithdrawalLineID = 0) then Finished := True;
   iReconsID  := ID;
 
   // Undo Post Deposits details
-  if DepositLines.count>0 then begin
-    if aDepositLineID <> 0 then DepositLines.Locate('ReconciliationLineID' ,aDepositLineID, []) else DepositLines.First;
+  if DepositLines.Count > 0 then begin
+    if aDepositLineID <> 0 then DepositLines.Locate('ReconciliationLineID', aDepositLineID, []) else DepositLines.First;
     //TReconciliationFlagsObj.Instance;
     TReconciliationFlagsObj.Instance(TERPConnection(Connection.Connection));
     try
@@ -1263,32 +1265,32 @@ begin
       SendEvent(BusobjEvent_ToDo, BusobjEvent_ShowProgressbar, Self);//ProgressDialog.DoShowProgressbar(DepositLines.count , 'Deposits');
       try
         //if aDepositLineID <> 0 then DepositLines.Locate('ReconciliationLineID' ,aDepositLineID, []);
-        if ((aDepositLineID =0) and (aWithdrawalLineID= 0)) or (DepositLines.ID =aDepositLineID) then
-            while not DepositLines.Eof do begin
-              //Setup Record
-              if ((aDepositLineID =0) and (aWithdrawalLineID= 0)) or (DepositLines.ID =aDepositLineID) then begin
-                  ReconciliationRecord.ReconciliationID     := DepositLines.ReconciliationID;
-                  ReconciliationRecord.ReconciliationLineID := DepositLines.ID;
-                  ReconciliationRecord.RecType              := rtDeposits;
-                  ReconciliationRecord.AccountID            := DepositLines.AccountID;
-                  ReconciliationRecord.DepositID            := DepositLines.PaymentID;
-                  ReconciliationRecord.DepositLineID        := DepositLines.DepositLineID;
-                  ReconciliationRecord.Notes                := DepositLines.Notes;
-                  ReconciliationRecord.ClientID             := DepositLines.ClientID;
-                  ReconciliationRecord.Payee                := DepositLines.Payee;
-                  ReconciliationRecord.Reference            := DepositLines.Reference;
-                  ReconciliationRecord.Date                 := DepositLines.DepositDate;
-                  ReconciliationRecord.Amount               := DepositLines.Amount;
-                  ReconciliationFlags.FlagUnReconciled(ReconciliationRecord);
-                  if DepositLines.BankStatementLine.Count >0 then begin
-                    DepositLines.BankStatementLine.ReconciliationlineId := 0;
-                    DepositLines.BankStatementLine.PostDB;
-                  end;
+        if ((aDepositLineID = 0) and (aWithdrawalLineID = 0)) or (DepositLines.ID = aDepositLineID) then
+          while not DepositLines.EOf do begin
+            //Setup Record
+            if ((aDepositLineID = 0) and (aWithdrawalLineID = 0)) or (DepositLines.ID = aDepositLineID) then begin
+              ReconciliationRecord.ReconciliationID     := DepositLines.ReconciliationID;
+              ReconciliationRecord.ReconciliationLineID := DepositLines.ID;
+              ReconciliationRecord.RecType              := rtDeposits;
+              ReconciliationRecord.AccountID            := DepositLines.AccountID;
+              ReconciliationRecord.DepositID            := DepositLines.PaymentID;
+              ReconciliationRecord.DepositLineID        := DepositLines.DepositLineID;
+              ReconciliationRecord.Notes                := DepositLines.Notes;
+              ReconciliationRecord.ClientID             := DepositLines.ClientID;
+              ReconciliationRecord.Payee                := DepositLines.Payee;
+              ReconciliationRecord.Reference            := DepositLines.Reference;
+              ReconciliationRecord.Date                 := DepositLines.DepositDate;
+              ReconciliationRecord.Amount               := DepositLines.Amount;
+              ReconciliationFlags.FlagUnReconciled(ReconciliationRecord);
+              if DepositLines.BankStatementLine.Count > 0 then begin
+                DepositLines.BankStatementLine.ReconciliationlineId := 0;
+                DepositLines.BankStatementLine.PostDB;
               end;
-              if aDepositLineID <> 0 then Break;
-              DepositLines.Next;
-              SendEvent(BusobjEvent_ToDo, BusobjEvent_ProgressbarProgress, Self);
             end;
+            if aDepositLineID <> 0 then Break;
+            DepositLines.Next;
+            SendEvent(BusobjEvent_ToDo, BusobjEvent_ProgressbarProgress, Self);
+          end;
       finally
         SendEvent(BusobjEvent_ToDo, BusobjEvent_HideProgressbar, Self);//ProgressDialog.doHideProgressbar;
       end;
@@ -1298,36 +1300,36 @@ begin
   end;
 
   // Undo Post Withdrawals Details
-  if WithdrawalLines.count>0 then begin
-    if aWithdrawalLineID <> 0 then WithdrawalLines.Locate('ReconciliationLineID' ,aWithdrawalLineID, []) else WithdrawalLines.First;
+  if WithdrawalLines.count > 0 then begin
+    if aWithdrawalLineID <> 0 then WithdrawalLines.Locate('ReconciliationLineID', aWithdrawalLineID, []) else WithdrawalLines.First;
     TReconciliationFlagsObj.Instance(TERPConnection(Connection.Connection));
     try
       fiProgresscount := WithdrawalLines.Count;
       SendEvent(BusobjEvent_ToDo, BusobjEvent_ShowProgressbar, Self);//ProgressDialog.DoShowProgressbar(tblReconWithdrawalLines.recordcount , 'Withdrawals');
       try
         //if aWithdrawalLineID <> 0 then WithdrawalLines.Locate('ReconciliationLineID' ,aWithdrawalLineID, []);
-        if ((aDepositLineID =0) and (aWithdrawalLineID = 0)) or (WithdrawalLines.ID =aWithdrawalLineID) then
+        if ((aDepositLineID = 0) and (aWithdrawalLineID = 0)) or (WithdrawalLines.ID = aWithdrawalLineID) then
             while not WithdrawalLines.Eof do begin
               //Setup Record
               if ((aDepositLineID =0) and (aWithdrawalLineID = 0)) or (WithdrawalLines.ID =aWithdrawalLineID) then begin
-                    ReconciliationRecord.ReconciliationID     := WithdrawalLines.ReconciliationID;
-                    ReconciliationRecord.ReconciliationLineID := WithdrawalLines.ID;
-                    ReconciliationRecord.RecType              := rtWithdrawals;
-                    ReconciliationRecord.AccountID            := WithdrawalLines.AccountID;
-                    ReconciliationRecord.DepositID            := WithdrawalLines.PaymentID;
-                    ReconciliationRecord.DepositLineID        := WithdrawalLines.DepositLineID;
-                    ReconciliationRecord.Notes                := WithdrawalLines.Notes;
-                    ReconciliationRecord.ClientID             := WithdrawalLines.ClientID;
-                    ReconciliationRecord.Payee                := WithdrawalLines.Payee;
-                    ReconciliationRecord.Reference            := WithdrawalLines.Reference;
-                    ReconciliationRecord.Date                 := WithdrawalLines.DepositDate;
-                    ReconciliationRecord.Amount               := WithdrawalLines.Amount;
-                    //Set Flag
-                    ReconciliationFlags.FlagUnReconciled(ReconciliationRecord);
-                    if WithdrawalLines.BankStatementLine.Count >0 then begin
-                      WithdrawalLines.BankStatementLine.ReconciliationlineId := 0;
-                      WithdrawalLines.BankStatementLine.PostDB;
-                    end;
+                ReconciliationRecord.ReconciliationID     := WithdrawalLines.ReconciliationID;
+                ReconciliationRecord.ReconciliationLineID := WithdrawalLines.ID;
+                ReconciliationRecord.RecType              := rtWithdrawals;
+                ReconciliationRecord.AccountID            := WithdrawalLines.AccountID;
+                ReconciliationRecord.DepositID            := WithdrawalLines.PaymentID;
+                ReconciliationRecord.DepositLineID        := WithdrawalLines.DepositLineID;
+                ReconciliationRecord.Notes                := WithdrawalLines.Notes;
+                ReconciliationRecord.ClientID             := WithdrawalLines.ClientID;
+                ReconciliationRecord.Payee                := WithdrawalLines.Payee;
+                ReconciliationRecord.Reference            := WithdrawalLines.Reference;
+                ReconciliationRecord.Date                 := WithdrawalLines.DepositDate;
+                ReconciliationRecord.Amount               := WithdrawalLines.Amount;
+                //Set Flag
+                ReconciliationFlags.FlagUnReconciled(ReconciliationRecord);
+                if WithdrawalLines.BankStatementLine.Count > 0 then begin
+                  WithdrawalLines.BankStatementLine.ReconciliationlineId := 0;
+                  WithdrawalLines.BankStatementLine.PostDB;
+                end;
               end;
               if aWithdrawalLineID <> 0 then Break;
               WithdrawalLines.Next;
@@ -1344,18 +1346,18 @@ end;
 
 function TReconciliation.ProcessDelete: boolean;
 begin
-  Result := false;
-  if not deleted then exit;
+  Result := False;
+  if not Deleted then Exit;
 
-  if Deleted and not CleanDeleted then  DeleteRecons(0,0);
+  if Deleted and not CleanDeleted then DeleteRecons(0, 0);
   PostDB;
-  REsult := True;
+  Result := True;
 end;
 
-procedure TReconciliation.REfreshGuiDepositLines;
+procedure TReconciliation.RefreshGuiDepositLines;
 begin
-    if fGuiDepositLines <> nil then freeandnil(fGuiDepositLines);
-    GuiDepositLines;
+  if fGuiDepositLines <> nil then FreeAndNil(fGuiDepositLines);
+  GuiDepositLines;
 end;
 
 procedure TReconciliation.REfreshGuiWithdrawLines;
@@ -1584,5 +1586,6 @@ initialization
 
 
 end.
+
 
 

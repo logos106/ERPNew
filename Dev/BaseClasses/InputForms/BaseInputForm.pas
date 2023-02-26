@@ -1348,10 +1348,10 @@ class function TBaseInputGUI.FormActive: boolean;
         while iIndex < Self.ComponentCount do begin
           if Self.Components[iIndex] is TCustomMyDataSet then begin
             with Self.Components[iIndex] as TCustomMyDataSet do begin
-              bDoOpen    := true;
+              bDoOpen    := True;
               for iCount := Low(QueryNamesNotToOpen) to High(QueryNamesNotToOpen) do begin
                 if uppercase(Self.Components[iIndex].Name) = uppercase(QueryNamesNotToOpen[iCount]) then begin
-                  bDoOpen := false;
+                  bDoOpen := False;
                   Break;
                 end;
               end;
@@ -1372,7 +1372,7 @@ class function TBaseInputGUI.FormActive: boolean;
         SetClassLabels(Self);
         // replace '*class* in Labels and wwwDBGrid DisplayLabels
       finally
-        ProcessingCursor(false);
+        ProcessingCursor(False);
       end;
     Except
       on E: Exception do begin

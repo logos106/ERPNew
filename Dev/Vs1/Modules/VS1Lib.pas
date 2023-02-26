@@ -470,158 +470,160 @@ var
         Invoice.Lines.Deleted := True;
       end;
   end;
+
 begin
-   aConn.beginnestedTransaction;
-   try
-          AddEventdata(aOnEvent,VS1_TAG_Invoice,aVS1_Clients.ClientName );
-          Invoice := TInvoice.create(aVS1_Clients)       ;
-          try
-            Invoice.connection       := aconn;
-            Invoice.Load(0);
-            Invoice.IgnoreAccesslevel := true;
-            Invoice.SilentMode := true;
-            Invoice.New;
-
-            //Invoice.ClientID         := Customer.ID;
-            Invoice.CustomerName     := aVS1_Clients.ClientName;
-            AddEventdata(aOnEvent,VS1_TAG_Invoice,Invoice.CustomerName +', ' + inttostr(Invoice.ClientID));
-            Invoice.ForeignExchangeCode := aVS1_Clients.ForeignExchangeCode(*aVS1_Clients.RegionalOption.ForeignExDefault*);
-            Invoice.SaleClassId         := aVS1_Clients.RegionalOption.DeptClassID;
-            Invoice.SaleDate  := aDateFrom;
-            Invoice.TermsName := TERMS_ON_RCPT;
-            Invoice.Duedate   := aDateFrom;
-            Invoice.comments := acomments ;
-            Invoice.PostDB;
-            AddEventdata(aOnEvent,VS1_TAG_Invoice,Invoice.CustomerName +', ' + inttostr(Invoice.ClientID));
-            aVS1_Clients.ClientModules.First;
-            if (amoduleID=0) then begin
-              if aVS1_Clients.ClientModules.Locate('ModuleId',0,[]) then begin
-                Invoice.Lines.New;
-                with aVS1_Clients.ClientModules.Product do begin
-                  //Invoice.Lines.ProductId := ID;
-                  Invoice.Lines.ProductName := ProductName;
-                end;
-                Invoice.Lines.QtySold := 1*aVS1_Clients.LicenseMonths;
-                Invoice.Lines.QtyShipped := 1*aVS1_Clients.LicenseMonths;
-                if aVS1_Clients.ClientModules.DiscountedPrice =0 then begin
-                  Invoice.Lines.LinePriceinc        := 0;
-                  Invoice.Lines.OriginalLinePrice   := 0;
-                  Invoice.Lines.ForeignLinePrice    := 0;
-                end else if Invoice.ForeignExchangeCode = Appenv.RegionalOptions.ForeignExDefault then begin
-                  Invoice.Lines.LinePriceinc :=aVS1_Clients.ClientModules.DiscountedPrice;
-                end else begin
-                  Invoice.Lines.ForeignLinePrice :=aVS1_Clients.ClientModules.DiscountedPrice;
-                end;
-                Invoice.Lines.ProductDescription := aVS1_Clients.ClientModules.Discountdescription;
-                UpdatePricefromRenewalJson(aVS1_Clients.ClientModules.ID);
-                Invoice.Lines.PostDB;
-              end;
-            end;
-            aVS1_Clients.ClientModules.First;
-            while aVS1_Clients.ClientModules.Eof =  False do begin
-              if ((amoduleID =0) and (aVS1_Clients.ClientModules.ModuleId<>0)) or
-                  ((amoduleID<>0) and (aVS1_Clients.ClientModules.ModuleId =amoduleID) and (aclientModuleID<>0) and (aclientModuleID = aVS1_Clients.ClientModules.ID))  then begin
-                Invoice.Lines.New;
-                with aVS1_Clients.ClientModules.Product do begin
-                  //Invoice.Lines.ProductId := ID;
-                  Invoice.Lines.ProductName := ProductName;
-                end;
-                Invoice.Lines.QtySold := 1*aVS1_Clients.LicenseMonths;
-                Invoice.Lines.QtyShipped := 1*aVS1_Clients.LicenseMonths;
-                if aVS1_Clients.ClientModules.DiscountedPrice =0 then begin
-                  Invoice.Lines.LinePriceinc :=0;
-                end else if Invoice.ForeignExchangeCode = Appenv.RegionalOptions.ForeignExDefault then begin
-                  Invoice.Lines.LinePriceinc :=aVS1_Clients.ClientModules.DiscountedPrice;
-                end else begin
-                  Invoice.Lines.ForeignLinePrice :=aVS1_Clients.ClientModules.DiscountedPrice;
-                end;
-                Invoice.Lines.ProductDescription := aVS1_Clients.ClientModules.Discountdescription;
-                UpdatePricefromRenewalJson(aVS1_Clients.ClientModules.ID);
-                Invoice.Lines.PostDB;
-                if amoduleID <> 0 then break;// only one module
-              end;
-              aVS1_Clients.ClientModules.Next;
-            end;
-            Invoice.PostDB;
-            Invoice.CalcOrdertotals;
-            Invoice.PostDB;
-            AddEventdata(aOnEvent,VS1_TAG_Invoice,Invoice.CustomerName +', ' + inttostr(Invoice.ClientID));
-
-              {Free extension from Headoffice}
-              if AdjustmentExtension and (Invoice.Lines.count>0) then begin
-                if Invoice.Totalamountinc-aPaymentamount <> 0 then begin
-
-                  Invoice.InitToNoTax; // Free adjustment  has no tax
-
-                  Invoice.Lines.New;
-                  Invoice.Lines.Productname := PART_MEMO;
-                  Invoice.Lines.ProductDescription := ExtensionDesc;
-                  Invoice.Lines.QtySold := 1;
-                  Invoice.Lines.QtyShipped := 1;
-                  if Invoice.ForeignExchangeCode =  Appenv.RegionalOptions.ForeignExDefault then
-                        Invoice.Lines.LinePriceinc     := Round(0-(Invoice.Totalamountinc-aPaymentamount),CurrencyRoundPlaces)
-                  else  Invoice.Lines.ForeignLinePrice := Round(0-(Invoice.ForeignTotalAmount-aPaymentamount),CurrencyRoundPlaces);
-                  Invoice.Lines.PostDB;
-                  Invoice.Lines.CalcLineTotals;
-                  Invoice.Lines.PostDB;
-                  Invoice.CalcOrdertotals;
-                  Invoice.PostDB;
-                end;
-              end;
-              {if the total amount paid doesn't match with the sum of module prices}
-              if  ((Invoice.ForeignExchangeCode =  Appenv.RegionalOptions.ForeignExDefault) and not(Samevalue(aPaymentamount, Invoice.Totalamountinc    ))) OR
-                  ((Invoice.ForeignExchangeCode <> Appenv.RegionalOptions.ForeignExDefault) and not(Samevalue(aPaymentamount, Invoice.ForeignTotalAmount))) then begin
-                  Invoice.Lines.New;
-                  Invoice.Lines.Productname := PART_MEMO;
-                  Invoice.Lines.ProductDescription := 'Amount Variance Adjustment';
-                  Invoice.Lines.QtySold := 1;
-                  Invoice.Lines.QtyShipped := 1;
-                  if Invoice.ForeignExchangeCode =  Appenv.RegionalOptions.ForeignExDefault then
-                        Invoice.Lines.LinePriceinc     :=Round(aPaymentamount-Invoice.Totalamountinc,CurrencyRoundPlaces)
-                  else  Invoice.Lines.ForeignLinePrice :=Round(aPaymentamount-Invoice.ForeignTotalAmount,CurrencyRoundPlaces);
-                  Invoice.Lines.PostDB;
-                  Invoice.Lines.CalcLineTotals;
-                  Invoice.Lines.PostDB;
-                  Invoice.CalcOrdertotals;
-                  Invoice.PostDB;
-              end;
-
-            AddEventdata(aOnEvent,VS1_TAG_Invoice,'lines.count :' + inttostr(Invoice.Lines.count));
-            if not Invoice.ValidateData then begin
-              fsMsg :=  'Failed to Validate Invoice :' + Invoice.REsultStatus.Allmessages;
-              AddEventdata(aOnEvent,VS1_TAG_Invoice,'Failed to Validate Invoice :' + Invoice.REsultStatus.Allmessages);
-              Exit;
-            end else begin
-              AddEventdata(aOnEvent,VS1_TAG_Invoice,'Invoice Validated');
-            end;
-            try
-            if not Invoice.Save then begin
-              fsMsg :=  'Failed to Save Invoice :' + Invoice.REsultStatus.Allmessages;
-              AddEventdata(aOnEvent,VS1_TAG_Invoice,'Failed to Save Invoice :' + Invoice.REsultStatus.Allmessages);
-              Exit;
-            end else begin
-              AddEventdata(aOnEvent,VS1_TAG_Invoice,'Invoice Saved');
-            end;
-            Except
-              on E:Exception do begin
-                AddEventdata(aOnEvent,VS1_TAG_Invoice,'Failed to SAve Invoice :' + E.Message);
-              end;
-            end;
-            AddEventdata(aOnEvent,VS1_TAG_Invoice,'Invoice #' + inttostr(Invoice.Id) +' created', true);
-            aConn.CommitNestedTransaction;
-            REsult :=Invoice.ID;
-          finally
-            Freeandnil(Invoice);
+  aConn.BeginNestedTransaction;
+  try
+    AddEventdata(aOnEvent, VS1_TAG_Invoice, aVS1_Clients.ClientName);
+    Invoice := TInvoice.Create(aVS1_Clients)       ;
+    try
+      Invoice.Connection       := aconn;
+      Invoice.Load(0);
+      Invoice.IgnoreAccesslevel := True;
+      Invoice.SilentMode := True;
+      Invoice.New;
+      Invoice.CustomerName     := aVS1_Clients.ClientName;
+      AddEventdata(aOnEvent, VS1_TAG_Invoice, Invoice.CustomerName + ', 1, ' + IntToStr(Invoice.ClientID));
+      Invoice.ForeignExchangeCode := aVS1_Clients.ForeignExchangeCode(*aVS1_Clients.RegionalOption.ForeignExDefault*);
+      Invoice.SaleClassId         := aVS1_Clients.RegionalOption.DeptClassID;
+      Invoice.SaleDate  := aDateFrom;
+      Invoice.TermsName := TERMS_ON_RCPT;
+      Invoice.Duedate   := aDateFrom;
+      Invoice.Comments  := acomments;
+      Invoice.PostDB;
+      AddEventdata(aOnEvent, VS1_TAG_Invoice, Invoice.CustomerName + ', 2, ' + IntToStr(Invoice.ClientID));
+      aVS1_Clients.ClientModules.First;
+      if (amoduleID=0) then begin
+        if aVS1_Clients.ClientModules.Locate('ModuleId', 0, []) then begin
+          Invoice.Lines.New;
+          with aVS1_Clients.ClientModules.Product do begin
+            //Invoice.Lines.ProductId := ID;
+            Invoice.Lines.ProductName := ProductName;
           end;
-   Except
-      on E:Exception do begin
-        aConn.RollbackNestedTransaction;
-        Exit;
+          Invoice.Lines.QtySold := 1 * aVS1_Clients.LicenseMonths;
+          Invoice.Lines.QtyShipped := 1*aVS1_Clients.LicenseMonths;
+          if aVS1_Clients.ClientModules.DiscountedPrice = 0 then begin
+            Invoice.Lines.LinePriceinc        := 0;
+            Invoice.Lines.OriginalLinePrice   := 0;
+            Invoice.Lines.ForeignLinePrice    := 0;
+          end else if Invoice.ForeignExchangeCode = Appenv.RegionalOptions.ForeignExDefault then begin
+            Invoice.Lines.LinePriceinc := aVS1_Clients.ClientModules.DiscountedPrice;
+          end else begin
+            Invoice.Lines.ForeignLinePrice := aVS1_Clients.ClientModules.DiscountedPrice;
+          end;
+          Invoice.Lines.ProductDescription := aVS1_Clients.ClientModules.Discountdescription;
+          UpdatePricefromRenewalJson(aVS1_Clients.ClientModules.ID);
+          Invoice.Lines.PostDB;
+        end;
       end;
-   end;
+
+      aVS1_Clients.ClientModules.First;
+      while aVS1_Clients.ClientModules.Eof =  False do begin
+        if ((amoduleID =0) and (aVS1_Clients.ClientModules.ModuleId<>0)) or
+            ((amoduleID<>0) and (aVS1_Clients.ClientModules.ModuleId =amoduleID) and (aclientModuleID<>0) and (aclientModuleID = aVS1_Clients.ClientModules.ID))  then begin
+          Invoice.Lines.New;
+          with aVS1_Clients.ClientModules.Product do begin
+            //Invoice.Lines.ProductId := ID;
+            Invoice.Lines.ProductName := ProductName;
+          end;
+          Invoice.Lines.QtySold := 1*aVS1_Clients.LicenseMonths;
+          Invoice.Lines.QtyShipped := 1*aVS1_Clients.LicenseMonths;
+          if aVS1_Clients.ClientModules.DiscountedPrice =0 then begin
+            Invoice.Lines.LinePriceinc :=0;
+          end else if Invoice.ForeignExchangeCode = Appenv.RegionalOptions.ForeignExDefault then begin
+            Invoice.Lines.LinePriceinc :=aVS1_Clients.ClientModules.DiscountedPrice;
+          end else begin
+            Invoice.Lines.ForeignLinePrice :=aVS1_Clients.ClientModules.DiscountedPrice;
+          end;
+          Invoice.Lines.ProductDescription := aVS1_Clients.ClientModules.Discountdescription;
+          UpdatePricefromRenewalJson(aVS1_Clients.ClientModules.ID);
+          Invoice.Lines.PostDB;
+          if amoduleID <> 0 then Break;// only one module
+        end;
+        aVS1_Clients.ClientModules.Next;
+      end;
+      Invoice.PostDB;
+      Invoice.CalcOrdertotals;
+      Invoice.PostDB;
+
+      AddEventdata(aOnEvent,VS1_TAG_Invoice,Invoice.CustomerName + ', 3, ' + IntTostr(Invoice.ClientID));
+
+      {Free extension from Headoffice}
+      if AdjustmentExtension and (Invoice.Lines.Count > 0) then begin
+        if Invoice.Totalamountinc-aPaymentamount <> 0 then begin
+          Invoice.InitToNoTax; // Free adjustment  has no tax
+
+          Invoice.Lines.New;
+          Invoice.Lines.Productname := PART_MEMO;
+          Invoice.Lines.ProductDescription := ExtensionDesc;
+          Invoice.Lines.QtySold := 1;
+          Invoice.Lines.QtyShipped := 1;
+          if Invoice.ForeignExchangeCode =  Appenv.RegionalOptions.ForeignExDefault then
+            Invoice.Lines.LinePriceinc := Round(0 - (Invoice.Totalamountinc - aPaymentamount), CurrencyRoundPlaces)
+          else
+            Invoice.Lines.ForeignLinePrice := Round(0 - (Invoice.ForeignTotalAmount - aPaymentamount), CurrencyRoundPlaces);
+          Invoice.Lines.PostDB;
+          Invoice.Lines.CalcLineTotals;
+          Invoice.Lines.PostDB;
+          Invoice.CalcOrdertotals;
+          Invoice.PostDB;
+        end;
+      end;
+
+      {if the total amount paid doesn't match with the sum of module prices}
+      if  ((Invoice.ForeignExchangeCode =  Appenv.RegionalOptions.ForeignExDefault) and not(Samevalue(aPaymentamount, Invoice.Totalamountinc    ))) OR
+          ((Invoice.ForeignExchangeCode <> Appenv.RegionalOptions.ForeignExDefault) and not(Samevalue(aPaymentamount, Invoice.ForeignTotalAmount))) then begin
+        Invoice.Lines.New;
+        Invoice.Lines.Productname := PART_MEMO;
+        Invoice.Lines.ProductDescription := 'Amount Variance Adjustment';
+        Invoice.Lines.QtySold := 1;
+        Invoice.Lines.QtyShipped := 1;
+        if Invoice.ForeignExchangeCode =  Appenv.RegionalOptions.ForeignExDefault then
+              Invoice.Lines.LinePriceinc     :=Round(aPaymentamount-Invoice.Totalamountinc,CurrencyRoundPlaces)
+        else  Invoice.Lines.ForeignLinePrice :=Round(aPaymentamount-Invoice.ForeignTotalAmount,CurrencyRoundPlaces);
+        Invoice.Lines.PostDB;
+        Invoice.Lines.CalcLineTotals;
+        Invoice.Lines.PostDB;
+        Invoice.CalcOrdertotals;
+        Invoice.PostDB;
+      end;
+
+      AddEventdata(aOnEvent,VS1_TAG_Invoice, 'Lines.Count :' + IntToStr(Invoice.Lines.Count));
+      if not Invoice.ValidateData then begin
+        fsMsg :=  'Failed to Validate Invoice :' + Invoice.ResultStatus.Allmessages;
+        AddEventdata(aOnEvent, VS1_TAG_Invoice, 'Failed to Validate Invoice :' + Invoice.ResultStatus.Allmessages);
+        Exit;
+      end else begin
+        AddEventdata(aOnEvent,VS1_TAG_Invoice,'Invoice Validated');
+      end;
+      try
+        if not Invoice.Save then begin
+          fsMsg :=  'Failed to Save Invoice :' + Invoice.ResultStatus.Allmessages;
+          AddEventdata(aOnEvent,VS1_TAG_Invoice,'Failed to Save Invoice :' + Invoice.ResultStatus.Allmessages);
+          Exit;
+        end else begin
+          AddEventdata(aOnEvent,VS1_TAG_Invoice, 'Invoice Saved');
+        end;
+      Except
+        on E: Exception do begin
+          AddEventdata(aOnEvent,VS1_TAG_Invoice, 'Failed to SAve Invoice :' + E.Message);
+        end;
+      end;
+      AddEventdata(aOnEvent,VS1_TAG_Invoice, 'Invoice #' + IntTostr(Invoice.ID) + ' created', True);
+      aConn.CommitNestedTransaction;
+      Result := Invoice.ID;
+    finally
+    Freeandnil(Invoice);
+    end;
+  except
+    on E:Exception do begin
+      aConn.RollbackNestedTransaction;
+      Exit;
+    end;
+  end;
 end;
 
-function MakePayment(aconn : TMydacdataconnection; aVS1_Clients:TVS1_Clients; fiInvoiceID: Integer; (*aDiscountedPrice, *)aPaymentamount:Double;aPayMethod :String ; var fsMsg:String; aOnEvent:TEventProc; var fiCustpaymentID:Integer ; var fiCustPrepaymentID:Integer): Integer;
+function MakePayment(aconn: TMydacdataconnection; aVS1_Clients:TVS1_Clients; fiInvoiceID: Integer; (*aDiscountedPrice, *)aPaymentamount:Double;aPayMethod :String; var fsMsg: String; aOnEvent:TEventProc; var fiCustpaymentID: Integer; var fiCustPrepaymentID: Integer): Integer;
 var
   CustPayments: TCustPayments;
   CustPrePayments: TCustPrePayments;
@@ -639,9 +641,9 @@ begin
       CustPayments.IgnoreAccesslevel := True;
       CustPayments.SilentMode := True;
       CustPayments.New;
-      CustPayments.CompanyName        := aVS1_Clients.ClientName;
-      CustPayments.DeptClassName      := aVS1_Clients.RegionalOption.DeptClassName;
-      CustPayments.ForeignExchangeCode :=aVS1_Clients.ForeignExchangeCode(*aVS1_Clients.RegionalOption.ForeignExDefault*);
+      CustPayments.CompanyName          := aVS1_Clients.ClientName;
+      CustPayments.DeptClassName        := aVS1_Clients.RegionalOption.DeptClassName;
+      CustPayments.ForeignExchangeCode  := aVS1_Clients.ForeignExchangeCode(*aVS1_Clients.RegionalOption.ForeignExDefault*);
       CustPayments.PayMethodName := aPayMethod;
       CustPayments.PostDB;
       if CustPayments.GUILines.Locate('Type;SaleID', vararrayof(['Invoice', fiInvoiceID]), []) = False then begin
@@ -663,18 +665,18 @@ begin
         fsMsg := 'Failed to Create Payment';
         Exit;
       end;
-      AddEventdata(aOnEvent,VS1_TAG_CustPayments,'CustPayments #' + inttostr(CustPayments.Id) +' created', true);
+      AddEventdata(aOnEvent,VS1_TAG_CustPayments,'CustPayments #' + IntToStr(CustPayments.Id) + ' created', True);
       aConn.CommitNestedTransaction;
-      REsult :=CustPayments.ID;
-      fiCustpaymentID:=CustPayments.ID;
+      Result := CustPayments.ID;
+      fiCustpaymentID := CustPayments.ID;
     finally
       Freeandnil(CustPayments);
     end;
    Except
-      on E:Exception do begin
-        aConn.RollbackNestedTransaction;
-        Exit;
-      end;
+    on E:Exception do begin
+      aConn.RollbackNestedTransaction;
+      Exit;
+    end;
    end;
   {Make customer prePayment for the credit}
   (*if aDiscountedPrice < aPaymentamount then begin

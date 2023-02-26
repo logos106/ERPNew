@@ -1,0 +1,678 @@
+Additional info:
+Windows Version: WorkStation 6.2 (9200)
+MySQL Version: 5.1.52-community
+ERP Version: 2023.0.6.0
+Company: RSL Ex-Servicemen's Cabs & Co-Operative Members Ltd
+Address : 
+14 Sarah Street
+
+NSW 2020
+Australia
+Email : office@rslcabs.com.au
+Phone : 0283388955
+FaxNumber : 0296931588
+ABN 29491565109
+Licenced Users : 2
+
+User: Admin
+PC Name: DESKTOP-JCUTVG7(Wang)
+Send Details: 
+Database : rsl_cabs
+  Host  - 
+  Email - 
+
+Error Type: Fatal
+Active Forms:
+fmSuppPayments
+MainSwitch2
+MainForm
+frmActiveWindows
+Focused Form: fmSuppPayments
+Focused Control: cboClient
+
+---------------------------23/02/2023 18:32:45---------------------------
+
+
+Active Tables 
+=================================
+Class: TSuppPayments, User: Admin, Table: SupplierPaymentClient, ID: 5, Group: SuppPaymentClientLock, Since: 2023-02-23 14:12:18
+Class: TSuppPayments, User: Admin, Table: tblPurchaseOrders, ID: 27288, Group: SuppPayments, Since: 2023-02-23 14:12:18
+Class: TSuppPayments, User: Admin, Table: tblPurchaseOrders, ID: 32104, Group: SuppPayments, Since: 2023-02-23 14:12:18
+Class: TSuppPayments, User: Admin, Table: tblPurchaseOrders, ID: 32339, Group: SuppPayments, Since: 2023-02-23 14:12:18
+
+Active Forms 
+=================================
+Class: TMainSwitch2, User: Admin, ID: 0, Since: 2023-02-23 14:02:53
+Class: TfmSuppPayments, User: Admin, ID: 0, Since: 2023-02-23 14:08:23
+Class: TMainSwitch2, User: Sunil, ID: 0, Since: 2022-10-04 11:19:55
+
+fmSuppPayments:Make Supplier Payments - (Full Access)
+Current Access level : 1
+Access level in DB : 1
+
+
+Exception 'EMyError' in module ERP.exe at 004B1685
+Lost connection to MySQL server during query
+Socket error on write. WSAGetLastError return 10054($2746)
+
+Module: MyClasses, Source: UNKNOWN, Line UNKNOWN
+Procedure: Myclasses::TMySQLConnection::MySQLError
+
+Call stack:
+:008B2685 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:7604E292 [KERNELBASE.dll]
+:008B2685 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:00406F4C [ERP.exe] System::__linkproc__ AfterConstruction
+Recursive call (2 times):
+:008B2685 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:008B417F [ERP.exe] Myclasses::TMySQLCommand::Check
+:008B7EA9 [ERP.exe] DoExecute
+:008B84BA [ERP.exe] Myclasses::TMySQLCommand::Execute
+:00857D1F [ERP.exe] Craccess::TCRRecordSet::ExecCommand
+:008B93E8 [ERP.exe] Myclasses::TMySQLRecordset::ExecCommand
+:00857D3C [ERP.exe] Craccess::TCRRecordSet::ExecFetch
+:00857BC5 [ERP.exe] Craccess::TCRRecordSet::InternalOpen
+:008BA1B4 [ERP.exe] Myclasses::TMySQLRecordset::InternalOpen
+:0082725A [ERP.exe] Memdata::TData::Open
+:0082F6A1 [ERP.exe] Memdata::TMemData::Open
+:00857D01 [ERP.exe] Craccess::TCRRecordSet::Open
+:00837AAF [ERP.exe] Memds::TMemDataSet::InternalOpen
+:00879E42 [ERP.exe] Dbaccess::TCustomDADataSet::InternalOpen
+:00885607 [ERP.exe] Dbaccess::TCustomDASQL::GetPrepared
+:008DDBA4 [ERP.exe] Myaccess::TCustomMyDataSet::InternalOpen
+:005AF04B [ERP.exe] Db::TDataSet::DoInternalOpen
+:005AF103 [ERP.exe] Db::TDataSet::OpenCursor
+:00837E7B [ERP.exe] Memds::TMemDataSet::OpenCursor
+:00874627 [ERP.exe] Dbaccess::TCustomDADataSet::OpenCursor
+:005AEFBF [ERP.exe] Db::TDataSet::SetActive
+:00874452 [ERP.exe] Dbaccess::TCustomDADataSet::SetActive
+:008E61BB [ERP.exe] Erpdbcomponents::TERPQuery::SetActive (ERPdbComponents.pas, line 528)
+:005AEE06 [ERP.exe] Db::TDataSet::Open
+:00B76339 [ERP.exe] Busobjcurrency::TCurrency::CurrencySymbolForCode (BusObjCurrency.pas, line 359)
+:020765AD [ERP.exe] Frmsupppayments::TfmSuppPayments::SetForeignFieldDisplayFormat (frmSuppPayments.pas, line 1546)
+:020766C1 [ERP.exe] Frmsupppayments::TfmSuppPayments::cboForeignCurrencyCodeChange (frmSuppPayments.pas, line 1569)
+:004EE11A [ERP.exe] Stdctrls::TCustomEdit::Change
+:00706989 [ERP.exe] Wwdblook::TwwDBCustomLookupCombo::Change
+:004EE2F3 [ERP.exe] Stdctrls::TCustomEdit::CNCommand
+:004B8D83 [ERP.exe] Controls::TControl::WndProc
+:004B706D [ERP.exe] Controls::TControl::Changed
+:004EE11A [ERP.exe] Stdctrls::TCustomEdit::Change
+:005D7659 [ERP.exe] Dbctrls::TDBEdit::Change
+:004EE2F3 [ERP.exe] Stdctrls::TCustomEdit::CNCommand
+:004B8D83 [ERP.exe] Controls::TControl::WndProc
+:7604E292 [KERNELBASE.dll]
+:0089B794 [ERP.exe] Mysqlnet::TMySqlNet::VioWrite
+:00406F4C [ERP.exe] System::__linkproc__ AfterConstruction
+:77565006 [ntdll.dll]
+:7604E292 [KERNELBASE.dll]
+:008B2685 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:00406F4C [ERP.exe] System::__linkproc__ AfterConstruction
+:77562C1C [ntdll.dll]
+:762CC0C2 [KERNEL32.DLL]
+Recursive call (2 times):
+:004BD649 [ERP.exe] Controls::TWinControl::WndProc
+:764210EC [win32u.dll]
+:75CAC7BF [user32.dll]
+:004B89A7 [ERP.exe] Controls::TControl::Perform
+:004BD79C [ERP.exe] Controls::DoControlMsg
+:004BE1F8 [ERP.exe] Controls::TWinControl::WMCommand
+:00574905 [ERP.exe] Forms::TCustomForm::WMCommand
+:004B8D83 [ERP.exe] Controls::TControl::WndProc
+:004BD79C [ERP.exe] Controls::DoControlMsg
+:004BE1F8 [ERP.exe] Controls::TWinControl::WMCommand
+:00574905 [ERP.exe] Forms::TCustomForm::WMCommand
+:004B8D83 [ERP.exe] Controls::TControl::WndProc
+:764250FC [win32u.dll]
+:753B5035 [imm32.dll]
+:753B2593 [imm32.dll]
+:753B25A8 [imm32.dll]
+:004BD649 [ERP.exe] Controls::TWinControl::WndProc
+:004075A3 [ERP.exe] System::TMonitor::TryEnter
+:00571809 [ERP.exe] Forms::TCustomForm::WndProc
+:00407384 [ERP.exe] System::TMonitor::Exit
+:0049E50C [ERP.exe] Graphics::FreeMemoryContexts
+:004BCCE7 [ERP.exe] Controls::TWinControl::MainWndProc
+:00466076 [ERP.exe] Classes::StdWndProc
+:75CB148B [user32.dll]
+:75CA844A [user32.dll]
+:75C8DBF4 [user32.dll]
+:764250FC [win32u.dll]
+:753B5035 [imm32.dll]
+:753B2593 [imm32.dll]
+:75CA825E [user32.dll]
+:75CA7B27 [user32.dll]
+:75CA5CCB [user32.dll]
+:022FB95C [ERP.exe] Ad4editsubclass::TSubclassWindow::ParentSubclassWndProc (ad4EditSubclass.pas, line 269)
+:00466076 [ERP.exe] Classes::StdWndProc
+:75CB148B [user32.dll]
+:75CA844A [user32.dll]
+:753B5317 [imm32.dll]
+:7642104C [win32u.dll]
+:75C901B9 [user32.dll]
+:75C901C5 [user32.dll]
+:75C8CFD4 [user32.dll]
+:75CA825E [user32.dll]
+:775D0AFC [ntdll.dll]
+:75CA7829 [user32.dll]
+:75CA5E6F [user32.dll]
+:75CB70A9 [user32.dll]
+:75C8D3EA [user32.dll]
+:75CB7C09 [user32.dll]
+:75C8DA75 [user32.dll]
+:75CDAFC2 [user32.dll]
+:75CB148B [user32.dll]
+:75CA844A [user32.dll]
+:004B8D83 [ERP.exe] Controls::TControl::WndProc
+:75CA825E [user32.dll]
+:75CA7B27 [user32.dll]
+:75CA5CCB [user32.dll]
+:004BD749 [ERP.exe] Controls::TWinControl::DefaultHandler
+:004EE1B8 [ERP.exe] Stdctrls::TCustomEdit::DefaultHandler
+Recursive call (2 times):
+:00406CB8 [ERP.exe] System::TObject::Dispatch
+:004B8D83 [ERP.exe] Controls::TControl::WndProc
+:00407384 [ERP.exe] System::TMonitor::Exit
+:0049E50C [ERP.exe] Graphics::FreeMemoryContexts
+:004BCCE7 [ERP.exe] Controls::TWinControl::MainWndProc
+:004BCCFE [ERP.exe] Controls::TWinControl::MainWndProc
+:7753C87C [ntdll.dll]
+:00466076 [ERP.exe] Classes::StdWndProc
+:75CB148B [user32.dll]
+:75CA844A [user32.dll]
+:75CA868F [user32.dll]
+:75CA848C [user32.dll]
+:7602F2C9 [KERNELBASE.dll]
+Recursive call (2 times):
+:004BD649 [ERP.exe] Controls::TWinControl::WndProc
+:004B89A7 [ERP.exe] Controls::TControl::Perform
+:004B89C1 [ERP.exe] Controls::TControl::Perform
+:004B68AA [ERP.exe] Controls::TControl::SetTextBuf
+:004B74DF [ERP.exe] Controls::TControl::SetText
+:004B74F5 [ERP.exe] Controls::TControl::SetText
+:007070A0 [ERP.exe] Wwdblook::TwwDBCustomLookupCombo::DataChange
+:0070711A [ERP.exe] Wwdblook::TwwDBCustomLookupCombo::DataChange
+:005D7073 [ERP.exe] Dbctrls::TFieldDataLink::RecordChanged
+:005D6E3B [ERP.exe] Dbctrls::TFieldDataLink::SetField
+:005D6ECE [ERP.exe] Dbctrls::TFieldDataLink::UpdateField
+:005D6EE9 [ERP.exe] Dbctrls::TFieldDataLink::UpdateField
+:005D6FDA [ERP.exe] Dbctrls::TFieldDataLink::ActiveChanged
+:005AAA10 [ERP.exe] Db::TDataLink::SetActive
+:005AAA41 [ERP.exe] Db::TDataLink::UpdateState
+:005AAB5F [ERP.exe] Db::TDataLink::DataEvent
+:005D70BC [ERP.exe] Dbctrls::TFieldDataLink::DataEvent
+:005AB19E [ERP.exe] Db::TDataSource::NotifyLinkTypes
+:005AB1CF [ERP.exe] Db::TDataSource::NotifyDataLinks
+:005AAFD0 [ERP.exe] Db::TDataSource::SetState
+:005AB01B [ERP.exe] Db::TDataSource::UpdateState
+:005AB1E9 [ERP.exe] Db::TDataSource::DataEvent
+:005B0AAE [ERP.exe] Db::TDataSet::DataEvent
+:0083F5FD [ERP.exe] Memds::TMemDataSet::DataEvent
+:0087A4D3 [ERP.exe] Dbaccess::TCustomDADataSet::DataEvent
+:005AEBA6 [ERP.exe] Db::TDataSet::SetState
+:005AF006 [ERP.exe] Db::TDataSet::SetActive
+:00874452 [ERP.exe] Dbaccess::TCustomDADataSet::SetActive
+:008E61BB [ERP.exe] Erpdbcomponents::TERPQuery::SetActive (ERPdbComponents.pas, line 528)
+:005AEE12 [ERP.exe] Db::TDataSet::Close
+:00873DA6 [ERP.exe] Dbaccess::TCustomDADataSet::Disconnect
+:00873E0B [ERP.exe] Dbaccess::TCustomDADataSet::ConnectChange
+:0059DD93 [ERP.exe] Db::TCustomConnection::SendConnectEvent
+:00871638 [ERP.exe] Dbaccess::TCustomDAConnection::SetConnected
+:008716FB [ERP.exe] Dbaccess::TCustomDAConnection::SetConnected
+:008718AC [ERP.exe] Dbaccess::TCustomDAConnection::SetConnected
+:008718C9 [ERP.exe] Dbaccess::TCustomDAConnection::SetConnected
+:0088B4BB [ERP.exe] Dbaccess::TDATransactions::GetItems
+:0086F337 [ERP.exe] Dbaccess::TCustomDAConnection::Disconnect
+:008713AE [ERP.exe] Dbaccess::TCustomDAConnection::DoError
+:00854E8E [ERP.exe] Craccess::TCRConnection::DoError
+:00854EA3 [ERP.exe] Craccess::TCRConnection::DoError
+:00406EFD [ERP.exe] System::__linkproc__ ClassCreate
+:008B2B7C [ERP.exe] Myclasses::TMySQLConnection::DoError
+:008B2677 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:008B26A8 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:008B26D5 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:008B417F [ERP.exe] Myclasses::TMySQLCommand::Check
+:008B7EA9 [ERP.exe] DoExecute
+:008B828F [ERP.exe] DoExecute
+:008B84BA [ERP.exe] Myclasses::TMySQLCommand::Execute
+:008B8501 [ERP.exe] Myclasses::TMySQLCommand::Execute
+:008B356A [ERP.exe] Myclasses::TMySQLConnection::ExecStatement
+:008B3580 [ERP.exe] Myclasses::TMySQLConnection::ExecStatement
+:008C2A29 [ERP.exe] Myclasses::TMySQLTransaction::Rollback
+:0088C839 [ERP.exe] Dbaccess::TDATransaction::Rollback
+:0088C877 [ERP.exe] Dbaccess::TDATransaction::Rollback
+:0088BAAE [ERP.exe] Dbaccess::TDATransaction::DetectInTransaction
+:008707B1 [ERP.exe] Dbaccess::TCustomDAConnection::Rollback
+:008E4CDE [ERP.exe] Erpdbcomponents::TERPConnection::Rollback (ERPdbComponents.pas, line 193)
+:02C041DF [ERP.exe] Baseinputform::TBaseInputGUI::RollbackTransaction (BaseInputForm.pas, line 1799)
+:02C0422D [ERP.exe] Baseinputform::TBaseInputGUI::RollbackTransaction (BaseInputForm.pas, line 1805)
+:020752A9 [ERP.exe] Frmsupppayments::TfmSuppPayments::FormCloseQuery (frmSuppPayments.pas, line 1325)
+:00575AF3 [ERP.exe] Forms::TCustomForm::CloseQuery
+:00575A1B [ERP.exe] Forms::TCustomForm::Close
+:027FEDFF [ERP.exe] Baseformform::TBaseForm::DoOnCloseWait (BaseFormForm.pas, line 652)
+:0050B52E [ERP.exe] Extctrls::TTimer::Timer
+:0050B414 [ERP.exe] Extctrls::TTimer::WndProc
+:00466076 [ERP.exe] Classes::StdWndProc
+:75CB148B [user32.dll]
+:75CA844A [user32.dll]
+:77562B2C [ntdll.dll]
+:75CAB946 [user32.dll]
+:75CA825E [user32.dll]
+:75CABEAA [user32.dll]
+:75CA61BA [user32.dll]
+:75CA5F80 [user32.dll]
+:0057A7D8 [ERP.exe] Forms::TApplication::ProcessMessage
+Recursive call (2 times):
+:03983624 [ERP.exe]
+:0057A81B [ERP.exe] Forms::TApplication::HandleMessage
+:0057AB46 [ERP.exe] Forms::TApplication::Run
+:0057AB89 [ERP.exe] Forms::TApplication::Run
+Recursive call (2 times):
+:03983624 [ERP.exe]
+:03983732 [ERP.exe]
+:03983754 [ERP.exe]
+:762D00F9 [KERNEL32.DLL]
+:77557BBE [ntdll.dll]
+:77557B8E [ntdll.dll]
+:03983624 [ERP.exe]
+
+Modules:
+$00400000 (00400000,00001000,03582600) D:\Work\Delphi\Dene\Code\ERPNew\Dev\ERP.exe
+$75F20000 (75F20000,00001000,001DD400) C:\Windows\System32\KERNELBASE.dll
+$774F0000 (774F0000,00001000,00120400) C:\Windows\SYSTEM32\ntdll.dll
+$762B0000 (762B0000,00010000,00066000) C:\Windows\System32\KERNEL32.DLL
+$76420000 (76420000,00001000,00005400) C:\Windows\System32\win32u.dll
+$75C70000 (75C70000,00001000,000A4800) C:\Windows\System32\user32.dll
+$753B0000 (753B0000,00001000,00019800) C:\Windows\System32\imm32.dll
+
+
+User Actions:
+14:02:38:125 - Focused Control: frmLogon.Panel1.pnlmain.pnldb.cboDatabases
+14:02:38:125 - Left mouse button down : frmLogon.Panel1.pnlmain.pnldb.cboDatabases
+14:02:38:232 - Left mouse button up : frmLogon.Panel1.pnlmain.pnldb.cboDatabases
+14:02:41:551 - Left mouse button down : frmLogon.Panel1.pnlmain.pnldb.cboDatabases
+14:02:41:648 - Left mouse button up : frmLogon.Panel1.pnlmain.pnldb.cboDatabases
+14:02:43:292 - Left mouse button down : frmLogon.Panel1.pnlmain.pnldb.cboDatabases
+14:02:43:293 - Left mouse button up : frmLogon.Panel1.pnlmain.pnldb.cboDatabases
+14:02:44:285 - Focused Control: frmLogon.Panel1.pnlmain.pnlLogon.cboUser
+14:02:44:285 - Left mouse button down : frmLogon.Panel1.pnlmain.pnlLogon.cboUser
+14:02:44:374 - Left mouse button up : frmLogon.Panel1.pnlmain.pnlLogon.cboUser
+14:02:45:465 - Left mouse button down : frmLogon.Panel1.pnlmain.pnlLogon.cboUser
+14:02:45:574 - Focused Control: frmLogon.Panel1.pnlmain.DNMPanel2.cmdLogon
+14:02:45:574 - Left mouse button up : frmLogon.Panel1.pnlmain.DNMPanel2.cmdLogon.Caption = '&Logon'
+14:03:07:492 - Focused Control: MainSwitch2.pnlbotton.edtSearch
+14:03:07:492 - Left mouse button down : MainSwitch2.pnlbotton.edtSearch
+14:03:07:589 - Left mouse button up : MainSwitch2.pnlbotton.edtSearch
+14:03:25:803 - Left mouse button down : MainSwitch2.pnlbotton.edtSearch
+14:03:25:914 - Focused Control: MainSwitch2.sbButtons.pnlButtons2.MainmenuActionbtn_Payments_actPaymentsSupplierPayment
+14:03:25:914 - Left mouse button up : MainSwitch2.sbButtons.pnlButtons2.MainmenuActionbtn_Payments_actPaymentsSupplierPayment.Caption = 'Supplier Payment'
+14:03:37:764 - BeginTransaction
+14:06:59:443 - Focused Control: fmSuppPayments.cboClient
+14:06:59:443 - [Num Lock] F9 up : fmSuppPayments.cboClient.Text = ''
+14:06:59:515 - Focused Control: fmSuppPayments.cboClient
+14:06:59:515 - [Num Lock] F9 up : fmSuppPayments.cboClient.Text = ''
+14:07:02:860 - Focused Control: fmSuppPayments.cboClient
+14:07:02:860 - Left mouse button up : fmSuppPayments.cboClient.Text = ''
+14:07:05:340 - Focused Control: fmSuppPayments.cboClient
+14:07:05:340 - Left mouse button up : fmSuppPayments.cboClient.Text = ''
+14:07:07:458 - Focused Control: fmSuppPayments.cboClient
+14:07:07:458 - Left mouse button up : fmSuppPayments.cboClient.Text = ''
+14:07:14:640 - Focused Control: fmSuppPayments.cboClient
+14:07:14:640 - [Num Lock] a down : fmSuppPayments.cboClient.Text = ''
+14:07:14:744 - Focused Control: fmSuppPayments.cboClient
+14:07:14:744 - [Num Lock] a up : fmSuppPayments.cboClient.Text = 'a'
+14:07:14:776 - Focused Control: fmSuppPayments.cboClient
+14:07:14:776 - [Num Lock] u down : fmSuppPayments.cboClient.Text = 'a'
+14:07:14:865 - Focused Control: fmSuppPayments.cboClient
+14:07:14:865 - [Num Lock] u up : fmSuppPayments.cboClient.Text = 'au'
+14:07:14:929 - Focused Control: fmSuppPayments.cboClient
+14:07:14:929 - [Num Lock] s down : fmSuppPayments.cboClient.Text = 'au'
+14:07:15:040 - Focused Control: fmSuppPayments.cboClient
+14:07:15:040 - [Num Lock] s up : fmSuppPayments.cboClient.Text = 'aus'
+14:07:16:946 - Focused Control: fmSuppPayments.cboClient
+14:07:16:946 - Left mouse button down : fmSuppPayments.cboClient.Text = 'aus'
+14:07:17:065 - Focused Control: fmSuppPayments.cboClient
+14:07:17:065 - Left mouse button up : fmSuppPayments.cboClient.Text = 'aus'
+14:08:21:075 - Focused Control: fmSuppPayments.cboClient
+14:08:21:075 - Left mouse button up : fmSuppPayments.cboClient.Text = 'Australian Taxation Office'
+14:08:22:331 - Focused Control: .Yes
+14:08:22:331 - Left mouse button down : .Yes.Caption = '&Yes'
+14:08:22:431 - Focused Control: .No
+14:08:22:431 - Left mouse button up : .No.Caption = '&No'
+14:08:22:444 - RollbackTransaction
+14:08:23:777 - Focused Control: MainSwitch2.sbButtons.pnlButtons2.MainmenuActionbtn_Payments_actPaymentsAccountsPayableReport
+14:08:23:777 - Left mouse button down : MainSwitch2.sbButtons.pnlButtons2.MainmenuActionbtn_Payments_actPaymentsAccountsPayableReport.Caption = 'Accounts Payable Report'
+14:08:23:852 - Focused Control: MainSwitch2.sbButtons.pnlButtons2.MainmenuActionbtn_Payments_actPaymentsSupplierPayment
+14:08:23:852 - Left mouse button up : MainSwitch2.sbButtons.pnlButtons2.MainmenuActionbtn_Payments_actPaymentsSupplierPayment.Caption = 'Supplier Payment'
+14:08:24:054 - BeginTransaction
+14:09:23:021 - Focused Control: fmSuppPayments.cboClient
+14:09:23:021 - Left mouse button up : fmSuppPayments.cboClient.Text = ''
+14:09:43:837 - Focused Control: fmSuppPayments.cboClient
+14:09:43:837 - Left mouse button down : fmSuppPayments.cboClient.Text = ''
+14:09:43:974 - Focused Control: fmSuppPayments.cboClient
+14:09:43:974 - Left mouse button up : fmSuppPayments.cboClient.Text = ''
+14:09:45:928 - Focused Control: fmSuppPayments.cboClient
+14:09:45:928 - [Num Lock] a down : fmSuppPayments.cboClient.Text = ''
+14:09:46:001 - Focused Control: fmSuppPayments.cboClient
+14:09:46:001 - [Num Lock] a up : fmSuppPayments.cboClient.Text = 'a'
+14:09:46:126 - Focused Control: fmSuppPayments.cboClient
+14:09:46:126 - [Num Lock] u down : fmSuppPayments.cboClient.Text = 'a'
+14:09:46:127 - Focused Control: fmSuppPayments.cboClient
+14:09:46:127 - [Num Lock] u up : fmSuppPayments.cboClient.Text = 'au'
+14:09:46:168 - Focused Control: fmSuppPayments.cboClient
+14:09:46:168 - [Num Lock] s down : fmSuppPayments.cboClient.Text = 'au'
+14:09:46:272 - Focused Control: fmSuppPayments.cboClient
+14:09:46:272 - [Num Lock] s up : fmSuppPayments.cboClient.Text = 'aus'
+14:09:49:086 - Focused Control: fmSuppPayments.cboClient
+14:09:49:086 - Left mouse button down : fmSuppPayments.cboClient.Text = 'aus'
+14:09:49:268 - Focused Control: fmSuppPayments.cboClient
+14:09:49:268 - Left mouse button up : fmSuppPayments.cboClient.Text = 'aus'
+14:10:06:420 - Focused Control: fmSuppPayments.cboClient
+14:10:06:420 - Left mouse button down : fmSuppPayments.cboClient.Text = 'Australian Taxation Office'
+14:10:06:560 - Focused Control: fmSuppPayments.cboClient
+14:10:06:560 - Left mouse button up : fmSuppPayments.cboClient.Text = 'Australian Taxation Office'
+14:10:07:809 - Focused Control: fmSuppPayments.cboClient
+14:10:07:809 - Left mouse button down : fmSuppPayments.cboClient.Text = 'Australian Taxation Office'
+14:10:07:926 - Focused Control: fmSuppPayments.cboClient
+14:10:07:926 - Left mouse button up : fmSuppPayments.cboClient.Text = 'Australian Taxation Office'
+14:12:17:109 - Focused Control: fmSuppPayments.cboClient
+14:12:17:109 - Left mouse button down : fmSuppPayments.cboClient.Text = 'Australia Super'
+14:12:17:202 - Focused Control: fmSuppPayments.cboClient
+14:12:17:202 - Left mouse button up : fmSuppPayments.cboClient.Text = 'Australia Super'
+14:12:18:467 - Focused Control: fmSuppPayments.cboClient
+14:12:18:467 - Left mouse button down : fmSuppPayments.cboClient.Text = 'Australia Super'
+14:12:18:583 - Focused Control: fmSuppPayments.cboClient
+14:12:18:583 - Left mouse button up : fmSuppPayments.cboClient.Text = 'Australia Super'
+14:23:56:480 - Focused Control: fmSuppPayments.cboClient
+14:23:56:480 - Left mouse button up : fmSuppPayments.cboClient.Text = 'Australian Taxation Office'
+16:38:10:427 - Focused Control: fmSuppPayments.cboClient
+16:38:10:427 - Left mouse button up : fmSuppPayments.cboClient.Text = 'Australian Taxation Office'
+18:32:40:405 - Focused Control: fmSuppPayments.cboClient
+18:32:40:405 - Left mouse button up : fmSuppPayments.cboClient.Text = 'Australian Taxation Office'
+18:32:41:737 - Focused Control: .Yes
+18:32:41:737 - Left mouse button down : .Yes.Caption = '&Yes'
+18:32:41:854 - Focused Control: .No
+18:32:41:854 - Left mouse button up : .No.Caption = '&No'
+18:32:41:871 - RollbackTransaction
+
+WorkFlow Status:
+None
+---------------------------23/02/2023 6:32:45 PM---------------------------
+Exception 'EMyError' in module ERP.exe at 004B1685
+Lost connection to MySQL server during query
+Socket error on write. WSAGetLastError return 10054($2746)
+
+Module: MyClasses, Source: UNKNOWN, Line UNKNOWN
+Procedure: Myclasses::TMySQLConnection::MySQLError
+
+Call stack:
+:008B2685 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:7604E292 [KERNELBASE.dll]
+:008B2685 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:00406F4C [ERP.exe] System::__linkproc__ AfterConstruction
+Recursive call (2 times):
+:008B2685 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:008B417F [ERP.exe] Myclasses::TMySQLCommand::Check
+:008B7EA9 [ERP.exe] DoExecute
+:008B84BA [ERP.exe] Myclasses::TMySQLCommand::Execute
+:00857D1F [ERP.exe] Craccess::TCRRecordSet::ExecCommand
+:008B93E8 [ERP.exe] Myclasses::TMySQLRecordset::ExecCommand
+:00857D3C [ERP.exe] Craccess::TCRRecordSet::ExecFetch
+:00857BC5 [ERP.exe] Craccess::TCRRecordSet::InternalOpen
+:008BA1B4 [ERP.exe] Myclasses::TMySQLRecordset::InternalOpen
+:0082725A [ERP.exe] Memdata::TData::Open
+:0082F6A1 [ERP.exe] Memdata::TMemData::Open
+:00857D01 [ERP.exe] Craccess::TCRRecordSet::Open
+:00837AAF [ERP.exe] Memds::TMemDataSet::InternalOpen
+:00879E42 [ERP.exe] Dbaccess::TCustomDADataSet::InternalOpen
+:00885607 [ERP.exe] Dbaccess::TCustomDASQL::GetPrepared
+:008DDBA4 [ERP.exe] Myaccess::TCustomMyDataSet::InternalOpen
+:005AF04B [ERP.exe] Db::TDataSet::DoInternalOpen
+:005AF103 [ERP.exe] Db::TDataSet::OpenCursor
+:00837E7B [ERP.exe] Memds::TMemDataSet::OpenCursor
+:00874627 [ERP.exe] Dbaccess::TCustomDADataSet::OpenCursor
+:005AEFBF [ERP.exe] Db::TDataSet::SetActive
+:00874452 [ERP.exe] Dbaccess::TCustomDADataSet::SetActive
+:008E61BB [ERP.exe] Erpdbcomponents::TERPQuery::SetActive (ERPdbComponents.pas, line 528)
+:005AEE06 [ERP.exe] Db::TDataSet::Open
+:00B76339 [ERP.exe] Busobjcurrency::TCurrency::CurrencySymbolForCode (BusObjCurrency.pas, line 359)
+:020765AD [ERP.exe] Frmsupppayments::TfmSuppPayments::SetForeignFieldDisplayFormat (frmSuppPayments.pas, line 1546)
+:020766C1 [ERP.exe] Frmsupppayments::TfmSuppPayments::cboForeignCurrencyCodeChange (frmSuppPayments.pas, line 1569)
+:004EE11A [ERP.exe] Stdctrls::TCustomEdit::Change
+:00706989 [ERP.exe] Wwdblook::TwwDBCustomLookupCombo::Change
+:004EE2F3 [ERP.exe] Stdctrls::TCustomEdit::CNCommand
+:004B8D83 [ERP.exe] Controls::TControl::WndProc
+:004B706D [ERP.exe] Controls::TControl::Changed
+:004EE11A [ERP.exe] Stdctrls::TCustomEdit::Change
+:005D7659 [ERP.exe] Dbctrls::TDBEdit::Change
+:004EE2F3 [ERP.exe] Stdctrls::TCustomEdit::CNCommand
+:004B8D83 [ERP.exe] Controls::TControl::WndProc
+:7604E292 [KERNELBASE.dll]
+:0089B794 [ERP.exe] Mysqlnet::TMySqlNet::VioWrite
+:00406F4C [ERP.exe] System::__linkproc__ AfterConstruction
+:77565006 [ntdll.dll]
+:7604E292 [KERNELBASE.dll]
+:008B2685 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:00406F4C [ERP.exe] System::__linkproc__ AfterConstruction
+:77562C1C [ntdll.dll]
+:762CC0C2 [KERNEL32.DLL]
+Recursive call (2 times):
+:004BD649 [ERP.exe] Controls::TWinControl::WndProc
+:764210EC [win32u.dll]
+:75CAC7BF [user32.dll]
+:004B89A7 [ERP.exe] Controls::TControl::Perform
+:004BD79C [ERP.exe] Controls::DoControlMsg
+:004BE1F8 [ERP.exe] Controls::TWinControl::WMCommand
+:00574905 [ERP.exe] Forms::TCustomForm::WMCommand
+:004B8D83 [ERP.exe] Controls::TControl::WndProc
+:004BD79C [ERP.exe] Controls::DoControlMsg
+:004BE1F8 [ERP.exe] Controls::TWinControl::WMCommand
+:00574905 [ERP.exe] Forms::TCustomForm::WMCommand
+:004B8D83 [ERP.exe] Controls::TControl::WndProc
+:764250FC [win32u.dll]
+:753B5035 [imm32.dll]
+:753B2593 [imm32.dll]
+:753B25A8 [imm32.dll]
+:004BD649 [ERP.exe] Controls::TWinControl::WndProc
+:004075A3 [ERP.exe] System::TMonitor::TryEnter
+:00571809 [ERP.exe] Forms::TCustomForm::WndProc
+:00407384 [ERP.exe] System::TMonitor::Exit
+:0049E50C [ERP.exe] Graphics::FreeMemoryContexts
+:004BCCE7 [ERP.exe] Controls::TWinControl::MainWndProc
+:00466076 [ERP.exe] Classes::StdWndProc
+:75CB148B [user32.dll]
+:75CA844A [user32.dll]
+:75C8DBF4 [user32.dll]
+:764250FC [win32u.dll]
+:753B5035 [imm32.dll]
+:753B2593 [imm32.dll]
+:75CA825E [user32.dll]
+:75CA7B27 [user32.dll]
+:75CA5CCB [user32.dll]
+:022FB95C [ERP.exe] Ad4editsubclass::TSubclassWindow::ParentSubclassWndProc (ad4EditSubclass.pas, line 269)
+:00466076 [ERP.exe] Classes::StdWndProc
+:75CB148B [user32.dll]
+:75CA844A [user32.dll]
+:753B5317 [imm32.dll]
+:7642104C [win32u.dll]
+:75C901B9 [user32.dll]
+:75C901C5 [user32.dll]
+:75C8CFD4 [user32.dll]
+:75CA825E [user32.dll]
+:775D0AFC [ntdll.dll]
+:75CA7829 [user32.dll]
+:75CA5E6F [user32.dll]
+:75CB70A9 [user32.dll]
+:75C8D3EA [user32.dll]
+:75CB7C09 [user32.dll]
+:75C8DA75 [user32.dll]
+:75CDAFC2 [user32.dll]
+:75CB148B [user32.dll]
+:75CA844A [user32.dll]
+:004B8D83 [ERP.exe] Controls::TControl::WndProc
+:75CA825E [user32.dll]
+:75CA7B27 [user32.dll]
+:75CA5CCB [user32.dll]
+:004BD749 [ERP.exe] Controls::TWinControl::DefaultHandler
+:004EE1B8 [ERP.exe] Stdctrls::TCustomEdit::DefaultHandler
+Recursive call (2 times):
+:00406CB8 [ERP.exe] System::TObject::Dispatch
+:004B8D83 [ERP.exe] Controls::TControl::WndProc
+:00407384 [ERP.exe] System::TMonitor::Exit
+:0049E50C [ERP.exe] Graphics::FreeMemoryContexts
+:004BCCE7 [ERP.exe] Controls::TWinControl::MainWndProc
+:004BCCFE [ERP.exe] Controls::TWinControl::MainWndProc
+:7753C87C [ntdll.dll]
+:00466076 [ERP.exe] Classes::StdWndProc
+:75CB148B [user32.dll]
+:75CA844A [user32.dll]
+:75CA868F [user32.dll]
+:75CA848C [user32.dll]
+:7602F2C9 [KERNELBASE.dll]
+Recursive call (2 times):
+:004BD649 [ERP.exe] Controls::TWinControl::WndProc
+:004B89A7 [ERP.exe] Controls::TControl::Perform
+:004B89C1 [ERP.exe] Controls::TControl::Perform
+:004B68AA [ERP.exe] Controls::TControl::SetTextBuf
+:004B74DF [ERP.exe] Controls::TControl::SetText
+:004B74F5 [ERP.exe] Controls::TControl::SetText
+:007070A0 [ERP.exe] Wwdblook::TwwDBCustomLookupCombo::DataChange
+:0070711A [ERP.exe] Wwdblook::TwwDBCustomLookupCombo::DataChange
+:005D7073 [ERP.exe] Dbctrls::TFieldDataLink::RecordChanged
+:005D6E3B [ERP.exe] Dbctrls::TFieldDataLink::SetField
+:005D6ECE [ERP.exe] Dbctrls::TFieldDataLink::UpdateField
+:005D6EE9 [ERP.exe] Dbctrls::TFieldDataLink::UpdateField
+:005D6FDA [ERP.exe] Dbctrls::TFieldDataLink::ActiveChanged
+:005AAA10 [ERP.exe] Db::TDataLink::SetActive
+:005AAA41 [ERP.exe] Db::TDataLink::UpdateState
+:005AAB5F [ERP.exe] Db::TDataLink::DataEvent
+:005D70BC [ERP.exe] Dbctrls::TFieldDataLink::DataEvent
+:005AB19E [ERP.exe] Db::TDataSource::NotifyLinkTypes
+:005AB1CF [ERP.exe] Db::TDataSource::NotifyDataLinks
+:005AAFD0 [ERP.exe] Db::TDataSource::SetState
+:005AB01B [ERP.exe] Db::TDataSource::UpdateState
+:005AB1E9 [ERP.exe] Db::TDataSource::DataEvent
+:005B0AAE [ERP.exe] Db::TDataSet::DataEvent
+:0083F5FD [ERP.exe] Memds::TMemDataSet::DataEvent
+:0087A4D3 [ERP.exe] Dbaccess::TCustomDADataSet::DataEvent
+:005AEBA6 [ERP.exe] Db::TDataSet::SetState
+:005AF006 [ERP.exe] Db::TDataSet::SetActive
+:00874452 [ERP.exe] Dbaccess::TCustomDADataSet::SetActive
+:008E61BB [ERP.exe] Erpdbcomponents::TERPQuery::SetActive (ERPdbComponents.pas, line 528)
+:005AEE12 [ERP.exe] Db::TDataSet::Close
+:00873DA6 [ERP.exe] Dbaccess::TCustomDADataSet::Disconnect
+:00873E0B [ERP.exe] Dbaccess::TCustomDADataSet::ConnectChange
+:0059DD93 [ERP.exe] Db::TCustomConnection::SendConnectEvent
+:00871638 [ERP.exe] Dbaccess::TCustomDAConnection::SetConnected
+:008716FB [ERP.exe] Dbaccess::TCustomDAConnection::SetConnected
+:008718AC [ERP.exe] Dbaccess::TCustomDAConnection::SetConnected
+:008718C9 [ERP.exe] Dbaccess::TCustomDAConnection::SetConnected
+:0088B4BB [ERP.exe] Dbaccess::TDATransactions::GetItems
+:0086F337 [ERP.exe] Dbaccess::TCustomDAConnection::Disconnect
+:008713AE [ERP.exe] Dbaccess::TCustomDAConnection::DoError
+:00854E8E [ERP.exe] Craccess::TCRConnection::DoError
+:00854EA3 [ERP.exe] Craccess::TCRConnection::DoError
+:00406EFD [ERP.exe] System::__linkproc__ ClassCreate
+:008B2B7C [ERP.exe] Myclasses::TMySQLConnection::DoError
+:008B2677 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:008B26A8 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:008B26D5 [ERP.exe] Myclasses::TMySQLConnection::MySQLError
+:008B417F [ERP.exe] Myclasses::TMySQLCommand::Check
+:008B7EA9 [ERP.exe] DoExecute
+:008B828F [ERP.exe] DoExecute
+:008B84BA [ERP.exe] Myclasses::TMySQLCommand::Execute
+:008B8501 [ERP.exe] Myclasses::TMySQLCommand::Execute
+:008B356A [ERP.exe] Myclasses::TMySQLConnection::ExecStatement
+:008B3580 [ERP.exe] Myclasses::TMySQLConnection::ExecStatement
+:008C2A29 [ERP.exe] Myclasses::TMySQLTransaction::Rollback
+:0088C839 [ERP.exe] Dbaccess::TDATransaction::Rollback
+:0088C877 [ERP.exe] Dbaccess::TDATransaction::Rollback
+:0088BAAE [ERP.exe] Dbaccess::TDATransaction::DetectInTransaction
+:008707B1 [ERP.exe] Dbaccess::TCustomDAConnection::Rollback
+:008E4CDE [ERP.exe] Erpdbcomponents::TERPConnection::Rollback (ERPdbComponents.pas, line 193)
+:02C041DF [ERP.exe] Baseinputform::TBaseInputGUI::RollbackTransaction (BaseInputForm.pas, line 1799)
+:02C0422D [ERP.exe] Baseinputform::TBaseInputGUI::RollbackTransaction (BaseInputForm.pas, line 1805)
+:020752A9 [ERP.exe] Frmsupppayments::TfmSuppPayments::FormCloseQuery (frmSuppPayments.pas, line 1325)
+:00575AF3 [ERP.exe] Forms::TCustomForm::CloseQuery
+:00575A1B [ERP.exe] Forms::TCustomForm::Close
+:027FEDFF [ERP.exe] Baseformform::TBaseForm::DoOnCloseWait (BaseFormForm.pas, line 652)
+:0050B52E [ERP.exe] Extctrls::TTimer::Timer
+:0050B414 [ERP.exe] Extctrls::TTimer::WndProc
+:00466076 [ERP.exe] Classes::StdWndProc
+:75CB148B [user32.dll]
+:75CA844A [user32.dll]
+:77562B2C [ntdll.dll]
+:75CAB946 [user32.dll]
+:75CA825E [user32.dll]
+:75CABEAA [user32.dll]
+:75CA61BA [user32.dll]
+:75CA5F80 [user32.dll]
+:0057A7D8 [ERP.exe] Forms::TApplication::ProcessMessage
+Recursive call (2 times):
+:03983624 [ERP.exe]
+:0057A81B [ERP.exe] Forms::TApplication::HandleMessage
+:0057AB46 [ERP.exe] Forms::TApplication::Run
+:0057AB89 [ERP.exe] Forms::TApplication::Run
+Recursive call (2 times):
+:03983624 [ERP.exe]
+:03983732 [ERP.exe]
+:03983754 [ERP.exe]
+:762D00F9 [KERNEL32.DLL]
+:77557BBE [ntdll.dll]
+:77557B8E [ntdll.dll]
+:03983624 [ERP.exe]
+
+Modules:
+$00400000 (00400000,00001000,03582600) D:\Work\Delphi\Dene\Code\ERPNew\Dev\ERP.exe
+$75F20000 (75F20000,00001000,001DD400) C:\Windows\System32\KERNELBASE.dll
+$774F0000 (774F0000,00001000,00120400) C:\Windows\SYSTEM32\ntdll.dll
+$762B0000 (762B0000,00010000,00066000) C:\Windows\System32\KERNEL32.DLL
+$76420000 (76420000,00001000,00005400) C:\Windows\System32\win32u.dll
+$75C70000 (75C70000,00001000,000A4800) C:\Windows\System32\user32.dll
+$753B0000 (753B0000,00001000,00019800) C:\Windows\System32\imm32.dll
+
+Main Thread ID = 00002F44, Current Thread ID = 00002F44
+Registers:
+EAX = 0019E9E8  CS = 0023  EIP = 7604E292  Flags = 00000216
+EBX = 008AE1B0  SS = 002B  ESP = 0019E9E8    EBP = 0019EA40
+ECX = 00000007  DS = 002B  ESI = 000007DD    FS  = 0053
+EDX = 00000000  ES = 002B  EDI = 008A8230    GS  = 002B
+Code at CS:EIP
+8B 4C 24 54 33 CC E8 23 4F 00 00 8B E5 5D C2 10 
+Stack:
+0EEDFADE 00000001 00000000 7604E292 00000007 
+00000000 03983624 00406905 17061F9C 00472011 
+00000002 11548200 00000000 115CA810 03983624 
+FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF 00000001 
+
+Additional info:
+Windows Version: WorkStation 6.2 (9200)
+MySQL Version: 5.1.52-community
+ERP Version: 2023.0.6.0
+Company: RSL Ex-Servicemen's Cabs & Co-Operative Members Ltd
+Address : 
+14 Sarah Street
+
+NSW 2020
+Australia
+Email : office@rslcabs.com.au
+Phone : 0283388955
+FaxNumber : 0296931588
+ABN 29491565109
+Licenced Users : 2
+
+User: Admin
+PC Name: DESKTOP-JCUTVG7(Wang)
+Send Details: 
+Database : rsl_cabs
+  Host  - 
+  Email - 
+
+Error Type: Non-Fatal
+Active Forms:
+fmSuppPayments
+MainSwitch2
+MainForm
+frmActiveWindows
+Focused Form: fmSuppPayments
+Focused Control: cboClient
+

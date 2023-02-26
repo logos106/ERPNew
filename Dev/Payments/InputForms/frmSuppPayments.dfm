@@ -8178,6 +8178,14 @@ inherited fmSuppPayments: TfmSuppPayments
       AutoDisableParentOnclick = True
     end
   end
+  inherited popSpelling: TPopupMenu
+    Left = 120
+    Top = 32
+  end
+  inherited tmrdelayMsg: TTimer
+    Left = 88
+    Top = 32
+  end
   inherited dlgReportSelect: TSelectionDialog
     Left = 4
     Top = 4
@@ -8190,9 +8198,13 @@ inherited fmSuppPayments: TfmSuppPayments
     Server = 'Localhost'
     Connected = True
   end
+  inherited popCustomiseGrid: TAdvPopupMenu
+    Left = 147
+    Top = 40
+  end
   inherited imgsort: TImageList
     Bitmap = {
-      494C010102004C00D40010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102004C00E00010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -8331,6 +8343,18 @@ inherited fmSuppPayments: TfmSuppPayments
       FF1FF00700000000FFBFF0070000000000000000000000000000000000000000
       000000000000}
   end
+  inherited QryCustomField: TERPQuery
+    Left = 42
+    Top = 32
+  end
+  inherited mnuBusobjProperties: TAdvPopupMenu
+    Left = 190
+    Top = 40
+  end
+  inherited qryMemTrans: TERPQuery
+    Left = 165
+    Top = 0
+  end
   object DSMaster: TDataSource
     DataSet = tblMaster
     Left = 338
@@ -8340,8 +8364,8 @@ inherited fmSuppPayments: TfmSuppPayments
     Connection = MyConnection
     SQL.Strings = (
       'SELECT * FROM tblwithdrawal Where PaymentID =:ID;')
-    Left = 338
-    Top = 343
+    Left = 530
+    Top = 367
     ParamData = <
       item
         DataType = ftUnknown
@@ -8581,8 +8605,8 @@ inherited fmSuppPayments: TfmSuppPayments
     Connection = MyConnection
     SQL.Strings = (
       'SELECT * FROM tblwithdrawallines Where PaymentID =:ID;')
-    Left = 400
-    Top = 343
+    Left = 592
+    Top = 367
     ParamData = <
       item
         DataType = ftUnknown
@@ -8593,8 +8617,8 @@ inherited fmSuppPayments: TfmSuppPayments
     Connection = MyConnection
     SQL.Strings = (
       'SELECT * FROM tblpurchaseorders Where PurchaseOrderID=:ID;')
-    Left = 93
-    Top = 343
+    Left = 77
+    Top = 319
     ParamData = <
       item
         DataType = ftUnknown
@@ -8815,8 +8839,8 @@ inherited fmSuppPayments: TfmSuppPayments
   object tblPrepayments: TERPQuery
     SQL.Strings = (
       'SELECT * FROM tblPrePayments Where PrePaymentID =:ID;')
-    Left = 124
-    Top = 343
+    Left = 76
+    Top = 359
     ParamData = <
       item
         DataType = ftUnknown
@@ -8850,8 +8874,8 @@ inherited fmSuppPayments: TfmSuppPayments
     BeforeOpen = cboClientlookupBeforeOpen
     AfterOpen = cboClientlookupAfterOpen
     Options.LongStrings = False
-    Left = 193
-    Top = 79
+    Left = 561
+    Top = 303
     ParamData = <
       item
         DataType = ftUnknown
@@ -8913,8 +8937,8 @@ inherited fmSuppPayments: TfmSuppPayments
       'ORDER BY tblClass.ClassName; ')
     FilterOptions = [foCaseInsensitive, foNoPartialCompare]
     Options.LongStrings = False
-    Left = 216
-    Top = 343
+    Left = 160
+    Top = 359
   end
   object cboAccountQry: TERPQuery
     SQL.Strings = (
@@ -8926,8 +8950,8 @@ inherited fmSuppPayments: TfmSuppPayments
     FilterOptions = [foCaseInsensitive, foNoPartialCompare]
     BeforeOpen = cboAccountQryBeforeOpen
     Options.LongStrings = False
-    Left = 246
-    Top = 343
+    Left = 238
+    Top = 311
     ParamData = <
       item
         DataType = ftUnknown
@@ -8941,8 +8965,8 @@ inherited fmSuppPayments: TfmSuppPayments
       'Order By Name;')
     FilterOptions = [foCaseInsensitive, foNoPartialCompare]
     Options.LongStrings = False
-    Left = 277
-    Top = 343
+    Left = 221
+    Top = 375
   end
   object qryForeignCurrency: TERPQuery
     SQL.Strings = (
@@ -8953,8 +8977,8 @@ inherited fmSuppPayments: TfmSuppPayments
       'Where BuyRate <>0;')
     FilterOptions = [foCaseInsensitive, foNoPartialCompare]
     Options.LongStrings = False
-    Left = 154
-    Top = 343
+    Left = 146
+    Top = 303
   end
   object qryVariationAccount: TERPQuery
     Connection = MyConnection
@@ -8968,13 +8992,13 @@ inherited fmSuppPayments: TfmSuppPayments
       'Order By AccountName;')
     FilterOptions = [foCaseInsensitive, foNoPartialCompare]
     Options.LongStrings = False
-    Left = 308
-    Top = 343
+    Left = 300
+    Top = 295
   end
   object dsGuiDetails: TDataSource
     DataSet = tblGuiDetails
-    Left = 369
-    Top = 375
+    Left = 409
+    Top = 367
   end
   object tblGuiDetails: TERPQuery
     Connection = MyConnection
@@ -8982,8 +9006,8 @@ inherited fmSuppPayments: TfmSuppPayments
       'select * from tmp_supppayments')
     AfterOpen = tblGuiDetailsAfterOpen
     OnCalcFields = tblGuiDetailsCalcFields
-    Left = 369
-    Top = 343
+    Left = 641
+    Top = 303
     object tblGuiDetailsType: TWideStringField
       DisplayWidth = 15
       FieldName = 'Type'
@@ -9260,7 +9284,7 @@ inherited fmSuppPayments: TfmSuppPayments
     Left = 281
     Top = 45
     Bitmap = {
-      494C010104004800D00010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010104004800DC0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000002000000001002000000000000020
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

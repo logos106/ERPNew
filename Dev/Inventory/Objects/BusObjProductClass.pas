@@ -52,6 +52,7 @@ type
     function getProductBin: TProductBin;
     function GetETADate: TDateTime;
     function GetOnOrderQuantity: double;
+
   protected
     procedure OnDataIdChange(const ChangeType: TBusObjDataChangeType);  override;
     procedure DoFieldOnChange(Sender: TField);                          override;
@@ -59,27 +60,29 @@ type
     function  DoAfterPost(Sender:TDatasetBusObj) : Boolean;             override;
     function  DoAfterInsert(Sender:TDatasetBusObj) : Boolean;           override;
     function GetAvailableQuantity: double; virtual;
+
   public
     class function  GetIDField                   : string;              override;
     class function  GetBusObjectTablename        : string;              override;
-    class function GetKeyStringField: string; Override;
-    class function GetKeyStringProperty: string; Override;
-    constructor  Create(AOwner: TComponent);                            override;
-    destructor   Destroy;                                               override;
-    procedure    LoadFromXMLNode(const node: IXMLNode);                 override;
-    procedure    SaveToXMLNode(const node: IXMLNode);                   override;
-    function     ValidateData: Boolean ;                                override;
-    function     Save: Boolean ;                                        override;
-    Class function QtyInStock(ProductID, ClassID:Integer): double;
-    class function DefaultbinId(ProductID, ClassID:Integer): Integer;
-    Class function AvailableQty(ProductID, ClassID:Integer;Connection: TCustomMyConnection = nil): double;
-    Class function ProductInstockQty(ProductID, ClassID:Integer;Connection: TCustomMyConnection = nil): double;
-    Class function OnOrderQty(ProductID, ClassID:Integer): double;
+    class function  GetKeyStringField: string; Override;
+    class function  GetKeyStringProperty: string; Override;
+    constructor     Create(AOwner: TComponent);                            override;
+    destructor      Destroy;                                               override;
+    procedure       LoadFromXMLNode(const node: IXMLNode);                 override;
+    procedure       SaveToXMLNode(const node: IXMLNode);                   override;
+    function        ValidateData: Boolean ;                                override;
+    function        Save: Boolean ;                                        override;
+    Class function  QtyInStock(ProductID, ClassID:Integer): double;
+    class function  DefaultbinId(ProductID, ClassID:Integer): Integer;
+    Class function  AvailableQty(ProductID, ClassID:Integer;Connection: TCustomMyConnection = nil): double;
+    Class function  ProductInstockQty(ProductID, ClassID:Integer;Connection: TCustomMyConnection = nil): double;
+    Class function  OnOrderQty(ProductID, ClassID:Integer): double;
     Class Procedure LinkProduct(fProductID, fClassID:Integer; fConnection :TcustomMyConnection=nil);
-    Property ProductBin :TProductBin Read getProductBin;
-    Property Defaultbin_Id :Integer read getDefaultbinId write SetDefaultbinId;
-    class function _Schema: string; override;
-    Property  AddNewinLoadFromXML :Boolean read fbAddNewinLoadFromXML write fbAddNewinLoadFromXML;
+    Property        ProductBin :TProductBin Read getProductBin;
+    Property        Defaultbin_Id :Integer read getDefaultbinId write SetDefaultbinId;
+    class function  _Schema: string; override;
+    Property        AddNewinLoadFromXML :Boolean read fbAddNewinLoadFromXML write fbAddNewinLoadFromXML;
+
   published
     property ProductID              :Integer     read GetProductID            write SetProductID         ;
     property ProductName            :string      read GetProductName          write SetProductName       ;

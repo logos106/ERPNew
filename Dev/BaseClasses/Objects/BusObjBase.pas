@@ -1953,13 +1953,13 @@ begin
   result:= SeparateWords(Copy(Self.ClassName,2,255));
 end;
 
-procedure TBusObjBase.AddResult(const aOperationOk: boolean;
-  const aSeverity: TResultStatusSeverity; const aCode: integer;
-  const aMessage: string; const ShowMessage: boolean);
+procedure TBusObjBase.AddResult(const aOperationOk: Boolean;
+  const aSeverity: TResultStatusSeverity; const aCode: Integer;
+  const aMessage: string; const ShowMessage: Boolean);
 begin
   ResultStatus.AddItem(aOperationOk,aSeverity, aCode,
     ResultStatus.ResultPrefix + aMessage + ResultStatus.ResultSuffix + NL+
-    '(' + ObjectUserName + ') ',ShowMessage);
+    '(' + ObjectUserName + ') ', ShowMessage);
 end;
 
 function TBusObjBase.ValidateDataList: boolean;
