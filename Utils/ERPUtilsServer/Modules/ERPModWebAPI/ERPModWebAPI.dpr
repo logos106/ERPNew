@@ -668,7 +668,6 @@ uses
   BusObjBankRule in '..\..\..\..\Dev\Accounts\Objects\BusObjBankRule.pas',
   BusObjReportsAccountant in '..\..\..\..\Dev\Accounts\Objects\BusObjReportsAccountant.pas' {/  BusObjPQAList in '..\..\..\..\Dev\Inventory\Objects\BusObjPQAList.pas';},
   BASReturnDetailSQL in '..\..\..\..\Dev\Returns\Objects\BASReturnDetailSQL.pas',
-  CardDataReportSQL in '..\..\..\..\Dev\Accounts\Objects\CardDataReportSQL.pas',
   BusObjCurfreqSettings in '..\..\..\..\Dev\General\Objects\CommonObjects\BusObjCurfreqSettings.pas',
   ProductBatchesSQL in '..\..\..\..\Dev\Inventory\Objects\ProductBatchesSQL.pas',
   BusObjPnLLayout in '..\..\..\..\Dev\Accounts\Objects\BusObjPnLLayout.pas',
@@ -698,7 +697,15 @@ uses
   BusObjProductOption in '..\..\..\..\Dev\Inventory\Objects\BusObjProductOption.pas',
   BusObjReceiptLog in '..\..\..\..\Dev\Payments\Objects\BusObjReceiptLog.pas',
   ChartOfAccountsListSQL in '..\..\..\..\Dev\Accounts\Objects\ChartOfAccountsListSQL.pas',
-  BusObjVatReturns in '..\..\..\..\Dev\Returns\Objects\BusObjVatReturns.Pas';
+  BusObjVatReturns in '..\..\..\..\Dev\Returns\Objects\BusObjVatReturns.Pas',
+  DashboardAccountsData1SQL in '..\..\..\..\Dev\Vs1\Objects\DashboardAccountsData1SQL.pas',
+  DashboardExecData1SQL in '..\..\..\..\Dev\Vs1\Objects\DashboardExecData1SQL.pas',
+  DashboardMyData1SQL in '..\..\..\..\Dev\Vs1\Objects\DashboardMyData1SQL.pas',
+  DashboardMyData2SQL in '..\..\..\..\Dev\Vs1\Objects\DashboardMyData2SQL.pas',
+  DashboardMyData3SQL in '..\..\..\..\Dev\Vs1\Objects\DashboardMyData3SQL.pas',
+  DashboardSalesData1SQL in '..\..\..\..\Dev\Vs1\Objects\DashboardSalesData1SQL.pas',
+  DashboardSalesData2SQL in '..\..\..\..\Dev\Vs1\Objects\DashboardSalesData2SQL.pas',
+  DashboardSalesData3SQL in '..\..\..\..\Dev\Vs1\Objects\DashboardSalesData3SQL.pas';
 
 //  BusObjPQAList in '..\..\..\..\Dev\Inventory\Objects\BusObjPQAList.pas';
 

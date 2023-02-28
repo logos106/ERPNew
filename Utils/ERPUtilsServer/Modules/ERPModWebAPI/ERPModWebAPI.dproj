@@ -695,7 +695,7 @@
 			<DCCReference Include="Objects\PayNotes.pas"/>
 			<DCCReference Include="Objects\Vs1CardPreference.pas"/>
 			<DCCReference Include="Objects\VS1Superannuation.pas"/>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Chilkat\CK_DLL_Const.pas"/>
+			<DCCReference Include="..\..\..\..\..\TrueERP\TrueERPEDI\Dev\Chilkat\CK_DLL_Const.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\BusObjBankReconciliationRules.pas"/>
 			<DCCReference Include="Objects\TemplateSettings.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\StockTransferEntrySQL.pas"/>
@@ -717,7 +717,6 @@
 				<Form>/  BusObjPQAList in &apos;..\..\..\..\Dev\Inventory\Objects\BusObjPQAList.pas&apos;;</Form>
 			</DCCReference>
 			<DCCReference Include="..\..\..\..\Dev\Returns\Objects\BASReturnDetailSQL.pas"/>
-			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\CardDataReportSQL.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\General\Objects\CommonObjects\BusObjCurfreqSettings.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\ProductBatchesSQL.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\BusObjPnLLayout.pas"/>
@@ -748,6 +747,14 @@
 			<DCCReference Include="..\..\..\..\Dev\Payments\Objects\BusObjReceiptLog.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\ChartOfAccountsListSQL.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Returns\Objects\BusObjVatReturns.Pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Vs1\Objects\DashboardAccountsData1SQL.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Vs1\Objects\DashboardExecData1SQL.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Vs1\Objects\DashboardMyData1SQL.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Vs1\Objects\DashboardMyData2SQL.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Vs1\Objects\DashboardMyData3SQL.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Vs1\Objects\DashboardSalesData1SQL.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Vs1\Objects\DashboardSalesData2SQL.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Vs1\Objects\DashboardSalesData3SQL.pas"/>
 			<RcCompile Include="ERPModWebAPI.rc">
 				<ContainerId>RC</ContainerId>
 				<Form>ERPModWebAPI.res</Form>

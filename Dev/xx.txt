@@ -1,0 +1,136 @@
+Accounts\Objects\utGovUK_API.pas:    ShellExecute(0, 'OPEN', PChar(url), '', '', SW_SHOWNORMAL);
+BaseClasses\InputForms\BaseTransForm.pas:            if msgoption = 100 then ShellExecute(Handle, 'Open', PChar(ExtractFilePath(fileName)) , '', '', SW_SHOWNORMAL)
+BaseClasses\InputForms\BaseTransForm.pas:            else if msgoption = 101 then ShellExecute(Handle, 'Open', PChar(fileName) , '', '', SW_SHOWNORMAL);
+BaseClasses\ListForms\BaseListingForm.pas:              //ShellExecute(Handle, 'Open', PChar(ExtractFilePath(filename)) , '', '', SW_SHOWNORMAL)
+BaseClasses\ListForms\BaseListingForm.pas:              ShellExecute(0, nil, 'explorer.exe', PChar('/select,'+filename ), nil,  SW_SHOWNORMAL)
+Clients\Common\InputForms\Temp\frmClientReferenceFrm.pas://      if Ref_Type.Text = 'Email' then ShellExecute(Handle, 'open', PChar('mailto:' + EmailNo.Text), '', '', SW_SHOW);
+Clients\Customers\InputForms\frmCustomerFrm.pas: 26/07/05  1.00.09 DSP Added '.doc' prior to ShellExecute call when opening
+Clients\Customers\InputForms\frmCustomerFrm.pas:    ShellExecute(0,'open',PChar(SRC),nil,nil,SW_NORMAL);
+Clients\Customers\InputForms\frmCustomerFrm.pas:    ShellExecute(Handle, 'Open', PChar(FileName), '', '', SW_SHOWNORMAL);
+Clients\Customers\InputForms\frmCustomerFrm.pas:    if FileExists(FileName) then ShellExecute(Handle, 'Open', PChar(FileName), '', '', SW_SHOWNORMAL)
+Clients\Customers\InputForms\frmCustomerFrm.pas:  ShellExecute(0, 'open', PChar(Trim(edtURL.Text)), nil, nil, sw_shownormal);
+Clients\Customers\InputForms\frmCustomerFrm.pas:          ShellExecute(Handle, 'Open', PChar(FileName), '', '', SW_SHOWNORMAL);
+Clients\Customers\InputForms\frmJob.pas:    ShellExecute(0,'open',PChar(SRC),nil,nil,SW_NORMAL)
+Clients\Customers\InputForms\frmJob.pas:          ShellExecute(Handle, 'Open', PChar(FileName), '', '', SW_SHOWNORMAL);
+Clients\Customers\InputForms\frmJob.pas:    ShellExecute(Handle, 'Open', PChar(EmailFileName), '', '', SW_SHOWNORMAL);
+Clients\Suppliers\InputForms\frmSupplier.pas:    ShellExecute(Handle, 'Open', PChar(EmailFileName), '', '', SW_SHOWNORMAL);
+Clients\Suppliers\InputForms\frmSupplier.pas:  ShellExecute(0,'open',PChar(SRC),nil,nil,SW_NORMAL)
+Clients\Suppliers\InputForms\frmSupplier.pas:          ShellExecute(Handle, 'Open', PChar(FileName), '', '', SW_SHOWNORMAL);
+Clients\Suppliers\InputForms\frmSupplier.pas:  ShellExecute(0, 'open', PChar(Trim(edtURL.Text)), nil, nil, sw_shownormal);
+Clients\Suppliers\InputForms\frmSupplierFrm.pas:    ShellExecute(Handle, 'Open', PChar(EmailFileName), '', '', SW_SHOWNORMAL);
+Clients\Suppliers\InputForms\frmSupplierFrm.pas:  ShellExecute(0,'open',PChar(SRC),nil,nil,SW_NORMAL)
+Clients\Suppliers\InputForms\frmSupplierFrm.pas:          ShellExecute(Handle, 'Open', PChar(FileName), '', '', SW_SHOWNORMAL);
+Clients\Suppliers\InputForms\frmSupplierFrm.pas:  ShellExecute(0, 'open', PChar(Trim(edtURL.Text)), nil, nil, sw_shownormal);
+DebugForms\Inputforms\frmchilkatTest.pas:      ShellExecute(Self.Handle, 'Open', PChar(replacestr(localfile,'/','\')) , '', '', SW_SHOWNORMAL);
+DebugForms\Inputforms\frmCopyBackup.pas:  ShellExecuteW (application.handle, 'open', 'cmd', PChar(sCmd), nil, SW_MAXIMIZE);
+Employee\InputForms\frmEmpReferenceFrm.pas:        //ShellExecute(Handle, 'open', PChar('mailto:' + EmailNo.Text), '', '', SW_SHOW);
+Employee\PanelHolderForms\EmployeeDocumentsFrm.pas:    ShellExecute(Handle, 'Open', PChar(EmailFileName), '', '', SW_SHOWNORMAL);
+Employee\PanelHolderForms\EmployeeDocumentsFrm.pas:    ShellExecute(0,'open',PChar(SRC),nil,nil,SW_NORMAL)
+ERPMessages\InputForms\frmERPMessagePopup.pas:  ShellExecute(Handle, 'open', PChar(lblLink.Caption), '', '', SW_SHOW);
+ERPMessages\InputForms\frmERPMessageTip.pas:  ShellExecute(Handle, 'open', PChar(lblLink.Caption), '', '', SW_SHOW);
+General\InputForms\frmAbout.pas:  ShellExecute(0, 'open', 'http://www.adobe.com/products/acrobat/readstep2.html', nil, nil, sw_shownormal);
+General\InputForms\frmAttachments.pas:      ShellExecute(Handle, 'Open', PChar(tempFileName),
+General\InputForms\frmDebug.pas:  Rec: TShellExecuteInfo;
+General\InputForms\frmDebug.pas:  ShellExecuteEx(@Rec);
+General\InputForms\frmExportImportData.pas:  ShellExecute(Handle, 'Open', PChar(fsfilename), '', '', SW_SHOWNORMAL);
+General\InputForms\frmExportnuploadLanguage.pas:  ShellExecute(Handle, 'open', PChar(src), '', '', SW_SHOW);
+General\InputForms\frmExportnuploadLanguage.pas:  ShellExecute(Handle, 'open', PChar(src), '', '', SW_SHOW);
+General\InputForms\frmLogonFrm.pas:    Res := ShellExecute(0, 'open', PChar(ExtractFilePath(Application.ExeName) + 'Log In issue.pdf'), nil, nil, SW_SHOW);
+General\InputForms\frmPhoneButton.pas:    dlgResult := ShellExecute(0, 'open', PChar('callto: ' + sPhoneNumber), nil, nil, SW_SHOWNORMAL);
+General\InputForms\frmWebApiTest.pas:          ShellExecute(Handle, 'Open', PChar(aFileName),
+General\InputForms\frmWebApiTest.pas:  ShellExecute(0,'open',PChar('http://www.trueerp.com/wiki/Web_API'),nil,nil,SW_NORMAL)
+General\InputForms\frmWebApiTest.pas:  ShellExecute(0,'open',PChar('https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo'),nil,nil,SW_NORMAL)
+General\InputForms\frmWebApiTest.pas:     ShellExecute(0,'open',PChar('http://www.trueerp.com/wiki/Web_API'),nil,nil,SW_NORMAL)
+General\ListForms\ERPVideos.pas:              //ShellExecute(Handle, 'Open', PChar(ExtractFilePath(filename)) , '', '', SW_SHOWNORMAL)
+General\ListForms\ERPVideos.pas:              ShellExecute(0, nil, 'explorer.exe', PChar('/select,'+TVideoObj.VideoDirectory + VIDEO_CONFIG_FILE ), nil,  SW_SHOWNORMAL)
+General\ListForms\ERPVideos.pas:        ShellExecute(Handle, 'open',PChar(filename),nil, nil, SW_SHOW);
+General\Module\DevemodeLib.pas:  ShellExecute(0,'open',PChar(SRC),nil,nil,SW_NORMAL);
+General\Module\dmMainGUI.pas:    ShellExecute(0,
+General\Module\dmMainGUI.pas://    ShellExecute(0,
+General\Module\dmMainGUI.pas:    ShellExecute(0,
+General\Module\dmMainGUI.pas://    ShellExecute(0,
+General\Module\dmMainGUI.pas:      ShellExecute(0,'open',PChar(SystemLib.ExeDir + SMS_RATES_FILE),nil,nil,SW_SHOWNORMAL);
+General\Module\dmMainGUI.pas:    ShellExecute(0,
+General\Module\FilesLib.pas:    ShellExecute(Handle, 'open',PChar(sDir),nil, nil, SW_SHOW);
+General\Module\FilesLib.pas:      ShellExecute(Handle, 'open',PChar(sDir),nil, nil, SW_SHOW);
+General\Module\FilesLib.pas:  ShellExecute(Handle, 'open',PChar(filename),nil, nil, SW_SHOW);
+General\Objects\CommonObjects\AppRunUtils.pas: shExecInfo : TShellExecuteInfo;
+General\Objects\CommonObjects\AppRunUtils.pas:   ShellExecuteEx(@shExecInfo);
+General\Objects\CommonObjects\AppRunUtils.pas:  sei: TShellExecuteInfo;
+General\Objects\CommonObjects\AppRunUtils.pas:  Result := ShellExecuteEx(@sei);
+General\Objects\CommonObjects\LogLib.pas:        ShellExecute(application.Handle, 'Open', PChar(xfilename) , '', '', SW_SHOWNORMAL)
+Help\inputforms\frmERPHelpDocViewer.pas:  ShellExecute(0,'open',PChar(fsFilename),nil,nil,SW_NORMAL)
+Help\objects\DocReaderObj.pas:      ShellExecute(0,'open',PChar(fsFilename),nil,nil,SW_NORMAL);
+Help\objects\DocReaderObj.pas:      ShellExecute(0,'open',PChar(fsFilename),nil,nil,SW_NORMAL);*)
+Help\objects\DocReaderObj.pas:      ShellExecute(0,'open',PChar(fsFilename),nil,nil,SW_NORMAL)
+Help\objects\WebHelpObj.pas:  if url<> '' then ShellExecute(0, nil, pchar(url), '','', SW_SHOWDEFAULT);
+HRForms\ListForms\PrintedHRForms.pas:      ShellExecute(0,'open',PChar(fsFilename),nil,nil,SW_NORMAL)
+Integration\InputForms\frmCoreEDITest.pas:      ShellExecute(0, 'OPEN', PChar(QB.ResultData.S['AuthURL']), '', '', SW_SHOWNORMAL);
+Integration\InputForms\frmCoreEDITest.pas://    ShellExecute(0, 'OPEN', PChar(url), '', '', SW_SHOWNORMAL);
+Integration\InputForms\frmIntegrationSiteConfig.pas:  ShellExecute(0, nil, 'http://www.trueerp.com/wiki/EDI_Integration', '','', SW_SHOWDEFAULT);
+Integration\InputForms\frmIntegrationSiteConfig.pas:          ShellExecute(0, nil, 'http://www.trueerp.com/wiki/EDI_Integration', '','', SW_SHOWDEFAULT);
+Integration\InputForms\frmIntegrationSiteConfig.pas:          ShellExecute(0, nil, 'http://www.trueerp.com/wiki/EDI_Integration', '','', SW_SHOWDEFAULT);
+Integration\InputForms\frmIntegrationSiteConfig.pas:          ShellExecute(0, nil, 'http://www.trueerp.com/wiki/EDI_Integration', '','', SW_SHOWDEFAULT);
+Integration\InputForms\frmIntegrationSiteConfig.pas:          ShellExecute(0, nil, 'http://www.trueerp.com/wiki/EDI_Integration', '','', SW_SHOWDEFAULT);
+Integration\InputForms\frmIntegrationSiteConfig.pas:          ShellExecute(0, nil, 'http://www.trueerp.com/wiki/EDI_Integration', '','', SW_SHOWDEFAULT);
+Integration\InputForms\IntegrationPrefs.pas:    function ShellExecuteAndWait(URL, AuthToken: string; AWaitTimeMs: Integer; var AResultJSON: string): DWORD;
+Integration\InputForms\IntegrationPrefs.pas:    ProcResult := ShellExecuteAndWait(Format('https://yoodle.erpoz.com?fastlinkpass=%s&fastlinktoken=%s&fastlinkconfigname=%s',
+Integration\InputForms\IntegrationPrefs.pas:      ShellExecute(0,'open',PChar(SystemLib.ExeDir + SMS_RATES_FILE),nil,nil,SW_SHOWNORMAL);
+Integration\InputForms\IntegrationPrefs.pas:function TIntegrationPrefsGUI.ShellExecuteAndWait(URL, AuthToken: string; AWaitTimeMs: Integer; var AResultJSON: string): DWORD;
+Integration\InputForms\IntegrationPrefs.pas:  ExecInfo: TShellExecuteInfo;
+Integration\InputForms\IntegrationPrefs.pas:  AProcess := ShellExecuteEx(@ExecInfo);
+Integration\InputForms\IntegrationPrefsAvaTax.pas:      ShellExecute(0, 'open', pWidechar(fsURL), nil, nil, sw_shownormal);
+Integration\InputForms\IntegrationPrefsWalmart.pas:  ShellExecute(0,'open',PChar('https://developer.walmart.com/#/generateKey'),nil,nil,SW_NORMAL)
+Integration\ListForms\frmEdiOrderAmazonList.pas:                    ShellExecute(Handle, 'Open', PChar(fsLogFilename) , '', '', SW_SHOWNORMAL);
+Integration\ListForms\frmEdiOrderAmazonList.pas:                    ShellExecute(Handle, 'open',PChar(exedir +'Bin\log'),nil, nil, SW_SHOW);
+Integration\ListForms\frmQuickbooksExportList.pas:          ShellExecute(0, 'OPEN', PChar(QB.ResultData.S['AuthURL']), '', '', SW_SHOWNORMAL);
+Integration\ListForms\frmQuickbooksSynchList.pas:          ShellExecute(0, 'OPEN', PChar(QB.ResultData.S['AuthURL']), '', '', SW_SHOWNORMAL);
+Integration\Modules\CoreEDILib.pas:          ShellExecute(0, 'OPEN', PChar(CoreServObj.ResultData.S['AuthURL']), '', '', SW_SHOWNORMAL);
+Inventory\InputForms\frmImportStockAdjust.pas:                ShellExecute(Handle, 'open', PChar(Errorfilename), '', '', SW_SHOW);
+Inventory\InputForms\frmImportStockAdjustment.pas:                      ShellExecute(Handle, 'open', PChar(Errorfilename), '', '', SW_SHOW);*)
+Inventory\InputForms\frmImportStockAdjustment.pas:                      ShellExecute(Handle, 'open', PChar(Commonlib.TempDir), '', '', SW_SHOW);
+Inventory\InputForms\frmPartsFrm.pas:    ShellExecute(0, 'open', 'http://www.trueerp.com', '','',SW_SHOWNORMAL)
+Inventory\InputForms\frmPartsFrm.pas:    ShellExecute(0, 'open', PChar(edtUrl.Text), '','',SW_SHOWNORMAL);
+Main\InputForms\MAIN.pas:            ShellExecute(Handle, 'open',PChar(appDir + CONNECTION_HELP_VIDEO),pChar(appDir), pChar(appDir), SW_SHOW);
+Main\InputForms\MAIN.pas:            ShellExecute(Handle, 'open',PChar(appDir + CONNECTION_HELP_PDF),pChar(appDir), pChar(appDir), SW_SHOW);
+Main\InputForms\MainSwitchFrm2.pas:  ShellExecute(Handle, 'open', PChar(s), '', '', SW_SHOW);
+Main\InputForms\MainSwitchFrm2.pas:  ShellExecute(Handle, 'open', PChar(replacestr(Application.ExeName, '.exe' , '.log')), '', '', SW_SHOW);
+Main\InputForms\MainSwitchFrm2.pas:  ShellExecute(Handle, 'open', PChar(replacestr(Application.ExeName, '.exe' , '_forms.log')), '', '', SW_SHOW);
+Marketing\InputForms\frmMarketingLead.pas:    ShellExecute(Handle, 'Open', PChar(FileName), '', '', SW_SHOWNORMAL);
+Marketing\InputForms\frmMarketingLead.pas:    ShellExecute(Handle, 'Open', PChar(FileName), '', '', SW_SHOWNORMAL);
+Marketing\InputForms\frmMarketingLead.pas://    if FileExists(FileName) then ShellExecute(Handle, 'Open', PChar(FileName), '', '', SW_SHOWNORMAL)
+Marketing\InputForms\frmMarketingLead.pas:    ShellExecute(0,'open',PChar(SRC),nil,nil,SW_NORMAL)
+Marketing\InputForms\frmMarketingLead.pas:          ShellExecute(Handle, 'Open', PChar(FileName), '', '', SW_SHOWNORMAL);
+Marketing\InputForms\frmMarketingLead.pas://      ShellExecute(0, nil, PChar(sString), '', '', SW_SHOWDEFAULT);
+Payments\InputForms\frmPrintInvoiceStatements.pas:               if msgoption = 100 then ShellExecute(Handle, 'Open', PChar(ExtractFilePath(fileName)) , '', '', SW_SHOWNORMAL)
+Payments\InputForms\frmPrintInvoiceStatements.pas:          else if msgoption = 101 then ShellExecute(Handle, 'Open', PChar(fileName) , '', '', SW_SHOWNORMAL)
+Payroll\InputForms\frmATOPayEvent.pas:  if FileExists(aTempfilename) then ShellExecute(Handle, 'Open', PChar(aTempfilename), '', '', SW_SHOWNORMAL);
+Payroll\InputForms\frmATOSubmissions.pas:  ShellExecute(0, 'open', 'https://bp.ato.gov.au/', nil, nil, sw_shownormal);
+Payroll\InputForms\frmImportTaxScales.pas:  ShellExecute(Handle, 'open', PChar(helpfilename), '', '', SW_SHOW);
+Payroll\PanelHolderForms\EmployeePaySetupDetails.pas:  ShellExecute(0, 'open', 'https://www.ato.gov.au/General/JobKeeper-Payment/In-detail/Reporting-eligible-employees-and-JobKeeper-top-up-payments-via-STP/#BK_4Stoppingemployeesnolongereligiblefor', nil, nil, sw_shownormal);
+ProjectGoLive\InputForms\frmProjectGoLive.pas:               if msgoption = 100 then ShellExecute(Handle, 'Open', PChar(ExtractFilePath(fileName)) , '', '', SW_SHOWNORMAL)
+ProjectGoLive\InputForms\frmProjectGoLive.pas:          else if msgoption = 101 then ShellExecute(Handle, 'Open', PChar(fileName) , '', '', SW_SHOWNORMAL)
+Purchases\InputForms\frmSmartOrderFrm.pas:        if msgoption = 100 then ShellExecute(Handle, 'Open', PChar(ExtractFilePath(fileName)) , '', '', SW_SHOWNORMAL)
+Purchases\InputForms\frmSmartOrderFrm.pas:        else if msgoption = 101 then ShellExecute(Handle, 'Open', PChar(fileName) , '', '', SW_SHOWNORMAL);
+Sales\InputForms\frmShipment.pas:      ShellAPI.ShellExecute(Handle, nil, PChar(tempFile), nil, nil, SW_SHOWNORMAL);
+TemplateReports\InpuForms\remainClientFrm.pas:  ShellExecute(Handle, 'open', PChar(strMsg), '', '', SW_SHOW);
+TemplateReports\InpuForms\remainFrm.pas:  ShellExecute(Handle, 'open', PChar(strMsg), '', '', SW_SHOW);
+TemplateReports\InpuForms\ReportTemplateForm.pas:  ShellExecute(0,'open',PChar(afilename),nil,nil,SW_NORMAL);
+TemplateReports\Objects\ReportTemplateBase.pas:  hExec := ShellExecute(Self.FForm.Handle, PChar('Open'), PChar(ExeDir + 'LearnReportBuilder.pdf'),nil , PChar(ExeDir), SW_SHOWNORMAL);
+Training\InputForms\frmTrainingStatus.pas:        ShellExecute(Handle, 'open',PChar(filename),nil, nil, SW_SHOW);
+Training\ListForms\TrainingDocs.pas:    ShellExecute(Handle, 'Open', PChar(fs), '', '', SW_SHOWNORMAL);
+TrueERPEDI\ListForms\ERPEDIListBase.pas:          ShellExecute(0, 'OPEN', PChar(CoreServObj.ResultData.S['AuthURL']), '', '', SW_SHOWNORMAL);
+TrueERPEDI\ListForms\WalmartFeeds.pas:        ShellExecute(Handle, 'Open', PChar(fsfilename) , '', '', SW_SHOWNORMAL);
+TrueERPEDI\ListForms\WalmartItems.pas://          ShellExecute(0, nil, 'explorer.exe', PChar(fs), nil,  SW_SHOWNORMAL);
+TrueERPEDI\ListForms\WalmartOrderLines.pas:                  ShellExecute(0, nil, 'explorer.exe', PChar(fs), nil,  SW_SHOWNORMAL);
+TrueERPEDI\ListForms\WalmartOrderLines.pas:                      ShellExecute(0, nil, 'explorer.exe', PChar(fs), nil,  SW_SHOWNORMAL);
+Utilities\InputForms\frmMultiSiteGUI2.pas:      ShellExecute(0, 'open', PChar(LOGSPATH + LOGFILENAME + '_' + GetCompanyName + '_' + AppEnv.Employee.LogonName + '.log'),
+Utilities\InputForms\frmPreferencesDescriptions.pas:  ShellExecute(Handle, 'open', PChar(sqlfilename), '', '', SW_SHOW);
+Utilities\InputForms\frmTextfileViewer.pas:  ShellExecute(Handle, 'open', PChar(fsPath), '', '', SW_SHOW);
+Utilities\InputForms\MessagePrefs.pas:      ShellExecute(0,'open',PChar(SystemLib.ExeDir + SMS_RATES_FILE),nil,nil,SW_SHOWNORMAL);
+Utilities\ListForms\EmailList.pas:  ShellExecute(Handle, 'Open', PChar(FileName), '', '', SW_SHOWNORMAL);
+Utilities\ListForms\EmailList.pas:  ShellExecute(0,'open',PChar(SRC),nil,nil,SW_NORMAL)
+Utilities\ListForms\EmailList.pas:          ShellExecute(Handle, 'Open', PChar(FileName), '', '', SW_SHOWNORMAL);
+Utilities\Modules\docPathLib.pas:      ShellAPI.ShellExecute(0,'open',PChar(Qry.fieldbyname('DocumentPath').AsString),nil,nil,SW_SHOWNORMAL);
+Utilities\Objects\SMSUtilsGUI.pas:        ShellApi.ShellExecute(0,'open',PChar(FileName+ '_' + IntToStr(qry.RecNo) + '.mp3'),nil,nil,SW_NORMAL);
+Videos\ListForms\ERPOffices.pas:    ShellExecute(0, nil, pchar(url), '','', SW_SHOWDEFAULT);
