@@ -919,7 +919,7 @@ begin
 end;
 function BooleanToStr(const Value:Boolean):String;
 begin
-  if Value then result := 'T' else result := 'F';
+  if Value then Result := 'T' else Result := 'F';
 end;
 function BooleanToString(const Value:Boolean):String;
 begin

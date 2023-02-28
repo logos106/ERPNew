@@ -706,7 +706,7 @@
 			<DCCReference Include="..\..\..\Dev\Inventory\Objects\StockTransferEntrySQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\InventoryAdjust\Objects\StockAdjustEntrySQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\ExpenseClaim\Objects\ExpenseClaimList.pas"/>
-			<DCCReference Include="..\..\..\Dev\Inventory\Objects\ProductListSQL.pas"/>
+			<DCCReference Include="..\..\..\Dev\Inventory\Objects\ProductQtyListSQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\Inventory\Objects\StockQuantityLocationSQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\Sales\Objects\JobSalesSummarySQL.pas"/>
 			<DCCReference Include="..\..\..\Dev\Sales\Objects\JobProfitabilitySQL.pas"/>

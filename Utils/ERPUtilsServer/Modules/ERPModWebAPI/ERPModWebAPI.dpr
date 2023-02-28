@@ -658,7 +658,7 @@ uses
   AccountantDetails in 'Objects\AccountantDetails.pas',
   ReceiptCategory in 'Objects\ReceiptCategory.pas',
   ExpenseClaimList in '..\..\..\..\Dev\ExpenseClaim\Objects\ExpenseClaimList.pas',
-  ProductListSQL in '..\..\..\..\Dev\Inventory\Objects\ProductListSQL.pas',
+  ProductQtyListSQL in '..\..\..\..\Dev\Inventory\Objects\ProductQtyListSQL.pas',
   StockQuantityLocationSQL in '..\..\..\..\Dev\Inventory\Objects\StockQuantityLocationSQL.pas',
   JobSalesSummarySQL in '..\..\..\..\Dev\Sales\Objects\JobSalesSummarySQL.pas',
   JobProfitabilitySQL in '..\..\..\..\Dev\Sales\Objects\JobProfitabilitySQL.pas',

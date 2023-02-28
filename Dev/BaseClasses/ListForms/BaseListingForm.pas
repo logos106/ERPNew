@@ -6282,10 +6282,10 @@ end;
 function TBaseListingGUI.getFilterdateto: TDateTime;
 begin
   Result := IncSecond(IncDay(dateof(dtTo.DateTime), 1), -1);
-  if not(dtTo.visible) then Result:= MaxDateTime//incyear(Date , 20)
+  if not(dtTo.visible) then Result := MaxDateTime//incyear(Date , 20)
   else if chkIgnoreDates.Visible then
     if chkIgnoreDates.Checked then
-      Result:= ERPListMaxDatetime;//incyear(Date , 20);
+      Result := ERPListMaxDatetime;//incyear(Date , 20);
 end;
 procedure TBaseListingGUI.AddFieldstoGrid(const fsfieldList: string; fieldIndex:Integer=-1);
 begin
@@ -7297,7 +7297,7 @@ end;
 procedure TBaseListingGUI.RefreshOrignalSQL(Addlimit0:Boolean =true);
 begin
 if assigned(QueryManipulationObj) then
-  QueryManipulationObj.RefreshOrignalSQL(qryMain.SQL.Text , Addlimit0);
+  QueryManipulationObj.RefreshOrignalSQL(qryMain.SQL.Text, Addlimit0);
 end;
 
 procedure TBaseListingGUI.SetGridColumns;

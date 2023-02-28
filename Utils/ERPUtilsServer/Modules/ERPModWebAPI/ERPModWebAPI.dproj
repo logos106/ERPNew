@@ -695,7 +695,7 @@
 			<DCCReference Include="Objects\PayNotes.pas"/>
 			<DCCReference Include="Objects\Vs1CardPreference.pas"/>
 			<DCCReference Include="Objects\VS1Superannuation.pas"/>
-			<DCCReference Include="C:\TrueERP\TrueERPEDI\Dev\Chilkat\CK_DLL_Const.pas"/>
+			<DCCReference Include="..\..\..\..\..\TrueERP\TrueERPEDI\Dev\Chilkat\CK_DLL_Const.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Accounts\Objects\BusObjBankReconciliationRules.pas"/>
 			<DCCReference Include="Objects\TemplateSettings.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\StockTransferEntrySQL.pas"/>
@@ -705,7 +705,7 @@
 			<DCCReference Include="Objects\AccountantDetails.pas"/>
 			<DCCReference Include="Objects\ReceiptCategory.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\ExpenseClaim\Objects\ExpenseClaimList.pas"/>
-			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\ProductListSQL.pas"/>
+			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\ProductQtyListSQL.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Inventory\Objects\StockQuantityLocationSQL.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\JobSalesSummarySQL.pas"/>
 			<DCCReference Include="..\..\..\..\Dev\Sales\Objects\JobProfitabilitySQL.pas"/>

@@ -291,86 +291,88 @@ begin
         end;
     end;
 end;
+
 Function ProductTables(mode: TFiltertype; FilterAvailableSN: Boolean = True;
   IncludeTransType: Boolean = False; CurSNIDtoExclude: Integer = 0;
   ExcludeifAllocationnotmode: Boolean = True; aAsOnDAte:TDatetime =0;
-  UseasOndateTime :Boolean = False): String;
+  UseasOndateTime: Boolean = False): String;
 var
   SQLList: TStringList;
 begin
   SQLList := TStringList.Create;
   try
-    SQLList.add('`tblParts` as P');
+    SQLList.Add('`tblParts` as P');
     if mode = tProductList then begin
-      SQLList.add('Left join `tblProductClasses` as PC on PC.ProductID = P.PartsId');
-      SQLList.add('left join `tblPQA` as PQA on PQA.departmentID = PC.ClassID and PQA.ProductID =PC.ProductID ');
-      SQLList.add('left join `tblclass` as C on PQA.departmentID = C.ClassID ');
+      SQLList.Add('LEFT JOIN `tblProductClasses` as PC on PC.ProductID = P.PartsId');
+      SQLList.Add('LEFT JOIN `tblPQA` as PQA on PQA.departmentID = PC.ClassID and PQA.ProductID =PC.ProductID ');
+      SQLList.Add('LEFT JOIN `tblclass` as C on PQA.departmentID = C.ClassID ');
     end
     else if mode >= tSummary then begin
-      SQLList.add('inner join `tblPQA` as PQA on PQA.ProductId = P.PartsID ');
+      SQLList.Add('inner join `tblPQA` as PQA on PQA.ProductId = P.PartsID ');
       if (mode >= tDetails) and (ExcludeifAllocationnotmode) then
-        SQLList.add('and ((P.multiplebins = "F" and P.Batch="F" and P.SNTracking = "F") OR (PQA.PQAID in (Select PQAID from `tblPQADetails`)))');
-      SQLList.add('inner join `tblclass` as C on PQA.departmentID = C.ClassID ');
-      SQLList.add('Inner join `tblProductClasses` as PC on PC.ProductID = PQA.ProductID and PC.ClassID = PQA.departmentID');
+        SQLList.Add('and ((P.multiplebins = "F" and P.Batch="F" and P.SNTracking = "F") OR (PQA.PQAID in (Select PQAID from `tblPQADetails`)))');
+      SQLList.Add('inner join `tblclass` as C on PQA.departmentID = C.ClassID ');
+      SQLList.Add('Inner join `tblProductClasses` as PC on PC.ProductID = PQA.ProductID and PC.ClassID = PQA.departmentID');
       if mode >= tDetails then begin
-        SQLList.add('left join `tblPqaDetails` PQABatch  on PQABatch.PQAId 	= PQA.PQAID and PQABatch.PQAType = "Batch"  and PQABatch.Active= "T"');
+        SQLList.Add('left join `tblPqaDetails` PQABatch  on PQABatch.PQAId 	= PQA.PQAID and PQABatch.PQAType = "Batch"  and PQABatch.Active= "T"');
         if mode >= tExtraDetails then begin
-          SQLList.add('left join `tblPqaDetails` PQABins  on PQABins.PQAId 	= PQA.PQAID ');
-          SQLList.add('and PQABins.PQAType = "Bin" and PQABins.Active = "T" and  ');
-          SQLList.add('( (PQABatch.globalref = IFNULL(PQABins.ParentRef,"") and P.Batch="T" and P.multiplebins = "T") '+
+          SQLList.Add('left join `tblPqaDetails` PQABins  on PQABins.PQAId 	= PQA.PQAID ');
+          SQLList.Add('and PQABins.PQAType = "Bin" and PQABins.Active = "T" and  ');
+          SQLList.Add('( (PQABatch.globalref = IFNULL(PQABins.ParentRef,"") and P.Batch="T" and P.multiplebins = "T") '+
                         ' or (ifnull(PQABins.Parentref ,"") = "" AND P.Batch="F" and P.multiplebins = "T"))');
-          SQLList.add('Left join `tblProductBin` PBin     on PBin.binId 	= PQABins.BinID');
+          SQLList.Add('Left join `tblProductBin` PBin     on PBin.binId 	= PQABins.BinID');
           if mode >= tDetailswithSno then begin
-            SQLList.add('left join `tblPqaDetails` PQASN    on (PQASN.PQAId 	= PQA.PQAID and PQASN.PQAType = "SN"   and PQASN.Active = "T" and PQASN.Qty <> 0');
-            SQLList.add('and ((PQABatch.globalref = IFNULL(PQASN.ParentRef,"") and P.Batch="T" and P.multiplebins = "F" and P.SNTracking = "T")'+
+            SQLList.Add('left join `tblPqaDetails` PQASN    on (PQASN.PQAId 	= PQA.PQAID and PQASN.PQAType = "SN"   and PQASN.Active = "T" and PQASN.Qty <> 0');
+            SQLList.Add('and ((PQABatch.globalref = IFNULL(PQASN.ParentRef,"") and P.Batch="T" and P.multiplebins = "F" and P.SNTracking = "T")'+
                          ' or (PQAbins.Globalref = IFNULL(PQASn.ParentRef,"") and P.Multiplebins = "T" and P.SNTracking = "T") '+
                          ' or ((ifnull(PQASN.Parentref ,"") = "") and P.Batch="F" and P.Multiplebins = "F" and P.SNTracking = "T")))');
 
             if mode = tSerialnoList then begin
-              SQLList.add('and PQA.transDate in  (Select max(maxpqa.transDate)  ');
-              SQLList.add('from `tblPQADetails` maxpqad ');
-              SQLList.add('inner join `tblPQA` maxpqa on maxpqa.PQAID = maxpqad.PQAID ');
-              SQLList.add('where maxpqad.PQAType = "SN"  and maxpqad.qty <> 0 and  (maxpqa.Active = "T"  or  maxpqa.transtype in (' + ManufactureTypes +','+Quotedstr('TProcProgressIn')+'))   and maxpqa.ProductID = PQa.ProductId and maxpqa.DepartmentId = PQa.DepartmentId');
+              SQLList.Add('and PQA.transDate in  (Select max(maxpqa.transDate)  ');
+              SQLList.Add('from `tblPQADetails` maxpqad ');
+              SQLList.Add('inner join `tblPQA` maxpqa on maxpqa.PQAID = maxpqad.PQAID ');
+              SQLList.Add('where maxpqad.PQAType = "SN"  and maxpqad.qty <> 0 and  (maxpqa.Active = "T"  or  maxpqa.transtype in (' + ManufactureTypes +','+Quotedstr('TProcProgressIn')+'))   and maxpqa.ProductID = PQa.ProductId and maxpqa.DepartmentId = PQa.DepartmentId');
               if aAsOnDAte <> 0 then
                 if UseasOndateTime then
-                  SQLList.add('and maxpqa.transDate< ' + QuotedStr(FormatDateTime(MysqlDateTimeFormat, IncSecond(aAsOnDAte, 1))))
+                  SQLList.Add('and maxpqa.transDate< ' + QuotedStr(FormatDateTime(MysqlDateTimeFormat, IncSecond(aAsOnDAte, 1))))
                 else
-                  SQLList.add('and maxpqa.transDate< ' + QuotedStr(FormatDateTime(MysqlDateFormat, IncDay(aAsOnDAte, 1))));
-              SQLList.add('and maxpqad.value =PQASN.value');
+                  SQLList.Add('and maxpqa.transDate< ' + QuotedStr(FormatDateTime(MysqlDateFormat, IncDay(aAsOnDAte, 1))));
+              SQLList.Add('and maxpqad.value =PQASN.value');
               if CurSNIDtoExclude <> 0 then
-                SQLList.add(' and maxpqad.PQADetailID <> ' + IntToStr(CurSNIDtoExclude));
-              SQLList.add(')');
-              SQLList.add(' Left join `tblfixedAssets` FA on FA.PartsId = PQA.ProducTID and FA.ClassId =PQA.DepartmentID and FA.Serial = PQASN.Value');
-              SQLList.add(' Left join `tblequipment` E on  E.ProductId = PQA.ProducTID and  ifnull(E.SerialNumber,"") = PQASN.Value');
+                SQLList.Add(' and maxpqad.PQADetailID <> ' + IntToStr(CurSNIDtoExclude));
+              SQLList.Add(')');
+              SQLList.Add(' Left join `tblfixedAssets` FA on FA.PartsId = PQA.ProducTID and FA.ClassId =PQA.DepartmentID and FA.Serial = PQASN.Value');
+              SQLList.Add(' Left join `tblequipment` E on  E.ProductId = PQA.ProducTID and  ifnull(E.SerialNumber,"") = PQASN.Value');
             end else if FilterAvailableSN then begin
-              SQLList.add('and PQA.transDate in  (Select max(maxpqa.transDate)  ');
-              SQLList.add('from `tblPQADetails` maxpqad ');
-              SQLList.add('inner join `tblPQA` maxpqa on maxpqa.PQAID = maxpqad.PQAID ');
-              SQLList.add('where maxpqad.PQAType = "SN"  and maxpqad.qty <> 0 and (maxpqa.Active = "T"  or  maxpqa.transtype in (' + ManufactureTypes +','+Quotedstr('TProcProgressIn')+'))   '+
+              SQLList.Add('and PQA.transDate in  (Select max(maxpqa.transDate)  ');
+              SQLList.Add('from `tblPQADetails` maxpqad ');
+              SQLList.Add('inner join `tblPQA` maxpqa on maxpqa.PQAID = maxpqad.PQAID ');
+              SQLList.Add('where maxpqad.PQAType = "SN"  and maxpqad.qty <> 0 and (maxpqa.Active = "T"  or  maxpqa.transtype in (' + ManufactureTypes +','+Quotedstr('TProcProgressIn')+'))   '+
                           //' /*and maxpqa.PQAID = PQa.PQAID*/ '+
                           ' and maxpqa.ProductID = PQa.ProductId  and maxpqa.DepartmentId = PQa.DepartmentId');
               if aAsOnDAte <> 0 then
                 if UseasOndateTime then
-                  SQLList.add('and maxpqa.transDate< ' + QuotedStr(FormatDateTime(MysqlDateTimeFormat, IncSecond(aAsOnDAte, 1))))
-                else SQLList.add('and maxpqa.transDate< ' + QuotedStr(FormatDateTime(MysqlDateFormat, IncDay(aAsOnDAte, 1))));
-              SQLList.add('and maxpqad.value =PQASN.value');
-              if CurSNIDtoExclude <> 0 then SQLList.add(' and maxpqad.PQADetailID <> ' + IntToStr(CurSNIDtoExclude));
-              SQLList.add(')');
-              SQLList.add(' and PQASN.Value not in (Select ifnull(Serial,"")  from `tblfixedAssets` where PartsId = PQA.ProducTID and ClassId =PQA.DepartmentID)');
-              SQLList.add('and PQASN.Value not in (Select ifnull(E.SerialNumber,"") from tblequipment E where E.ProductId = PQA.ProducTID AND e.OnHire ="T") ');
+                  SQLList.Add('and maxpqa.transDate< ' + QuotedStr(FormatDateTime(MysqlDateTimeFormat, IncSecond(aAsOnDAte, 1))))
+                else SQLList.Add('and maxpqa.transDate< ' + QuotedStr(FormatDateTime(MysqlDateFormat, IncDay(aAsOnDAte, 1))));
+              SQLList.Add('and maxpqad.value =PQASN.value');
+              if CurSNIDtoExclude <> 0 then SQLList.Add(' and maxpqad.PQADetailID <> ' + IntToStr(CurSNIDtoExclude));
+              SQLList.Add(')');
+              SQLList.Add(' and PQASN.Value not in (Select ifnull(Serial,"")  from `tblfixedAssets` where PartsId = PQA.ProducTID and ClassId =PQA.DepartmentID)');
+              SQLList.Add('and PQASN.Value not in (Select ifnull(E.SerialNumber,"") from tblequipment E where E.ProductId = PQA.ProducTID AND e.OnHire ="T") ');
             end;
           end;
         end;
       end;
       if IncludeTransType then
-        SQLList.add('Left  join `tblpqatranstypes` as TT on TT.TransType = PQA.TransType');
+        SQLList.Add('LEFT JOIN `tblpqatranstypes` as TT on TT.TransType = PQA.TransType');
 
     end;
-    result := SQLList.Text;
+    Result := SQLList.Text;
   finally
     Freeandnil(SQLList);
   end;
 end;
+
 function SalesAllocationTables(pqatablename :String = 'tblpqa' ; Alloctablename :String ='tblpqadetails' ):String;
 begin
   Result := AllocationTables(pqatablename ,Alloctablename);
@@ -432,31 +434,31 @@ begin
 //  logtext(DetailQtyfield(DetailType,true , PQAQtyWhennotAllocated));
   SQLList := TStringList.Create;
   try
-    SQLList.add('SELECT P.PartsID,  P.PARTNAME , PC.PreferredLevel,');
-    if (fUOM <> '') or (groupbyUOM)                               then SQLList.add('PQA.UOM,');
-    if includeDeptFields                                          then SQLList.add('PQA.DepartmentID,PC.ClassName,');
-    if (DetailType >= tDetails) or (fsBatchno <> '')              then SQLList.add('PQABatch.Value as Batchno,');
-    if (DetailType >= tDetails) or (fdExpiryDate <> 0)            then SQLList.add('PQABatch.ExpiryDate , ');
-    if (DetailType >= tDetails)                                   then SQLList.add('PQABatch.TruckLoadNo , ');
-    if (DetailType >= tExtraDetails) or (fsbinlocation <> '')     then SQLList.add('PBin.Binlocation ,');
-    if (DetailType >= tExtraDetails) or (fsBinnumber <> '')       then SQLList.add('PBin.Binnumber ,');
-    if (DetailType >= tExtraDetails)                              then SQLList.add('PBin.binId,concat(PBin.Binlocation ,PBin.Binnumber ) as BinLocNum, ');
-    if (DetailType >= tDetailswithSno) or (fsSerialnumber <> '')  then SQLList.add('PQASN.Value as Serialnumber ,');
-    SQLList.add(SQL4Qty(Qtytype, 'PQA', DetailQtyfield(DetailType,False , PQAQtyWhennotAllocated)) + ' as Qty,');
-    SQLList.add(SQL4Qty(Qtytype, 'PQA', DetailQtyfield(DetailType, True , PQAQtyWhennotAllocated)) + ' as UOMQty');
-    if trim(fExtrafields) <> ''                                   then SQLList.add(',' + fExtrafields);
-    SQLList.add(' FROM ' + ProductTables(DetailType, DetailType >= tDetailswithSno, False, CurSNIDtoExclude, True, asOndate, UseasOndateTime));
-    SQLList.add(' Where P.active <>"F" and PC.ACtive <> "F"  '+
+    SQLList.Add('SELECT P.PartsID,  P.PARTNAME , PC.PreferredLevel,');
+    if (fUOM <> '') or (groupbyUOM)                               then SQLList.Add('PQA.UOM,');
+    if includeDeptFields                                          then SQLList.Add('PQA.DepartmentID,PC.ClassName,');
+    if (DetailType >= tDetails) or (fsBatchno <> '')              then SQLList.Add('PQABatch.Value as Batchno,');
+    if (DetailType >= tDetails) or (fdExpiryDate <> 0)            then SQLList.Add('PQABatch.ExpiryDate , ');
+    if (DetailType >= tDetails)                                   then SQLList.Add('PQABatch.TruckLoadNo , ');
+    if (DetailType >= tExtraDetails) or (fsbinlocation <> '')     then SQLList.Add('PBin.Binlocation ,');
+    if (DetailType >= tExtraDetails) or (fsBinnumber <> '')       then SQLList.Add('PBin.Binnumber ,');
+    if (DetailType >= tExtraDetails)                              then SQLList.Add('PBin.binId,concat(PBin.Binlocation ,PBin.Binnumber ) as BinLocNum, ');
+    if (DetailType >= tDetailswithSno) or (fsSerialnumber <> '')  then SQLList.Add('PQASN.Value as Serialnumber ,');
+    SQLList.Add(SQL4Qty(Qtytype, 'PQA', DetailQtyfield(DetailType,False , PQAQtyWhennotAllocated)) + ' as Qty,');
+    SQLList.Add(SQL4Qty(Qtytype, 'PQA', DetailQtyfield(DetailType, True , PQAQtyWhennotAllocated)) + ' as UOMQty');
+    if trim(fExtrafields) <> ''                                   then SQLList.Add(',' + fExtrafields);
+    SQLList.Add(' FROM ' + ProductTables(DetailType, DetailType >= tDetailswithSno, False, CurSNIDtoExclude, True, asOndate, UseasOndateTime));
+    SQLList.Add(' Where P.active <>"F" and PC.ACtive <> "F"  '+
               //' /*and PQA.active <> "F"*/ '+
               ' ');
     if asOndate <> 0 then
       if UseasOndateTime then
-           SQLList.add('and (PQA.TransDate < ' + QuotedStr(FormatDateTime(MysqlDateTimeFormat , incSecond(asOndate, 1))) + ' )')
-      else SQLList.add('and (PQA.TransDate < ' + QuotedStr(FormatDateTime(MysqlDateFormat, IncDay(asOndate, 1))) + ' )');
+           SQLList.Add('and (PQA.TransDate < ' + QuotedStr(FormatDateTime(MysqlDateTimeFormat , incSecond(asOndate, 1))) + ' )')
+      else SQLList.Add('and (PQA.TransDate < ' + QuotedStr(FormatDateTime(MysqlDateFormat, IncDay(asOndate, 1))) + ' )');
 
-    if ficlassid <> 0   then SQLList.add('and PQA.DepartmentID = ' + IntToStr(ficlassid));
-    if fiproductID <> 0 then SQLList.add('and PQA.ProductID =' + IntToStr(fiproductID));
-    if (fUOM <> '')     then SQLList.add('and PQA.UOM = ' + QuotedStr(fUOM));
+    if ficlassid <> 0   then SQLList.Add('and PQA.DepartmentID = ' + IntToStr(ficlassid));
+    if fiproductID <> 0 then SQLList.Add('and PQA.ProductID =' + IntToStr(fiproductID));
+    if (fUOM <> '')     then SQLList.Add('and PQA.UOM = ' + QuotedStr(fUOM));
 
     if (fsBatchno <> '') then begin
       s := '( PQABatch.value = ' + QuotedStr(fsBatchno);
@@ -465,7 +467,7 @@ begin
           QuotedStr(FormatDateTime(MysqlDateFormat, fdExpiryDate));
       s := s + ')';
       s := '  and ((ifnull(P.Batch,"F") ="F") or (' + s + '))';
-      SQLList.add(s);
+      SQLList.Add(s);
     end;
     if (fsbinlocation <> '') then begin
       s := '((ifnull(PQABins.UOMQty,0) <> 0 and PBin.binlocation = ' + QuotedStr(fsbinlocation);
@@ -473,28 +475,28 @@ begin
         s := s + 'and PBin.binnumber = ' + QuotedStr(fsBinnumber);
       s := s + ')';
       s := '  and ((ifnull(P.Multiplebins,"F") ="F") or (' + s + ')))';
-      SQLList.add(s);
+      SQLList.Add(s);
     end;
     if (fsSerialnumber <> '') then begin
       s := '(PQASN.Value <> '''' and PQASN.Value = ' + QuotedStr(fsSerialnumber) + ')';
       s := '  and ((ifnull(P.SNTracking,"F") ="F") or (' + s + '))';
-      SQLList.add(s);
+      SQLList.Add(s);
     end;
 
-    if fExtraWhere <> '' then  SQLList.add(' and (' + fExtraWhere + ')');
+    if fExtraWhere <> '' then  SQLList.Add(' and (' + fExtraWhere + ')');
 
-    SQLList.add('group by P.PartsID, P.PARTNAME ');
-    if (fUOM <> '') or (groupbyUOM)     then SQLList.add(',UOM');
-    if includeDeptFields                then  SQLList.add(',DepartmentID');
-    if (DetailType >= tDetails)         then SQLList.add(',IFNULL( PQABatch.Value,"")');
-    if (DetailType >= tDetails)         then SQLList.add(',IFNULL( PQABatch.TruckLoadNo,"")');
-    if (DetailType >= tDetails)         then SQLList.add(',IFNULL( PQABatch.ExpiryDate,0)  ');
-    if (DetailType >= tExtraDetails)    then SQLList.add(',IFNULL( PQABins.BinID ,"")');
-    if (DetailType >= tExtraDetails)    then SQLList.add(',IFNULL( PBin.Binlocation,"") ');
-    if (DetailType >= tExtraDetails)    then SQLList.add(',IFNULL( PBin.Binnumber ,"")');
-    if (DetailType >= tDetailswithSno)  then SQLList.add(',IFNULL( PQASN.Value,"")');
+    SQLList.Add('group by P.PartsID, P.PARTNAME ');
+    if (fUOM <> '') or (groupbyUOM)     then SQLList.Add(',UOM');
+    if includeDeptFields                then  SQLList.Add(',DepartmentID');
+    if (DetailType >= tDetails)         then SQLList.Add(',IFNULL( PQABatch.Value,"")');
+    if (DetailType >= tDetails)         then SQLList.Add(',IFNULL( PQABatch.TruckLoadNo,"")');
+    if (DetailType >= tDetails)         then SQLList.Add(',IFNULL( PQABatch.ExpiryDate,0)  ');
+    if (DetailType >= tExtraDetails)    then SQLList.Add(',IFNULL( PQABins.BinID ,"")');
+    if (DetailType >= tExtraDetails)    then SQLList.Add(',IFNULL( PBin.Binlocation,"") ');
+    if (DetailType >= tExtraDetails)    then SQLList.Add(',IFNULL( PBin.Binnumber ,"")');
+    if (DetailType >= tDetailswithSno)  then SQLList.Add(',IFNULL( PQASN.Value,"")');
 
-    if (DetailType >= tDetailswithSno) and SNIfhasQty  then SQLList.add('having ifnull(Serialnumber,"") = "" or  Qty >0');
+    if (DetailType >= tDetailswithSno) and SNIfhasQty  then SQLList.Add('having ifnull(Serialnumber,"") = "" or  Qty >0');
 
     result := SQLList.Text;
   finally
@@ -504,7 +506,7 @@ end;
 
 function SQL4QtyAsOnDate(const AsOnDate:TDateTime; const Qtytype: TQtytype; const PQAAlias: String = 'PQA';  const SumfieldName: STring = 'PQA.QTY'): String;
 begin
-  result := 'Round(Sum(if('+PQAAlias+'.TransDate <=' +quotedstr(formatDateTime(mysqlDatetimeformat, AsOnDate)) +',  ' + SQL4QtyField(Qtytype, PQAAlias, SumfieldName) + ',0)),' +    IntToStr(AppEnvVirt.Int['TcConst.GeneralRoundPlaces']) + ')';
+  Result := 'ROUND(SUM(IF(' + PQAAlias + '.TransDate <=' + quotedstr(formatDateTime(mysqlDatetimeformat, AsOnDate)) + ', ' + SQL4QtyField(Qtytype, PQAAlias, SumfieldName) + ', 0)), ' + IntToStr(AppEnvVirt.Int['TcConst.GeneralRoundPlaces']) + ')';
 end;
 
 function SQL4Qty(const Qtytype: TQtytype; const PQAAlias: String = 'PQA';  const SumfieldName: STring = 'PQA.QTY'): String;
@@ -523,39 +525,39 @@ var
 begin
   SQLList := TStringList.Create;
   try
-    SQLList.add('SELECT distinct ');
-    SQLList.add('P.PartsId as PartsId, ');
-    SQLList.add('PC.ClassId as DepartmentID,');
-    SQLList.add('PQA.UOMID as UOMID, ');
-    SQLList.add('ifNull(PQA.UOM, ' + QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) +') as UOM,');
-    SQLList.add('ifnull(PQA.UOMMultiplier, 1) as UOMMultiplier,');
-    SQLList.add('3 as gLevel, ');
-    SQLList.add('P.PartName as ProductName ,');
-    SQLList.add(Firstcolumn + ' as ProductColumn1,');
-    SQLList.add(Secondcolumn + ' as ProductColumn2,');
-    SQLList.add(Thirdcolumn + ' as ProductColumn3,');
-    SQLList.add('PartsDescription as PartsDescription,');
-    SQLList.add('PC.Classname as Classname,');
-    SQLList.add('PQABatch.Value as Batchnumber, ');
-    SQLList.add('PQABatch.TruckLoadNo as TruckLoadNo, ');
-    SQLList.add('DATE_FORMAT(PQABatch.Expirydate , ' + QuotedStr('%d/%m/%Y') +') as cBatchExpiryDate, ');
-    SQLList.add('PQABatch.Expirydate as BatchExpiryDate, ');
-    SQLList.add('PBin.binLocation as binLocation, ');
-    SQLList.add('PBin.Binnumber as Binnumber, ');
-    SQLList.add('PQABins.binID as binID, ');
-    SQLList.add('PQASN.Value as Serialnumber, ');
-    SQLList.add('TT.DEscription as DEscription,');
-    SQLList.add('PQA.Transdate as Transdate,  ');
-    SQLList.add('PQAAllocType(PQA.allocType,PQA.Transtype,PQASN.Qty,SM.StockmovementID,SM.StockmovementEntryType,FA.Serial , S.Converted, S.IsInternalOrder) as allocType ');
-    SQLList.add(' FROM ' + ProductTables(tSerialnoList, True, True, 0 , True , 0));
-    SQLList.add('left join tblstockmovementlines SML on PQA.transId = SML.StockmovementID and PQA.transLineId = SML.StockmovementLinesID and PQA.transType = "TStockMovementLines"');
-    SQLList.add('Left join tblstockmovement SM on SM.StockmovementID = SML.StockmovementID');
-    SQLList.add('left join tblSales  S on PQA.transId = S.saleID and PQA.transType  in ( '+ SalesTransTypes+','+ ManufactureTypes+')');
-    SQLList.add('Where  (P.SNTracking ="T")');
-    if classID    <> 0 then SQLList.add('and PQA.DepartmentID =' + IntToStr(classID));
-    if ProductID  <> 0 then SQLList.add('and PQA.ProductID =' + IntToStr(ProductID));
-    SQLList.add('and ifnull(PQASN.Value,"")= ' + Quotedstr(aSerialnumber));
-    SQLList.add('order by PQA.transdate DESC');
+    SQLList.Add('SELECT distinct ');
+    SQLList.Add('P.PartsId as PartsId, ');
+    SQLList.Add('PC.ClassId as DepartmentID,');
+    SQLList.Add('PQA.UOMID as UOMID, ');
+    SQLList.Add('ifNull(PQA.UOM, ' + QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) +') as UOM,');
+    SQLList.Add('ifnull(PQA.UOMMultiplier, 1) as UOMMultiplier,');
+    SQLList.Add('3 as gLevel, ');
+    SQLList.Add('P.PartName as ProductName ,');
+    SQLList.Add(Firstcolumn + ' as ProductColumn1,');
+    SQLList.Add(Secondcolumn + ' as ProductColumn2,');
+    SQLList.Add(Thirdcolumn + ' as ProductColumn3,');
+    SQLList.Add('PartsDescription as PartsDescription,');
+    SQLList.Add('PC.Classname as Classname,');
+    SQLList.Add('PQABatch.Value as Batchnumber, ');
+    SQLList.Add('PQABatch.TruckLoadNo as TruckLoadNo, ');
+    SQLList.Add('DATE_FORMAT(PQABatch.Expirydate , ' + QuotedStr('%d/%m/%Y') +') as cBatchExpiryDate, ');
+    SQLList.Add('PQABatch.Expirydate as BatchExpiryDate, ');
+    SQLList.Add('PBin.binLocation as binLocation, ');
+    SQLList.Add('PBin.Binnumber as Binnumber, ');
+    SQLList.Add('PQABins.binID as binID, ');
+    SQLList.Add('PQASN.Value as Serialnumber, ');
+    SQLList.Add('TT.DEscription as DEscription,');
+    SQLList.Add('PQA.Transdate as Transdate,  ');
+    SQLList.Add('PQAAllocType(PQA.allocType,PQA.Transtype,PQASN.Qty,SM.StockmovementID,SM.StockmovementEntryType,FA.Serial , S.Converted, S.IsInternalOrder) as allocType ');
+    SQLList.Add(' FROM ' + ProductTables(tSerialnoList, True, True, 0 , True , 0));
+    SQLList.Add('left join tblstockmovementlines SML on PQA.transId = SML.StockmovementID and PQA.transLineId = SML.StockmovementLinesID and PQA.transType = "TStockMovementLines"');
+    SQLList.Add('Left join tblstockmovement SM on SM.StockmovementID = SML.StockmovementID');
+    SQLList.Add('left join tblSales  S on PQA.transId = S.saleID and PQA.transType  in ( '+ SalesTransTypes+','+ ManufactureTypes+')');
+    SQLList.Add('Where  (P.SNTracking ="T")');
+    if classID    <> 0 then SQLList.Add('and PQA.DepartmentID =' + IntToStr(classID));
+    if ProductID  <> 0 then SQLList.Add('and PQA.ProductID =' + IntToStr(ProductID));
+    SQLList.Add('and ifnull(PQASN.Value,"")= ' + Quotedstr(aSerialnumber));
+    SQLList.Add('order by PQA.transdate DESC');
   finally
     result := SQLList.Text;
     Freeandnil(SQLList);
@@ -568,42 +570,42 @@ var
 begin
   SQLList := TStringList.Create;
   try
-    SQLList.add('SELECT distinct ');
-    SQLList.add('P.PartsId as PartsId, ');
-    SQLList.add('PC.ClassId as DepartmentID,');
-    SQLList.add('PQA.UOMID as UOMID, ');
-    SQLList.add('ifNull(PQA.UOM, ' + QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) +') as UOM,');
-    SQLList.add('ifnull(PQA.UOMMultiplier, 1) as UOMMultiplier,');
-    SQLList.add('3 as gLevel, ');
-    SQLList.add('P.PartName as ProductName ,');
-    SQLList.add(Firstcolumn + ' as ProductColumn1,');
-    SQLList.add(Secondcolumn + ' as ProductColumn2,');
-    SQLList.add(Thirdcolumn + ' as ProductColumn3,');
-    SQLList.add('PartsDescription as PartsDescription,');
-    SQLList.add('PC.Classname as Classname,');
-    SQLList.add('PQABatch.Value as Batchnumber, ');
-    SQLList.add('PQABatch.TruckLoadNo as TruckLoadNo, ');
-    SQLList.add('DATE_FORMAT(PQABatch.Expirydate , ' + QuotedStr('%d/%m/%Y') +') as cBatchExpiryDate, ');
-    SQLList.add('PQABatch.Expirydate as BatchExpiryDate, ');
-    SQLList.add('PBin.binLocation as binLocation, ');
-    SQLList.add('PBin.Binnumber as Binnumber, ');
-    SQLList.add('PQASN.Value as Serialnumber, ');
-    SQLList.add('TT.DEscription as DEscription,');
-    SQLList.add('PQA.Transdate as Transdate,  ');
-    SQLList.add('PQAAllocType(PQA.allocType,PQA.Transtype,PQASN.Qty,SM.StockmovementID,SM.StockmovementEntryType,FA.Serial, S.Converted, S.IsInternalOrder) as allocType ');
-    if extrafields <> '' then SQLList.add(','+extrafields);
-    SQLList.add(' FROM ' + ProductTables(tSerialnoList, True, True, 0 , True , TransDate));
-    SQLList.add('left join tblstockmovementlines SML on PQA.transId = SML.StockmovementID and PQA.transLineId = SML.StockmovementLinesID and PQA.transType = "TStockMovementLines"');
-    SQLList.add('Left join tblstockmovement SM on SM.StockmovementID = SML.StockmovementID');
-    SQLList.add('left join tblSales  S on PQA.transId = S.saleID and PQA.transType  in ( '+ SalesTransTypes+','+ ManufactureTypes+')');
-    SQLList.add('Where  (P.multiplebins = "T" or P.Batch = "T" or P.SNTracking ="T")');
-    if classID    <> 0 then SQLList.add('and PQA.DepartmentID =' + IntToStr(classID));
-    if ProductID  <> 0 then SQLList.add('and PQA.ProductID =' + IntToStr(ProductID));
-    if TransDate  <> 0 then SQLList.add('and PQA.TransDate <' + QuotedStr(FormatDateTime(MysqlDateFormat, TransDate)));
-    SQLList.add('and ifnull(PQASN.Value,"")<>""');
-    if dateFrom   <> 0 then SQLList.add('AND PQA.TransDate >= ' + QuotedStr(FormatDateTime(MysqlDateFormat, dateFrom)));
-    if Dateto     <> 0 then SQLList.add('AND PQA.TransDate < ' + QuotedStr(FormatDateTime(MysqlDateFormat, Dateto)));
-    if IncludeOrderBy  then SQLList.add('order by PQA.ProductID , PC.ClassId , ifNull(PQA.UOM, ' + QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) +') ,'+
+    SQLList.Add('SELECT distinct ');
+    SQLList.Add('P.PartsId as PartsId, ');
+    SQLList.Add('PC.ClassId as DepartmentID,');
+    SQLList.Add('PQA.UOMID as UOMID, ');
+    SQLList.Add('ifNull(PQA.UOM, ' + QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) +') as UOM,');
+    SQLList.Add('ifnull(PQA.UOMMultiplier, 1) as UOMMultiplier,');
+    SQLList.Add('3 as gLevel, ');
+    SQLList.Add('P.PartName as ProductName ,');
+    SQLList.Add(Firstcolumn + ' as ProductColumn1,');
+    SQLList.Add(Secondcolumn + ' as ProductColumn2,');
+    SQLList.Add(Thirdcolumn + ' as ProductColumn3,');
+    SQLList.Add('PartsDescription as PartsDescription,');
+    SQLList.Add('PC.Classname as Classname,');
+    SQLList.Add('PQABatch.Value as Batchnumber, ');
+    SQLList.Add('PQABatch.TruckLoadNo as TruckLoadNo, ');
+    SQLList.Add('DATE_FORMAT(PQABatch.Expirydate , ' + QuotedStr('%d/%m/%Y') +') as cBatchExpiryDate, ');
+    SQLList.Add('PQABatch.Expirydate as BatchExpiryDate, ');
+    SQLList.Add('PBin.binLocation as binLocation, ');
+    SQLList.Add('PBin.Binnumber as Binnumber, ');
+    SQLList.Add('PQASN.Value as Serialnumber, ');
+    SQLList.Add('TT.DEscription as DEscription,');
+    SQLList.Add('PQA.Transdate as Transdate,  ');
+    SQLList.Add('PQAAllocType(PQA.allocType,PQA.Transtype,PQASN.Qty,SM.StockmovementID,SM.StockmovementEntryType,FA.Serial, S.Converted, S.IsInternalOrder) as allocType ');
+    if extrafields <> '' then SQLList.Add(','+extrafields);
+    SQLList.Add(' FROM ' + ProductTables(tSerialnoList, True, True, 0 , True , TransDate));
+    SQLList.Add('left join tblstockmovementlines SML on PQA.transId = SML.StockmovementID and PQA.transLineId = SML.StockmovementLinesID and PQA.transType = "TStockMovementLines"');
+    SQLList.Add('Left join tblstockmovement SM on SM.StockmovementID = SML.StockmovementID');
+    SQLList.Add('left join tblSales  S on PQA.transId = S.saleID and PQA.transType  in ( '+ SalesTransTypes+','+ ManufactureTypes+')');
+    SQLList.Add('Where  (P.multiplebins = "T" or P.Batch = "T" or P.SNTracking ="T")');
+    if classID    <> 0 then SQLList.Add('and PQA.DepartmentID =' + IntToStr(classID));
+    if ProductID  <> 0 then SQLList.Add('and PQA.ProductID =' + IntToStr(ProductID));
+    if TransDate  <> 0 then SQLList.Add('and PQA.TransDate <' + QuotedStr(FormatDateTime(MysqlDateFormat, TransDate)));
+    SQLList.Add('and ifnull(PQASN.Value,"")<>""');
+    if dateFrom   <> 0 then SQLList.Add('AND PQA.TransDate >= ' + QuotedStr(FormatDateTime(MysqlDateFormat, dateFrom)));
+    if Dateto     <> 0 then SQLList.Add('AND PQA.TransDate < ' + QuotedStr(FormatDateTime(MysqlDateFormat, Dateto)));
+    if IncludeOrderBy  then SQLList.Add('order by PQA.ProductID , PC.ClassId , ifNull(PQA.UOM, ' + QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) +') ,'+
                                         'PQABatch.Value , PQABatch.TruckLoadNo ,PQABatch.Expirydate ,PBin.Binlocation,PBIN.binnumber, PQASN.value');
   finally
     result := SQLList.Text;
@@ -620,68 +622,68 @@ begin
 //  Logtext(DetailQtyfield(tDetailswithSno,true, False));
   SQLList := TStringList.Create;
   try
-    SQLList.add('SELECT distinct P.PartsId, PC.ClassId as DepartmentID,PQA.UOMID, ');
-    SQLList.add('ifNull(PQA.UOM, ' + QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) +
+    SQLList.Add('SELECT distinct P.PartsId, PC.ClassId as DepartmentID,PQA.UOMID, ');
+    SQLList.Add('ifNull(PQA.UOM, ' + QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) +
       ') as UOM,ifnull(PQA.UOMMultiplier, 1) as UOMMultiplier,');
-    SQLList.add('4 as gLevel, P.PartName as ProductName ,');
-    SQLList.add(Firstcolumn + ' as ProductColumn1,');
-    SQLList.add(Secondcolumn + ' as ProductColumn2,');
-    SQLList.add(Thirdcolumn + ' as ProductColumn3,');
-    SQLList.add('PartsDescription,PC.Classname,');
-    SQLList.add('PQABatch.Value as Batchnumber, ');
-    SQLList.add('PQABatch.TruckLoadNo as TruckLoadNo, ');
-    SQLList.add('DATE_FORMAT(PQABatch.Expirydate , ' + QuotedStr('%d/%m/%Y') + ') as ExpiryDate , ');
-    SQLList.add('PQABatch.Expirydate as BatchExpiryDate, ');
-    SQLList.add('PBin.binLocation, PBin.Binnumber, ');
-    SQLList.add('PQASN.Value as Serialnumber,');
-    //SQLList.add(SQL4Qty   (tAvailable       , 'PQA', SQL4QtyField(tAvailable      ,'PQA', DetailQtyfield(tDetailswithSno,True , False)))+ ' as UOMQty,');
-    SQLList.add(SQL4Qty   (tAvailable       , 'PQA', DetailQtyfield(tDetailswithSno,True , False))+ ' as UOMQty,');
-    //SQLList.add(SQL4Qty   (tAvailable       , 'PQA', SQL4QtyField(tAvailable      ,'PQA', DetailQtyfield(tDetailswithSno,False, False)))+ ' as Qty,');
-    SQLList.add(SQL4Qty   (tAvailable       , 'PQA', DetailQtyfield(tDetailswithSno,False, False))+ ' as Qty,');
-     SQLList.add('0.0 as CUSTFLD1,');
-    //SQLList.add(SQL4Qty   (tInStock         , 'PQA', SQL4QtyField(tInStock        ,'PQA', DetailQtyfield(tDetailswithSno,true , False)))+ ' as InstockUOMQty,');
-    SQLList.add(SQL4Qty   (tInStock         , 'PQA', DetailQtyfield(tDetailswithSno,true , False))+ ' as InstockUOMQty,');
-    //SQLList.add(SQL4Qty   (tInStock         , 'PQA', SQL4QtyField(tInStock        ,'PQA', DetailQtyfield(tDetailswithSno,False, False)))+ ' as InstockQty,');
-    SQLList.add(SQL4Qty   (tInStock         , 'PQA', DetailQtyfield(tDetailswithSno,False, False))+ ' as InstockQty,');
+    SQLList.Add('4 as gLevel, P.PartName as ProductName ,');
+    SQLList.Add(Firstcolumn + ' as ProductColumn1,');
+    SQLList.Add(Secondcolumn + ' as ProductColumn2,');
+    SQLList.Add(Thirdcolumn + ' as ProductColumn3,');
+    SQLList.Add('PartsDescription,PC.Classname,');
+    SQLList.Add('PQABatch.Value as Batchnumber, ');
+    SQLList.Add('PQABatch.TruckLoadNo as TruckLoadNo, ');
+    SQLList.Add('DATE_FORMAT(PQABatch.Expirydate , ' + QuotedStr('%d/%m/%Y') + ') as ExpiryDate , ');
+    SQLList.Add('PQABatch.Expirydate as BatchExpiryDate, ');
+    SQLList.Add('PBin.binLocation, PBin.Binnumber, ');
+    SQLList.Add('PQASN.Value as Serialnumber,');
+    //SQLList.Add(SQL4Qty   (tAvailable       , 'PQA', SQL4QtyField(tAvailable      ,'PQA', DetailQtyfield(tDetailswithSno,True , False)))+ ' as UOMQty,');
+    SQLList.Add(SQL4Qty   (tAvailable       , 'PQA', DetailQtyfield(tDetailswithSno,True , False))+ ' as UOMQty,');
+    //SQLList.Add(SQL4Qty   (tAvailable       , 'PQA', SQL4QtyField(tAvailable      ,'PQA', DetailQtyfield(tDetailswithSno,False, False)))+ ' as Qty,');
+    SQLList.Add(SQL4Qty   (tAvailable       , 'PQA', DetailQtyfield(tDetailswithSno,False, False))+ ' as Qty,');
+     SQLList.Add('0.0 as CUSTFLD1,');
+    //SQLList.Add(SQL4Qty   (tInStock         , 'PQA', SQL4QtyField(tInStock        ,'PQA', DetailQtyfield(tDetailswithSno,true , False)))+ ' as InstockUOMQty,');
+    SQLList.Add(SQL4Qty   (tInStock         , 'PQA', DetailQtyfield(tDetailswithSno,true , False))+ ' as InstockUOMQty,');
+    //SQLList.Add(SQL4Qty   (tInStock         , 'PQA', SQL4QtyField(tInStock        ,'PQA', DetailQtyfield(tDetailswithSno,False, False)))+ ' as InstockQty,');
+    SQLList.Add(SQL4Qty   (tInStock         , 'PQA', DetailQtyfield(tDetailswithSno,False, False))+ ' as InstockQty,');
     if IncludeSOQty then begin
-      //SQLList.add(SQL4Qty (tSO              , 'PQA', SQL4QtyField(tSO             ,'PQA', DetailQtyfield(tDetailswithSno,true , False)))+ ' as SOUOMQty,');
-      SQLList.add(SQL4Qty (tSO              , 'PQA', DetailQtyfield(tDetailswithSno,true , False))+ ' as SOUOMQty,');
-      //SQLList.add(SQL4Qty (tSO              , 'PQA', SQL4QtyField(tSO             ,'PQA', DetailQtyfield(tDetailswithSno,False, False)))+ ' as SOQty,');
-      SQLList.add(SQL4Qty (tSO              , 'PQA', DetailQtyfield(tDetailswithSno,False, False))+ ' as SOQty,');
+      //SQLList.Add(SQL4Qty (tSO              , 'PQA', SQL4QtyField(tSO             ,'PQA', DetailQtyfield(tDetailswithSno,true , False)))+ ' as SOUOMQty,');
+      SQLList.Add(SQL4Qty (tSO              , 'PQA', DetailQtyfield(tDetailswithSno,true , False))+ ' as SOUOMQty,');
+      //SQLList.Add(SQL4Qty (tSO              , 'PQA', SQL4QtyField(tSO             ,'PQA', DetailQtyfield(tDetailswithSno,False, False)))+ ' as SOQty,');
+      SQLList.Add(SQL4Qty (tSO              , 'PQA', DetailQtyfield(tDetailswithSno,False, False))+ ' as SOQty,');
     end;
     if haveActStockwithManQty then begin
-      //SQLList.add(SQL4Qty (tActStockwithMan , 'PQA', SQL4QtyField(tActStockwithMan,'PQA', DetailQtyfield(tDetailswithSno,true , False)))+ ' as ActStockwithManUOMQty,');
-      SQLList.add(SQL4Qty (tActStockwithMan , 'PQA', DetailQtyfield(tDetailswithSno,true , False))+ ' as ActStockwithManUOMQty,');
-      //SQLList.add(SQL4Qty (tActStockwithMan , 'PQA', SQL4QtyField(tActStockwithMan,'PQA', DetailQtyfield(tDetailswithSno,False, False)))+ ' as ActStockwithManQty,');
-      SQLList.add(SQL4Qty (tActStockwithMan , 'PQA', DetailQtyfield(tDetailswithSno,False, False))+ ' as ActStockwithManQty,');
+      //SQLList.Add(SQL4Qty (tActStockwithMan , 'PQA', SQL4QtyField(tActStockwithMan,'PQA', DetailQtyfield(tDetailswithSno,true , False)))+ ' as ActStockwithManUOMQty,');
+      SQLList.Add(SQL4Qty (tActStockwithMan , 'PQA', DetailQtyfield(tDetailswithSno,true , False))+ ' as ActStockwithManUOMQty,');
+      //SQLList.Add(SQL4Qty (tActStockwithMan , 'PQA', SQL4QtyField(tActStockwithMan,'PQA', DetailQtyfield(tDetailswithSno,False, False)))+ ' as ActStockwithManQty,');
+      SQLList.Add(SQL4Qty (tActStockwithMan , 'PQA', DetailQtyfield(tDetailswithSno,False, False))+ ' as ActStockwithManQty,');
     end;
-    (*SQLList.add('0.0 Cost, 0.0 Value');*)
-    SQLList.add('Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' +
+    (*SQLList.Add('0.0 Cost, 0.0 Value');*)
+    SQLList.Add('Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' +
       IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ') as Cost,');
-    SQLList.add('Round(sum(Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' + IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ')*'+
+    SQLList.Add('Round(sum(Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' + IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ')*'+
                       '('+SQL4QtyField(tInStock, 'PQA', DetailQtyfield(tDetailswithSno,False , False)) +')),' +IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ') as Value');
 
     if IncludeSOQty then begin
-      SQLList.add(' FROM ' + StringReplace(ProductTables(tDetailswithSno, FilterAvailableSN, False, 0 , true , transdate ),
+      SQLList.Add(' FROM ' + StringReplace(ProductTables(tDetailswithSno, FilterAvailableSN, False, 0 , true , transdate ),
         ' and PQA.Alloctype = "IN"',
         'and (PQA.Alloctype = "IN"  or (PQA.Alloctype = "OUT"  and PQA.TransType  in ("TSalesOrderLine"  '+
               //' /*, "TSalesOrderInvoiceLines"*/ '+
               ' )))',
         [rfIgnoreCase]));
     end else begin
-      SQLList.add(' FROM ' + ProductTables(tDetailswithSno, FilterAvailableSN, False , 0, True, transdate));
+      SQLList.Add(' FROM ' + ProductTables(tDetailswithSno, FilterAvailableSN, False , 0, True, transdate));
     end;
-    SQLList.add ('Where  (P.multiplebins = "T" or P.Batch = "T" or (P.SNTracking ="T" and PQASN.Value <> ""))');
-    if classID <> 0 then SQLList.add('and PQA.DepartmentID =' + IntToStr(classID));
-    if ProductID <> 0 then SQLList.add('and PQA.ProductID =' + IntToStr(ProductID));
-    if TransDate <> 0 then SQLList.add('and PQA.TransDate <' + QuotedStr(FormatDateTime(MysqlDateFormat, TransDate)));
+    SQLList.Add ('Where  (P.multiplebins = "T" or P.Batch = "T" or (P.SNTracking ="T" and PQASN.Value <> ""))');
+    if classID <> 0 then SQLList.Add('and PQA.DepartmentID =' + IntToStr(classID));
+    if ProductID <> 0 then SQLList.Add('and PQA.ProductID =' + IntToStr(ProductID));
+    if TransDate <> 0 then SQLList.Add('and PQA.TransDate <' + QuotedStr(FormatDateTime(MysqlDateFormat, TransDate)));
 
-    SQLList.add('Group by PQA.ProductID , PC.ClassId , ifNull(PQA.UOM, ' +
+    SQLList.Add('Group by PQA.ProductID , PC.ClassId , ifNull(PQA.UOM, ' +
         QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) +
         ') ,PQABatch.Value , PQABatch.TruckLoadNo, PQABatch.Expirydate ,PBin.Binlocation,PBIN.binnumber, PQASN.value');
 
     if IncludeOrderBy then
-      SQLList.add('order by PQA.ProductID , PC.ClassId , ifNull(PQA.UOM, ' +
+      SQLList.Add('order by PQA.ProductID , PC.ClassId , ifNull(PQA.UOM, ' +
         QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) +
         ') ,PQABatch.Value , PQABatch.TruckLoadNo, PQABatch.Expirydate ,PBin.Binlocation,PBIN.binnumber, PQASN.value');
   finally
@@ -700,57 +702,57 @@ begin
 //  Logtext(DetailQtyfield(tExtraDetails,true, False));
 
   try
-    SQLList.add('SELECT distinct P.PartsId, PC.ClassID as DepartmentID,PQA.UOMID, ');
-    SQLList.add('ifNull(PQA.UOM, ' + QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) +
+    SQLList.Add('SELECT distinct P.PartsId, PC.ClassID as DepartmentID,PQA.UOMID, ');
+    SQLList.Add('ifNull(PQA.UOM, ' + QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) +
       ') as UOM,ifnull(PQA.UOMMultiplier, 1) as UOMMultiplier,');
-    SQLList.add('3 as gLevel, P.PartName as ProductName ,');
-    SQLList.add(Firstcolumn + ' as ProductColumn1,');
-    SQLList.add(Secondcolumn + ' as ProductColumn2,');
-    SQLList.add(Thirdcolumn + ' as ProductColumn3,');
-    SQLList.add('PartsDescription,PC.Classname,');
-    SQLList.add('PQABatch.Value as Batchnumber, ');
-    SQLList.add('PQABatch.TruckLoadNo as TruckLoadNo, ');
-    SQLList.add('DATE_FORMAT(PQABatch.Expirydate , ' + QuotedStr('%d/%m/%Y') + ') as ExpiryDate, ');
-    SQLList.add('PQABatch.Expirydate as BatchExpiryDate, ');
-    SQLList.add('PBin.binLocation, PBin.Binnumber,');
-    SQLList.add(' "" as Serialnumber,');
-    //SQLList.add(SQL4Qty   (tAvailable       , 'PQA',     SQL4QtyField(tAvailable      , 'PQA', DetailQtyfield(tExtraDetails,true , False)))  + ' as UOMQty,');
-    SQLList.add(SQL4Qty   (tAvailable       , 'PQA',     DetailQtyfield(tExtraDetails,true , False))  + ' as UOMQty,');
-    //SQLList.add(SQL4Qty   (tAvailable       , 'PQA',     SQL4QtyField(tAvailable      , 'PQA', DetailQtyfield(tExtraDetails,False , False))) + ' as Qty,');
-    SQLList.add(SQL4Qty   (tAvailable       , 'PQA',     DetailQtyfield(tExtraDetails,False , False)) + ' as Qty,');
-    SQLList.add('0.0 as CUSTFLD1,');
-    //SQLList.add(SQL4Qty   (tInStock         , 'PQA',     SQL4QtyField(tInStock        , 'PQA', DetailQtyfield(tExtraDetails,true , False)))  + ' as InstockUOMQty,');
-    SQLList.add(SQL4Qty   (tInStock         , 'PQA',     DetailQtyfield(tExtraDetails,true , False))  + ' as InstockUOMQty,');
-    //SQLList.add(SQL4Qty   (tInStock         , 'PQA',     SQL4QtyField(tInStock        , 'PQA', DetailQtyfield(tExtraDetails,False , False))) + ' as InstockQty,');
-    SQLList.add(SQL4Qty   (tInStock         , 'PQA',     DetailQtyfield(tExtraDetails,False , False)) + ' as InstockQty,');
+    SQLList.Add('3 as gLevel, P.PartName as ProductName ,');
+    SQLList.Add(Firstcolumn + ' as ProductColumn1,');
+    SQLList.Add(Secondcolumn + ' as ProductColumn2,');
+    SQLList.Add(Thirdcolumn + ' as ProductColumn3,');
+    SQLList.Add('PartsDescription,PC.Classname,');
+    SQLList.Add('PQABatch.Value as Batchnumber, ');
+    SQLList.Add('PQABatch.TruckLoadNo as TruckLoadNo, ');
+    SQLList.Add('DATE_FORMAT(PQABatch.Expirydate , ' + QuotedStr('%d/%m/%Y') + ') as ExpiryDate, ');
+    SQLList.Add('PQABatch.Expirydate as BatchExpiryDate, ');
+    SQLList.Add('PBin.binLocation, PBin.Binnumber,');
+    SQLList.Add(' "" as Serialnumber,');
+    //SQLList.Add(SQL4Qty   (tAvailable       , 'PQA',     SQL4QtyField(tAvailable      , 'PQA', DetailQtyfield(tExtraDetails,true , False)))  + ' as UOMQty,');
+    SQLList.Add(SQL4Qty   (tAvailable       , 'PQA',     DetailQtyfield(tExtraDetails,true , False))  + ' as UOMQty,');
+    //SQLList.Add(SQL4Qty   (tAvailable       , 'PQA',     SQL4QtyField(tAvailable      , 'PQA', DetailQtyfield(tExtraDetails,False , False))) + ' as Qty,');
+    SQLList.Add(SQL4Qty   (tAvailable       , 'PQA',     DetailQtyfield(tExtraDetails,False , False)) + ' as Qty,');
+    SQLList.Add('0.0 as CUSTFLD1,');
+    //SQLList.Add(SQL4Qty   (tInStock         , 'PQA',     SQL4QtyField(tInStock        , 'PQA', DetailQtyfield(tExtraDetails,true , False)))  + ' as InstockUOMQty,');
+    SQLList.Add(SQL4Qty   (tInStock         , 'PQA',     DetailQtyfield(tExtraDetails,true , False))  + ' as InstockUOMQty,');
+    //SQLList.Add(SQL4Qty   (tInStock         , 'PQA',     SQL4QtyField(tInStock        , 'PQA', DetailQtyfield(tExtraDetails,False , False))) + ' as InstockQty,');
+    SQLList.Add(SQL4Qty   (tInStock         , 'PQA',     DetailQtyfield(tExtraDetails,False , False)) + ' as InstockQty,');
     if IncludeSOQty then begin
-      //SQLList.add(SQL4Qty (tSO              , 'PQA',     SQL4QtyField(tSO             , 'PQA', DetailQtyfield(tExtraDetails,true , False)))  + ' as SOUOMQty,');
-      SQLList.add(SQL4Qty (tSO              , 'PQA',     DetailQtyfield(tExtraDetails,true , False))  + ' as SOUOMQty,');
-      //SQLList.add(SQL4Qty (tSO              , 'PQA',     SQL4QtyField(tSO             , 'PQA', DetailQtyfield(tExtraDetails,False , False))) + ' as SOQty,');
-      SQLList.add(SQL4Qty (tSO              , 'PQA',     DetailQtyfield(tExtraDetails,False , False)) + ' as SOQty,');
+      //SQLList.Add(SQL4Qty (tSO              , 'PQA',     SQL4QtyField(tSO             , 'PQA', DetailQtyfield(tExtraDetails,true , False)))  + ' as SOUOMQty,');
+      SQLList.Add(SQL4Qty (tSO              , 'PQA',     DetailQtyfield(tExtraDetails,true , False))  + ' as SOUOMQty,');
+      //SQLList.Add(SQL4Qty (tSO              , 'PQA',     SQL4QtyField(tSO             , 'PQA', DetailQtyfield(tExtraDetails,False , False))) + ' as SOQty,');
+      SQLList.Add(SQL4Qty (tSO              , 'PQA',     DetailQtyfield(tExtraDetails,False , False)) + ' as SOQty,');
     end;
     if haveActStockwithManQty then begin
-      //SQLList.add(SQL4Qty (tActStockwithMan , 'PQA',     SQL4QtyField(tActStockwithMan, 'PQA', DetailQtyfield(tExtraDetails,true , False)))  + ' as ActStockwithManUOMQty,');
-      SQLList.add(SQL4Qty (tActStockwithMan , 'PQA',     DetailQtyfield(tExtraDetails,true , False))  + ' as ActStockwithManUOMQty,');
-      //SQLList.add(SQL4Qty (tActStockwithMan , 'PQA',     SQL4QtyField(tActStockwithMan, 'PQA', DetailQtyfield(tExtraDetails,False , False))) + ' as ActStockwithManQty,');
-      SQLList.add(SQL4Qty (tActStockwithMan , 'PQA',     DetailQtyfield(tExtraDetails,False , False)) + ' as ActStockwithManQty,');
+      //SQLList.Add(SQL4Qty (tActStockwithMan , 'PQA',     SQL4QtyField(tActStockwithMan, 'PQA', DetailQtyfield(tExtraDetails,true , False)))  + ' as ActStockwithManUOMQty,');
+      SQLList.Add(SQL4Qty (tActStockwithMan , 'PQA',     DetailQtyfield(tExtraDetails,true , False))  + ' as ActStockwithManUOMQty,');
+      //SQLList.Add(SQL4Qty (tActStockwithMan , 'PQA',     SQL4QtyField(tActStockwithMan, 'PQA', DetailQtyfield(tExtraDetails,False , False))) + ' as ActStockwithManQty,');
+      SQLList.Add(SQL4Qty (tActStockwithMan , 'PQA',     DetailQtyfield(tExtraDetails,False , False)) + ' as ActStockwithManQty,');
     end;
 
-(*    SQLList.add('0.0 , 0.0');*)
-    SQLList.add('Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' +
+(*    SQLList.Add('0.0 , 0.0');*)
+    SQLList.Add('Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' +
       IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ') as Cost,');
-    SQLList.add('Round(sum(Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' + IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ')*'+
+    SQLList.Add('Round(sum(Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' + IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ')*'+
                       '('+SQL4QtyField(tInStock, 'PQA', DetailQtyfield(tExtraDetails,False , False)) +')),' +IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ') as Value');
 
-    SQLList.add(' FROM ' + ProductTables(tExtraDetails,FilterAvailableSN, False, 0, true, TransDate));
-    SQLList.add('Where  (P.multiplebins = "T" or P.Batch = "T")');
+    SQLList.Add(' FROM ' + ProductTables(tExtraDetails,FilterAvailableSN, False, 0, true, TransDate));
+    SQLList.Add('Where  (P.multiplebins = "T" or P.Batch = "T")');
     if classID <> 0 then
-      SQLList.add('and PQA.DepartmentID =' + IntToStr(classID));
+      SQLList.Add('and PQA.DepartmentID =' + IntToStr(classID));
     if ProductID <> 0 then
-      SQLList.add('and PQA.ProductID =' + IntToStr(ProductID));
+      SQLList.Add('and PQA.ProductID =' + IntToStr(ProductID));
     if TransDate <> 0 then
-      SQLList.add('and PQA.TransDate <' + QuotedStr(FormatDateTime(MysqlDateFormat, TransDate)));
-    SQLList.add('group by PQA.ProductID , PC.ClassId , ifNull(PQA.UOM, ' +
+      SQLList.Add('and PQA.TransDate <' + QuotedStr(FormatDateTime(MysqlDateFormat, TransDate)));
+    SQLList.Add('group by PQA.ProductID , PC.ClassId , ifNull(PQA.UOM, ' +
       QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) +
       ') ,PQABatch.Value , PQABatch.TruckLoadNo ,PQABatch.Expirydate ,PBin.Binlocation,PBIN.binnumber');
   finally
@@ -764,42 +766,42 @@ var
 begin
   SQLList := TStringList.Create;
   try
-    SQLList.add('Select distinct');
-    SQLList.add('P.PartsId, PC.ClassId as DepartmentID,PQA.UOMID, ');
-    SQLList.add('ifNull(PQA.UOM, ' + QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) + ') as UOM,');
-    SQLList.add('ifnull(PQA.UOMMultiplier, 1) as UOMMultiplier,');
-    SQLList.add('1 as gLevel , P.PartName as ProductName,');
-    SQLList.add(Firstcolumn + ' as ProductColumn1,');
-    SQLList.add(Secondcolumn + ' as ProductColumn2,');
-    SQLList.add(Thirdcolumn + ' as ProductColumn3,');
-    SQLList.add('PartsDescription,PC.Classname,');
-    SQLList.add('"" as Batchnumber , "" as TruckLoadNo ,"" as ExpiryDate, null as BatchExpiryDate, ');
-    SQLList.add('"" as Binlocation, "" as Binnumber , "" as Serialnumber, ');
-    SQLList.add(SQL4Qty(tAvailable, 'PQA', 'PQA.UOMQty') + ' as UOMQty,');
-    SQLList.add(SQL4Qty(tAvailable) + ' as Qty,');
-    SQLList.add('0.0 as CUSTFLD1,');
-    SQLList.add(SQL4Qty(tInStock, 'PQA', 'PQA.UOMQty') + ' as InstockUOMQty,');
-    SQLList.add(SQL4Qty(tInStock) + ' as InstockQty,');
+    SQLList.Add('Select distinct');
+    SQLList.Add('P.PartsId, PC.ClassId as DepartmentID,PQA.UOMID, ');
+    SQLList.Add('ifNull(PQA.UOM, ' + QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) + ') as UOM,');
+    SQLList.Add('ifnull(PQA.UOMMultiplier, 1) as UOMMultiplier,');
+    SQLList.Add('1 as gLevel , P.PartName as ProductName,');
+    SQLList.Add(Firstcolumn + ' as ProductColumn1,');
+    SQLList.Add(Secondcolumn + ' as ProductColumn2,');
+    SQLList.Add(Thirdcolumn + ' as ProductColumn3,');
+    SQLList.Add('PartsDescription,PC.Classname,');
+    SQLList.Add('"" as Batchnumber , "" as TruckLoadNo ,"" as ExpiryDate, null as BatchExpiryDate, ');
+    SQLList.Add('"" as Binlocation, "" as Binnumber , "" as Serialnumber, ');
+    SQLList.Add(SQL4Qty(tAvailable, 'PQA', 'PQA.UOMQty') + ' as UOMQty,');
+    SQLList.Add(SQL4Qty(tAvailable) + ' as Qty,');
+    SQLList.Add('0.0 as CUSTFLD1,');
+    SQLList.Add(SQL4Qty(tInStock, 'PQA', 'PQA.UOMQty') + ' as InstockUOMQty,');
+    SQLList.Add(SQL4Qty(tInStock) + ' as InstockQty,');
     if IncludeSOQty then begin
-      SQLList.add(SQL4Qty(tSO, 'PQA', 'ifnull(PQA.UOMQty,0)') + ' as SOUOMQty,');
-      SQLList.add(SQL4Qty(tSO, 'PQA', 'ifnull(PQA.Qty,0)') + ' as SOQty,');
+      SQLList.Add(SQL4Qty(tSO, 'PQA', 'ifnull(PQA.UOMQty,0)') + ' as SOUOMQty,');
+      SQLList.Add(SQL4Qty(tSO, 'PQA', 'ifnull(PQA.Qty,0)') + ' as SOQty,');
     end;
-    SQLList.add('Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' +
+    SQLList.Add('Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' +
       IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ') as Cost,');
-(*    SQLList.add('Round(Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' +
+(*    SQLList.Add('Round(Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' +
       IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) +
       ')*Sum(if(PQA.alloctype="IN"  , PQA.Qty, 0-PQA.Qty)),' +
       IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ') as Value');*)
-    SQLList.add('Round(sum(Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' + IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ')*'+
+    SQLList.Add('Round(sum(Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' + IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ')*'+
                       '('+SQL4QtyField(tInStock,'ifnull(PQA.Qty,0)') +')),' +IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ') as Value');
-    SQLList.add(' FROM ' + ProductTables(tProductList, False, False,0, true, transdate));
-    SQLList.add('Where  (P.Batch = "F" and P.SNTracking ="F" and P.MultipleBins="F")');
-    SQLList.add      ('and (P.Parttype = "INV") ');
-    if classID <> 0 then      SQLList.add('and (PQA.DepartmentID =' + IntToStr(classID) + ')');
-    if ProductID <> 0 then      SQLList.add('and (PQA.ProductID =' + IntToStr(ProductID) + ')');
-    if TransDate <> 0 then      SQLList.add('and (PQA.TransDate <' + QuotedStr(FormatDateTime(MysqlDateFormat,
+    SQLList.Add(' FROM ' + ProductTables(tProductList, False, False,0, true, transdate));
+    SQLList.Add('Where  (P.Batch = "F" and P.SNTracking ="F" and P.MultipleBins="F")');
+    SQLList.Add      ('and (P.Parttype = "INV") ');
+    if classID <> 0 then      SQLList.Add('and (PQA.DepartmentID =' + IntToStr(classID) + ')');
+    if ProductID <> 0 then      SQLList.Add('and (PQA.ProductID =' + IntToStr(ProductID) + ')');
+    if TransDate <> 0 then      SQLList.Add('and (PQA.TransDate <' + QuotedStr(FormatDateTime(MysqlDateFormat,
         TransDate)) + ')');
-    SQLList.add('Group by P.PartsId, PC.ClassId, ifNull(PQA.UOM, ' +
+    SQLList.Add('Group by P.PartsId, PC.ClassId, ifNull(PQA.UOM, ' +
       QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) + ') ');
   finally
     result := SQLList.Text;
@@ -817,55 +819,55 @@ begin
 
   SQLList := TStringList.Create;
   try
-    SQLList.add('SELECT distinct P.PartsId, PC.classId as DepartmentID,PQA.UOMID, ');
-    SQLList.add('ifNull(PQA.UOM, ' + QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) +
+    SQLList.Add('SELECT distinct P.PartsId, PC.classId as DepartmentID,PQA.UOMID, ');
+    SQLList.Add('ifNull(PQA.UOM, ' + QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) +
       ') as UOM,ifnull(PQA.UOMMultiplier, 1) as UOMMultiplier,');
-    SQLList.add('2 as gLevel, P.PartName as Productname,');
-    SQLList.add(Firstcolumn + ' as ProductColumn1,');
-    SQLList.add(Secondcolumn + ' as ProductColumn2,');
-    SQLList.add(Thirdcolumn + ' as ProductColumn3,');
-    SQLList.add('PartsDescription,PC.Classname,');
-    SQLList.add('PQABatch.Value as Batchnumber, ');
-    SQLList.add('PQABatch.TruckLoadNo as TruckLoadNo, ');
-    SQLList.add('DATE_FORMAT(PQABatch.Expirydate , ' + QuotedStr('%d/%m/%Y') + ') as ExpiryDate , ');
-    SQLList.add('PQABatch.Expirydate as BatchExpiryDate, ');
-    SQLList.add('"" as BinLocation , "" as Binnumber, "" as SerialNumber, ');
-    //SQLList.add(SQL4Qty(tAvailable        , 'PQA',      SQL4QtyField(tAvailable , 'PQA', DetailQtyfield(tDetails  ,true   , False))) + ' as UOMQty,');
-    SQLList.add(SQL4Qty(tAvailable        , 'PQA',      DetailQtyfield(tDetails  ,true   , False)) + ' as UOMQty,');
-    //SQLList.add(SQL4Qty(tAvailable        , 'PQA',      SQL4QtyField(tAvailable , 'PQA', DetailQtyfield(tDetails  ,False  , False))) + ' as Qty,');
-    SQLList.add(SQL4Qty(tAvailable        , 'PQA',      DetailQtyfield(tDetails  ,False  , False)) + ' as Qty,');
-    SQLList.add(SQL4Qty(tAvailable        , 'PQA',      'if(ifnull(PQABatch.PQAdetailID,0) <> 0 , PQABatch.CUSTFLD1 ,0 )') + ' as CUSTFLD1,');
-    //SQLList.add(SQL4Qty(tInStock          , 'PQA',      SQL4QtyField(tInStock   , 'PQA', DetailQtyfield(tDetails  ,true   , False))) + ' as InstockUOMQty,');
-    SQLList.add(SQL4Qty(tInStock          , 'PQA',      DetailQtyfield(tDetails  ,true   , False)) + ' as InstockUOMQty,');
-    //SQLList.add(SQL4Qty(tInStock          , 'PQA',      SQL4QtyField(tInStock   , 'PQA', DetailQtyfield(tDetails  ,False  , False))) + ' as InstockQty,');
-    SQLList.add(SQL4Qty(tInStock          , 'PQA',      DetailQtyfield(tDetails  ,False  , False)) + ' as InstockQty,');
+    SQLList.Add('2 as gLevel, P.PartName as Productname,');
+    SQLList.Add(Firstcolumn + ' as ProductColumn1,');
+    SQLList.Add(Secondcolumn + ' as ProductColumn2,');
+    SQLList.Add(Thirdcolumn + ' as ProductColumn3,');
+    SQLList.Add('PartsDescription,PC.Classname,');
+    SQLList.Add('PQABatch.Value as Batchnumber, ');
+    SQLList.Add('PQABatch.TruckLoadNo as TruckLoadNo, ');
+    SQLList.Add('DATE_FORMAT(PQABatch.Expirydate , ' + QuotedStr('%d/%m/%Y') + ') as ExpiryDate , ');
+    SQLList.Add('PQABatch.Expirydate as BatchExpiryDate, ');
+    SQLList.Add('"" as BinLocation , "" as Binnumber, "" as SerialNumber, ');
+    //SQLList.Add(SQL4Qty(tAvailable        , 'PQA',      SQL4QtyField(tAvailable , 'PQA', DetailQtyfield(tDetails  ,true   , False))) + ' as UOMQty,');
+    SQLList.Add(SQL4Qty(tAvailable        , 'PQA',      DetailQtyfield(tDetails  ,true   , False)) + ' as UOMQty,');
+    //SQLList.Add(SQL4Qty(tAvailable        , 'PQA',      SQL4QtyField(tAvailable , 'PQA', DetailQtyfield(tDetails  ,False  , False))) + ' as Qty,');
+    SQLList.Add(SQL4Qty(tAvailable        , 'PQA',      DetailQtyfield(tDetails  ,False  , False)) + ' as Qty,');
+    SQLList.Add(SQL4Qty(tAvailable        , 'PQA',      'if(ifnull(PQABatch.PQAdetailID,0) <> 0 , PQABatch.CUSTFLD1 ,0 )') + ' as CUSTFLD1,');
+    //SQLList.Add(SQL4Qty(tInStock          , 'PQA',      SQL4QtyField(tInStock   , 'PQA', DetailQtyfield(tDetails  ,true   , False))) + ' as InstockUOMQty,');
+    SQLList.Add(SQL4Qty(tInStock          , 'PQA',      DetailQtyfield(tDetails  ,true   , False)) + ' as InstockUOMQty,');
+    //SQLList.Add(SQL4Qty(tInStock          , 'PQA',      SQL4QtyField(tInStock   , 'PQA', DetailQtyfield(tDetails  ,False  , False))) + ' as InstockQty,');
+    SQLList.Add(SQL4Qty(tInStock          , 'PQA',      DetailQtyfield(tDetails  ,False  , False)) + ' as InstockQty,');
     if IncludeSOQty then begin
-      //SQLList.add(SQL4Qty(tSO             , 'PQA',      SQL4QtyField(tSO        , 'PQA', DetailQtyfield(tDetails  ,true   , False))) + ' as SOUOMQty,');
-      SQLList.add(SQL4Qty(tSO             , 'PQA',      DetailQtyfield(tDetails  ,true   , False)) + ' as SOUOMQty,');
-      //SQLList.add(SQL4Qty(tSO             , 'PQA',      SQL4QtyField(tSO        , 'PQA', DetailQtyfield(tDetails  ,False  , False))) + ' as SOQty,');
-      SQLList.add(SQL4Qty(tSO             , 'PQA',      DetailQtyfield(tDetails  ,False  , False)) + ' as SOQty,');
+      //SQLList.Add(SQL4Qty(tSO             , 'PQA',      SQL4QtyField(tSO        , 'PQA', DetailQtyfield(tDetails  ,true   , False))) + ' as SOUOMQty,');
+      SQLList.Add(SQL4Qty(tSO             , 'PQA',      DetailQtyfield(tDetails  ,true   , False)) + ' as SOUOMQty,');
+      //SQLList.Add(SQL4Qty(tSO             , 'PQA',      SQL4QtyField(tSO        , 'PQA', DetailQtyfield(tDetails  ,False  , False))) + ' as SOQty,');
+      SQLList.Add(SQL4Qty(tSO             , 'PQA',      DetailQtyfield(tDetails  ,False  , False)) + ' as SOQty,');
     end;
     if haveActStockwithManQty then begin
-      //SQLList.add(SQL4Qty(tActStockwithMan, 'PQA', SQL4QtyField(tActStockwithMan, 'PQA', DetailQtyfield(tDetails  ,true   , False))) + ' as ActStockwithManUOMQty,');
-      SQLList.add(SQL4Qty(tActStockwithMan, 'PQA', DetailQtyfield(tDetails  ,true   , False)) + ' as ActStockwithManUOMQty,');
-      //SQLList.add(SQL4Qty(tActStockwithMan, 'PQA', SQL4QtyField(tActStockwithMan, 'PQA', DetailQtyfield(tDetails  ,False  , False))) + ' as ActStockwithManQty,');
-      SQLList.add(SQL4Qty(tActStockwithMan, 'PQA', DetailQtyfield(tDetails  ,False  , False)) + ' as ActStockwithManQty,');
+      //SQLList.Add(SQL4Qty(tActStockwithMan, 'PQA', SQL4QtyField(tActStockwithMan, 'PQA', DetailQtyfield(tDetails  ,true   , False))) + ' as ActStockwithManUOMQty,');
+      SQLList.Add(SQL4Qty(tActStockwithMan, 'PQA', DetailQtyfield(tDetails  ,true   , False)) + ' as ActStockwithManUOMQty,');
+      //SQLList.Add(SQL4Qty(tActStockwithMan, 'PQA', SQL4QtyField(tActStockwithMan, 'PQA', DetailQtyfield(tDetails  ,False  , False))) + ' as ActStockwithManQty,');
+      SQLList.Add(SQL4Qty(tActStockwithMan, 'PQA', DetailQtyfield(tDetails  ,False  , False)) + ' as ActStockwithManQty,');
     end;
-    (*SQLList.add('0.0 , 0.0');*)
-    SQLList.add('Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' +
+    (*SQLList.Add('0.0 , 0.0');*)
+    SQLList.Add('Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' +
       IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ') as Cost,');
-    SQLList.add('Round(sum(Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' + IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ')*'+
+    SQLList.Add('Round(sum(Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' + IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ')*'+
                       '('+SQL4QtyField(tInStock, 'PQA', DetailQtyfield(tDetails,False , False))+')),' +IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ') as Value');
 
-    SQLList.add(' FROM ' + ProductTables(tDetails, FilterAvailableSN, False , 0, true, transDate));
-    SQLList.add('Where  (P.Batch = "T")');
+    SQLList.Add(' FROM ' + ProductTables(tDetails, FilterAvailableSN, False , 0, true, transDate));
+    SQLList.Add('Where  (P.Batch = "T")');
     if classID <> 0 then
-      SQLList.add('and PQA.DepartmentID =' + IntToStr(classID));
+      SQLList.Add('and PQA.DepartmentID =' + IntToStr(classID));
     if ProductID <> 0 then
-      SQLList.add('and PQA.ProductID =' + IntToStr(ProductID));
+      SQLList.Add('and PQA.ProductID =' + IntToStr(ProductID));
     if TransDate <> 0 then
-      SQLList.add('and PQA.TransDate <' + QuotedStr(FormatDateTime(MysqlDateFormat, TransDate)));
-    SQLList.add('group by PQA.ProductID , PC.ClassId , ifNull(PQA.UOM, ' +
+      SQLList.Add('and PQA.TransDate <' + QuotedStr(FormatDateTime(MysqlDateFormat, TransDate)));
+    SQLList.Add('group by PQA.ProductID , PC.ClassId , ifNull(PQA.UOM, ' +
       QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) +
       ') ,PQABatch.Value , PQABatch.TruckLoadNo, PQABatch.Expirydate ');
   finally
@@ -937,55 +939,55 @@ var
 begin
   SQLList := TStringList.Create;
   try
-    SQLList.add('Select distinct');
-    SQLList.add('P.PartsId, PC.ClassId as DepartmentID,PQA.UOMID, ');
-    SQLList.add('ifNull(PQA.UOM, ' + QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) + ') as UOM,');
-    SQLList.add('ifnull(PQA.UOMMultiplier, 1) as UOMMultiplier,');
-    SQLList.add('1 as gLevel , P.PartName as ProductName,');
-    SQLList.add(Firstcolumn + ' as ProductColumn1,');
-    SQLList.add(Secondcolumn + ' as ProductColumn2,');
-    SQLList.add(Thirdcolumn + ' as ProductColumn3,');
-    SQLList.add('PartsDescription,PC.Classname,');
-    SQLList.add('"" as Batchnumber , "" as TruckLoadNo ,"" as ExpiryDate, null as BatchExpiryDate, ');
-    SQLList.add('"" as Binlocation, "" as Binnumber , "" as Serialnumber, ');
-    SQLList.add(SQL4Qty(tAvailable, 'PQA', 'PQA.UOMQty') + ' as UOMQty,');
-    SQLList.add(SQL4Qty(tAvailable) + ' as Qty,');
-    SQLList.add('0.0 as CUSTFLD1,');
-    SQLList.add(SQL4Qty(tInStock, 'PQA', 'PQA.UOMQty') + ' as InstockUOMQty,');
-    SQLList.add(SQL4Qty(tInStock) + ' as InstockQty,');
+    SQLList.Add('Select distinct');
+    SQLList.Add('P.PartsId, PC.ClassId as DepartmentID,PQA.UOMID, ');
+    SQLList.Add('ifNull(PQA.UOM, ' + QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) + ') as UOM,');
+    SQLList.Add('ifnull(PQA.UOMMultiplier, 1) as UOMMultiplier,');
+    SQLList.Add('1 as gLevel , P.PartName as ProductName,');
+    SQLList.Add(Firstcolumn + ' as ProductColumn1,');
+    SQLList.Add(Secondcolumn + ' as ProductColumn2,');
+    SQLList.Add(Thirdcolumn + ' as ProductColumn3,');
+    SQLList.Add('PartsDescription,PC.Classname,');
+    SQLList.Add('"" as Batchnumber , "" as TruckLoadNo ,"" as ExpiryDate, null as BatchExpiryDate, ');
+    SQLList.Add('"" as Binlocation, "" as Binnumber , "" as Serialnumber, ');
+    SQLList.Add(SQL4Qty(tAvailable, 'PQA', 'PQA.UOMQty') + ' as UOMQty,');
+    SQLList.Add(SQL4Qty(tAvailable) + ' as Qty,');
+    SQLList.Add('0.0 as CUSTFLD1,');
+    SQLList.Add(SQL4Qty(tInStock, 'PQA', 'PQA.UOMQty') + ' as InstockUOMQty,');
+    SQLList.Add(SQL4Qty(tInStock) + ' as InstockQty,');
     if IncludeSOQty then begin
-      SQLList.add(SQL4Qty(tSO, 'PQA', 'ifnull(PQA.UOMQty,0)') + ' as SOUOMQty,');
-      SQLList.add(SQL4Qty(tSO, 'PQA', 'ifnull(PQA.Qty,0)') + ' as SOQty,');
+      SQLList.Add(SQL4Qty(tSO, 'PQA', 'ifnull(PQA.UOMQty,0)') + ' as SOUOMQty,');
+      SQLList.Add(SQL4Qty(tSO, 'PQA', 'ifnull(PQA.Qty,0)') + ' as SOQty,');
     end;
     if haveActStockwithManQty then begin
-      SQLList.add(SQL4Qty(tActStockwithMan, 'PQA', 'ifnull(PQA.UOMQty,0)') + ' as ActStockwithManUOMQty,');
-      SQLList.add(SQL4Qty(tActStockwithMan, 'PQA', 'ifnull(PQA.Qty,0)') + ' as ActStockwithManQty,');
+      SQLList.Add(SQL4Qty(tActStockwithMan, 'PQA', 'ifnull(PQA.UOMQty,0)') + ' as ActStockwithManUOMQty,');
+      SQLList.Add(SQL4Qty(tActStockwithMan, 'PQA', 'ifnull(PQA.Qty,0)') + ' as ActStockwithManQty,');
     end;
-    SQLList.add('Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' +
+    SQLList.Add('Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' +
       IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ') as Cost,');
 
-(*    SQLList.add('Round(Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' +
+(*    SQLList.Add('Round(Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' +
       IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) +
       ')*Sum(if(PQA.alloctype="IN"  , PQA.Qty, 0-PQA.Qty)),' +
       IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ') as Value');*)
 
-    SQLList.add('Round(sum(Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' + IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ')*'+
+    SQLList.Add('Round(sum(Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),' + IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ')*'+
                       '('+SQL4QtyField(tInStock) +')),' +IntToStr(AppEnvVirt.Int['RegionalOptions.CurrencyRoundPlaces']) + ') as Value');
 
-    SQLList.add(' FROM ' + ProductTables(tProductList, FilterAvailableSN, False,0, true, transdate));
-    SQLList.add
+    SQLList.Add(' FROM ' + ProductTables(tProductList, FilterAvailableSN, False,0, true, transdate));
+    SQLList.Add
       ('Where (P.Parttype = "INV")  '+
               //' /* and ((ifnull(PQA.PQAID,0) = 0) or ((PQA.Active = "T")*/ '+
               ' ');
     if classID <> 0 then
-      SQLList.add('and (PQA.DepartmentID =' + IntToStr(classID) + ')');
+      SQLList.Add('and (PQA.DepartmentID =' + IntToStr(classID) + ')');
     if ProductID <> 0 then
-      SQLList.add('and (PQA.ProductID =' + IntToStr(ProductID) + ')');
+      SQLList.Add('and (PQA.ProductID =' + IntToStr(ProductID) + ')');
     if TransDate <> 0 then
-      SQLList.add('and (PQA.TransDate <' + QuotedStr(FormatDateTime(MysqlDateFormat,
+      SQLList.Add('and (PQA.TransDate <' + QuotedStr(FormatDateTime(MysqlDateFormat,
         TransDate)) + ')');
-    //SQLList.add('))');
-    SQLList.add('Group by P.PartsId, PC.ClassId, ifNull(PQA.UOM, ' +
+    //SQLList.Add('))');
+    SQLList.Add('Group by P.PartsId, PC.ClassId, ifNull(PQA.UOM, ' +
       QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) + ') ');
   finally
     result := SQLList.Text;
@@ -1001,39 +1003,39 @@ var
 begin
   SQLList := TStringList.Create;
   try
-    SQLList.add('Select');
-    SQLList.add('P.PartsId, PC.ClassId as DepartmentID,');
-    SQLList.add('0 as UOMID,');
-    SQLList.add('"Units" as UOM,');
-    SQLList.add('1 as UOMMultiplier,');
-    SQLList.add(IntToStr(gLevel) + ' as gLevel , P.PartName as ProductName,');
-    SQLList.add(Firstcolumn + ' as ProductColumn1,');
-    SQLList.add(Secondcolumn + ' as ProductColumn2,');
-    SQLList.add(Thirdcolumn + ' as ProductColumn3,');
-    SQLList.add('PartsDescription,PC.Classname,');
-    SQLList.add('"" as Batchnumber , "" as TruckLoadNo ,"" as ExpiryDate, null as BatchExpiryDate,');
-    SQLList.add('"" as Binlocation, "" as Binnumber , "" as Serialnumber,');
-    SQLList.add('0.0 as UOMQty,');
-    SQLList.add('0.0 as Qty,');
-    SQLList.add('0.0 as CUSTFLD1,');
-    SQLList.add('0.0 as InstockUOMQty,');
-    SQLList.add('0.0 as InstockQty,');
-    SQLList.add('0.0 as SOUOMQty,');
-    SQLList.add('0.0 as SOQty,');
-    SQLList.add('Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),2) as Cost,');
-    SQLList.add('0.0 as Value');
-    SQLList.add('FROM `tblParts` as P');
-    SQLList.add('Left join `tblProductClasses` as PC on PC.ProductID = P.PartsId');
-    SQLList.add('Where (P.Parttype = "NONINV")');
+    SQLList.Add('Select');
+    SQLList.Add('P.PartsId, PC.ClassId as DepartmentID,');
+    SQLList.Add('0 as UOMID,');
+    SQLList.Add('"Units" as UOM,');
+    SQLList.Add('1 as UOMMultiplier,');
+    SQLList.Add(IntToStr(gLevel) + ' as gLevel , P.PartName as ProductName,');
+    SQLList.Add(Firstcolumn + ' as ProductColumn1,');
+    SQLList.Add(Secondcolumn + ' as ProductColumn2,');
+    SQLList.Add(Thirdcolumn + ' as ProductColumn3,');
+    SQLList.Add('PartsDescription,PC.Classname,');
+    SQLList.Add('"" as Batchnumber , "" as TruckLoadNo ,"" as ExpiryDate, null as BatchExpiryDate,');
+    SQLList.Add('"" as Binlocation, "" as Binnumber , "" as Serialnumber,');
+    SQLList.Add('0.0 as UOMQty,');
+    SQLList.Add('0.0 as Qty,');
+    SQLList.Add('0.0 as CUSTFLD1,');
+    SQLList.Add('0.0 as InstockUOMQty,');
+    SQLList.Add('0.0 as InstockQty,');
+    SQLList.Add('0.0 as SOUOMQty,');
+    SQLList.Add('0.0 as SOQty,');
+    SQLList.Add('Round(If(P.AvgCost=0.00,Cost1,P.AvgCost),2) as Cost,');
+    SQLList.Add('0.0 as Value');
+    SQLList.Add('FROM `tblParts` as P');
+    SQLList.Add('Left join `tblProductClasses` as PC on PC.ProductID = P.PartsId');
+    SQLList.Add('Where (P.Parttype = "NONINV")');
 
     if classID <> 0 then
-      SQLList.add('and (PC.ClassID =' + IntToStr(classID) + ')');
+      SQLList.Add('and (PC.ClassID =' + IntToStr(classID) + ')');
     if ProductID <> 0 then
-      SQLList.add('and (P.ProductID =' + IntToStr(ProductID) + ')');
+      SQLList.Add('and (P.ProductID =' + IntToStr(ProductID) + ')');
 //    if TransDate <> 0 then
-//      SQLList.add('and (PQA.TransDate <' + QuotedStr(FormatDateTime(MysqlDateFormat,
+//      SQLList.Add('and (PQA.TransDate <' + QuotedStr(FormatDateTime(MysqlDateFormat,
 //        TransDate)) + ')');
-//    SQLList.add('Group by P.PartsId, PC.ClassId, ifNull(PQA.UOM, ' +
+//    SQLList.Add('Group by P.PartsId, PC.ClassId, ifNull(PQA.UOM, ' +
 //      QuotedStr(AppEnvVirt.Str['DefaultClass.DefaultUOM']) + ') ');
   finally
     result := SQLList.Text;
@@ -1050,20 +1052,20 @@ var
 begin
   SQLList := TStringList.Create;
   try
-    SQLList.add(StockQtySummary(IncludeSOQty, ProductID, classID, TransDate, FilterAvailableSN , haveActStockwithManQty));
+    SQLList.Add(StockQtySummary(IncludeSOQty, ProductID, classID, TransDate, FilterAvailableSN , haveActStockwithManQty));
     if (mode = tDetails) or (mode = tFtAll) then begin
-      SQLList.add('union all ');
-      SQLList.add(StockQtyDetails(IncludeSOQty, ProductID, classID, TransDate, FilterAvailableSN , haveActStockwithManQty));
+      SQLList.Add('union all ');
+      SQLList.Add(StockQtyDetails(IncludeSOQty, ProductID, classID, TransDate, FilterAvailableSN , haveActStockwithManQty));
     end;
     if (mode = tExtraDetails) or (mode = tFtAll) then begin
-      SQLList.add('union all ');
-      SQLList.add(StockQtyExtraDetails(IncludeSOQty, ProductID, classID, TransDate, FilterAvailableSN, haveActStockwithManQty));
+      SQLList.Add('union all ');
+      SQLList.Add(StockQtyExtraDetails(IncludeSOQty, ProductID, classID, TransDate, FilterAvailableSN, haveActStockwithManQty));
     end;
     if (mode = tDetailswithSno) or (mode = tFtAll) then begin
-      SQLList.add('union all ');
-      SQLList.add(StockQtyDetailswithSno(IncludeSOQty, ProductID, classID, TransDate, FilterAvailableSN, False , haveActStockwithManQty));
+      SQLList.Add('union all ');
+      SQLList.Add(StockQtyDetailswithSno(IncludeSOQty, ProductID, classID, TransDate, FilterAvailableSN, False , haveActStockwithManQty));
     end;
-    SQLList.add
+    SQLList.Add
       ('order by ClassName, ProductName ,  UOM, gLevel, batchnumber, TruckLoadNo, expirydate, binlocation,binnumber');
   finally
     result := SQLList.Text;

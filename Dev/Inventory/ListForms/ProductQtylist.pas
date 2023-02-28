@@ -103,35 +103,36 @@ end;
 procedure TProductQtylistGUI.FormShow(Sender: TObject);
 begin
   inherited;
-  chkAdvancedPrinting.Visible := false;
+  chkAdvancedPrinting.Visible := False;
   DtFrom.Date := 0;
   Qrymain.first;
   if Appenv.CompanyPrefs.AutoLocateproductinList then
     if GuiPrefs.Node.Exists('Options.PartsID') then
       Qrymain.locate('PartsId',  GuiPrefs.Node['Options.PartsID'].asInteger , []);
 
-
   if AppEnv.CompanyPrefs.ProductClassDefaultAll then
-  else if Appenv.Employee.DefaultClassID =0 then
-    TimerMsg(FilterLabel , 'The list shows Products of your Default ' + Appenv.DefaultClass.ClassHeading+' based on the preference. Your Default ' + Appenv.DefaultClass.ClassHeading+' is not selected')
+  else if Appenv.Employee.DefaultClassID = 0 then
+    TimerMsg(FilterLabel, 'The list shows Products of your Default ' + Appenv.DefaultClass.ClassHeading + ' based on the preference. Your Default ' + Appenv.DefaultClass.ClassHeading+' is not selected')
   else
-    TimerMsg(FilterLabel , 'The list shows Products of your Default ' + Appenv.DefaultClass.ClassHeading+' - '+ quotedstr(Appenv.Employee.DefaultClassName)+' based on the preference');
-
+    TimerMsg(FilterLabel, 'The list shows Products of your Default ' + Appenv.DefaultClass.ClassHeading + ' - ' + quotedstr(Appenv.Employee.DefaultClassName) + ' based on the preference');
 end;
+
 procedure TProductQtylistGUI.ProductDetails;
 begin
-     OpenERPListForm('TProductQtyDetailsGUI' , beforeshowProductQtyDetails)
+  OpenERPListForm('TProductQtyDetailsGUI', beforeshowProductQtyDetails)
 end;
+
 procedure TProductQtylistGUI.beforeshowProductQtyDetails(Sender: TObject);
 begin
-     if sender is TProductQtyDetailsGUI then begin
-      TProductQtyDetailsGUI(Sender).productId := qryMainPARTSID.asInteger;
-      if not AppEnv.CompanyPrefs.ProductClassDefaultAll then TProductQtyDetailsGUI(Sender).ClassID := appenv.Employee.DefaultClassID else TProductQtyDetailsGUI(Sender).ClassID := 0;
-      TProductQtyDetailsGUI(Sender).Qtytype := Qtytype;
-     end else if sender is TProductQtyOnTransitGUI then begin
-      TProductQtyOnTransitGUI(Sender).ProductId :=qryMainPARTSID.asInteger;
-     end;
+  if sender is TProductQtyDetailsGUI then begin
+    TProductQtyDetailsGUI(Sender).productId := qryMainPARTSID.asInteger;
+    if not AppEnv.CompanyPrefs.ProductClassDefaultAll then TProductQtyDetailsGUI(Sender).ClassID := appenv.Employee.DefaultClassID else TProductQtyDetailsGUI(Sender).ClassID := 0;
+    TProductQtyDetailsGUI(Sender).Qtytype := Qtytype;
+  end else if sender is TProductQtyOnTransitGUI then begin
+    TProductQtyOnTransitGUI(Sender).ProductId :=qryMainPARTSID.asInteger;
+  end;
 end;
+
 procedure TProductQtylistGUI.ShowOnTransit;
 begin
   OpenERPListForm('TProductQtyOnTransitGUI' , beforeshowProductQtyDetails)
@@ -139,7 +140,7 @@ end;
 
 function TProductQtylistGUI.ShowQtyOnTransit: Boolean;
 begin
-  REsult := chkQtyOnTransit.Checked;
+  Result := chkQtyOnTransit.Checked;
 end;
 
 procedure TProductQtylistGUI.grdMainCalcCellColors(Sender: TObject;
@@ -293,67 +294,68 @@ end;
 procedure TProductQtylistGUI.MakeQRYMain;
 begin
   with qryMain do begin
-    Active := false;
+    Active := False;
 
     with SQL do begin
       Clear;
       Add('SELECT ');
-      Add('P.PARTNAME         As ProductName, ');
-      Add('P.ProductPrintName As ProductPrintName, ');
-      Add('P.MultipleBins     As MultipleBins,');
-      Add('P.batch            As batch,');
-      Add('P.SNTracking       As SNTracking,');
-      Add('LandedCost         As LandedCost, ');
-      Add('P.PARTTYPE         As ProductTypeCode, ');
-      Add(Firstcolumn + '     As FirstColumn, ');
-      Add(Secondcolumn+ '     As SecondColumn, ');
-      Add(Thirdcolumn + '     As ThirdColumn, ');
-      Add('PARTSDESCRIPTION   As SalesDescription,');
-      Add('PURCHASEDESC       As PurchaseDescription,');
-      Add('COSTINC1           As CostIncA,');
-      Add('PRICEINC1          As PriceIncA,');
-      Add('COST1              As CostExA,');
-      Add('PRICE1             As PriceExA,');
-      Add('PRODUCTCODE        As PRODUCTCODE,');
-      Add('P.TAXCODE          As TAXCODE,');
-      Add('PURCHTAXCODE       As PurchaseTaxcode,');
-      Add('P.Active           As Active,');
-      Add('P.PARTSID          As PARTSID,');
-      Add('AvgCost            As AvgCost,');
-      Add('INCOMEACCNT      As IncomeAccount,');
-      Add('ASSETACCNT       As AssetAccount,');
-      Add('COGSACCNT        As CostofGoodsSoldAccount,');
-      Add('P.PREFEREDSUPP   As PreferedSupplier,');
+      Add('P.PARTNAME         AS ProductName, ');
+      Add('P.ProductPrintName AS ProductPrintName, ');
+      Add('P.MultipleBins     AS MultipleBins,');
+      Add('P.batch            AS batch,');
+      Add('P.SNTracking       AS SNTracking,');
+      Add('LandedCost         AS LandedCost, ');
+      Add('P.PARTTYPE         AS ProductTypeCode, ');
+      Add(Firstcolumn + '     AS FirstColumn, ');
+      Add(Secondcolumn+ '     AS SecondColumn, ');
+      Add(Thirdcolumn + '     AS ThirdColumn, ');
+      Add('PARTSDESCRIPTION   AS SalesDescription,');
+      Add('PURCHASEDESC       AS PurchaseDescription,');
+      Add('COSTINC1           AS CostIncA,');
+      Add('PRICEINC1          AS PriceIncA,');
+      Add('COST1              AS CostExA,');
+      Add('PRICE1             AS PriceExA,');
+      Add('PRODUCTCODE        AS PRODUCTCODE,');
+      Add('P.TAXCODE          AS TAXCODE,');
+      Add('PURCHTAXCODE       AS PurchaseTaxcode,');
+      Add('P.Active           AS Active,');
+      Add('P.PARTSID          AS PARTSID,');
+      Add('AvgCost            AS AvgCost,');
+      Add('INCOMEACCNT        AS IncomeAccount,');
+      Add('ASSETACCNT         AS AssetAccount,');
+      Add('COGSACCNT          AS CostofGoodsSoldAccount,');
+      Add('P.PREFEREDSUPP     AS PreferedSupplier, ');
       Add(ExtraFields);
-      Add( '  Round(IF(P.PARTTYPE = "INV",' +ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tSOBO)       +',0.0),' + IntToStr(tcConst.GeneralRoundPlaces)+')   As SOBackOrders,');
+      Add('ROUND(IF(P.PARTTYPE = "INV", ' + ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tSOBO) + ',0.0),' + IntToStr(tcConst.GeneralRoundPlaces)+') AS SOBackOrders, ');
       if AppEnv.CompanyPrefs.CountSOBOInAvailable  then begin
-               Add( 'Round(IF(P.PARTTYPE = "INV",' +ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tAvailable ) +' - ' +
-                                                    ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tSoBo) +',0.0) ,' +  IntToStr(tcConst.GeneralRoundPlaces)+')  as "Available",');
-      end else Add( 'Round(IF(P.PARTTYPE = "INV",' +ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tAvailable ) +',0.0),' + IntToStr(tcConst.GeneralRoundPlaces)+')  as "Available",');
-      Add( '  Round(IF(P.PARTTYPE = "INV",' +ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tInstock)    +',0.0),' + IntToStr(tcConst.GeneralRoundPlaces)+')   As InStock,');
-      Add( '  Round(IF(P.PARTTYPE = "INV",' +ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tSO)         +',0.0),' + IntToStr(tcConst.GeneralRoundPlaces)+')   As AllocatedSO,');
-      Add( '  Round(IF(P.PARTTYPE = "INV",' +ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tInvBO)      +',0.0),' + IntToStr(tcConst.GeneralRoundPlaces)+')   As AllocatedBO,');
-      Add( '  Round(IF(P.PARTTYPE = "INV",' +ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tPOBO)       +',0.0),' + IntToStr(tcConst.GeneralRoundPlaces)+')   As OnOrder,');
-      Add( '  Round(IF(P.PARTTYPE = "INV",' +ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tOnBuild)    +',0.0),' + IntToStr(tcConst.GeneralRoundPlaces)+')   As OnBuild,');
-      Add( '  Round(IF(P.PARTTYPE = "INV",' +ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tBuilding)   +',0.0),' + IntToStr(tcConst.GeneralRoundPlaces)+')   As Building,');
-      Add('if(' +Quotedstr(BooleanToStr(ShowQtyOnTransit))+'<>"T" ,0.0 ,  Round(ifnull(IF(P.PARTTYPE = "INV",' + pqalib.SQL4QtyField(tOnTransitOUT, 'STPQA' , 'STPQA.QTY') +',0.0),0),' + IntToStr(tcConst.GeneralRoundPlaces)+'))    As "OnTransit" ');
+        Add('ROUND(IF(P.PARTTYPE = "INV",' + ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tAvailable ) + ' - ' +
+              ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tSoBo) +', 0.0), ' +  IntToStr(tcConst.GeneralRoundPlaces) + ') AS "Available", ');
+      end else Add('Round(IF(P.PARTTYPE = "INV", ' + ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tAvailable ) + ',0.0),' + IntToStr(tcConst.GeneralRoundPlaces) + ') AS "Available",');
+      Add( 'ROUND(IF(P.PARTTYPE = "INV",' + ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tInstock)    + ', 0.0), ' + IntToStr(tcConst.GeneralRoundPlaces) + ') AS InStock, ');
+      Add( 'ROUND(IF(P.PARTTYPE = "INV",' + ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tSO)         + ', 0.0), ' + IntToStr(tcConst.GeneralRoundPlaces) + ') AS AllocatedSO, ');
+      Add( 'ROUND(IF(P.PARTTYPE = "INV",' + ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tInvBO)      + ', 0.0), ' + IntToStr(tcConst.GeneralRoundPlaces) + ') AS AllocatedBO, ');
+      Add( 'ROUND(IF(P.PARTTYPE = "INV",' + ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tPOBO)       + ', 0.0), ' + IntToStr(tcConst.GeneralRoundPlaces) + ') AS OnOrder, ');
+      Add( 'ROUND(IF(P.PARTTYPE = "INV",' + ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tOnBuild)    + ', 0.0), ' + IntToStr(tcConst.GeneralRoundPlaces) + ') AS OnBuild, ');
+      Add( 'ROUND(IF(P.PARTTYPE = "INV",' + ProductQtylib.SQL4QtyAsOnDate(filterdateTo, tBuilding)   + ', 0.0), ' + IntToStr(tcConst.GeneralRoundPlaces) + ') AS Building, ');
+      Add('IF(' + Quotedstr(BooleanToStr(ShowQtyOnTransit)) + ' <> "T", 0.0, Round(IFNULL(IF(P.PARTTYPE = "INV",' + pqalib.SQL4QtyField(tOnTransitOUT, 'STPQA', 'STPQA.QTY') +', 0.0),0),' + IntToStr(tcConst.GeneralRoundPlaces)+')) AS "OnTransit" ');
       Add('FROM ' + ProductTables(tProductList));
       Add(ExtraTables);
-      Add('WHERE char_length(P.PARTNAME)>0 AND not IsNull(P.PARTNAME) ');
-      if ProductIDs <> '' then Add(' and P.partsID in ( ' + ProductIDs+')' );
-      if SelectedClassID <> 0 then Add(' and PC.ClassID = ' + inttostr(SelectedClassID ));
+      Add('WHERE char_length(P.PARTNAME) > 0 AND NOT ISNULL(P.PARTNAME) ');
+      if ProductIDs <> '' then Add(' AND P.partsID IN ( ' + ProductIDs+')' );
+      if SelectedClassID <> 0 then Add(' AND PC.ClassID = ' + IntToStr(SelectedClassID ));
       Add(ExtraConditions);
-      Add('GROUP BY P.PARTSID '+ ExtraGroupings);
+      Add('GROUP BY P.PARTSID ' + ExtraGroupings);
       Add(OrderFields);
-      RefreshOrignalSQL(false);
+      RefreshOrignalSQL(False);
     end;
   end;
 end;
-Function TProductQtylistGUI.ExtraFields:String; begin result := ''; end;
-Function TProductQtylistGUI.ExtraTables:String; begin result := ''; end;
-Function TProductQtylistGUI.ExtraConditions:String; begin result := ''; end;
-Function TProductQtylistGUI.ExtraGroupings:String; begin result := ''; end;
-Function TProductQtylistGUI.OrderFields:String; begin result := ''; end;
+
+Function TProductQtylistGUI.ExtraFields:String; begin Result := ''; end;
+Function TProductQtylistGUI.ExtraTables:String; begin Result := ''; end;
+Function TProductQtylistGUI.ExtraConditions:String; begin Result := ''; end;
+Function TProductQtylistGUI.ExtraGroupings:String; begin Result := ''; end;
+Function TProductQtylistGUI.OrderFields:String; begin Result := ''; end;
 
 procedure TProductQtylistGUI.qryMainAfterOpen(DataSet: TDataSet);
 begin
