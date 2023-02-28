@@ -3,10 +3,8 @@ inherited ProductQtylistGUI: TProductQtylistGUI
   HelpContext = 1708002
   Caption = 'Product Qty List'
   ClientHeight = 554
-  ExplicitLeft = 8
-  ExplicitTop = 8
-  ExplicitWidth = 1002
-  ExplicitHeight = 583
+  ExplicitTop = 349
+  ExplicitHeight = 593
   PixelsPerInch = 96
   TextHeight = 13
   inherited lblSkingroupMsg: TLabel
@@ -91,6 +89,7 @@ inherited ProductQtylistGUI: TProductQtylistGUI
           'Active'
           'Inactive'
           'All')
+        ExplicitLeft = 455
       end
     end
     inherited Panel3: TPanel
@@ -176,7 +175,6 @@ inherited ProductQtylistGUI: TProductQtylistGUI
         'Active;CheckBox;T;F')
       Selected.Strings = (
         'ProductName'#9'60'#9'ProductName'#9#9
-        'PreferedSupplier'#9'20'#9'Prefered Supplier'#9'F'#9
         'ProductPrintName'#9'255'#9'ProductPrintName'#9'F'#9
         'MultipleBins'#9'1'#9'MultipleBins'#9#9
         'batch'#9'1'#9'batch'#9#9
@@ -238,7 +236,7 @@ inherited ProductQtylistGUI: TProductQtylistGUI
   end
   inherited imgPopup: TImageList
     Bitmap = {
-      494C01010800A4012C0210001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010800A401280210001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

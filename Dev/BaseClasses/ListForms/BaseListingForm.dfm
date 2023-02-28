@@ -9324,7 +9324,7 @@ inherited BaseListingGUI: TBaseListingGUI
       Left = 806
       Top = 32
       Width = 86
-      Height = 23
+      Height = 22
       TabStop = False
       Anchors = [akTop, akRight]
       CalendarAttributes.Font.Charset = DEFAULT_CHARSET
@@ -9356,7 +9356,7 @@ inherited BaseListingGUI: TBaseListingGUI
       Left = 906
       Top = 32
       Width = 86
-      Height = 23
+      Height = 22
       TabStop = False
       Anchors = [akTop, akRight]
       CalendarAttributes.Font.Charset = DEFAULT_CHARSET
@@ -9625,7 +9625,7 @@ inherited BaseListingGUI: TBaseListingGUI
         AlignWithMargins = True
         Left = 4
         Top = 4
-        Width = 253
+        Width = 85
         Height = 15
         Align = alTop
         Alignment = taCenter
@@ -9638,7 +9638,6 @@ inherited BaseListingGUI: TBaseListingGUI
         ParentFont = False
         Transparent = True
         WordWrap = True
-        ExplicitWidth = 85
       end
       object chkhideMultiSelectSelectionList: TCheckBox
         AlignWithMargins = True
@@ -10077,7 +10076,7 @@ inherited BaseListingGUI: TBaseListingGUI
     Left = 625
     Top = 384
     Bitmap = {
-      494C01010800A003200810001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010800A0031C0810001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
