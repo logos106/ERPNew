@@ -806,15 +806,15 @@
 						<VersionInfo Name="CodePage">1252</VersionInfo>
 					</VersionInfo>
 					<VersionInfoKeys>
-						<VersionInfoKeys Name="CompanyName"/>
-						<VersionInfoKeys Name="FileDescription">ERP Web API Server</VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">TrueERP</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">ERP WebAPI Server</VersionInfoKeys>
 						<VersionInfoKeys Name="FileVersion">2023.0.6.0</VersionInfoKeys>
-						<VersionInfoKeys Name="InternalName">ERP Web API Server</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName">ERP WebAPI Server</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalCopyright"/>
 						<VersionInfoKeys Name="LegalTrademarks"/>
 						<VersionInfoKeys Name="OriginalFilename"/>
 						<VersionInfoKeys Name="ProductName"/>
-						<VersionInfoKeys Name="ProductVersion">2023.0.6.0</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductVersion">2023.0.2.02023.0.6.0</VersionInfoKeys>
 						<VersionInfoKeys Name="Comments"/>
 					</VersionInfoKeys>
 					<Excluded_Packages>

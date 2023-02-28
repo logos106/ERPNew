@@ -1,0 +1,180 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{B3794664-7D47-476B-84B6-2F0000F5F61E}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="Utils\ERPUtilsServer\ServiceMenu\ERPServiceMenu.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Utils\ERPUtilsServer\Modules\ERPModClientServer\ERPModClientServer.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Utils\ERPUtilsServer\Modules\ERPModEbay\ERPModEbay.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Utils\ERPUtilsServer\Modules\ERPModPMI\ERPModPMI.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Utils\ERPUtilsServer\Modules\ERPModUserUtils\ERPModUserUtils.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Utils\BusObj Creator\BusObjCreator.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Dev\ERP.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Utils\ERPUtilsServer\WebServerConsole\ERPWebServerConsole.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Utils\ERPUpdater\ERPUpdater.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Utils\ERPUtilsServer\UtilsService\ERPUtilsService.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Utils\ERPUtilsServer\WebService\ERPWebService.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Utils\ERPUtilsServer\Modules\ERPModWebAPI\ERPModWebAPI.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Utils\ERPUtilsServer\UtilsServerConsole\ERPUtilsServerConsole.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="ERPServiceMenu">
+			<MSBuild Projects="Utils\ERPUtilsServer\ServiceMenu\ERPServiceMenu.dproj"/>
+		</Target>
+		<Target Name="ERPServiceMenu:Clean">
+			<MSBuild Targets="Clean" Projects="Utils\ERPUtilsServer\ServiceMenu\ERPServiceMenu.dproj"/>
+		</Target>
+		<Target Name="ERPServiceMenu:Make">
+			<MSBuild Targets="Make" Projects="Utils\ERPUtilsServer\ServiceMenu\ERPServiceMenu.dproj"/>
+		</Target>
+		<Target Name="ERPModClientServer">
+			<MSBuild Projects="Utils\ERPUtilsServer\Modules\ERPModClientServer\ERPModClientServer.dproj"/>
+		</Target>
+		<Target Name="ERPModClientServer:Clean">
+			<MSBuild Targets="Clean" Projects="Utils\ERPUtilsServer\Modules\ERPModClientServer\ERPModClientServer.dproj"/>
+		</Target>
+		<Target Name="ERPModClientServer:Make">
+			<MSBuild Targets="Make" Projects="Utils\ERPUtilsServer\Modules\ERPModClientServer\ERPModClientServer.dproj"/>
+		</Target>
+		<Target Name="ERPModEbay">
+			<MSBuild Projects="Utils\ERPUtilsServer\Modules\ERPModEbay\ERPModEbay.dproj"/>
+		</Target>
+		<Target Name="ERPModEbay:Clean">
+			<MSBuild Targets="Clean" Projects="Utils\ERPUtilsServer\Modules\ERPModEbay\ERPModEbay.dproj"/>
+		</Target>
+		<Target Name="ERPModEbay:Make">
+			<MSBuild Targets="Make" Projects="Utils\ERPUtilsServer\Modules\ERPModEbay\ERPModEbay.dproj"/>
+		</Target>
+		<Target Name="ERPModPMI">
+			<MSBuild Projects="Utils\ERPUtilsServer\Modules\ERPModPMI\ERPModPMI.dproj"/>
+		</Target>
+		<Target Name="ERPModPMI:Clean">
+			<MSBuild Targets="Clean" Projects="Utils\ERPUtilsServer\Modules\ERPModPMI\ERPModPMI.dproj"/>
+		</Target>
+		<Target Name="ERPModPMI:Make">
+			<MSBuild Targets="Make" Projects="Utils\ERPUtilsServer\Modules\ERPModPMI\ERPModPMI.dproj"/>
+		</Target>
+		<Target Name="ERPModUserUtils">
+			<MSBuild Projects="Utils\ERPUtilsServer\Modules\ERPModUserUtils\ERPModUserUtils.dproj"/>
+		</Target>
+		<Target Name="ERPModUserUtils:Clean">
+			<MSBuild Targets="Clean" Projects="Utils\ERPUtilsServer\Modules\ERPModUserUtils\ERPModUserUtils.dproj"/>
+		</Target>
+		<Target Name="ERPModUserUtils:Make">
+			<MSBuild Targets="Make" Projects="Utils\ERPUtilsServer\Modules\ERPModUserUtils\ERPModUserUtils.dproj"/>
+		</Target>
+		<Target Name="BusObjCreator">
+			<MSBuild Projects="Utils\BusObj Creator\BusObjCreator.dproj"/>
+		</Target>
+		<Target Name="BusObjCreator:Clean">
+			<MSBuild Targets="Clean" Projects="Utils\BusObj Creator\BusObjCreator.dproj"/>
+		</Target>
+		<Target Name="BusObjCreator:Make">
+			<MSBuild Targets="Make" Projects="Utils\BusObj Creator\BusObjCreator.dproj"/>
+		</Target>
+		<Target Name="ERP">
+			<MSBuild Projects="Dev\ERP.dproj"/>
+		</Target>
+		<Target Name="ERP:Clean">
+			<MSBuild Targets="Clean" Projects="Dev\ERP.dproj"/>
+		</Target>
+		<Target Name="ERP:Make">
+			<MSBuild Targets="Make" Projects="Dev\ERP.dproj"/>
+		</Target>
+		<Target Name="ERPWebServerConsole">
+			<MSBuild Projects="Utils\ERPUtilsServer\WebServerConsole\ERPWebServerConsole.dproj"/>
+		</Target>
+		<Target Name="ERPWebServerConsole:Clean">
+			<MSBuild Targets="Clean" Projects="Utils\ERPUtilsServer\WebServerConsole\ERPWebServerConsole.dproj"/>
+		</Target>
+		<Target Name="ERPWebServerConsole:Make">
+			<MSBuild Targets="Make" Projects="Utils\ERPUtilsServer\WebServerConsole\ERPWebServerConsole.dproj"/>
+		</Target>
+		<Target Name="ERPUpdater">
+			<MSBuild Projects="Utils\ERPUpdater\ERPUpdater.dproj"/>
+		</Target>
+		<Target Name="ERPUpdater:Clean">
+			<MSBuild Targets="Clean" Projects="Utils\ERPUpdater\ERPUpdater.dproj"/>
+		</Target>
+		<Target Name="ERPUpdater:Make">
+			<MSBuild Targets="Make" Projects="Utils\ERPUpdater\ERPUpdater.dproj"/>
+		</Target>
+		<Target Name="ERPUtilsService">
+			<MSBuild Projects="Utils\ERPUtilsServer\UtilsService\ERPUtilsService.dproj"/>
+		</Target>
+		<Target Name="ERPUtilsService:Clean">
+			<MSBuild Targets="Clean" Projects="Utils\ERPUtilsServer\UtilsService\ERPUtilsService.dproj"/>
+		</Target>
+		<Target Name="ERPUtilsService:Make">
+			<MSBuild Targets="Make" Projects="Utils\ERPUtilsServer\UtilsService\ERPUtilsService.dproj"/>
+		</Target>
+		<Target Name="ERPWebService">
+			<MSBuild Projects="Utils\ERPUtilsServer\WebService\ERPWebService.dproj"/>
+		</Target>
+		<Target Name="ERPWebService:Clean">
+			<MSBuild Targets="Clean" Projects="Utils\ERPUtilsServer\WebService\ERPWebService.dproj"/>
+		</Target>
+		<Target Name="ERPWebService:Make">
+			<MSBuild Targets="Make" Projects="Utils\ERPUtilsServer\WebService\ERPWebService.dproj"/>
+		</Target>
+		<Target Name="ERPModWebAPI">
+			<MSBuild Projects="Utils\ERPUtilsServer\Modules\ERPModWebAPI\ERPModWebAPI.dproj"/>
+		</Target>
+		<Target Name="ERPModWebAPI:Clean">
+			<MSBuild Targets="Clean" Projects="Utils\ERPUtilsServer\Modules\ERPModWebAPI\ERPModWebAPI.dproj"/>
+		</Target>
+		<Target Name="ERPModWebAPI:Make">
+			<MSBuild Targets="Make" Projects="Utils\ERPUtilsServer\Modules\ERPModWebAPI\ERPModWebAPI.dproj"/>
+		</Target>
+		<Target Name="ERPUtilsServerConsole">
+			<MSBuild Projects="Utils\ERPUtilsServer\UtilsServerConsole\ERPUtilsServerConsole.dproj"/>
+		</Target>
+		<Target Name="ERPUtilsServerConsole:Clean">
+			<MSBuild Targets="Clean" Projects="Utils\ERPUtilsServer\UtilsServerConsole\ERPUtilsServerConsole.dproj"/>
+		</Target>
+		<Target Name="ERPUtilsServerConsole:Make">
+			<MSBuild Targets="Make" Projects="Utils\ERPUtilsServer\UtilsServerConsole\ERPUtilsServerConsole.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="ERPServiceMenu;ERPModClientServer;ERPModEbay;ERPModPMI;ERPModUserUtils;BusObjCreator;ERP;ERPWebServerConsole;ERPUpdater;ERPUtilsService;ERPWebService;ERPModWebAPI;ERPUtilsServerConsole"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="ERPServiceMenu:Clean;ERPModClientServer:Clean;ERPModEbay:Clean;ERPModPMI:Clean;ERPModUserUtils:Clean;BusObjCreator:Clean;ERP:Clean;ERPWebServerConsole:Clean;ERPUpdater:Clean;ERPUtilsService:Clean;ERPWebService:Clean;ERPModWebAPI:Clean;ERPUtilsServerConsole:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="ERPServiceMenu:Make;ERPModClientServer:Make;ERPModEbay:Make;ERPModPMI:Make;ERPModUserUtils:Make;BusObjCreator:Make;ERP:Make;ERPWebServerConsole:Make;ERPUpdater:Make;ERPUtilsService:Make;ERPWebService:Make;ERPModWebAPI:Make;ERPUtilsServerConsole:Make"/>
+		</Target>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
+	</Project>

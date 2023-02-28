@@ -1,0 +1,860 @@
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='717';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '1'
+left join tblclients  C on C.ClientID ='1'
+ Where P.PartsID = '717' 
+ and ( CL.UOMID = '308' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '08/06/2022' AND CL.DateTo >= '08/06/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '1' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '717'
+ and ( EPS.Terms = 'COD' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '308' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '08/06/2022' AND DateTo >= '08/06/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '1')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '1'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='718';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '1'
+left join tblclients  C on C.ClientID ='1'
+ Where P.PartsID = '718' 
+ and ( CL.UOMID = '309' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '08/06/2022' AND CL.DateTo >= '08/06/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '1' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '718'
+ and ( EPS.Terms = 'COD' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '309' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '08/06/2022' AND DateTo >= '08/06/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '1')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '1'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='719';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '1'
+left join tblclients  C on C.ClientID ='1'
+ Where P.PartsID = '719' 
+ and ( CL.UOMID = '310' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '08/06/2022' AND CL.DateTo >= '08/06/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '1' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '719'
+ and ( EPS.Terms = 'COD' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '310' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '08/06/2022' AND DateTo >= '08/06/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '1')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '1'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='720';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '1'
+left join tblclients  C on C.ClientID ='1'
+ Where P.PartsID = '720' 
+ and ( CL.UOMID = '311' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '09/06/2022' AND CL.DateTo >= '09/06/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '1' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '720'
+ and ( EPS.Terms = 'COD' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '311' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '09/06/2022' AND DateTo >= '09/06/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '1')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '1'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='721';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '1'
+left join tblclients  C on C.ClientID ='1'
+ Where P.PartsID = '721' 
+ and ( CL.UOMID = '312' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '09/06/2022' AND CL.DateTo >= '09/06/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '1' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '721'
+ and ( EPS.Terms = 'COD' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '312' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '09/06/2022' AND DateTo >= '09/06/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '1')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '1'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='725';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '1'
+left join tblclients  C on C.ClientID ='1'
+ Where P.PartsID = '725' 
+ and ( CL.UOMID = '317' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '09/06/2022' AND CL.DateTo >= '09/06/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '1' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '725'
+ and ( EPS.Terms = 'COD' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '317' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '09/06/2022' AND DateTo >= '09/06/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '1')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '1'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='726';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '1'
+left join tblclients  C on C.ClientID ='1'
+ Where P.PartsID = '726' 
+ and ( CL.UOMID = '318' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '09/06/2022' AND CL.DateTo >= '09/06/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '1' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '726'
+ and ( EPS.Terms = 'COD' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '318' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '09/06/2022' AND DateTo >= '09/06/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '1')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '1'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='727';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '1'
+left join tblclients  C on C.ClientID ='1'
+ Where P.PartsID = '727' 
+ and ( CL.UOMID = '319' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '09/06/2022' AND CL.DateTo >= '09/06/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '1' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '727'
+ and ( EPS.Terms = 'COD' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '319' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '09/06/2022' AND DateTo >= '09/06/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '1')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '1'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='725';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '1'
+left join tblclients  C on C.ClientID ='1'
+ Where P.PartsID = '725' 
+ and ( CL.UOMID = '317' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '09/06/2022' AND CL.DateTo >= '09/06/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '1' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '725'
+ and ( EPS.Terms = 'COD' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '317' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '09/06/2022' AND DateTo >= '09/06/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '1')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '1'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='116';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '67'
+left join tblclients  C on C.ClientID ='67'
+ Where P.PartsID = '116' 
+ and ( CL.UOMID = '74' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '24/07/2022' AND CL.DateTo >= '24/07/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '67' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '116'
+ and ( EPS.Terms = 'Due on Receipt' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '74' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '24/07/2022' AND DateTo >= '24/07/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '20')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '67'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='116';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '67'
+left join tblclients  C on C.ClientID ='67'
+ Where P.PartsID = '116' 
+ and ( CL.UOMID = '74' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '24/07/2022' AND CL.DateTo >= '24/07/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '67' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '116'
+ and ( EPS.Terms = 'Due on Receipt' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '74' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '24/07/2022' AND DateTo >= '24/07/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '20')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '67'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='116';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '67'
+left join tblclients  C on C.ClientID ='67'
+ Where P.PartsID = '116' 
+ and ( CL.UOMID = '74' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '24/07/2022' AND CL.DateTo >= '24/07/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '67' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '116'
+ and ( EPS.Terms = 'Due on Receipt' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '74' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '24/07/2022' AND DateTo >= '24/07/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '20')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '67'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='116';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '67'
+left join tblclients  C on C.ClientID ='67'
+ Where P.PartsID = '116' 
+ and ( CL.UOMID = '74' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '24/07/2022' AND CL.DateTo >= '24/07/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '67' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '116'
+ and ( EPS.Terms = 'Due on Receipt' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '74' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '24/07/2022' AND DateTo >= '24/07/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '20')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '67'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='116';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '67'
+left join tblclients  C on C.ClientID ='67'
+ Where P.PartsID = '116' 
+ and ( CL.UOMID = '74' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '24/07/2022' AND CL.DateTo >= '24/07/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '67' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '116'
+ and ( EPS.Terms = 'Due on Receipt' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '74' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '24/07/2022' AND DateTo >= '24/07/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '100')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '67'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='116';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '67'
+left join tblclients  C on C.ClientID ='67'
+ Where P.PartsID = '116' 
+ and ( CL.UOMID = '74' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '24/07/2022' AND CL.DateTo >= '24/07/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '67' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '116'
+ and ( EPS.Terms = 'Due on Receipt' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '74' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '24/07/2022' AND DateTo >= '24/07/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '100')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '67'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='56';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '67'
+left join tblclients  C on C.ClientID ='67'
+ Where P.PartsID = '56' 
+ and ( CL.UOMID = '46' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '24/07/2022' AND CL.DateTo >= '24/07/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '67' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '56'
+ and ( EPS.Terms = 'Due on Receipt' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '46' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '24/07/2022' AND DateTo >= '24/07/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '1')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '67'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='56';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '67'
+left join tblclients  C on C.ClientID ='67'
+ Where P.PartsID = '56' 
+ and ( CL.UOMID = '46' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '24/07/2022' AND CL.DateTo >= '24/07/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '67' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '56'
+ and ( EPS.Terms = 'Due on Receipt' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '46' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '24/07/2022' AND DateTo >= '24/07/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '1')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '67'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='56';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '67'
+left join tblclients  C on C.ClientID ='67'
+ Where P.PartsID = '56' 
+ and ( CL.UOMID = '46' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '24/07/2022' AND CL.DateTo >= '24/07/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '67' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '56'
+ and ( EPS.Terms = 'Due on Receipt' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '46' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '24/07/2022' AND DateTo >= '24/07/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '1')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '67'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='56';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '67'
+left join tblclients  C on C.ClientID ='67'
+ Where P.PartsID = '56' 
+ and ( CL.UOMID = '46' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '24/07/2022' AND CL.DateTo >= '24/07/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '67' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '56'
+ and ( EPS.Terms = 'Due on Receipt' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '46' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '24/07/2022' AND DateTo >= '24/07/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '1')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '67'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
+Select PartsId,
+Left(SUBSTRING_INDEX(tblparts.ProductGroup,'^',1),255) as col1,
+Left(substring(substring_index(tblparts.ProductGroup,'^',2),char_length(substring_index(tblparts.ProductGroup,'^',1))+2),255) as col2,
+Left(substring(substring_index(tblparts.ProductGroup,'^',3),char_length(substring_index(tblparts.ProductGroup,'^',2))+2),255) as col3,
+PARTNAME, PARTSDESCRIPTION, PRICE1 
+ From tblparts WHERE PartsId='56';
+Recordcount :1
+Select C.ClientID,C.SpecialDiscount,Discount as PermanentDiscount, 
+CL.LinePrice as SpecialPrice, 
+CL.CustomerLinesID,
+SellQTY1,
+SellQTY2,SellQTY3,
+PRICE1,
+PRICE2,PRICE3, 
+ExtraSellPriceOverridesAllDiscounts ,
+P.SpecialDiscount as IsSpecialDiscount  
+From tblparts  P   
+Left Join tblcustomerlines CL ON   CL.ProductID =P.PartsId     
+and CL.customerId = '67'
+left join tblclients  C on C.ClientID ='67'
+ Where P.PartsID = '56' 
+ and ( CL.UOMID = '46' or ifnull(CL.UOMID,0) = 0 )
+ AND ((CL.DateFrom <= '24/07/2022' AND CL.DateTo >= '24/07/2022' ) OR IsNull(CL.DateFrom) OR IsNull(CL.DateTo)) 
+Recordcount :1
+Select EPS.UOMID , EPS.Terms , EPS.PriceID, QtyPercent1, 
+DateFrom,DateTo,ExtraSellDesc, Price1   
+From tblextrapricesell EPS 
+Left Join tblclients CL on CL.ClientTypeID = EPS.ClientTypeID AND ClientID = '67' 
+WHERE (CL.ClientTypeID = EPS.ClientTypeID OR AllClients="T" )AND PartsID = '56'
+ and ( EPS.Terms = 'Due on Receipt' or ifnull(EPS.terms,"") ="" )
+ and ( EPS.UOMID = '46' or ifnull(EPS.UOMID,0) = 0 )
+ AND ((DateFrom <= '24/07/2022' AND DateTo >= '24/07/2022' ) OR IsNull(DateFrom) OR IsNull(DateTo)) 
+ AND (ifnull(QtyLimitforDiscount ,0)=0 OR if(ifnull(UOMMultiplier,0)=0 ,QtyLimitforDiscount , QtyLimitforDiscount*UOMMultiplier) >= '1')
+ order by UOMID desc , Terms Desc;
+Recordcount :0
+SELECT GrpDiscID , Col1, Col2, Col3, Discount,
+if(IfNull(Col1,"") = '' ,1,0)+if(IfNull(Col2,"") = '' ,1,0)+if(IfNull(Col3,"") = '',1,0) AS matchno
+FROM tblprodgroupdiscs
+WHERE ClientID = '67'
+and ((IfNull(Col1,"") <> "") or (IfNull(Col2,"") <> "") or (IfNull(Col3,"") <> ""))
+and  ((MustMatch = "T" and  (IfNull(Col1,"") <> "" and Col1 = '' and col2 = '' and col3 = ''))  or (MustMatch = "F" and  ((IfNull(Col1,"") <> "" and Col1 = '') OR (IfNull(Col2,"") <> "" and col2 = '') Or (IfNull(Col3,"") <> "" and col3 = ''))))
+ORDER BY matchno desc , Discount
+Recordcount :0
